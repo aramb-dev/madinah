@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Visualization & Content Choices:
         - Report Info: Lesson titles, grammar rules/explanations.
-        - Goal: Inform, allow lookup, and provide deeper understanding/more examples for grammar rules, including English parallels and translations.
-        - Viz/Presentation Method: Structured HTML text for base rules. LLM-generated text (explanations, examples with English comparisons/translations) displayed in a modal.
-        - Interaction: Clicking a lesson in the navigation updates the main content view. Hamburger menu for mobile navigation; sidebar closes on mobile after lesson selection. Buttons per rule (English text) to trigger Gemini API calls.
-        - Justification: Textual presentation is most appropriate for grammar rules. Interactive navigation and LLM integration with English parallels allow users to focus and delve deeper, improving learning.
-        - Library/Method: HTML, Tailwind CSS for layout and styling. Vanilla JavaScript for navigation logic, dynamic content rendering, and Gemini API calls. No Chart.js or Plotly.js.
+        - Goal: Inform, allow lookup, and provide deeper understanding/more examples for grammar rules, including English parallels and translations, with proper Markdown rendering and caching. AI features are optional.
+        - Viz/Presentation Method: Structured HTML text for base rules. LLM-generated Markdown text converted to HTML and displayed in a modal. dir="auto" used for modal content.
+        - Interaction: Lesson selection. Hamburger menu. AI feature toggle. Buttons per rule (English text, visible if AI enabled) to trigger Gemini API calls.
+        - Justification: Textual presentation for rules. Optional AI enhances learning. Caching improves performance.
+        - Library/Method: HTML, Tailwind CSS, Showdown.js. Vanilla JavaScript for navigation, dynamic content, Gemini API calls, localStorage caching, and AI feature toggle.
         -->
     <style>
         body {
@@ -50,66 +51,101 @@
             #sidebarNav:not(.open) { transform: translateX(100%); }
             #sidebarNav.open { transform: translateX(0); }
         }
-        /* Modal styles */
         .modal-overlay {
-            position: fixed;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); display: flex;
+            align-items: center; justify-content: center; z-index: 50;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open { opacity: 1; visibility: visible; }
+        .modal-content {
+            background-color: #FFFBEB; padding: 2rem; border-radius: 0.5rem;
+            width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto;
+            position: relative; transform: scale(0.95); transition: transform 0.3s ease;
+        }
+        .modal-overlay.open .modal-content { transform: scale(1); }
+        .modal-close-btn {
+            position: absolute; top: 1rem; left: 1rem; background: none;
+            border: none; font-size: 1.5rem; cursor: pointer; color: #059669;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3; border-top: 4px solid #059669;
+            border-radius: 50%; width: 40px; height: 40px;
+            animation: spin 1s linear infinite; margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .gemini-btn-container.hidden { display: none !important; }
+        .gemini-btn { direction: ltr; }
+
+        /* Toggle Switch Styles */
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #4B5563; /* gray-600 */
+        }
+        .toggle-label .toggle-text-arabic { margin-left: 0.5rem; }
+        .toggle-label .toggle-text-english { margin-right: 0.5rem; direction: ltr;}
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px; /* Width of the switch */
+            height: 28px; /* Height of the switch */
+            margin: 0 0.5rem;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 50;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            background-color: #D1D5DB; /* gray-300 */
+            transition: .4s;
+            border-radius: 28px; /* Fully rounded */
         }
-        .modal-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background-color: #FFFBEB; /* amber-50 */
-            padding: 2rem;
-            border-radius: 0.5rem;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.open .modal-content {
-            transform: scale(1);
-        }
-        .modal-close-btn {
+        .slider:before {
             position: absolute;
-            top: 1rem;
-            left: 1rem; /* Adjusted for RTL */
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #059669; /* Emerald-600 */
-        }
-        .loading-spinner {
-            border: 4px solid #f3f3f3; /* Light grey */
-            border-top: 4px solid #059669; /* Emerald-600 */
+            content: "";
+            height: 20px; /* Height of the knob */
+            width: 20px; /* Width of the knob */
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        input:checked + .slider {
+            background-color: #059669; /* Emerald-600 */
         }
-        .gemini-btn {
-            direction: ltr; /* Ensure button text is LTR */
+        input:checked + .slider:before {
+            transform: translateX(22px); /* Move knob to the right */
+        }
+        #modalBody > div { text-align: initial; }
+        #modalBody p, #modalBody li, #modalBody div, #modalBody h1, #modalBody h2, #modalBody h3, #modalBody h4, #modalBody h5, #modalBody h6 {
+             text-align: inherit !important;
+        }
+        #modalBody strong { font-weight: bold; }
+        #modalBody em { font-style: italic; }
+        #modalBody ul { list-style-type: disc; margin-right: 1.5rem; }
+        #modalBody ol { list-style-type: decimal; margin-right: 1.5rem; }
+        #modalBody li { margin-bottom: 0.25rem; }
+        #modalBody blockquote {
+            border-right: 4px solid #ddd; padding-right: 1rem;
+            margin-right: 0; margin-left: 1rem; color: #555;
+        }
+        #modalBody [dir="ltr"] p, #modalBody [dir="ltr"] li, #modalBody [dir="ltr"] ul, #modalBody [dir="ltr"] ol {
+            text-align: left !important; margin-left: 1.5rem; margin-right: 0;
+        }
+        #modalBody [dir="ltr"] blockquote {
+            border-left: 4px solid #ddd; padding-left: 1rem;
+            margin-left: 0; margin-right: 1rem;
         }
     </style>
 </head>
@@ -130,7 +166,17 @@
                     </svg>
                  </button>
             </div>
-            <div id="lessonList" class="space-y-1"></div>
+            <div id="lessonList" class="space-y-1 flex-grow"></div>
+            <div class="mt-auto pt-4 border-t border-amber-200 md:hidden">
+                <label for="aiToggleMobile" class="toggle-label text-sm">
+                    <span class="toggle-text-arabic">ميزات الذكاء الاصطناعي</span>
+                    <span class="toggle-switch">
+                        <input type="checkbox" id="aiToggleMobile" class="ai-toggle-input">
+                        <span class="slider"></span>
+                    </span>
+                    <span class="toggle-text-english">(AI Features)</span>
+                </label>
+            </div>
         </nav>
 
         <main class="flex-1 p-6 md:p-10 overflow-y-auto pt-20 md:pt-10">
@@ -138,9 +184,21 @@
                 <h1 class="text-3xl md:text-4xl font-bold text-emerald-700 arabic-text text-center">قواعد اللغة العربية التفاعلية</h1>
                 <p class="text-lg text-neutral-600 arabic-text text-center mt-1">شرح كتاب دروس اللغة العربية لغير الناطقين بها - الجزء الأول</p>
                 <p class="text-sm text-neutral-500 english-text text-center mt-2">Interactive Arabic Grammar Rules - Explanation of Madinah Book 1</p>
-                 <div class="mt-6 p-4 bg-emerald-50 border-r-4 border-emerald-500 rounded-md shadow">
-                    <p class="arabic-text text-neutral-700 text-md">مرحباً! هذا التطبيق التفاعلي يوفر طريقة سهلة لاستكشاف قواعد اللغة العربية. اختر درساً من الشريط الجانبي. لكل قاعدة، يمكنك طلب ✨ شرح إضافي أو ✨ أمثلة جديدة باستخدام الذكاء الاصطناعي، مع مقارنات باللغة الإنجليزية.</p>
-                    <p class="english-text text-neutral-600 text-sm mt-2">Welcome! This interactive app helps you explore Arabic grammar. Select a lesson from the sidebar. For each rule, you can request ✨ further explanation or ✨ new examples using AI, now with English parallels.</p>
+                
+                <div class="mt-6 hidden md:flex justify-center items-center">
+                     <label for="aiToggleDesktop" class="toggle-label">
+                        <span class="toggle-text-arabic">تفعيل ميزات الذكاء الاصطناعي التجريبية</span>
+                        <span class="toggle-switch">
+                            <input type="checkbox" id="aiToggleDesktop" class="ai-toggle-input">
+                            <span class="slider"></span>
+                        </span>
+                        <span class="toggle-text-english">(Enable Experimental AI Features)</span>
+                    </label>
+                </div>
+
+                 <div class="mt-4 p-4 bg-emerald-50 border-r-4 border-emerald-500 rounded-md shadow">
+                    <p class="arabic-text text-neutral-700 text-md">مرحباً! هذا التطبيق التفاعلي يوفر طريقة سهلة لاستكشاف قواعد اللغة العربية. اختر درساً من الشريط الجانبي. يمكنك تفعيل "ميزات الذكاء الاصطناعي" لطلب ✨ شرح إضافي أو ✨ أمثلة جديدة.</p>
+                    <p class="english-text text-neutral-600 text-sm mt-2">Welcome! This interactive app helps you explore Arabic grammar. Select a lesson from the sidebar. You can enable "AI Features" to request ✨ further explanation or ✨ new examples.</p>
                 </div>
             </header>
             <div id="lessonContent" class="space-y-6">
@@ -154,13 +212,13 @@
         <div class="modal-content">
             <button id="modalCloseButton" class="modal-close-btn" aria-label="Close modal">&times;</button>
             <h3 id="modalTitle" class="text-xl font-bold text-emerald-700 arabic-text mb-4"></h3>
-            <div id="modalBody" class="text-neutral-700 space-y-3">
-                </div>
+            <div id="modalBody" class="text-neutral-700 space-y-3"></div>
         </div>
     </div>
 
     <script>
         const lessonsData = [
+            // ... (All lesson data remains here as previously defined) ...
             {
                 id: "lesson1",
                 title: "الدرس الأول",
@@ -481,6 +539,60 @@
         const modalCloseButton = document.getElementById('modalCloseButton');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
+        const aiToggleDesktop = document.getElementById('aiToggleDesktop');
+        const aiToggleMobile = document.getElementById('aiToggleMobile');
+        
+        let aiFeaturesEnabled = false;
+
+        const markdownConverter = new showdown.Converter({
+            simplifiedAutoLink: true,
+            strikethrough: true,
+            tables: true,
+            tasklists: true,
+            openLinksInNewWindow: true,
+            emoji: true,
+            underline: true // Enable underline if showdown supports it or use custom extension
+        });
+        // Forcing Showdown to treat underscores within words as literal underscores, not italics/bold
+        showdown.setOption('literalMidWordUnderscores', true);
+
+
+        function updateAIToggleState(isEnabled) {
+            aiFeaturesEnabled = isEnabled;
+            aiToggleDesktop.checked = isEnabled;
+            aiToggleMobile.checked = isEnabled;
+            try {
+                localStorage.setItem('aiFeaturesEnabled', isEnabled);
+            } catch (e) {
+                console.warn("localStorage access error (setting AI toggle state):", e);
+            }
+            // Re-render current lesson content to show/hide AI buttons
+            const activeLessonLink = document.querySelector('#lessonList .nav-link.active');
+            if (activeLessonLink && activeLessonLink.dataset.lessonId) {
+                displayLessonContent(activeLessonLink.dataset.lessonId, true); // force re-render of buttons
+            } else if(lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
+                // If no lesson is active (e.g. initial load and no default lesson was set)
+                // and lessonContent is still the placeholder, do nothing extra for button visibility.
+                // Buttons will be handled when a lesson is first displayed.
+            }
+        }
+        
+        function loadAITogglePreference() {
+            let savedPreference = false;
+            try {
+                savedPreference = localStorage.getItem('aiFeaturesEnabled') === 'true';
+            } catch (e) {
+                console.warn("localStorage access error (getting AI toggle state):", e);
+            }
+            updateAIToggleState(savedPreference);
+        }
+
+        [aiToggleDesktop, aiToggleMobile].forEach(toggle => {
+            toggle.addEventListener('change', (event) => {
+                updateAIToggleState(event.target.checked);
+            });
+        });
+
 
         function openSidebar() { sidebarNav.classList.add('open'); }
         function closeSidebar() { sidebarNav.classList.remove('open'); }
@@ -501,11 +613,34 @@
                 closeGeminiModal();
             }
         });
+        
+        function generateCacheKey(ruleName, ruleArabicText, type) {
+            let hash = 0;
+            const str = `${ruleName}_${ruleArabicText}_${type}`;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash |= 0; 
+            }
+            return `geminiCache_v2_${hash}`; // Added v2 to potentially invalidate old cache if prompt changes
+        }
 
-        async function callGeminiAPI(prompt, title) {
+        async function callGeminiAPI(prompt, title, cacheKey) {
             modalTitle.textContent = title;
             modalBody.innerHTML = '<div class="loading-spinner"></div><p class="text-center arabic-text">جاري التحميل...</p>';
             openGeminiModal();
+
+            try {
+                const cachedData = localStorage.getItem(cacheKey);
+                if (cachedData) {
+                    console.log("Using cached data for:", cacheKey);
+                    const htmlContent = markdownConverter.makeHtml(cachedData);
+                    modalBody.innerHTML = `<div dir="auto" class="prose prose-sm sm:prose-base max-w-none leading-relaxed">${htmlContent}</div>`;
+                    return;
+                }
+            } catch (e) {
+                console.warn("localStorage access error (reading):", e);
+            }
 
             let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
             const payload = { contents: chatHistory };
@@ -530,111 +665,134 @@
                 if (result.candidates && result.candidates.length > 0 &&
                     result.candidates[0].content && result.candidates[0].content.parts &&
                     result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    // The response might be mixed RTL/LTR, so we rely on the LLM to format it well.
-                    // The modalBody itself can be LTR if content is mixed, or RTL if predominantly Arabic.
-                    // For now, keeping modalBody as primarily arabic-text (RTL) and handling mixed content within the LLM response.
-                    modalBody.innerHTML = `<div class="whitespace-pre-wrap leading-relaxed">${text.replace(/\n/g, '<br>')}</div>`;
+                    const rawMarkdownText = result.candidates[0].content.parts[0].text;
+                    
+                    try {
+                        localStorage.setItem(cacheKey, rawMarkdownText);
+                    } catch (e) {
+                        console.warn("localStorage access error (writing):", e);
+                    }
+
+                    const htmlContent = markdownConverter.makeHtml(rawMarkdownText);
+                     // Added Tailwind Typography plugin classes for better Markdown rendering
+                    modalBody.innerHTML = `<div dir="auto" class="prose prose-sm sm:prose-base max-w-none leading-relaxed">${htmlContent}</div>`;
                 } else {
                     console.error('Unexpected API response structure:', result);
-                    modalBody.innerHTML = '<p class="text-red-500 arabic-text">عفواً، لم نتمكن من الحصول على رد. يرجى المحاولة مرة أخرى.</p>';
+                    modalBody.innerHTML = '<p dir="rtl" class="text-red-500 arabic-text">عفواً، لم نتمكن من الحصول على رد. يرجى المحاولة مرة أخرى.</p>';
                 }
             } catch (error) {
                 console.error('Error calling Gemini API:', error);
-                modalBody.innerHTML = `<p class="text-red-500 arabic-text">حدث خطأ أثناء الاتصال بالخدمة: ${error.message}. يرجى المحاولة مرة أخرى لاحقاً.</p>`;
+                modalBody.innerHTML = `<p dir="rtl" class="text-red-500 arabic-text">حدث خطأ أثناء الاتصال بالخدمة: ${error.message}. يرجى المحاولة مرة أخرى لاحقاً.</p>`;
             }
         }
 
         function handleExplainFurther(ruleName, ruleArabicText) {
+            const cacheKey = generateCacheKey(ruleName, ruleArabicText, "explain_v2");
             const prompt = `You are an expert Arabic grammar teacher explaining a concept to a student whose first language is English.
 Explain the following Arabic grammatical rule in detail: '${ruleName}': '${ruleArabicText}'.
 
 Your explanation should:
-1. Be primarily in clear, simple Arabic.
-2. Include at least two clear Arabic example sentences demonstrating the rule, each with its precise English translation.
-3. Where helpful, briefly compare the Arabic concept to a similar or contrasting concept in English grammar to aid understanding.
-4. Translate key Arabic grammatical terms used in your explanation into English (e.g., المبتدأ - Subject, الخبر - Predicate).
-5. Structure the explanation logically for easy comprehension. Ensure the output is well-formatted for HTML display, using Markdown-like structures if helpful (e.g., bold for terms, lists for examples).`;
-            callGeminiAPI(prompt, `Explanation for: ${ruleName.split('(')[0].trim()}`);
+1. Be primarily in clear, simple Arabic. Use paragraphs for structure.
+2. Include at least two clear Arabic example sentences demonstrating the rule.
+3. For each Arabic example, provide its precise English translation on a new line immediately following it, prefixed with "**English Translation:**".
+4. Where helpful, briefly compare the Arabic concept to a similar or contrasting concept in English grammar. This comparison should be in English and clearly marked (e.g., under a heading like "**Comparison with English:**").
+5. Translate key Arabic grammatical terms used in your explanation into English and provide them in parentheses, e.g., المبتدأ (Subject).
+6. Structure the entire response logically for easy comprehension. Use Markdown for bolding terms (e.g., **term**), italics (e.g., *term*), and lists (e.g., 1. Item, * Item) if it enhances clarity. For English paragraphs or significant English text blocks, ensure they are clearly separated. The entire response will be rendered as HTML from Markdown. Ensure correct text direction for Arabic (RTL) and English (LTR) segments.`;
+            callGeminiAPI(prompt, `Explanation for: ${ruleName.split('(')[0].trim()}`, cacheKey);
         }
 
         function handleGenerateExamples(ruleName, ruleArabicText) {
+            const cacheKey = generateCacheKey(ruleName, ruleArabicText, "examples_v2");
             const prompt = `You are an expert Arabic grammar teacher creating examples for a student whose first language is English.
 Generate three new and diverse example sentences in Arabic for the following grammatical rule: '${ruleName}': '${ruleArabicText}'.
 
-For each of the three examples, provide:
-1. The Arabic sentence.
-2. A precise English translation of the Arabic sentence.
-3. (Optional, but preferred) A similar English example sentence that illustrates the same or a related grammatical concept, along with a brief note (in English, max 20 words) on how it relates or differs, to help the student connect the concepts.
+For each of the three examples, provide the following, ensuring clear separation and formatting using Markdown:
 
-Format each example clearly, like this:
-
-**مثال عربي ١:** [الجملة العربية هنا]
-**English Translation 1:** [English translation here]
-**Related English Example (if applicable):** [English example sentence. Note: How it relates/differs.]
+**Example 1:**
+* **مثال عربي ١:** [The Arabic sentence]
+* **English Translation 1:** [Precise English translation of the Arabic sentence]
+* **Related English Concept (Optional):** [If you can provide a similar English example sentence that illustrates the same or a related grammatical concept, include it here. Follow it with a brief note in English (max 25 words) like: "Note: This English example shows..." or "Note: This differs from the Arabic in that..."]
 
 ---
-
-**مثال عربي ٢:** [الجملة العربية هنا]
-**English Translation 2:** [English translation here]
-**Related English Example (if applicable):** [English example sentence. Note: How it relates/differs.]
+**Example 2:**
+* **مثال عربي ٢:** [The Arabic sentence]
+* **English Translation 2:** [Precise English translation of the Arabic sentence]
+* **Related English Concept (Optional):** [English example sentence. Note: How it relates/differs.]
 
 ---
+**Example 3:**
+* **مثال عربي ٣:** [The Arabic sentence]
+* **English Translation 3:** [Precise English translation of the Arabic sentence]
+* **Related English Concept (Optional):** [English example sentence. Note: How it relates/differs.]
 
-**مثال عربي ٣:** [الجملة العربية هنا]
-**English Translation 3:** [English translation here]
-**Related English Example (if applicable):** [English example sentence. Note: How it relates/differs.]
-
-Ensure the Arabic examples clearly demonstrate the usage of the rule. Ensure the output is well-formatted for HTML display.`;
-            callGeminiAPI(prompt, `New Examples for: ${ruleName.split('(')[0].trim()}`);
+Please ensure the Arabic examples clearly demonstrate the usage of the rule.
+The entire response will be rendered as HTML from Markdown. Ensure correct text direction for Arabic (RTL) and English (LTR) segments.`;
+            callGeminiAPI(prompt, `New Examples for: ${ruleName.split('(')[0].trim()}`, cacheKey);
         }
 
-
-        function displayLessonContent(lessonId) {
+        function displayLessonContent(lessonId, forceButtonUpdate = false) {
             const lesson = lessonsData.find(l => l.id === lessonId);
             if (!lesson) {
                 lessonContentContainer.innerHTML = `<p class="arabic-text text-xl text-red-500 text-center">الدرس غير موجود.</p><p class="english-text text-lg text-red-500 text-center">Lesson not found.</p>`;
                 return;
             }
 
-            let contentHtml = `
-                <div class="mb-6 pb-3 border-b border-amber-200">
-                    <h2 class="text-2xl font-bold text-emerald-600 arabic-text">${lesson.title} <span class="english-text text-xl font-semibold text-emerald-500">(${lesson.englishTitle})</span></h2>
-                    <div class="mt-3 p-3 bg-amber-50 rounded-md border-r-2 border-emerald-300">
-                        <p class="arabic-text text-neutral-700">${lesson.introduction.arabic}</p>
-                        <p class="english-text text-sm text-neutral-600 mt-1">${lesson.introduction.english}</p>
-                    </div>
-                </div>
-                <div class="space-y-5">
-            `;
+            // Only rebuild HTML if it's a new lesson or if explicitly forced (for AI toggle change)
+            if (!lessonContentContainer.dataset.currentLessonId || lessonContentContainer.dataset.currentLessonId !== lessonId || forceButtonUpdate) {
+                lessonContentContainer.dataset.currentLessonId = lessonId; // Track current lesson
 
-            lesson.rules.forEach((rule, index) => {
-                contentHtml += `
-                    <div class="p-4 bg-white rounded-lg shadow-md border border-amber-200 hover:shadow-lg transition-shadow duration-200">
-                        <h3 class="text-xl font-semibold text-emerald-700 arabic-text mb-2">${rule.name}</h3>
-                        <div class="arabic-text text-lg text-neutral-800 bg-gray-50 p-3 rounded-md mb-2 content-rtl">${rule.arabicText}</div>
-                        <p class="english-text text-neutral-700 content-ltr mb-3">${rule.explanation}</p>
-                        <div class="flex flex-col sm:flex-row gap-2 mt-3 pt-3 border-t border-amber-100">
-                            <button data-rule-name="${rule.name}" data-rule-text="${rule.arabicText}" class="explain-further-btn gemini-btn flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">✨ Explain Further (uses AI)</button>
-                            <button data-rule-name="${rule.name}" data-rule-text="${rule.arabicText}" class="generate-examples-btn gemini-btn flex-1 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">✨ Generate New Examples (uses AI)</button>
+                let contentHtml = `
+                    <div class="mb-6 pb-3 border-b border-amber-200">
+                        <h2 class="text-2xl font-bold text-emerald-600 arabic-text">${lesson.title} <span class="english-text text-xl font-semibold text-emerald-500">(${lesson.englishTitle})</span></h2>
+                        <div class="mt-3 p-3 bg-amber-50 rounded-md border-r-2 border-emerald-300">
+                            <p class="arabic-text text-neutral-700">${lesson.introduction.arabic}</p>
+                            <p class="english-text text-sm text-neutral-600 mt-1">${lesson.introduction.english}</p>
                         </div>
                     </div>
+                    <div class="space-y-5">
                 `;
-            });
 
-            contentHtml += `</div>`;
-            lessonContentContainer.innerHTML = contentHtml;
+                lesson.rules.forEach((rule, index) => {
+                    contentHtml += `
+                        <div class="p-4 bg-white rounded-lg shadow-md border border-amber-200 hover:shadow-lg transition-shadow duration-200">
+                            <h3 class="text-xl font-semibold text-emerald-700 arabic-text mb-2">${rule.name}</h3>
+                            <div class="arabic-text text-lg text-neutral-800 bg-gray-50 p-3 rounded-md mb-2 content-rtl">${rule.arabicText}</div>
+                            <p class="english-text text-neutral-700 content-ltr mb-3">${rule.explanation}</p>
+                            <div class="gemini-btn-container flex flex-col sm:flex-row gap-2 mt-3 pt-3 border-t border-amber-100 ${aiFeaturesEnabled ? '' : 'hidden'}">
+                                <button data-rule-name="${rule.name}" data-rule-text="${rule.arabicText}" class="explain-further-btn gemini-btn flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">✨ Explain Further (uses AI)</button>
+                                <button data-rule-name="${rule.name}" data-rule-text="${rule.arabicText}" class="generate-examples-btn gemini-btn flex-1 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out">✨ Generate New Examples (uses AI)</button>
+                            </div>
+                        </div>
+                    `;
+                });
 
-            document.querySelectorAll('.explain-further-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    handleExplainFurther(button.dataset.ruleName, button.dataset.ruleText);
+                contentHtml += `</div>`;
+                lessonContentContainer.innerHTML = contentHtml;
+
+                // Add event listeners to new buttons only if AI features are enabled
+                if (aiFeaturesEnabled) {
+                    document.querySelectorAll('.explain-further-btn').forEach(button => {
+                        button.addEventListener('click', () => {
+                            handleExplainFurther(button.dataset.ruleName, button.dataset.ruleText);
+                        });
+                    });
+                    document.querySelectorAll('.generate-examples-btn').forEach(button => {
+                        button.addEventListener('click', () => {
+                            handleGenerateExamples(button.dataset.ruleName, button.dataset.ruleText);
+                        });
+                    });
+                }
+            } else {
+                 // If it's the same lesson and not forced, just update button visibility
+                document.querySelectorAll('.gemini-btn-container').forEach(container => {
+                    if (aiFeaturesEnabled) {
+                        container.classList.remove('hidden');
+                    } else {
+                        container.classList.add('hidden');
+                    }
                 });
-            });
-            document.querySelectorAll('.generate-examples-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    handleGenerateExamples(button.dataset.ruleName, button.dataset.ruleText);
-                });
-            });
+            }
+
 
             document.querySelectorAll('#lessonList .nav-link').forEach(link => {
                 link.classList.remove('active');
@@ -643,14 +801,19 @@ Ensure the Arabic examples clearly demonstrate the usage of the rule. Ensure the
                 }
             });
             
-            lessonContentContainer.scrollTop = 0;
+            if (!forceButtonUpdate) { // Don't scroll if only updating buttons
+                lessonContentContainer.scrollTop = 0;
+            }
             
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 768 && !forceButtonUpdate) {
                 closeSidebar();
                 const mainContentTop = lessonContentContainer.getBoundingClientRect().top + window.pageYOffset - 80;
                 window.scrollTo({ top: mainContentTop, behavior: 'smooth' });
             }
         }
+        
+        // Initial setup
+        loadAITogglePreference(); 
 
         lessonsData.forEach(lesson => {
             const link = document.createElement('a');
@@ -665,7 +828,8 @@ Ensure the Arabic examples clearly demonstrate the usage of the rule. Ensure the
             lessonListContainer.appendChild(link);
         });
 
-        if (lessonsData.length > 0) {
+        if (lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
+            // Optionally display the first lesson by default, or a welcome message.
             // displayLessonContent(lessonsData[0].id); 
         }
 
