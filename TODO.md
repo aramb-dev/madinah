@@ -28,7 +28,7 @@
   - [x] Create `components/ui` directory for shadcn/ui components.
   - [x] Create other `components` subdirectories as needed (e.g., `components/custom`, `components/layout`).
   - [x] Install shadcn/ui components: button, sheet, card, dialog, toggle (5 components created in `src/components/ui/`)
-  - [ ] Add utility files to `lib/` as needed.
+  - [x] Add utility files to `lib/` as needed.
 
 ## Migrate Core HTML Structure (Layout):
 
@@ -86,8 +86,8 @@
 
 ## Install Dependencies:
 
-- [ ] `npm install showdown tailwindcss postcss autoprefixer` (if not already done).
-- [ ] Any other libraries you might decide to use (e.g., a state management library).
+- [x] `npm install showdown tailwindcss postcss autoprefixer` (if not already done).
+- [x] Any other libraries you might decide to use (e.g., a state management library).
 
 ## Testing:
 
@@ -101,14 +101,43 @@
 - [x] Check for console errors and fix them.
 - [x] Ensure styles are applied correctly.
 
+## Accessibility and Performance Issues:
+
+- [x] Fix accessibility issues in DialogContent component:
+  - [x] Add `DialogTitle` to make the component accessible for screen reader users
+  - [x] Add `DialogDescription` or `aria-describedby` attribute for better accessibility
+  - [x] Refer to Radix UI documentation: https://radix-ui.com/primitives/docs/components/dialog
+- [x] Fix font preloading warning for WOFF2 font:
+  - [x] The font resource is being preloaded but not used within a few seconds
+  - [x] Ensure the font preloading has appropriate `as` value in the preload link
+  - [x] Consider adjusting font loading strategy in Next.js config
+
+## Mobile Optimization and Responsive Design:
+
+- [x] Test the application on various mobile devices and screen sizes.
+- [x] Enhance the mobile sidebar/navigation experience:
+  - [x] Improve touch targets for better mobile accessibility.
+  - [x] Ensure sidebar closes properly after selecting a lesson on mobile.
+  - [x] Test scrolling behavior within the sidebar on small screens.
+- [x] Optimize lesson content display on narrow screens:
+  - [x] Ensure Arabic text is properly sized and readable on mobile.
+  - [x] Adjust spacing and padding for better mobile experience.
+  - [x] Test AI feature modals on mobile screens.
+- [ ] Address any mobile-specific bugs or issues:
+  - [ ] Fix any layout issues on small screens.
+  - [ ] Ensure proper font scaling on different device sizes.
+  - [ ] Test performance on lower-end mobile devices.
+
 ## Build and Deploy (Later Stage):
 
 - [ ] Create a production build: `npm run build`.
+- [ ] Test the production build locally: `npm run start`.
 - [ ] Plan for deployment (e.g., Vercel, Netlify).
+- [ ] Set up environment variables for production.
 
 ## Cleanup:
 
-- [ ] Once the Next.js app is fully functional, remove the original `index.html` (if the Next.js app is in the same directory and replaces it).
+- [x] Once the Next.js app is fully functional, remove the original `index.html` (if the Next.js app is in the same directory and replaces it).
 
 ## Update TODO.md (Post-Conversion):
 

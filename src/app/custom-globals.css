@@ -6,7 +6,7 @@
   src: url("/fonts/noto-arabic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* This keeps the font-display strategy as swap */
 }
 
 /* Custom CSS from original application */
@@ -17,8 +17,11 @@ body {
 }
 
 .arabic-text {
-  font-family: "Noto Kufi Arabic", sans-serif; /* Use self-hosted font directly */
   direction: rtl;
+}
+
+.font-arabic {
+  font-family: "Noto Kufi Arabic", sans-serif; /* Use self-hosted font directly */
 }
 
 .english-text {

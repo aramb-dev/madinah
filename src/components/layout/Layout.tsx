@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { lessonsData } from '@/data/lessons';
 import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
@@ -37,17 +37,17 @@ const Layout = ({
       <Link href="/" className="fixed top-4 right-4 z-30 md:top-4 md:right-80 md:z-10">
         <Button
           variant="outline"
-          className="bg-amber-50 hover:bg-amber-100 border-amber-300 text-emerald-700"
+          className="bg-amber-50 hover:bg-amber-100 border-amber-300 text-emerald-700 shadow-md"
           aria-label="Go to home page"
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="w-5 h-5 mr-1"
           >
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -62,7 +62,7 @@ const Layout = ({
         <SheetTrigger asChild>
           <Button
             variant="default"
-            className="md:hidden fixed top-4 left-4 z-30 p-2 bg-emerald-600 text-white rounded-md shadow-lg"
+            className="md:hidden fixed top-4 left-4 z-30 p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md shadow-lg"
             aria-label="Open sidebar"
           >
             <svg
@@ -81,30 +81,32 @@ const Layout = ({
             </svg>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="bg-amber-100 p-4 space-y-2 overflow-y-auto">
-          <div className="flex justify-between items-center md:block">
-            <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text font-arabic text-center">فهرس الدروس</h2>
+        <SheetContent side="right" className="bg-amber-100 p-4 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">فهرس الدروس</h2>
           </div>
           <div id="lessonListMobile" className="space-y-1 flex-grow">
             {lessonsData.map((lesson) => (
-              <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
-                <button
-                  className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
-                    isLessonActive(lesson.id) ? 'bg-amber-200' : ''
-                  }`}
-                  onClick={() => onLessonSelect(lesson.id)}
-                >
-                  <span className="arabic-text font-arabic">{lesson.title}</span>
-                  <span className="block text-xs text-emerald-600 english-text text-left">
-                    {lesson.englishTitle}
-                  </span>
-                </button>
-              </Link>
+              <SheetClose key={lesson.id} asChild>
+                <Link href={`/lessons/${lesson.id}`} passHref>
+                  <button
+                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                      isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                    }`}
+                    onClick={() => onLessonSelect(lesson.id)}
+                  >
+                    <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                      {lesson.englishTitle}
+                    </span>
+                  </button>
+                </Link>
+              </SheetClose>
             ))}
           </div>
           <div className="mt-auto pt-4 border-t border-amber-200">
             <label htmlFor="aiToggleMobile" className="toggle-label text-sm flex items-center justify-between">
-              <span className="toggle-text-arabic font-arabic">ميزات الذكاء الاصطناعي</span>
+              <span className="toggle-text-arabic font-arabic text-base">ميزات الذكاء الاصطناعي</span>
               <Toggle
                 id="aiToggleMobile"
                 className="ai-toggle-input"
@@ -125,17 +127,17 @@ const Layout = ({
         <div className="flex justify-between items-center md:block">
           <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text font-arabic text-center">فهرس الدروس</h2>
         </div>
-        <div id="lessonList" className="space-y-1 flex-grow">
+        <div id="lessonList" className="space-y-2 flex-grow">
           {lessonsData.map((lesson) => (
             <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
               <button
-                className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
                   isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                 }`}
                 onClick={() => onLessonSelect(lesson.id)}
               >
-                <span className="arabic-text font-arabic">{lesson.title}</span>
-                <span className="block text-xs text-emerald-600 english-text text-left">
+                <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
                   {lesson.englishTitle}
                 </span>
               </button>
@@ -144,7 +146,7 @@ const Layout = ({
         </div>
         <div className="mt-auto pt-4 border-t border-amber-200">
           <label className="toggle-label text-sm flex items-center justify-between">
-            <span className="toggle-text-arabic font-arabic">ميزات الذكاء الاصطناعي</span>
+            <span className="toggle-text-arabic font-arabic text-base">ميزات الذكاء الاصطناعي</span>
             <Toggle
               className="ai-toggle-input"
               pressed={aiFeaturesEnabled}
@@ -156,11 +158,12 @@ const Layout = ({
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 md:p-10 overflow-y-auto pt-20 md:pt-10">
+      <main className="flex-1 p-4 md:p-8 lg:p-10 overflow-y-auto pt-20 md:pt-10">
         {children}
       </main>
     </div>
   );
+};
 };
 
 export default Layout;
