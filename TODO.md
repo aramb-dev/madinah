@@ -82,6 +82,7 @@
 - [x] Implemented with Next.js App Router using `/lessons/[lessonId]/page.tsx`
 - [x] Updated Layout component to use Next.js Link components for navigation
 - [x] Added a `/lessons` index page that redirects to the first lesson to prevent 404 errors
+- [x] Implemented home page navigation with a fixed home button in the Layout component
 
 ## Install Dependencies:
 
