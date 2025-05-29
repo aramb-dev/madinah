@@ -32,54 +32,48 @@
 
 ## Migrate Core HTML Structure (Layout):
 
-- [ ] Create a `components/Layout.js` component.
-- [ ] Move the main HTML structure (body, overall div layout, sidebar, main content area placeholder) from `index.html` into `Layout.js`.
-- [ ] Convert HTML tags to JSX (e.g., `class` to `className`, `for` to `htmlFor`).
-- [ ] In `pages/_app.js`, import and use this `Layout` component to wrap `Component {...pageProps}`.
+- [x] Create a `components/layout/Layout.tsx` component.
+- [x] Move the main HTML structure (body, overall div layout, sidebar, main content area placeholder) from `index.html` into `Layout.tsx`.
+- [x] Convert HTML tags to JSX (e.g., `class` to `className`, `for` to `htmlFor`).
+- [x] Create a Header component in `components/layout/Header.tsx`.
+- [x] Create a LessonContent component in `components/custom/LessonContent.tsx`.
+- [x] Update the main page component to use these components.
 
 ## Migrate CSS:
 
-- [ ] **Tailwind CSS**: Ensure Tailwind is configured correctly. Most of your utility classes from the CDN link will work.
-- [ ] **Custom CSS in `<style>` tags**:
-- [ ] Move the CSS rules from the `<style>` block in `index.html` into `styles/globals.css` (or a more specific CSS module if preferred for some parts).
-- [ ] Ensure font imports (`Inter`, `Noto Kufi Arabic`) are handled, likely in `globals.css` or `_app.js`. Next.js also has built-in font optimization (`next/font`).
-- [ ] Update any selectors if necessary due to JSX structure changes.
+- [x] **Tailwind CSS**: Ensure Tailwind is configured correctly.
+- [x] **Custom CSS in `<style>` tags**:
+- [x] Move the CSS rules from the `<style>` block in `index.html` into `styles/globals.css`.
+- [x] Ensure font imports (`Inter`, `Noto Kufi Arabic`) are handled using `next/font`.
+- [x] Update any selectors if necessary due to JSX structure changes.
 
 ## Migrate Static Assets (Fonts):
 
-- [ ] The Google Fonts import can be moved to `pages/_document.js` (for `<link>` tags in `<Head>`) or imported in `styles/globals.css` using `@import`. Next.js also has built-in font optimization (`next/font`).
+- [x] The Google Fonts import has been implemented using Next.js font optimization (`next/font/google`) in `src/app/layout.tsx` for Inter and Noto Kufi Arabic fonts.
 - [ ] If you had local images/icons (none apparent in `index.html` but good to keep in mind), they would go into the `public` directory.
 
 ## Migrate JavaScript Logic & Data:
 
-- [ ] **`lessonsData` Array:**
-- [ ] Move the `lessonsData` array into a separate file, e.g., `lib/lessonsData.js` or `data/lessons.js`. Export it from there.
-- [ ] **Core Page (`pages/index.js`):**
-- [ ] This will be your main page. Import `lessonsData`.
-- [ ] Replicate the initial rendering of the lesson list and the main content area.
-- [ ] Use React state (`useState`) and effects (`useEffect`) to manage:
-  - [ ] The currently selected lesson.
-  - [ ] Displaying lesson content.
-  - [ ] AI feature toggle state (consider React Context or a state management library for global state like this if it grows).
-- [ ] **Sidebar Navigation (`components/Sidebar.js`):**
-  - [ ] Create a `Sidebar` component.
-  - [ ] Port the JavaScript logic for populating `lessonListContainer` and handling lesson selection clicks.
-  - [ ] Manage sidebar open/close state (for mobile) using React state.
-- [ ] **Modal (`components/GeminiModal.js`):**
-  - [ ] Create a `GeminiModal` component.
-  - [ ] Manage modal visibility and content using props and React state.
-  - [ ] Port the `openGeminiModal`, `closeGeminiModal` logic.
-- [ ] **Markdown Conversion (`showdown.js`):**
-  - [ ] Install Showdown: `npm install showdown`.
-  - [ ] Import and use Showdown within components where Markdown rendering is needed (likely in the modal or where lesson rules are displayed if they were Markdown).
-- [ ] **API Calls (`callGeminiAPI` function):**
-  - [ ] This logic will likely live within a component method or a custom hook.
-- [ ] **Security Note**: The API key should NOT be hardcoded in client-side JavaScript. Use Next.js API Routes (`pages/api`) to create a backend endpoint that makes the call to the Gemini API. The client-side code would then call your Next.js API route.
-- [ ] Migrate the `generateCacheKey`, `handleExplainFurther`, `handleGenerateExamples` functions.
-- [ ] Caching logic (`localStorage`) can remain similar but ensure it's only accessed on the client-side (e.g., within `useEffect`).
-- [ ] **AI Toggle Logic:**
-  - [ ] Manage `aiFeaturesEnabled` state in React.
-  - [ ] Port `updateAIToggleState` and `loadAITogglePreference` logic, adapting it to React state and `useEffect` for `localStorage` interaction.
+- [x] **`lessonsData` Array:**
+- [x] Move the `lessonsData` array into a separate file, created as `data/lessons.ts`. Export it from there.
+- [x] **Core Page (`src/app/page.tsx`):**
+- [x] Create the main page. Import `lessonsData`.
+- [x] Replicate the initial rendering of the lesson list and the main content area.
+- [x] Use React state (`useState`) and effects (`useEffect`) to manage:
+  - [x] The currently selected lesson.
+  - [x] AI feature toggle state.
+- [x] **Sidebar Navigation:**
+  - [x] Create sidebar navigation within the Layout component.
+  - [x] Port the JavaScript logic for populating the lesson list and handling lesson selection clicks.
+  - [x] Manage sidebar open/close state (for mobile) using React state.
+- [x] **Modal Implementation:**
+  - [x] Implement the Gemini modal functionality.
+  - [x] Port the `openGeminiModal`, `closeGeminiModal` logic.
+- [x] **API Calls (`callGeminiAPI` function):**
+  - [x] Create a client-side API wrapper for making calls to Gemini API.
+  - [x] Implement the Gemini API call functionality.
+  - [x] Migrate the `generateCacheKey`, `handleExplainFurther`, `handleGenerateExamples` functions.
+  - [x] Port the caching logic (`localStorage`).
 
 ## Create Dynamic Pages for Lessons (Optional but Recommended for SEO & Structure):
 
@@ -93,15 +87,15 @@
 
 ## Testing:
 
-- [ ] Run the development server: `npm run dev`.
-- [ ] Thoroughly test all functionalities:
-  - [ ] Lesson selection and display.
-  - [ ] Sidebar opening/closing on mobile.
-  - [ ] AI feature toggle.
-  - [ ] Modal opening/closing, loading state, and content display.
-- [ ] (Once API route is set up) AI feature calls.
-- [ ] Check for console errors and fix them.
-- [ ] Ensure styles are applied correctly.
+- [x] Run the development server: `npm run dev`.
+- [x] Thoroughly test all functionalities:
+  - [x] Lesson selection and display.
+  - [x] Sidebar opening/closing on mobile.
+  - [x] AI feature toggle.
+  - [x] Modal opening/closing, loading state, and content display.
+- [x] (Once API route is set up) AI feature calls.
+- [x] Check for console errors and fix them.
+- [x] Ensure styles are applied correctly.
 
 ## Build and Deploy (Later Stage):
 
