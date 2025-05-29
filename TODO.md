@@ -2,15 +2,29 @@
 
 ## Initialize Next.js Project:
 
-- [ ] Set up a new Next.js application. Consider if you want to do this in the current directory or a new subdirectory (e.g., `my-next-app`).
-- [ ] Run `npx create-next-app@latest .` (if in current directory and it's empty or you've backed up `index.html` and `TODO.md`) or `npx create-next-app@latest my-next-app`.
-- [ ] Choose options during setup (e.g., TypeScript, ESLint, Tailwind CSS). **Recommended: Select Tailwind CSS during Next.js setup.**
+- [x] Set up a new Next.js application. ~~Consider if you want to do this in the current directory or a new subdirectory (e.g., `my-next-app`).~~ (Done by creating in `nextjs-temp-install` and moving to root)
+- [x] Run `npx create-next-app@latest nextjs-temp-install` and move contents to root.
+- [x] Choose options during setup (TypeScript, ESLint, Tailwind CSS, src/, App Router selected).
 
 ## Project Setup & Basic Structure:
 
-- [ ] If you didn't select Tailwind CSS during `create-next-app`, install and configure it for Next.js: `npm install -D tailwindcss postcss autoprefixer` then `npx tailwindcss init -p`. Configure `tailwind.config.js` and `globals.css`.
-- [ ] Create a `components` directory for reusable UI parts.
-- [ ] Create a `lib` or `utils` directory for helper functions or data.
+- [ ] **Initialize shadcn/ui:**
+  - [ ] Run `npx shadcn-ui@latest init`.
+  - [ ] You will be asked a few questions:
+    - `Would you like to use TypeScript (recommended)?` -> Yes (should default to this as project is TS)
+    - `Which style would you like to use?` -> Default
+    - `Which color would you like to use as base color?` -> Slate
+    - `Where is your global CSS file?` -> `src/app/globals.css` (verify this path)
+    - `Do you want to use CSS variables for colors?` -> Yes
+    - `Where is your tailwind.config.js file?` -> `tailwind.config.ts` (Note: it's .ts now)
+    - `Configure import alias for components:` -> `@/components`
+    - `Configure import alias for utils:` -> `@/lib` (shadcn/ui uses `lib` for its utils)
+    - `Are you using React Server Components?` -> Yes
+    - `Write configuration to components.json.` -> Yes
+- [ ] Verify `tailwind.config.ts` has been updated by shadcn/ui.
+- [ ] Create a `components/ui` directory (shadcn/ui will place its components here by default).
+- [ ] Create other `components` subdirectories as needed (e.g., `components/custom`, `components/layout`).
+- [ ] The `lib/utils.ts` file will be created by shadcn/ui. You can add other utility files to `lib/`.
 
 ## Migrate Core HTML Structure (Layout):
 
