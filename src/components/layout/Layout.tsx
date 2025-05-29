@@ -50,7 +50,7 @@ const Layout = ({
         </SheetTrigger>
         <SheetContent side="right" className="bg-amber-100 p-4 space-y-2 overflow-y-auto">
           <div className="flex justify-between items-center md:block">
-            <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text text-center">فهرس الدروس</h2>
+            <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text font-arabic text-center">فهرس الدروس</h2>
           </div>
           <div id="lessonListMobile" className="space-y-1 flex-grow">
             {lessonsData.map((lesson) => (
@@ -60,7 +60,7 @@ const Layout = ({
                 data-lesson-id={lesson.id}
                 onClick={() => onLessonSelect(lesson.id)}
               >
-                {lesson.title}
+                <span className="arabic-text font-arabic">{lesson.title}</span>
                 <span className="block text-xs text-emerald-600 english-text text-left">
                   {lesson.englishTitle}
                 </span>
@@ -69,7 +69,7 @@ const Layout = ({
           </div>
           <div className="mt-auto pt-4 border-t border-amber-200">
             <label htmlFor="aiToggleMobile" className="toggle-label text-sm flex items-center justify-between">
-              <span className="toggle-text-arabic">ميزات الذكاء الاصطناعي</span>
+              <span className="toggle-text-arabic font-arabic">ميزات الذكاء الاصطناعي</span>
               <Toggle
                 id="aiToggleMobile"
                 className="ai-toggle-input"
@@ -88,7 +88,7 @@ const Layout = ({
         className="hidden md:flex md:flex-col fixed inset-y-0 right-0 md:sticky w-72 bg-amber-100 p-4 space-y-2 shadow-lg overflow-y-auto z-20 md:translate-x-0 md:top-0 md:h-screen"
       >
         <div className="flex justify-between items-center md:block">
-          <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text text-center">فهرس الدروس</h2>
+          <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text font-arabic text-center">فهرس الدروس</h2>
         </div>
         <div id="lessonList" className="space-y-1 flex-grow">
           {lessonsData.map((lesson) => (
@@ -98,7 +98,7 @@ const Layout = ({
               data-lesson-id={lesson.id}
               onClick={() => onLessonSelect(lesson.id)}
             >
-              {lesson.title}
+              <span className="arabic-text font-arabic">{lesson.title}</span>
               <span className="block text-xs text-emerald-600 english-text text-left">
                 {lesson.englishTitle}
               </span>
@@ -107,7 +107,7 @@ const Layout = ({
         </div>
         <div className="mt-auto pt-4 border-t border-amber-200">
           <label className="toggle-label text-sm flex items-center justify-between">
-            <span className="toggle-text-arabic">ميزات الذكاء الاصطناعي</span>
+            <span className="toggle-text-arabic font-arabic">ميزات الذكاء الاصطناعي</span>
             <Toggle
               className="ai-toggle-input"
               pressed={aiFeaturesEnabled}

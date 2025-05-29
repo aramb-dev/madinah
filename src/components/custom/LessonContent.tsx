@@ -68,11 +68,11 @@ const LessonContent = ({ lesson, aiFeaturesEnabled = false }: LessonContentProps
   return (
     <div id="lessonContent" className="space-y-6">
       <div className="bg-amber-50 rounded-lg p-6 border border-amber-200">
-        <h2 className="text-2xl font-bold text-emerald-700 arabic-text mb-2">{lesson.title}</h2>
+        <h2 className="text-2xl font-bold text-emerald-700 arabic-text font-arabic mb-2">{lesson.title}</h2>
         <h3 className="text-xl text-emerald-600 english-text mb-4">{lesson.englishTitle}</h3>
 
         <div className="mb-6 bg-white rounded-md p-4 shadow-sm">
-          <p className="arabic-text text-neutral-700 mb-2">{lesson.introduction.arabic}</p>
+          <p className="arabic-text font-arabic text-neutral-700 mb-2">{lesson.introduction.arabic}</p>
           <p className="english-text text-neutral-600 text-sm">{lesson.introduction.english}</p>
         </div>
 
@@ -80,10 +80,10 @@ const LessonContent = ({ lesson, aiFeaturesEnabled = false }: LessonContentProps
           {lesson.rules.map((rule, index) => (
             <Card key={index} className="border-emerald-100">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg font-semibold text-emerald-700">{rule.name}</CardTitle>
+                <CardTitle className="text-lg font-semibold text-emerald-700 font-arabic">{rule.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="arabic-text text-neutral-700 mb-2">{rule.arabicText}</p>
+                <p className="arabic-text font-arabic text-neutral-700 mb-2">{rule.arabicText}</p>
                 <p className="english-text text-neutral-600 text-sm">{rule.explanation}</p>
 
                 {/* AI Feature Buttons - Hidden by default, shown when AI is enabled */}
