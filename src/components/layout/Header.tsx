@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { XIcon } from 'lucide-react';
+import FontScaler from '@/components/custom/FontScaler'; // Changed to default import
 
 const Header = () => {
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
@@ -29,7 +30,7 @@ const Header = () => {
         Interactive Arabic Grammar Rules - Explanation of Madinah Book 1
       </p>
 
-      <div className="mt-6 hidden md:flex justify-center items-center">
+      <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
         <label htmlFor="aiToggleDesktop" className="toggle-label">
           <span className="toggle-text-arabic font-arabic">تفعيل ميزات الذكاء الاصطناعي التجريبية</span>
           <span className="toggle-switch">
@@ -38,6 +39,7 @@ const Header = () => {
           </span>
           <span className="toggle-text-english">(Enable Experimental AI Features)</span>
         </label>
+        <FontScaler /> {/* Added FontScaler component */}
       </div>
 
       {showWelcomeMessage && (
