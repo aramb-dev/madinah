@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { lessonsData } from '@/data/lessons';
 import { Toggle } from '@/components/ui/toggle';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,9 +19,16 @@ const Layout = ({
   aiFeaturesEnabled,
   setAiFeaturesEnabled
 }: LayoutProps) => {
+  const pathname = usePathname();
+
   // Handle AI toggle change
   const handleAIToggleChange = () => {
     setAiFeaturesEnabled(!aiFeaturesEnabled);
+  };
+
+  // Determine if a lesson is currently active based on the URL
+  const isLessonActive = (lessonId: string): boolean => {
+    return pathname === `/lessons/${lessonId}`;
   };
 
   return (
@@ -54,17 +63,19 @@ const Layout = ({
           </div>
           <div id="lessonListMobile" className="space-y-1 flex-grow">
             {lessonsData.map((lesson) => (
-              <button
-                key={lesson.id}
-                className="w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link"
-                data-lesson-id={lesson.id}
-                onClick={() => onLessonSelect(lesson.id)}
-              >
-                <span className="arabic-text font-arabic">{lesson.title}</span>
-                <span className="block text-xs text-emerald-600 english-text text-left">
-                  {lesson.englishTitle}
-                </span>
-              </button>
+              <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
+                <button
+                  className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                    isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                  }`}
+                  onClick={() => onLessonSelect(lesson.id)}
+                >
+                  <span className="arabic-text font-arabic">{lesson.title}</span>
+                  <span className="block text-xs text-emerald-600 english-text text-left">
+                    {lesson.englishTitle}
+                  </span>
+                </button>
+              </Link>
             ))}
           </div>
           <div className="mt-auto pt-4 border-t border-amber-200">
@@ -92,17 +103,19 @@ const Layout = ({
         </div>
         <div id="lessonList" className="space-y-1 flex-grow">
           {lessonsData.map((lesson) => (
-            <button
-              key={lesson.id}
-              className="w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link"
-              data-lesson-id={lesson.id}
-              onClick={() => onLessonSelect(lesson.id)}
-            >
-              <span className="arabic-text font-arabic">{lesson.title}</span>
-              <span className="block text-xs text-emerald-600 english-text text-left">
-                {lesson.englishTitle}
-              </span>
-            </button>
+            <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
+              <button
+                className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                  isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                }`}
+                onClick={() => onLessonSelect(lesson.id)}
+              >
+                <span className="arabic-text font-arabic">{lesson.title}</span>
+                <span className="block text-xs text-emerald-600 english-text text-left">
+                  {lesson.englishTitle}
+                </span>
+              </button>
+            </Link>
           ))}
         </div>
         <div className="mt-auto pt-4 border-t border-amber-200">
