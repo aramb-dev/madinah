@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { lessonsData } from "@/data/lessons";
 
-type Props = {
-  params: { lessonId: string };
+type GenerateMetadataProps = {
+  params: Promise<{ lessonId: string }>;
 };
 
 // Function to map lesson IDs to image filenames
@@ -34,8 +34,8 @@ function getLessonImageFilename(lessonId: string): string {
   return imageMap[lessonId] || "home.png"; // Fallback to home.png if lesson not found
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lessonId } = params;
+export async function generateMetadata({ params: paramsPromise }: GenerateMetadataProps): Promise<Metadata> {
+  const { lessonId } = await paramsPromise;
   
   // Find the lesson data
   const lesson = lessonsData.find(l => l.id === lessonId);

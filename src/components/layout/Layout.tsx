@@ -6,7 +6,7 @@ import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-interface LayoutProps {
+interface CustomLayoutProps {
   children: React.ReactNode;
   onLessonSelect: (lessonId: string) => void;
   aiFeaturesEnabled: boolean;
@@ -18,7 +18,7 @@ const Layout = ({
   onLessonSelect,
   aiFeaturesEnabled,
   setAiFeaturesEnabled
-}: LayoutProps) => {
+}: CustomLayoutProps) => {
   const pathname = usePathname();
 
   // Handle AI toggle change
