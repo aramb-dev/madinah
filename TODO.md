@@ -8,23 +8,27 @@
 
 ## Project Setup & Basic Structure:
 
-- [ ] **Initialize shadcn/ui:**
-  - [ ] Run `npx shadcn-ui@latest init`.
-  - [ ] You will be asked a few questions:
-    - `Would you like to use TypeScript (recommended)?` -> Yes (should default to this as project is TS)
+- [x] **Initialize shadcn/ui:**
+  - [x] Run `npx shadcn@latest init`.
+  - [x] You will be asked a few questions:
+    - `Would you like to use TypeScript (recommended)?` -> Yes
     - `Which style would you like to use?` -> Default
     - `Which color would you like to use as base color?` -> Slate
-    - `Where is your global CSS file?` -> `src/app/globals.css` (verify this path)
+    - `Where is your global CSS file?` -> `src/app/globals.css`
     - `Do you want to use CSS variables for colors?` -> Yes
-    - `Where is your tailwind.config.js file?` -> `tailwind.config.ts` (Note: it's .ts now)
+    - `Where is your tailwind.config.js file?` -> `tailwind.config.ts`
     - `Configure import alias for components:` -> `@/components`
-    - `Configure import alias for utils:` -> `@/lib` (shadcn/ui uses `lib` for its utils)
+    - `Configure import alias for utils:` -> `@/lib`
     - `Are you using React Server Components?` -> Yes
     - `Write configuration to components.json.` -> Yes
-- [ ] Verify `tailwind.config.ts` has been updated by shadcn/ui.
-- [ ] Create a `components/ui` directory (shadcn/ui will place its components here by default).
-- [ ] Create other `components` subdirectories as needed (e.g., `components/custom`, `components/layout`).
-- [ ] The `lib/utils.ts` file will be created by shadcn/ui. You can add other utility files to `lib/`.
+- [x] Verify `tailwind.config.ts` has been updated by shadcn/ui.
+- [x] `lib/utils.ts` file was created by shadcn/ui.
+
+- [x] Create necessary directories:
+  - [x] Create `components/ui` directory for shadcn/ui components.
+  - [x] Create other `components` subdirectories as needed (e.g., `components/custom`, `components/layout`).
+  - [x] Install shadcn/ui components: button, sheet, card, dialog, toggle (5 components created in `src/components/ui/`)
+  - [ ] Add utility files to `lib/` as needed.
 
 ## Migrate Core HTML Structure (Layout):
 
