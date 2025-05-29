@@ -1,0 +1,56 @@
+# .github/copilot-chat.yml
+version: "1.0"
+
+instructions:
+  commit-on-task-complete:
+    target: system
+    alwaysApply: true
+    when:
+      globs:
+        - "TODO.md"
+    content: |
+      Whenever you mark a TODO item as complete in TODO.md, you must:
+
+      1. Use Conventional Commits format:
+         - Select a type prefix (e.g., feat:, fix:, chore:, docs:, style:, refactor:, test:, perf:).
+      2. Write a concise commit title (<= 50 characters) starting with the chosen prefix (e.g., `fix: correct typo in navigation`).
+      3. In the commit description (body), include a detailed summary of what changed and why, covering:
+         - The TODO item text or a brief quote.
+         - File paths or code sections modified.
+         - References to related PR numbers, issue IDs, or commit hashes.
+      4. Commit immediately after updating TODO.md to reflect the completed task.
+      5. Ensure the commit description is clear, informative, and provides traceability back to the original TODO.
+
+  task-implementation:
+    target: system
+    alwaysApply: true
+    content: |
+      When a user sends a task:
+
+      1. Check the TODO.md file to see if the task is listed as incomplete (marked with `[ ]`).
+      2. If the task exists and is incomplete:
+         - Analyze the current codebase to understand what implementation is needed.
+         - Provide a realistic, complete, and ready-to-go implementation.
+         - Include all necessary imports, proper error handling, and follow existing code patterns.
+         - Make sure the implementation is consistent with the project's architecture and styling.
+      3. After implementing the feature, update TODO.md to mark the task as complete and add a reference to the relevant changes.
+      4. If the task requires multiple files or complex changes, break it down into manageable steps and implement them sequentially.
+
+      Remember to commit changes after marking a TODO item as complete, per the “Commit on Task Completion” rule.
+
+  todo-list:
+    target: system
+    alwaysApply: true
+    content: |
+      Whenever you start a new task or complete a task, you must:
+
+      1. Check the current state of the TODO.md file.
+      2. Update the TODO list to reflect the new task's status (e.g., mark as complete, add new items, or update progress).
+      3. When marking a TODO item as complete or in progress, add a reference to the relevant code change, commit hash, pull request, or file path if possible. This creates a clear audit trail linking TODOs to actual code changes.
+      4. Ensure that the TODO.md file is always up to date with the actual progress and changes in the codebase.
+
+      **Automation Guidance:**
+      - Whenever a code change directly addresses a TODO item, automatically update the TODO.md with a reference (e.g., `(Completed in commit abc123)` or `(See src/components/Foo.tsx)`).
+      - If a TODO item is split into subtasks or moved, update the TODO.md to reflect the new structure and add references as needed.
+
+      This rule ensures that the TODO list remains a reliable, traceable, and actionable source of project status and priorities.
