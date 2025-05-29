@@ -124,6 +124,7 @@
   - [x] Adjust spacing and padding for better mobile experience.
   - [x] Test AI feature modals on mobile screens.
 - [ ] Address any mobile-specific bugs or issues:
+  - [x] Fix accessibility issue with SheetContent requiring DialogTitle (commit: 82d9b10).
   - [ ] Fix any layout issues on small screens.
   - [ ] Ensure proper font scaling on different device sizes.
   - [ ] Test performance on lower-end mobile devices.
