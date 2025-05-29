@@ -2,8 +2,8 @@
 
 /* Self-hosted font definitions */
 @font-face {
-  font-family: 'Noto Kufi Arabic';
-  src: url('/fonts/noto-arabic.ttf') format('truetype');
+  font-family: "Noto Kufi Arabic";
+  src: url("/fonts/noto-arabic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@ body {
 }
 
 .arabic-text {
-  font-family: 'Noto Kufi Arabic', sans-serif; /* Use self-hosted font directly */
+  font-family: "Noto Kufi Arabic", sans-serif; /* Use self-hosted font directly */
   direction: rtl;
 }
 
