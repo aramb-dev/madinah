@@ -12,17 +12,17 @@ interface GeminiModalProps {
 
 const GeminiModal = ({ isOpen, onClose, title, loading, content }: GeminiModalProps) => {
   const modalId = `gemini-modal-${Math.random().toString(36).substring(2, 9)}`;
-  
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent 
-        className="bg-amber-50 border-none max-w-[90vw] sm:max-w-2xl max-h-[80vh] overflow-y-auto" 
+      <DialogContent
+        className="bg-amber-50 border-none max-w-[90vw] sm:max-w-2xl max-h-[80vh] overflow-y-auto"
         aria-labelledby={`${modalId}-title`}
         aria-describedby={`${modalId}-description`}
       >
         <DialogHeader>
-          <DialogTitle 
-            id={`${modalId}-title`} 
+          <DialogTitle
+            id={`${modalId}-title`}
             className="text-lg sm:text-xl font-bold text-emerald-700 arabic-text mb-2 sm:mb-4 font-arabic"
           >
             {title}
