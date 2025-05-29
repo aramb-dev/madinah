@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 /* Custom CSS from original application */
+html {
+  font-size: calc(16px * var(--font-scale-factor, 1));
+}
+
 body {
   /* font-family is handled by layout.tsx via CSS variables */
   /* background-color is handled by layout.tsx */
