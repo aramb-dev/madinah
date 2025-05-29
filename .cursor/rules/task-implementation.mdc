@@ -1,0 +1,19 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Task Implementation Guide
+
+When a user sends a task:
+
+1. Check the [TODO.md](mdc:TODO.md) file to see if the task is listed as incomplete (marked with `[ ]`).
+2. If the task exists in the TODO list and is incomplete:
+   - Analyze the current codebase to understand what implementation is needed
+   - Provide a realistic, complete, and ready-to-go implementation
+   - Include all necessary imports, proper error handling, and follow existing code patterns
+   - Make sure the implementation is consistent with the project's architecture and styling
+3. After implementing the feature, update the TODO.md file to mark the task as complete and add a reference to the relevant changes.
+4. If the task requires multiple files or complex changes, break it down into manageable steps and implement them sequentially.
+
+Remember to commit changes after marking a TODO item as complete, following the commit-on-task-complete rule.

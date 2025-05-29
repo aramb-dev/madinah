@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Commit on Task Completion Rule
+
+Whenever you mark a TODO item as complete in [TODO.md](mdc:TODO.md), you must:
+
+1. Make a git commit immediately after updating the TODO.md file.
+2. The commit message should reference the completed task, ideally quoting the TODO item or summarizing it (e.g., `Mark TODO complete: Add calendar view for events`).
+3. If possible, include a reference to the relevant code changes, file paths, or PR numbers in the commit message for traceability.
+
+This rule ensures that every completed task is tracked in version control, providing a clear history of project progress.
