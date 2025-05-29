@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Custom CSS from original application */
+body {
+  /* font-family is handled by layout.tsx via CSS variables */
+  /* background-color is handled by layout.tsx */
+  overflow-x: hidden;
+}
