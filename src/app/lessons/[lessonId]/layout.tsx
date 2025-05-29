@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { lessonsData } from "@/data/lessons";
 
 type GenerateMetadataProps = {
-  params: Promise<{ lessonId: string }>;
+  params: { lessonId: string };
 };
 
 // Function to map lesson IDs to image filenames
