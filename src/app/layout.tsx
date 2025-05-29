@@ -13,20 +13,24 @@ const inter = Inter({
 // Note: Noto Kufi Arabic is now self-hosted in /public/fonts/
 // and loaded via @font-face in custom-globals.css
 
+const sharedTitle = "قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١";
+const sharedDescription = "Interactive Arabic Grammar Rules - Explanation of Madinah Book 1";
+const sharedImages = ["/images/social-share/home.png"];
+
 export const metadata: Metadata = {
-  title: "قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١",
-  description: "Interactive Arabic Grammar Rules - Explanation of Madinah Book 1",
+  title: sharedTitle,
+  description: sharedDescription,
   openGraph: {
-    title: "قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١",
-    description: "Interactive Arabic Grammar Rules - Explanation of Madinah Book 1",
-    images: ["/images/social-share/home.png"],
+    title: sharedTitle,
+    description: sharedDescription,
+    images: sharedImages,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١",
-    description: "Interactive Arabic Grammar Rules - Explanation of Madinah Book 1",
-    images: ["/images/social-share/home.png"],
+    title: sharedTitle,
+    description: sharedDescription,
+    images: sharedImages,
   },
 };
 
