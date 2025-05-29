@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Kufi_Arabic } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import "./custom-globals.css";
 
 // Load Inter font
 const inter = Inter({
@@ -9,13 +10,8 @@ const inter = Inter({
   display: "swap",
 });
 
-// Load Noto Kufi Arabic font
-const notoKufiArabic = Noto_Kufi_Arabic({
-  subsets: ["arabic"],
-  variable: "--font-noto-kufi-arabic",
-  display: "swap",
-  weight: ["400", "600", "700"],
-});
+// Note: Noto Kufi Arabic is now self-hosted in /public/fonts/
+// and loaded via @font-face in custom-globals.css
 
 export const metadata: Metadata = {
   title: "قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١",
@@ -30,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${inter.variable} ${notoKufiArabic.variable} antialiased bg-[#FFFAF0]`}
+        className={`${inter.variable} antialiased bg-[#FFFAF0]`}
       >
         {children}
       </body>

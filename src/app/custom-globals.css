@@ -1,19 +1,28 @@
 @import "tailwindcss";
 
+/* Self-hosted font definitions */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/fonts/noto-arabic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Custom CSS from original application */
 body {
-  font-family: var(--font-inter), var(--font-noto-kufi-arabic), sans-serif;
-  background-color: #fffaf0; /* FloralWhite */
+  /* font-family is handled by layout.tsx via CSS variables and tailwind.config.ts */
+  /* background-color is handled by layout.tsx */
   overflow-x: hidden;
 }
 
 .arabic-text {
-  font-family: var(--font-noto-kufi-arabic), sans-serif;
+  font-family: 'Noto Kufi Arabic', sans-serif; /* Use self-hosted font directly */
   direction: rtl;
 }
 
 .english-text {
-  font-family: var(--font-inter), sans-serif;
+  font-family: theme("fontFamily.sans"); /* Use Tailwind theme for sans font */
   direction: ltr;
 }
 
