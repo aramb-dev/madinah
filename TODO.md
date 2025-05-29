@@ -77,8 +77,11 @@
 
 ## Create Dynamic Pages for Lessons (Optional but Recommended for SEO & Structure):
 
-- [ ] Instead of rendering all lesson content on one page via JavaScript, consider using dynamic routes, e.g., `pages/lessons/[lessonId].js`.
-- [ ] This would involve fetching or filtering `lessonsData` based on the `lessonId` from the route.
+- [x] Instead of rendering all lesson content on one page via JavaScript, consider using dynamic routes, e.g., `pages/lessons/[lessonId].js`.
+- [x] This would involve fetching or filtering `lessonsData` based on the `lessonId` from the route.
+- [x] Implemented with Next.js App Router using `/lessons/[lessonId]/page.tsx`
+- [x] Updated Layout component to use Next.js Link components for navigation
+- [x] Added a `/lessons` index page that redirects to the first lesson to prevent 404 errors
 
 ## Install Dependencies:
 
