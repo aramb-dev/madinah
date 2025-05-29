@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
 import { XIcon } from 'lucide-react';
 
 const Header = () => {
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
 
+  useEffect(() => {
+    const isWelcomeMessageHidden = localStorage.getItem('welcomeMessageHidden');
+    if (isWelcomeMessageHidden === 'true') {
+      setShowWelcomeMessage(false);
+    }
+  }, []);
+
   const hideWelcomeMessage = () => {
     setShowWelcomeMessage(false);
+    localStorage.setItem('welcomeMessageHidden', 'true');
   };
 
   return (
