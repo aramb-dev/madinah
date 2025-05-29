@@ -127,7 +127,7 @@
   - [x] Fix accessibility issue with SheetContent requiring DialogTitle (commit: 82d9b10).ge
   - [x] Fix any layout issues on small screens (RTL close button in sheet - commit: 546d376).
   - [ ] Ensure proper font scaling on different device sizes.
-    - [x] Implement font scaling controls (A+/A-, أ+/أ-) <COMMIT_HASH_PLACEHOLDER>
+    - [x] Implement font scaling controls (A+/A-, أ+/أ-) (commit: d1aedd9)
   - [ ] Test performance on lower-end mobile devices.
 
 - [ ] Address `metadataBase` warning in Next.js configuration.
