@@ -68,6 +68,7 @@
 
 - [x] Update primary Arabic font to Noto Naskh Arabic. (commit: 8f1406a)
 - [x] Implement font selection UI for Noto Sans Arabic and Baloo Arabic. (commit: e20ff26)
+- [ ] Update README.md to reflect current application state.
 - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
