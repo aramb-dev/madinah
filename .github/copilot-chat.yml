@@ -1,5 +1,5 @@
 # .github/copilot-chat.yml
-version: "1.0"
+version: '1.0'
 
 instructions:
   commit-on-task-complete:
@@ -7,7 +7,7 @@ instructions:
     alwaysApply: true
     when:
       globs:
-        - "TODO.md"
+        - 'TODO.md'
     content: |
       Whenever you mark a TODO item as complete in TODO.md, you must:
 

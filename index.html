@@ -1,12 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Visualization & Content Choices:
         - Report Info: Lesson titles, grammar rules/explanations.
         - Goal: Inform, allow lookup, and provide deeper understanding/more examples for grammar rules, including English parallels and translations, with proper Markdown rendering and caching. AI features are optional.
@@ -16,679 +19,1352 @@
         - Library/Method: HTML, Tailwind CSS, Showdown.js. Vanilla JavaScript for navigation, dynamic content, Gemini API calls, localStorage caching, and AI feature toggle.
         -->
     <style>
-        body {
-            font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
-            background-color: #FFFAF0; /* FloralWhite */
-            overflow-x: hidden;
-        }
-        .arabic-text {
-            font-family: 'Noto Kufi Arabic', sans-serif;
-            direction: rtl;
-        }
-        .english-text {
-            font-family: 'Inter', sans-serif;
-            direction: ltr;
-        }
-        .nav-link.active {
-            background-color: #059669; /* Emerald-600 */
-            color: white;
-        }
-        .nav-link.active:hover {
-            background-color: #047857; /* Emerald-700 */
-        }
-        .content-rtl { direction: rtl; }
-        .content-ltr { direction: ltr; }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #FFFBEB; /* amber-50 */ }
-        ::-webkit-scrollbar-thumb { background: #D1FAE5; border-radius: 4px; /* emerald-200 */ }
-        ::-webkit-scrollbar-thumb:hover { background: #A7F3D0; /* emerald-300 */ }
+      body {
+        font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
+        background-color: #fffaf0; /* FloralWhite */
+        overflow-x: hidden;
+      }
+      .arabic-text {
+        font-family: 'Noto Kufi Arabic', sans-serif;
+        direction: rtl;
+      }
+      .english-text {
+        font-family: 'Inter', sans-serif;
+        direction: ltr;
+      }
+      .nav-link.active {
+        background-color: #059669; /* Emerald-600 */
+        color: white;
+      }
+      .nav-link.active:hover {
+        background-color: #047857; /* Emerald-700 */
+      }
+      .content-rtl {
+        direction: rtl;
+      }
+      .content-ltr {
+        direction: ltr;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fffbeb; /* amber-50 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d1fae5;
+        border-radius: 4px; /* emerald-200 */
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a7f3d0; /* emerald-300 */
+      }
 
-        #sidebarNav::-webkit-scrollbar-thumb { background: #FDBA74; /* amber-400 */ }
-        #sidebarNav::-webkit-scrollbar-thumb:hover { background: #FB923C; /* amber-500 */ }
+      #sidebarNav::-webkit-scrollbar-thumb {
+        background: #fdba74; /* amber-400 */
+      }
+      #sidebarNav::-webkit-scrollbar-thumb:hover {
+        background: #fb923c; /* amber-500 */
+      }
 
-        #sidebarNav { transition: transform 0.3s ease-in-out; }
-        @media (max-width: 767px) { /* md breakpoint */
-            #sidebarNav:not(.open) { transform: translateX(100%); }
-            #sidebarNav.open { transform: translateX(0); }
+      #sidebarNav {
+        transition: transform 0.3s ease-in-out;
+      }
+      @media (max-width: 767px) {
+        /* md breakpoint */
+        #sidebarNav:not(.open) {
+          transform: translateX(100%);
         }
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); display: flex;
-            align-items: center; justify-content: center; z-index: 50;
-            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+        #sidebarNav.open {
+          transform: translateX(0);
         }
-        .modal-overlay.open { opacity: 1; visibility: visible; }
-        .modal-content {
-            background-color: #FFFBEB; padding: 2rem; border-radius: 0.5rem;
-            width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto;
-            position: relative; transform: scale(0.95); transition: transform 0.3s ease;
+      }
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal-content {
+        background-color: #fffbeb;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+      .modal-overlay.open .modal-content {
+        transform: scale(1);
+      }
+      .modal-close-btn {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #059669;
+      }
+      .loading-spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #059669;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
-        .modal-overlay.open .modal-content { transform: scale(1); }
-        .modal-close-btn {
-            position: absolute; top: 1rem; left: 1rem; background: none;
-            border: none; font-size: 1.5rem; cursor: pointer; color: #059669;
+        100% {
+          transform: rotate(360deg);
         }
-        .loading-spinner {
-            border: 4px solid #f3f3f3; border-top: 4px solid #059669;
-            border-radius: 50%; width: 40px; height: 40px;
-            animation: spin 1s linear infinite; margin: 20px auto;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .gemini-btn-container.hidden { display: none !important; }
-        .gemini-btn { direction: ltr; }
+      }
+      .gemini-btn-container.hidden {
+        display: none !important;
+      }
+      .gemini-btn {
+        direction: ltr;
+      }
 
-        /* Toggle Switch Styles */
-        .toggle-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            color: #4B5563; /* gray-600 */
-        }
-        .toggle-label .toggle-text-arabic { margin-left: 0.5rem; }
-        .toggle-label .toggle-text-english { margin-right: 0.5rem; direction: ltr;}
+      /* Toggle Switch Styles */
+      .toggle-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #4b5563; /* gray-600 */
+      }
+      .toggle-label .toggle-text-arabic {
+        margin-left: 0.5rem;
+      }
+      .toggle-label .toggle-text-english {
+        margin-right: 0.5rem;
+        direction: ltr;
+      }
 
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px; /* Width of the switch */
-            height: 28px; /* Height of the switch */
-            margin: 0 0.5rem;
-        }
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #D1D5DB; /* gray-300 */
-            transition: .4s;
-            border-radius: 28px; /* Fully rounded */
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px; /* Height of the knob */
-            width: 20px; /* Width of the knob */
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: #059669; /* Emerald-600 */
-        }
-        input:checked + .slider:before {
-            transform: translateX(22px); /* Move knob to the right */
-        }
-        #modalBody > div { text-align: initial; }
-        #modalBody p, #modalBody li, #modalBody div, #modalBody h1, #modalBody h2, #modalBody h3, #modalBody h4, #modalBody h5, #modalBody h6 {
-             text-align: inherit !important;
-        }
-        #modalBody strong { font-weight: bold; }
-        #modalBody em { font-style: italic; }
-        #modalBody ul { list-style-type: disc; margin-right: 1.5rem; }
-        #modalBody ol { list-style-type: decimal; margin-right: 1.5rem; }
-        #modalBody li { margin-bottom: 0.25rem; }
-        #modalBody blockquote {
-            border-right: 4px solid #ddd; padding-right: 1rem;
-            margin-right: 0; margin-left: 1rem; color: #555;
-        }
-        #modalBody [dir="ltr"] p, #modalBody [dir="ltr"] li, #modalBody [dir="ltr"] ul, #modalBody [dir="ltr"] ol {
-            text-align: left !important; margin-left: 1.5rem; margin-right: 0;
-        }
-        #modalBody [dir="ltr"] blockquote {
-            border-left: 4px solid #ddd; padding-left: 1rem;
-            margin-left: 0; margin-right: 1rem;
-        }
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px; /* Width of the switch */
+        height: 28px; /* Height of the switch */
+        margin: 0 0.5rem;
+      }
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #d1d5db; /* gray-300 */
+        transition: 0.4s;
+        border-radius: 28px; /* Fully rounded */
+      }
+      .slider:before {
+        position: absolute;
+        content: '';
+        height: 20px; /* Height of the knob */
+        width: 20px; /* Width of the knob */
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: #059669; /* Emerald-600 */
+      }
+      input:checked + .slider:before {
+        transform: translateX(22px); /* Move knob to the right */
+      }
+      #modalBody > div {
+        text-align: initial;
+      }
+      #modalBody p,
+      #modalBody li,
+      #modalBody div,
+      #modalBody h1,
+      #modalBody h2,
+      #modalBody h3,
+      #modalBody h4,
+      #modalBody h5,
+      #modalBody h6 {
+        text-align: inherit !important;
+      }
+      #modalBody strong {
+        font-weight: bold;
+      }
+      #modalBody em {
+        font-style: italic;
+      }
+      #modalBody ul {
+        list-style-type: disc;
+        margin-right: 1.5rem;
+      }
+      #modalBody ol {
+        list-style-type: decimal;
+        margin-right: 1.5rem;
+      }
+      #modalBody li {
+        margin-bottom: 0.25rem;
+      }
+      #modalBody blockquote {
+        border-right: 4px solid #ddd;
+        padding-right: 1rem;
+        margin-right: 0;
+        margin-left: 1rem;
+        color: #555;
+      }
+      #modalBody [dir='ltr'] p,
+      #modalBody [dir='ltr'] li,
+      #modalBody [dir='ltr'] ul,
+      #modalBody [dir='ltr'] ol {
+        text-align: left !important;
+        margin-left: 1.5rem;
+        margin-right: 0;
+      }
+      #modalBody [dir='ltr'] blockquote {
+        border-left: 4px solid #ddd;
+        padding-left: 1rem;
+        margin-left: 0;
+        margin-right: 1rem;
+      }
     </style>
-</head>
-<body class="text-neutral-800 antialiased">
+  </head>
+  <body class="text-neutral-800 antialiased">
     <div class="min-h-screen flex flex-col md:flex-row relative">
-        <button id="hamburgerButton" class="md:hidden fixed top-4 left-4 z-30 p-2 bg-emerald-600 text-white rounded-md shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <button
+        id="hamburgerButton"
+        class="md:hidden fixed top-4 left-4 z-30 p-2 bg-emerald-600 text-white rounded-md shadow-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+      </button>
+
+      <nav
+        id="sidebarNav"
+        class="fixed inset-y-0 right-0 md:relative w-72 bg-amber-100 p-4 space-y-2 shadow-lg overflow-y-auto z-20 md:translate-x-0 md:flex md:flex-col md:sticky md:top-0 md:h-screen"
+      >
+        <div class="flex justify-between items-center md:block">
+          <h2 class="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text text-center">
+            فهرس الدروس
+          </h2>
+          <button id="closeSidebarButton" class="md:hidden p-2 text-emerald-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
-        </button>
+          </button>
+        </div>
+        <div id="lessonList" class="space-y-1 flex-grow"></div>
+        <div class="mt-auto pt-4 border-t border-amber-200 md:hidden">
+          <label for="aiToggleMobile" class="toggle-label text-sm">
+            <span class="toggle-text-arabic">ميزات الذكاء الاصطناعي</span>
+            <span class="toggle-switch">
+              <input type="checkbox" id="aiToggleMobile" class="ai-toggle-input" />
+              <span class="slider"></span>
+            </span>
+            <span class="toggle-text-english">(AI Features)</span>
+          </label>
+        </div>
+      </nav>
 
-        <nav id="sidebarNav" class="fixed inset-y-0 right-0 md:relative w-72 bg-amber-100 p-4 space-y-2 shadow-lg overflow-y-auto z-20 md:translate-x-0 md:flex md:flex-col md:sticky md:top-0 md:h-screen">
-            <div class="flex justify-between items-center md:block">
-                 <h2 class="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text text-center">فهرس الدروس</h2>
-                 <button id="closeSidebarButton" class="md:hidden p-2 text-emerald-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                 </button>
-            </div>
-            <div id="lessonList" class="space-y-1 flex-grow"></div>
-            <div class="mt-auto pt-4 border-t border-amber-200 md:hidden">
-                <label for="aiToggleMobile" class="toggle-label text-sm">
-                    <span class="toggle-text-arabic">ميزات الذكاء الاصطناعي</span>
-                    <span class="toggle-switch">
-                        <input type="checkbox" id="aiToggleMobile" class="ai-toggle-input">
-                        <span class="slider"></span>
-                    </span>
-                    <span class="toggle-text-english">(AI Features)</span>
-                </label>
-            </div>
-        </nav>
+      <main class="flex-1 p-6 md:p-10 overflow-y-auto pt-20 md:pt-10">
+        <header class="mb-8 pb-4 border-b border-amber-300">
+          <h1 class="text-3xl md:text-4xl font-bold text-emerald-700 arabic-text text-center">
+            قواعد اللغة العربية التفاعلية
+          </h1>
+          <p class="text-lg text-neutral-600 arabic-text text-center mt-1">
+            شرح كتاب دروس اللغة العربية لغير الناطقين بها - الجزء الأول
+          </p>
+          <p class="text-sm text-neutral-500 english-text text-center mt-2">
+            Interactive Arabic Grammar Rules - Explanation of Madinah Book 1
+          </p>
 
-        <main class="flex-1 p-6 md:p-10 overflow-y-auto pt-20 md:pt-10">
-            <header class="mb-8 pb-4 border-b border-amber-300">
-                <h1 class="text-3xl md:text-4xl font-bold text-emerald-700 arabic-text text-center">قواعد اللغة العربية التفاعلية</h1>
-                <p class="text-lg text-neutral-600 arabic-text text-center mt-1">شرح كتاب دروس اللغة العربية لغير الناطقين بها - الجزء الأول</p>
-                <p class="text-sm text-neutral-500 english-text text-center mt-2">Interactive Arabic Grammar Rules - Explanation of Madinah Book 1</p>
-                
-                <div class="mt-6 hidden md:flex justify-center items-center">
-                     <label for="aiToggleDesktop" class="toggle-label">
-                        <span class="toggle-text-arabic">تفعيل ميزات الذكاء الاصطناعي التجريبية</span>
-                        <span class="toggle-switch">
-                            <input type="checkbox" id="aiToggleDesktop" class="ai-toggle-input">
-                            <span class="slider"></span>
-                        </span>
-                        <span class="toggle-text-english">(Enable Experimental AI Features)</span>
-                    </label>
-                </div>
+          <div class="mt-6 hidden md:flex justify-center items-center">
+            <label for="aiToggleDesktop" class="toggle-label">
+              <span class="toggle-text-arabic">تفعيل ميزات الذكاء الاصطناعي التجريبية</span>
+              <span class="toggle-switch">
+                <input type="checkbox" id="aiToggleDesktop" class="ai-toggle-input" />
+                <span class="slider"></span>
+              </span>
+              <span class="toggle-text-english">(Enable Experimental AI Features)</span>
+            </label>
+          </div>
 
-                 <div class="mt-4 p-4 bg-emerald-50 border-r-4 border-emerald-500 rounded-md shadow">
-                    <p class="arabic-text text-neutral-700 text-md">مرحباً! هذا التطبيق التفاعلي يوفر طريقة سهلة لاستكشاف قواعد اللغة العربية. اختر درساً من الشريط الجانبي. يمكنك تفعيل "ميزات الذكاء الاصطناعي" لطلب ✨ شرح إضافي أو ✨ أمثلة جديدة.</p>
-                    <p class="english-text text-neutral-600 text-sm mt-2">Welcome! This interactive app helps you explore Arabic grammar. Select a lesson from the sidebar. You can enable "AI Features" to request ✨ further explanation or ✨ new examples.</p>
-                </div>
-            </header>
-            <div id="lessonContent" class="space-y-6">
-                <p class="arabic-text text-xl text-neutral-500 text-center pt-10">الرجاء اختيار درس من القائمة الجانبية لعرض محتواه.</p>
-                <p class="english-text text-lg text-neutral-500 text-center">Please select a lesson from the sidebar to view its content.</p>
-            </div>
-        </main>
+          <div class="mt-4 p-4 bg-emerald-50 border-r-4 border-emerald-500 rounded-md shadow">
+            <p class="arabic-text text-neutral-700 text-md">
+              مرحباً! هذا التطبيق التفاعلي يوفر طريقة سهلة لاستكشاف قواعد اللغة العربية. اختر درساً
+              من الشريط الجانبي. يمكنك تفعيل "ميزات الذكاء الاصطناعي" لطلب ✨ شرح إضافي أو ✨ أمثلة
+              جديدة.
+            </p>
+            <p class="english-text text-neutral-600 text-sm mt-2">
+              Welcome! This interactive app helps you explore Arabic grammar. Select a lesson from
+              the sidebar. You can enable "AI Features" to request ✨ further explanation or ✨ new
+              examples.
+            </p>
+          </div>
+        </header>
+        <div id="lessonContent" class="space-y-6">
+          <p class="arabic-text text-xl text-neutral-500 text-center pt-10">
+            الرجاء اختيار درس من القائمة الجانبية لعرض محتواه.
+          </p>
+          <p class="english-text text-lg text-neutral-500 text-center">
+            Please select a lesson from the sidebar to view its content.
+          </p>
+        </div>
+      </main>
     </div>
 
     <div id="geminiModal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="modalCloseButton" class="modal-close-btn" aria-label="Close modal">&times;</button>
-            <h3 id="modalTitle" class="text-xl font-bold text-emerald-700 arabic-text mb-4"></h3>
-            <div id="modalBody" class="text-neutral-700 space-y-3"></div>
-        </div>
+      <div class="modal-content">
+        <button id="modalCloseButton" class="modal-close-btn" aria-label="Close modal">
+          &times;
+        </button>
+        <h3 id="modalTitle" class="text-xl font-bold text-emerald-700 arabic-text mb-4"></h3>
+        <div id="modalBody" class="text-neutral-700 space-y-3"></div>
+      </div>
     </div>
 
     <script>
-        const lessonsData = [
-            // ... (All lesson data remains here as previously defined) ...
+      const lessonsData = [
+        // ... (All lesson data remains here as previously defined) ...
+        {
+          id: 'lesson1',
+          title: 'الدرس الأول',
+          englishTitle: 'Lesson 1',
+          introduction: {
+            arabic:
+              'هذا القسم يغطي الدرس الأول. ستجد هنا شروحات وأمثلة للمفاهيم النحوية الأساسية المقدمة في هذا الدرس، مع التركيز على أسماء الإشارة والاستفهام الأساسية.',
+            english:
+              'This section covers Lesson 1. You will find explanations and examples for the key grammatical concepts introduced in this lesson, focusing on basic demonstrative and interrogative pronouns.',
+          },
+          rules: [
             {
-                id: "lesson1",
-                title: "الدرس الأول",
-                englishTitle: "Lesson 1",
-                introduction: {
-                    arabic: "هذا القسم يغطي الدرس الأول. ستجد هنا شروحات وأمثلة للمفاهيم النحوية الأساسية المقدمة في هذا الدرس، مع التركيز على أسماء الإشارة والاستفهام الأساسية.",
-                    english: "This section covers Lesson 1. You will find explanations and examples for the key grammatical concepts introduced in this lesson, focusing on basic demonstrative and interrogative pronouns."
-                },
-                rules: [
-                    { name: "هَذَا (hādhā - this)", arabicText: "هَذَا : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُذَكَّرِ الْقَرِيبِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.", explanation: "Is a demonstrative pronoun for a singular, masculine, near, rational or irrational noun." },
-                    { name: "مَا (mā - what?)", arabicText: "مَا : اِسْمُ اسْتِفْهَامٍ لِغَيْرِ الْعَاقِلِ.", explanation: "Is an interrogative pronoun used for non-rational nouns." },
-                    { name: "أ (a - ?)", arabicText: "أ : هَمْزَةُ الاسْتِفْهَامِ ، حَرْفٌ جَوَابُهُ ( نَعَمْ ) أَوْ ( لا ).", explanation: "Is an interrogative particle (hamzat al-istifhām); its answer is (نَعَمْ - na'am - yes) or (لَا - lā - no)." },
-                    { name: "مَنْ (man - who?)", arabicText: "مَنْ : اسْمُ اسْتِفْهَامٍ لِلْعَاقِلِ.", explanation: "Is an interrogative pronoun used for rational nouns." }
-                ]
+              name: 'هَذَا (hādhā - this)',
+              arabicText:
+                'هَذَا : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُذَكَّرِ الْقَرِيبِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.',
+              explanation:
+                'Is a demonstrative pronoun for a singular, masculine, near, rational or irrational noun.',
             },
             {
-                id: "lesson2",
-                title: "الدرس الثاني",
-                englishTitle: "Lesson 2",
-                introduction: {
-                    arabic: "هذا القسم يغطي الدرس الثاني. ستجد هنا شروحات وأمثلة لأسماء الإشارة للبعيد وأسئلة الاستفهام المتعلقة بها.",
-                    english: "This section covers Lesson 2. You will find explanations and examples for demonstrative pronouns for distant objects/persons and related interrogative questions."
-                },
-                rules: [
-                    { name: "ذَلِكَ (dhālika - that)", arabicText: "ذَلِكَ : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُذَكَّرِ الْبَعِيدِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.", explanation: "Is a demonstrative pronoun for a singular, masculine, distant, rational or irrational noun." },
-                    { name: "مَنْ هَذَا؟ (man hādhā? - who is this?)", arabicText: "مَنْ هَذَا؟ سُؤَالٌ عَنِ الْقَرِيبِ العَاقِلِ.", explanation: "Is a question about a near, rational being." },
-                    { name: "مَنْ ذَلِكَ؟ (man dhālika? - who is that?)", arabicText: "مَنْ ذَلِكَ؟ سُؤَالٌ عَنِ الْبَعِيدِ العَاقِلِ.", explanation: "Is a question about a distant, rational being." },
-                    { name: "مَا هَذَا؟ (mā hādhā? - what is this?)", arabicText: "مَا هَذَا؟ سُؤَالٌ عَنِ الْقَرِيبِ غَيْرِ الْعَاقِلِ.", explanation: "Is a question about a near, non-rational thing." },
-                    { name: "مَا ذَلِكَ؟ (mā dhālika? - what is that?)", arabicText: "مَا ذَلِكَ؟ سُؤَالٌ عَنِ الْبَعِيدِ غَيْرِ الْعَاقِلِ.", explanation: "Is a question about a distant, non-rational thing." }
-                ]
+              name: 'مَا (mā - what?)',
+              arabicText: 'مَا : اِسْمُ اسْتِفْهَامٍ لِغَيْرِ الْعَاقِلِ.',
+              explanation: 'Is an interrogative pronoun used for non-rational nouns.',
             },
             {
-                id: "lesson3",
-                title: "الدرس الثالث",
-                englishTitle: "Lesson 3",
-                introduction: {
-                    arabic: "هذا القسم يغطي الدرس الثالث. ستتعلم عن أداة التعريف (ال)، والفرق بين النكرة والمعرفة، والحروف القمرية والشمسية.",
-                    english: "This section covers Lesson 3. You will learn about the definite article (ال - al), the difference between indefinite and definite nouns, and lunar and solar letters."
-                },
-                rules: [
-                    { name: "ال (al - the)", arabicText: "ال : حَرْفُ تَعْرِيفِ.", explanation: "Is the definite article." },
-                    { name: "إزالة التنوين مع ال (Tanween removal with ال)", arabicText: "يُحْذَفُ التَّنْوِينُ عِنْدَ دُخُولِ (ال).", explanation: "When (ال) enters a noun, the tanween (nunation) is removed." },
-                    { name: "النَّكِرَةُ (al-nakirah - indefinite)", arabicText: "النَّكِرَةُ : شَيْءٌ غَيْرُ مُعَيَّنٍ ، نَحْوُ : بَيْتٌ ، قَلَمٌ ، رَجُلٌ ، بِنْتٌ.", explanation: "Refers to an unspecified thing, e.g., بَيْتٌ (baytun - a house), قَلَمٌ (qalamun - a pen), رَجُلٌ (rajulun - a man), بِنْتٌ (bintun - a girl)." },
-                    { name: "الْمَعْرِفَةُ (al-ma'rifah - definite)", arabicText: "الْمَعْرِفَةُ : شَيْءٌ مُعَيَّنٌ ، نَحْوُ : الْبَيْتُ ، الْقَلَمُ ، الرَّجُلُ ، الْبِنْتُ.", explanation: "Refers to a specific thing, e.g., الْبَيْتُ (al-baytu - the house), الْقَلَمُ (al-qalamu - the pen), الرَّجُلُ (al-rajulu - the man), الْبِنْتُ (al-bintu - the girl)." },
-                    { name: "الْحُرُوفُ الْقَمَرِيَّةُ (al-ḥurūf al-qamariyyah - lunar letters)", arabicText: "الْحُرُوفُ الْقَمَرِيَّةُ : يُنْطَقُ السُّكُونُ عَلَى اللام ( القمر ).", explanation: "The sukoon on the lām (ل) is pronounced (e.g., الْقَمَرُ - al-qamar)." },
-                    { name: "الْحُرُوفُ الشَّمْسِيَّةُ (al-ḥurūf al-shamsiyyah - solar letters)", arabicText: "الْحُرُوفُ الشَّمْسِيَّةُ : لا يُنْطَقُ السُّكُونَ عَلَى اللام ، وَتُوضَعُ شَدَّةٌ عَلَى الْحَرْفِ الَّذِي بَعْدَهُ ( الشمس ).", explanation: "The sukoon on the lām (ل) is not pronounced, and a shaddah is placed on the letter that follows (e.g., الشَّمْسُ - al-shams)." }
-                ]
+              name: 'أ (a - ?)',
+              arabicText: 'أ : هَمْزَةُ الاسْتِفْهَامِ ، حَرْفٌ جَوَابُهُ ( نَعَمْ ) أَوْ ( لا ).',
+              explanation:
+                "Is an interrogative particle (hamzat al-istifhām); its answer is (نَعَمْ - na'am - yes) or (لَا - lā - no).",
             },
             {
-                id: "lesson4",
-                title: "الدرس الرابع",
-                englishTitle: "Lesson 4",
-                introduction: {
-                    arabic: "هذا القسم يغطي الدرس الرابع. ستتعلم عن حروف الجر، وأسئلة المكان، وقاعدة الأسماء المؤنثة العلم.",
-                    english: "This section covers Lesson 4. You will learn about prepositions, questions about place, and the rule for feminine proper nouns."
-                },
-                rules: [
-                    { name: "حُرُوفُ الْجَرِّ (ḥurūf al-jarr - prepositions)", arabicText: "حُرُوفُ الْجَرِّ ( فِي ، عَلَى ، مِنْ ، إِلَى ) : تَجُرُّ الاسْمَ الَّذِي بَعْدَهَا بِالْكَسْرَةِ.", explanation: "(فِي - fī - in, عَلَى - 'alā - on, مِنْ - min - from, إِلَى - ilā - to): These prepositions cause the noun following them to take a kasrah." },
-                    { name: "أَيْنَ؟ (ayna? - where?)", arabicText: "أَيْنَ؟ سُؤَالٌ عَنِ الْمَكَانِ.", explanation: "Is a question about place." },
-                    { name: "مَاذَا؟ (mādhā? - what?)", arabicText: "مَاذَا؟ = مَا هَذَا؟ لِغَيْرِ الْعَاقِلِ.", explanation: "Is equivalent to مَا هَذَا؟ (mā hādhā?) for non-rational things." },
-                    { name: "الْعَلَمُ الْمُؤَنَّثُ لَا يُنَوَّنُ (Feminine proper nouns do not take tanween)", arabicText: "الْعَلَمُ الْمُؤَنَّثُ لَا يُنَوَّنُ (نَحْوُ: آمِنَةُ, فَاطِمَةُ, مَرْيَمُ, عَائِشَةُ).", explanation: "Feminine proper nouns do not take tanween (e.g., آمِنَةُ, فَاطِمَةُ, مَرْيَمُ, عَائِشَةُ)." },
-                    { name: "مِنَ الْبَيْتِ (mina al-bayti - from the house)", arabicText: "مِنَ الْبَيْتِ : أَصْلُهُ : مِنْ الْبَيْتِ - مِنْ + ال -> مِنَ الْ. حُرِّكَتِ النُّونُ بِالْفَتْحَةِ مَنْعاً لالْتِقَاءِ السَّاكِنَيْنِ.", explanation: "Its origin is مِنْ الْبَيْتِ (min al-bayti). The noon (ن) is given a fatḥah to prevent the meeting of two sukoons." }
-                ]
+              name: 'مَنْ (man - who?)',
+              arabicText: 'مَنْ : اسْمُ اسْتِفْهَامٍ لِلْعَاقِلِ.',
+              explanation: 'Is an interrogative pronoun used for rational nouns.',
+            },
+          ],
+        },
+        {
+          id: 'lesson2',
+          title: 'الدرس الثاني',
+          englishTitle: 'Lesson 2',
+          introduction: {
+            arabic:
+              'هذا القسم يغطي الدرس الثاني. ستجد هنا شروحات وأمثلة لأسماء الإشارة للبعيد وأسئلة الاستفهام المتعلقة بها.',
+            english:
+              'This section covers Lesson 2. You will find explanations and examples for demonstrative pronouns for distant objects/persons and related interrogative questions.',
+          },
+          rules: [
+            {
+              name: 'ذَلِكَ (dhālika - that)',
+              arabicText:
+                'ذَلِكَ : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُذَكَّرِ الْبَعِيدِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.',
+              explanation:
+                'Is a demonstrative pronoun for a singular, masculine, distant, rational or irrational noun.',
             },
             {
-                id: "lesson5",
-                title: "الدرس الخامس",
-                englishTitle: "Lesson 5",
-                introduction: {
-                    arabic: "يستعرض هذا الدرس مفهوم الإضافة (المضاف والمضاف إليه) وكيفية استخدام أداة النداء (يا).",
-                    english: "This lesson covers the concept of Iḍāfah (possessive construction) and the use of the vocative particle (Yā)."
-                },
-                rules: [
-                    { name: "الْمُضَافُ، وَالْمُضَافُ إِلَيْهِ (al-muḍāf, wa-al-muḍāf ilayhi - the possessed, and the possessor)", arabicText: "كِتَابٌ + مُحَمَّدٌ -> كِتَابُ مُحَمَّدٍ. (كِتَابُ: مُضَافٌ، مُحَمَّدٍ: مُضَافٌ إِلَيْهِ). نَحْذِفُ التَّنْوِينَ عِنْدَ الإِضَافَةِ. نَحْذِفُ 'ال' عِنْدَ الإِضَافَةِ. الْمُضَافُ إِلَيْهِ مَجْرُورٌ بِالْكَسْرَةِ.", explanation: "The possessive construction. Tanween is removed from the muḍāf. The definite article (ال) is removed from the muḍāf. The muḍāf ilayhi is genitive (majroor), indicated by a kasrah." },
-                    { name: "الْمُنَادَى (al-munādā - the one called)", arabicText: "يَا مُحَمَّدُ. (يَا شَيْخُ - نَحْذِفُ التَّنْوِينَ عِنْدَ النِّدَاءِ).", explanation: "The vocative. Tanween is removed from the noun when it is called using يَا (yā - O) (e.g., يَا شَيْخُ - yā shaykhu)." },
-                    { name: "كِتَابُ مَنْ هَذَا؟ (kitābu man hādhā? - whose book is this?)", arabicText: "كِتَابُ مَنْ هَذَا؟ سُؤَالٌ عَنِ الْعَاقِلِ.", explanation: "Is a question about a rational being (possessor)." }
-                ]
+              name: 'مَنْ هَذَا؟ (man hādhā? - who is this?)',
+              arabicText: 'مَنْ هَذَا؟ سُؤَالٌ عَنِ الْقَرِيبِ العَاقِلِ.',
+              explanation: 'Is a question about a near, rational being.',
             },
             {
-                id: "lesson6",
-                title: "الدرس السادس",
-                englishTitle: "Lesson 6",
-                introduction: {
-                    arabic: "هذا الدرس يتناول اسم الإشارة للمفرد المؤنث القريب (هَذِهِ) والجملة الاسمية ومكوناتها (المبتدأ والخبر).",
-                    english: "This lesson covers the demonstrative pronoun for singular feminine near (هَذِهِ - hādhihi) and the nominal sentence with its components (subject and predicate)."
-                },
-                rules: [
-                    { name: "هَذِهِ (hādihi - this/these)", arabicText: "هَذِهِ : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُؤَنَّثِ الْقَرِيبِ الْعَاقِلِ ، وغَيْرِ الْعَاقِلِ.", explanation: "Is a demonstrative pronoun for a singular, feminine, near, rational or irrational noun. (Also used for non-rational plurals, see Lesson 16 & 17)." },
-                    { name: "الْجُمْلَةُ الاسْمِيَّةُ (al-jumlah al-ismiyyah - the nominal sentence)", arabicText: "الْجُمْلَةُ الاسْمِيَّةُ : تَتَكَوَّنُ مِنْ كَلِمَتَيْنِ تُفِيدَانِ مَعْنَى تَامّاً مُفيداً . ( وَتُسَمَّى جُمْلَةً مُفِيدَةً ).", explanation: "Consists of two words that form a complete, beneficial meaning. It is also called جُمْلَةٌ مُفِيدَةٌ (jumlah mufīdah - a beneficial sentence)." },
-                    { name: "مُبْتَدَأٌ وَ خَبَرٌ (mubtada' wa khabar - subject and predicate)", arabicText: "مُحَمَّدٌ طَالِبٌ ( مُحَمَّدٌ : مُبْتَدَأٌ، طَالِبٌ : خَبَرٌ ).", explanation: "A nominal sentence has a مُبْتَدَأٌ (mubtada' - subject) and a خَبَرٌ (khabar - predicate) (e.g., مُحَمَّدٌ طَالِبٌ - Muḥammadun ṭālibun - Muhammad is a student; مُحَمَّدٌ is mubtada', طَالِبٌ is khabar)." }
-                ]
+              name: 'مَنْ ذَلِكَ؟ (man dhālika? - who is that?)',
+              arabicText: 'مَنْ ذَلِكَ؟ سُؤَالٌ عَنِ الْبَعِيدِ العَاقِلِ.',
+              explanation: 'Is a question about a distant, rational being.',
             },
             {
-                id: "lesson7",
-                title: "الدرس السابع",
-                englishTitle: "Lesson 7",
-                introduction: {
-                    arabic: "يركز هذا الدرس على اسم الإشارة للمفرد المؤنث البعيد (تِلْكَ) مع أمثلة توضيحية.",
-                    english: "This lesson focuses on the demonstrative pronoun for singular feminine distant (تِلْكَ - tilka) with illustrative examples."
-                },
-                rules: [
-                    { name: "تِلْكَ (tilka - that/those)", arabicText: "تِلْكَ : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُؤَنَّثِ الْبَعِيدِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.", explanation: "Is a demonstrative pronoun for a singular, feminine, distant, rational or irrational noun. (Also used for non-rational plurals, see Lesson 16 & 17)." },
-                    { name: "همزة الاستفهام مع أسماء الإشارة (Interrogative Hamzah with Demonstrative Pronouns)", arabicText: "أَسَاعَةُ عَبَّاسٍ هَذِهِ؟ لا. هَذِهِ سَاعَةُ حَامِدٍ، تِلْكَ سَاعَةُ عَبَّاسٍ. (فِي هَذَا الْمِثَالِ : هَمْزَةُ الاسْتِفْهَامِ ( أ ) الْجَوَابُ بِ : نَعَمْ ، أَوْ لا . هَذِهِ : اسْمُ إِشَارَةٍ لِلْمُؤَنَّثِ الْقَرِيبِ غَيْرِ الْعَاقِلِ ( سَاعَة ) . حَامِدٍ : مُضَافٌ إِلَيْهِ . تِلْكَ : اسْمُ إِشَارَةٍ لِلْمُؤَنَّثِ الْبَعِيدِ غَيْرِ الْعَاقِلِ ( سَاعَة ) . عَبَّاسٍ : مُضَافٌ إِلَيْهِ).", explanation: "In the example أَسَاعَةُ عَبَّاسٍ هَذِهِ؟ (a-sā'atu 'Abbāsin hādhihi? - Is this Abbas's watch?), هَمْزَةُ الاسْتِفْهَامِ (أ) (hamzat al-istifhām - the interrogative hamzah) expects an answer of نَعَمْ (yes) or لَا (no). In لَا. هَذِهِ سَاعَةُ حَامِدٍ، تِلْكَ سَاعَةُ عَبَّاسٍ, هَذِهِ is for near feminine non-rational, حَامِدٍ is muḍāf ilayhi, تِلْكَ is for distant feminine non-rational, and عَبَّاسٍ is muḍāf ilayhi." }
-                ]
+              name: 'مَا هَذَا؟ (mā hādhā? - what is this?)',
+              arabicText: 'مَا هَذَا؟ سُؤَالٌ عَنِ الْقَرِيبِ غَيْرِ الْعَاقِلِ.',
+              explanation: 'Is a question about a near, non-rational thing.',
             },
             {
-                id: "lesson8",
-                title: "الدرس الثامن",
-                englishTitle: "Lesson 8",
-                introduction: {
-                    arabic: "يشرح هذا الدرس الإشارة إلى الاسم المعرف بـ 'ال'، واستخدام 'لِمَنْ؟'، وظرفي المكان 'أَمَامَ' و 'خَلْفَ'، ومعاني بعض حروف الجر.",
-                    english: "This lesson explains pointing to nouns defined with 'ال', the use of 'لِمَنْ؟' (whose?), the adverbs of place 'أَمَامَ' (in front of) and 'خَلْفَ' (behind), and the meanings of some prepositions."
-                },
-                rules: [
-                    { name: "الإِشَارَةُ إِلَى الْمُعَرَّفِ بِأَلْ (Pointing to the definite noun with 'al')", arabicText: "هَذَا الرَّجُلُ تَاجِرٌ. (هَذَا: مُبْتَدَأٌ، الرَّجُلُ: بَدَلٌ، تَاجِرٌ: خَبَرٌ). ذَلِكَ الرَّجُلُ طَبِيبٌ. (ذَلِكَ: مُبْتَدَأٌ، الرَّجُلُ: بَدَلٌ، طَبِيبٌ: خَبَرٌ).", explanation: "Example: هَذَا الرَّجُلُ تَاجِرٌ (hādhā al-rajulu tājirun - This man is a merchant). Here, هَذَا is mubtada' (subject), الرَّجُلُ is badal (substitute/appositive), and تَاجِرٌ is khabar (predicate)." },
-                    { name: "لِمَنْ؟ (liman? - whose?)", arabicText: "لِمَنْ؟ سُؤَالٌ عَنِ الْعَاقِلِ. لِمَنْ هَذَا الْبَيْتُ؟ هَذَا الْبَيْتُ لِلتَّاجِرِ.", explanation: "Is a question about a rational being. The preposition لِ (li - for/belongs to) is a ḥarf jarr (preposition)." },
-                    { name: "أَمَامَ، خَلْفَ (amāma - in front of, khalfa - behind)", arabicText: "السَّبُورَةُ أَمَامَ الطُّلابِ. (أَمَامَ: ظَرْفُ مَكَانٍ، الطُّلابِ: مُضَافٌ إِلَيْهِ).", explanation: "Are adverbs of place (ظَرْفُ مَكَانٍ - ẓarf makān). The noun following them is muḍāf ilayhi." },
-                    { name: "معاني حروف الجر (Meanings of prepositions)", arabicText: "مِنْ: تُفِيدُ الْبِدَايَةَ. إِلَى: تُفِيدُ النَّهَايَةَ. فِي: تُفِيدُ الظَّرْفِيَّةَ. عَلَى: تُفِيدُ الاسْتِعْلَاءَ. اللام (لِ): تُفِيدُ الْمِلْكَ.", explanation: "مِنْ (from): Indicates the beginning. إِلَى (to): Indicates the end. فِي (in): Indicates containment. عَلَى (on): Indicates on top of. لِ (for): Indicates possession." }
-                ]
+              name: 'مَا ذَلِكَ؟ (mā dhālika? - what is that?)',
+              arabicText: 'مَا ذَلِكَ؟ سُؤَالٌ عَنِ الْبَعِيدِ غَيْرِ الْعَاقِلِ.',
+              explanation: 'Is a question about a distant, non-rational thing.',
+            },
+          ],
+        },
+        {
+          id: 'lesson3',
+          title: 'الدرس الثالث',
+          englishTitle: 'Lesson 3',
+          introduction: {
+            arabic:
+              'هذا القسم يغطي الدرس الثالث. ستتعلم عن أداة التعريف (ال)، والفرق بين النكرة والمعرفة، والحروف القمرية والشمسية.',
+            english:
+              'This section covers Lesson 3. You will learn about the definite article (ال - al), the difference between indefinite and definite nouns, and lunar and solar letters.',
+          },
+          rules: [
+            {
+              name: 'ال (al - the)',
+              arabicText: 'ال : حَرْفُ تَعْرِيفِ.',
+              explanation: 'Is the definite article.',
             },
             {
-                id: "lesson9",
-                title: "الدرس التاسع",
-                englishTitle: "Lesson 9",
-                introduction: {
-                    arabic: "يتناول هذا الدرس النعت والمنعوت (الصفة والموصوف) والاسم الموصول 'الَّذِي'.",
-                    english: "This lesson covers the adjective and the described noun (النَّعْتُ وَالْمَنْعُوتُ) and the relative pronoun 'الَّذِي' (who/which)."
-                },
-                rules: [
-                    { name: "النَّعْتُ، وَالْمَنْعُوتُ (al-na't, wa-al-man'ūt - the adjective, and the noun described)", arabicText: "عَبَّاسٌ تَاجِرٌ غَنِيٌّ. (تَاجِرٌ: مَنْعُوتٌ، غَنِيٌّ: نَعْتٌ). النَّعْتُ يَتْبَعُ الْمَنْعُوتَ فِي التَّذْكِيرِ والتَّأْنيث، والتَّعْرِيفِ والتَّنْكِيرِ، والإِعْرَابِ، والإِفْرَادِ.", explanation: "Example: عَبَّاسٌ تَاجِرٌ غَنِيٌّ ('Abbāsun tājirun ghaniyyun - Abbas is a rich merchant). تَاجِرٌ is man'ūt, غَنِيٌّ is na't. The na't follows the man'ūt in gender, definiteness, case (i'rāb), and number." },
-                    { name: "الَّذِي (alladhī - who/which)", arabicText: "الَّذِي : اسْمٌ مَوْصُولٌ لِلْمُفْرَدِ الْمُذَكَّرِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.", explanation: "Is a relative pronoun for a singular, masculine, rational or irrational noun." }
-                ]
+              name: 'إزالة التنوين مع ال (Tanween removal with ال)',
+              arabicText: 'يُحْذَفُ التَّنْوِينُ عِنْدَ دُخُولِ (ال).',
+              explanation: 'When (ال) enters a noun, the tanween (nunation) is removed.',
             },
             {
-                id: "lesson10",
-                title: "الدرس العاشر",
-                englishTitle: "Lesson 10",
-                introduction: {
-                    arabic: "يشرح هذا الدرس أنواع الضمائر (المتكلم، المخاطب، الغائب)، واستخدام 'عِنْدِي' و 'لِي'، وظرف المكان 'مَعَ'، وقاعدة الأسماء المذكرة المختومة بتاء التأنيث.",
-                    english: "This lesson explains types of pronouns (first, second, third person), the use of 'عِنْدِي' (I have - for things) and 'لِي' (I have - for people), the adverb of place 'مَعَ' (with), and the rule for masculine proper nouns ending with ة."
-                },
-                rules: [
-                    { name: "الضَّمَائِرُ (al-ḍamā'ir - pronouns)", arabicText: "الضَّمَائِرُ ثَلاثَةٌ: ١- الْمُتَكَلِّمُ (أَنَا، بَيْتِي). ٢- الْمُخَاطَبُ (أَنْتَ، بَيْتُكَ). ٣- الْغَائِبُ (هُوَ، بَيْتُهُ).", explanation: "Pronouns are of three types: First person (e.g., أَنَا - I, بَيْتِي - my house), Second person (e.g., أَنْتَ - you (m.sg.), بَيْتُكَ - your (m.sg.) house), Third person (e.g., هُوَ - he/it, بَيْتُهُ - his/its house)." },
-                    { name: "عِنْدِي، لِي ('indī - I have [non-rational], lī - I have [rational])", arabicText: "عِنْدِي: لِغَيْرِ الْعَاقِلِ (عِنْدِي كِتَابٌ). لِي: لِلْعَاقِلِ (لِي أُخْتٌ).", explanation: "عِنْدِي is used for non-rational things (e.g., I have a book). لِي is used for rational beings (e.g., I have a sister)." },
-                    { name: "مَعَ (ma'a - with)", arabicText: "مَعَ: ظَرْفُ مَكَانٍ، الاِسْمُ الَّذِي بَعْدَهُ مَجْرُورٌ بِالْكَسْرَةِ (مُضَافٌ إِلَيْهِ).", explanation: "Is an adverb of place. The noun following it is genitive (muḍāf ilayhi)." },
-                    { name: "الْعَلَمُ الْمُذَكَّرُ الْمَخْتُومُ بِتَاءِ التَّأْنِيثِ لَا يُنَوَّنُ (Masculine proper nouns ending with ة do not take tanween)", arabicText: "مُحَمَّدٌ: حَمْزَةُ، خَالِدٌ: طَلْحَةُ.", explanation: "Masculine proper nouns ending with ة (tā' marbūṭah) do not take tanween (e.g., حَمْزَةُ, طَلْحَةُ)." }
-                ]
+              name: 'النَّكِرَةُ (al-nakirah - indefinite)',
+              arabicText:
+                'النَّكِرَةُ : شَيْءٌ غَيْرُ مُعَيَّنٍ ، نَحْوُ : بَيْتٌ ، قَلَمٌ ، رَجُلٌ ، بِنْتٌ.',
+              explanation:
+                'Refers to an unspecified thing, e.g., بَيْتٌ (baytun - a house), قَلَمٌ (qalamun - a pen), رَجُلٌ (rajulun - a man), بِنْتٌ (bintun - a girl).',
             },
             {
-                id: "lesson11",
-                title: "الدرس الحادي عشر",
-                englishTitle: "Lesson 11",
-                introduction: {
-                    arabic: "يتناول هذا الدرس استخدام حرف الجر 'فِي' مع ضمير الغائب، وياء المتكلم.",
-                    english: "This lesson covers the use of the preposition 'فِي' (in) with the third-person pronoun, and the first-person possessive suffix 'يَاءُ الْمُتَكَلِّمِ'."
-                },
-                rules: [
-                    { name: "فِي + ضَمِيرُ الْغَائِبِ (fī + third person pronoun)", arabicText: "ضَمِيرُ الْغَائِبِ الْمُذَكَّرِ: فِيهِ. ضَمِيرُ الْغَائِبِ الْمُؤَنَّثِ: فِيهَا.", explanation: "Masculine: فِيهِ (fīhi - in it/him). Feminine: فِيهَا (fīhā - in it/her)." },
-                    { name: "يَاءُ الْمُتَكَلِّمِ (yā' al-mutakallim - the 'ya' of the first person)", arabicText: "يَاءُ الْمُتَكَلِّمِ: ضَمِيرٌ لِلْمُتَكَلِّمِ (بَيْتِي، غُرْفَتِي).", explanation: "Is a pronoun for the first person, indicating possession (e.g., بَيْتِي - my house)." }
-                ]
+              name: "الْمَعْرِفَةُ (al-ma'rifah - definite)",
+              arabicText:
+                'الْمَعْرِفَةُ : شَيْءٌ مُعَيَّنٌ ، نَحْوُ : الْبَيْتُ ، الْقَلَمُ ، الرَّجُلُ ، الْبِنْتُ.',
+              explanation:
+                'Refers to a specific thing, e.g., الْبَيْتُ (al-baytu - the house), الْقَلَمُ (al-qalamu - the pen), الرَّجُلُ (al-rajulu - the man), الْبِنْتُ (al-bintu - the girl).',
             },
             {
-                id: "lesson12",
-                title: "الدرس الثاني عشر",
-                englishTitle: "Lesson 12",
-                introduction: {
-                    arabic: "يشرح هذا الدرس كاف المخاطب، والضميرين 'أَنَا' و 'أَنْتَ'، وتأنيث الفاعل، والاسمين الموصولين 'الَّذِي' و 'الَّتِي'.",
-                    english: "This lesson explains the second-person possessive suffix 'كَافُ الْمُخَاطَبِ', the pronouns 'أَنَا' (I) and 'أَنْتَ' (you), feminization of the doer, and the relative pronouns 'الَّذِي' and 'الَّتِي'."
-                },
-                rules: [
-                    { name: "كَافُ الْمُخَاطَبِ (kāf al-mukhāṭab - the 'kaf' of the second person)", arabicText: "ضَمِيرُ الْمُخَاطَبِ الْمُذَكَّرِ: كَ (مَا اسْمُكَ؟). ضَمِيرُ الْمُخَاطَبِ الْمُؤَنَّثِ: كِ (مَا اسْمُكِ؟).", explanation: "Masculine singular: كَ (ka) (e.g., your (m.sg.) name). Feminine singular: كِ (ki) (e.g., your (f.sg.) name)." },
-                    { name: "أَنَا، وَأَنْتَ (anā - I, anta - you (m.sg.))", arabicText: "أَنَا: ضَمِيرٌ لِلْمُتَكَلِّمِ (أَنَا طَالِبٌ). أَنْتَ: ضَمِيرٌ لِلْمُخَاطَبِ الْمُذَكَّرِ (أَنْتَ مُهَنْدِسٌ). أَنْتِ: ضَمِيرٌ لِلْمُخَاطَبِ الْمُؤَنَّثِ (أَنْتِ طَبِيبَةٌ).", explanation: "أَنَا for first person (m/f). أَنْتَ for second person masculine singular. أَنْتِ for second person feminine singular." },
-                    { name: "تَأْنِيثُ الْفَاعِلِ (Feminization of the doer)", arabicText: "خَرَجَ مُحَمَّدٌ (فِعْلٌ + فَاعِلٌ). خَرَجَتْ آمِنَةُ (فِعْلٌ + فَاعِلٌ).", explanation: "The verb agrees in gender with the doer. Example: خَرَجَ مُحَمَّدٌ (Muhammad went out). خَرَجَتْ آمِنَةُ (Amina went out)." },
-                    { name: "الَّذِي، الَّتِي (alladhī - who/which (m.), allatī - who/which (f.))", arabicText: "الَّذِي: اسْمٌ مَوْصُولٌ لِلْمُفْرَدِ الْمُذَكَّرِ. الَّتِي: اسْمٌ مَوْصُولٌ لِلْمُفْرَدِ الْمُؤَنَّثِ.", explanation: "الَّذِي is for singular masculine (rational/irrational). الَّتِي is for singular feminine (rational/irrational)." },
-                    { name: "التقاء الساكنين (Meeting of two sukoons)", arabicText: "ذَهَبَتِ الطَّالِبَةُ: أَصْلُهُ: ذَهَبَتْ الطَّالِبَةُ - ذَهَبَتْ + ال -> ذَهَبَتِ الْ.", explanation: "Example: ذَهَبَتِ الطَّالِبَةُ (the female student went). The kasrah on the تْ is to prevent the meeting of two sukoons." }
-                ]
+              name: 'الْحُرُوفُ الْقَمَرِيَّةُ (al-ḥurūf al-qamariyyah - lunar letters)',
+              arabicText: 'الْحُرُوفُ الْقَمَرِيَّةُ : يُنْطَقُ السُّكُونُ عَلَى اللام ( القمر ).',
+              explanation: 'The sukoon on the lām (ل) is pronounced (e.g., الْقَمَرُ - al-qamar).',
             },
             {
-                id: "lesson13",
-                title: "الدرس الثالث عشر",
-                englishTitle: "Lesson 13",
-                introduction: {
-                    arabic: "يتناول هذا الدرس اسم الإشارة للجمع القريب 'هَؤُلَاءِ'، وضمير الجمع الغائب المذكر 'هُمْ'، وإضافة الأسماء إلى الاسم الظاهر والضمير، وواو الجماعة، وضمير الجمع الغائب المؤنث 'هُنَّ'، وتاء التأنيث، ونون النسوة، واسم الإشارة للجمع البعيد 'أُولَئِكَ'.",
-                    english: "This lesson covers the demonstrative pronoun for near plural 'هَؤُلَاءِ', third-person plural masculine pronoun 'هُمْ', attaching nouns to apparent nouns and pronouns, the 'wāw' of plural, third-person plural feminine pronoun 'هُنَّ', the 'tā'' of feminization, the 'nūn' of women, and the demonstrative pronoun for distant plural 'أُولَئِكَ'."
-                },
-                rules: [
-                    { name: "هَؤُلَاءِ (hā'ulā'i - these)", arabicText: "هَؤُلَاءِ: اِسْمُ إِشَارَةٍ لِلْجَمْعِ الْقَرِيبِ الْعَاقِلِ الْمُذَكَّرِ، وَالْمُؤَنَّثِ.", explanation: "Is a demonstrative pronoun for a plural, near, rational, masculine or feminine noun." },
-                    { name: "هُمْ (hum - they (m.pl.))", arabicText: "هُمْ: ضَمِيرُ جَمْعِ الْغَائِبِ الْمُذَكَّرِ الْعَاقِلِ.", explanation: "Is a plural third-person masculine rational pronoun." },
-                    { name: "إِضَافَةُ الْأَسْمَاءِ إِلَى الاسْمِ الظَّاهِرِ، وَالضَّمِيرِ (Attaching nouns to apparent nouns and pronouns)", arabicText: "الاسْمُ الظَّاهِرُ: أَبْنَاءُ مُحَمَّدٍ. الضَّمِيرُ: أَبْنَاؤُهُ.", explanation: "Nouns can be attached (iḍāfah) to apparent nouns (e.g., sons of Muhammad) or pronouns (e.g., his sons)." },
-                    { name: "وَاوُ الْجَمَاعَةِ (wāw al-jamā'ah - the 'waw' of the plural)", arabicText: "وَاوُ الْجَمَاعَةِ: ضَمِيرٌ لِلْمُذَكَّرِ الْعَاقِلِ يَتَّصِلُ بِالْفِعْلِ، وَهُوَ الْفَاعِلُ (ذَهَبُوا).", explanation: "Is a pronoun for masculine rational beings that attaches to the verb and is the doer (e.g., ذَهَبُوا - they (m.) went)." },
-                    { name: "هُنَّ (hunna - they (f.pl.))", arabicText: "هُنَّ: ضَمِيرُ جَمْعِ الْغَائِبِ الْمُؤَنَّثِ الْعَاقِلِ.", explanation: "Is a plural third-person feminine rational pronoun." },
-                    { name: "تَاءُ التَّأْنِيثِ (tā' al-ta'nīth - the 'ta' of feminization)", arabicText: "تَاءُ التَّأْنِيثِ: حَرْفٌ سَاكِنٌ يَتَّصِلُ بِالْفِعْلِ، وَيَدُلُّ عَلَى أَنَّ الْفَاعِلَ مُؤَنَّثٌ (خَرَجَتْ فَاطِمَةُ).", explanation: "Is a silent letter that attaches to the verb and indicates that the doer is feminine." },
-                    { name: "نُونُ النِّسْوَةِ (nūn al-niswah - the 'nun' of women)", arabicText: "نُونُ النِّسْوَةِ: ضَمِيرٌ لِلْمُؤَنَّثِ الْعَاقِلِ يَتَّصِلُ بِالْفِعْلِ، وَهُوَ الْفَاعِلُ (الطَّبِيبَاتُ خَرَجْنَ).", explanation: "Is a pronoun for feminine rational beings that attaches to the verb and is the doer." },
-                    { name: "أُولَئِكَ (ulā'ika - those)", arabicText: "أُولَئِكَ: اسْمُ إِشَارَةٍ لِلْجَمْعِ الْبَعِيدِ الْعَاقِلِ الْمُذَكَّرِ، وَالْمُؤَنَّثِ.", explanation: "Is a demonstrative pronoun for a plural, distant, rational, masculine or feminine noun." }
-                ]
+              name: 'الْحُرُوفُ الشَّمْسِيَّةُ (al-ḥurūf al-shamsiyyah - solar letters)',
+              arabicText:
+                'الْحُرُوفُ الشَّمْسِيَّةُ : لا يُنْطَقُ السُّكُونَ عَلَى اللام ، وَتُوضَعُ شَدَّةٌ عَلَى الْحَرْفِ الَّذِي بَعْدَهُ ( الشمس ).',
+              explanation:
+                'The sukoon on the lām (ل) is not pronounced, and a shaddah is placed on the letter that follows (e.g., الشَّمْسُ - al-shams).',
+            },
+          ],
+        },
+        {
+          id: 'lesson4',
+          title: 'الدرس الرابع',
+          englishTitle: 'Lesson 4',
+          introduction: {
+            arabic:
+              'هذا القسم يغطي الدرس الرابع. ستتعلم عن حروف الجر، وأسئلة المكان، وقاعدة الأسماء المؤنثة العلم.',
+            english:
+              'This section covers Lesson 4. You will learn about prepositions, questions about place, and the rule for feminine proper nouns.',
+          },
+          rules: [
+            {
+              name: 'حُرُوفُ الْجَرِّ (ḥurūf al-jarr - prepositions)',
+              arabicText:
+                'حُرُوفُ الْجَرِّ ( فِي ، عَلَى ، مِنْ ، إِلَى ) : تَجُرُّ الاسْمَ الَّذِي بَعْدَهَا بِالْكَسْرَةِ.',
+              explanation:
+                "(فِي - fī - in, عَلَى - 'alā - on, مِنْ - min - from, إِلَى - ilā - to): These prepositions cause the noun following them to take a kasrah.",
             },
             {
-                id: "lesson14",
-                title: "الدرس الرابع عشر",
-                englishTitle: "Lesson 14",
-                introduction: {
-                    arabic: "يشرح هذا الدرس إضافة الأسماء إلى ضميري المخاطبين والمتكلمين (الجمع)، والضميرين 'نَحْنُ' و 'أَنْتُمْ'، واسم الاستفهام 'أَيُّ'، وضمير المخاطب المتصل بالفعل.",
-                    english: "This lesson explains attaching nouns to second and first person plural pronouns, the pronouns 'نَحْنُ' (we) and 'أَنْتُمْ' (you m.pl.), the interrogative 'أَيُّ' (which), and second person pronouns attached to verbs."
-                },
-                rules: [
-                    { name: "إِضَافَةُ الْأَسْمَاءِ إِلَى ضَمِيرَي الْمُخَاطَبِينَ وَالْمُتَكَلِّمِينَ (Attaching nouns to 2nd/1st person plural pronouns)", arabicText: "ضَمِيرُ الْمُخَاطَبِينَ (كُمْ): رَبُّكُمْ. ضَمِيرُ الْمُتَكَلِّمِينَ (نَا): رَبُّنَا.", explanation: "Second person plural (كُمْ - kum): e.g., your (pl.m.) Lord. First person plural (نَا - nā): e.g., our Lord." },
-                    { name: "نَحْنُ، أَنْتُمْ (naḥnu - we, antum - you (m.pl.))", arabicText: "نَحْنُ: ضَمِيرُ الْجَمْعِ لِلْمُتَكَلِّمِ (نَحْنُ مُسْلِمُونَ). أَنْتُمْ: ضَمِيرُ الْجَمْعِ لِلْمُخَاطَبِ (أَنْتُمْ مُسْلِمُونَ).", explanation: "نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine." },
-                    { name: "أَيُّ (ayyu - which/what)", arabicText: "أَيُّ: اسْمُ اسْتِفْهَامٍ لِلْعَاقِلِ وَغَيْرِ الْعَاقِلِ، وَالاسْمُ الَّذِي بَعْدَهُ مُضَافٌ إِلَيْهِ.", explanation: "Is an interrogative noun for rational and non-rational beings. The noun following it is muḍāf ilayhi." },
-                    { name: "ضَمِيرُ الْمُخَاطَبِ الْمُتَّصِلِ بِالْفِعْلِ (Second person pronoun attached to the verb)", arabicText: "الْمُفْرَدُ الْمُذَكَّرُ: ذَهَبْتَ. الْمُفْرَدُ الْمُؤَنَّثُ: ذَهَبْتِ. الْجَمْعُ الْمُذَكَّرُ: ذَهَبْتُمْ. الْجَمْعُ الْمُؤَنَّثُ: ذَهَبْتُنَّ.", explanation: "Singular masculine: تَ (ta). Singular feminine: تِ (ti). Plural masculine: تُمْ (tum). Plural feminine: تُنَّ (tunna)." },
-                    { name: "الْعَلَمُ الْأَعْجَمِيُّ (al-'alam al-a'jamī - the foreign proper noun)", arabicText: "الْعَلَمُ الْأَعْجَمِيُّ: لَا يُنَوَّنُ (مَمْنُوعٌ مِنَ الصَّرْفِ) (إِبْرَاهِيمُ، وَلْيَمُ).", explanation: "Does not take tanween (diptote) (e.g., إِبْرَاهِيمُ, وَلْيَمُ)." }
-                ]
+              name: 'أَيْنَ؟ (ayna? - where?)',
+              arabicText: 'أَيْنَ؟ سُؤَالٌ عَنِ الْمَكَانِ.',
+              explanation: 'Is a question about place.',
             },
             {
-                id: "lesson15",
-                title: "الدرس الخامس عشر",
-                englishTitle: "Lesson 15",
-                introduction: {
-                    arabic: "يتناول هذا الدرس ضمائر المخاطب المنفصلة (أَنْتَ، أَنْتِ، أَنْتُمْ، أَنْتُنَّ) والمتصلة (كَ، كِ، كُمْ، كُنَّ)، وجدول للضمائر المتصلة بالفعل والمنفصلة، وظرفي الزمان 'قَبْلَ' و 'بَعْدَ'.",
-                    english: "This lesson covers detached second person pronouns (أَنْتَ, أَنْتِ, أَنْتُمْ, أَنْتُنَّ) and attached ones (كَ, كِ, كُمْ, كُنَّ), tables for pronouns attached to verbs and detached pronouns, and the adverbs of time 'قَبْلَ' (before) and 'بَعْدَ' (after)."
-                },
-                rules: [
-                    { name: "ضَمَائِرُ الْمُخَاطَبِ (Second person pronouns - detached)", arabicText: "أَنْتَ (مفرد مذكر). أَنْتِ (مفرد مؤنث). أَنْتُمْ (جمع مذكر). أَنْتُنَّ (جمع مؤنث).", explanation: "أَنْتَ (m.sg.), أَنْتِ (f.sg.), أَنْتُمْ (m.pl.), أَنْتُنَّ (f.pl.)." },
-                    { name: "كَافُ الْمُخَاطَبِ (Second person pronouns - attached)", arabicText: "كَ (مفرد مذكر). كِ (مفرد مؤنث). كُمْ (جمع مذكر). كُنَّ (جمع مؤنث). تُسَمَّى ضَمَائِرَ مُتَّصِلَةً.", explanation: "كَ (m.sg.), كِ (f.sg.), كُمْ (m.pl.), كُنَّ (f.pl.). These are attached pronouns." },
-                    { name: "الضَّمَائِرُ الْمُنْفَصِلَةُ (Detached pronouns)", arabicText: "الضَّمَائِرُ الْمُنْفَصِلَةُ: تُكْتَبُ، وَتُنْطَقُ فِي أَوَّلِ الْكَلَامِ.", explanation: "Are written and pronounced at the beginning of speech." },
-                    { name: "قَبْلَ، وَبَعْدَ (qabla - before, ba'da - after)", arabicText: "قَبْلَ، وَبَعْدَ: ظَرْفَانِ لِلزَّمَانِ، وَالاسْمُ الَّذِي بَعْدَهُمَا مُضَافٌ إِلَيْهِ.", explanation: "Are adverbs of time. The noun following them is muḍāf ilayhi." }
-                ]
+              name: 'مَاذَا؟ (mādhā? - what?)',
+              arabicText: 'مَاذَا؟ = مَا هَذَا؟ لِغَيْرِ الْعَاقِلِ.',
+              explanation: 'Is equivalent to مَا هَذَا؟ (mā hādhā?) for non-rational things.',
             },
             {
-                id: "lesson16_17",
-                title: "الدرسان السادس عشر والسابع عشر",
-                englishTitle: "Lessons 16 & 17",
-                introduction: {
-                    arabic: "يركز هذان الدرسان على المبتدأ والخبر، والإشارة إلى جمع غير العاقل.",
-                    english: "These lessons focus on the subject (المبتدأ) and predicate (الخبر), and pointing to the plural of non-rational nouns."
-                },
-                rules: [
-                    { name: "الْمُبْتَدَأُ (al-mubtada' - subject)", arabicText: "الْمُبْتَدَأُ: اسْمٌ يَقَعُ فِي أَوَّلِ الْجُمْلَةِ.", explanation: "Is a noun that occurs at the beginning of a sentence." },
-                    { name: "الْخَبَرُ (al-khabar - predicate)", arabicText: "الْخَبَرُ: اسْمٌ يَقَعُ بَعْدَ الْمُبْتَدَأِ، وَتَحْصُلُ بِهِ الْفَائِدَةُ.", explanation: "Is a noun that occurs after the mubtada', and with it, the meaning is completed." },
-                    { name: "الإِشَارَةُ إِلَى جَمْعِ غَيْرِ الْعَاقِلِ (Pointing to the plural of non-rational nouns)", arabicText: "الْجَمْعُ غَيْرُ الْعَاقِلِ لِلْقَرِيبِ (هَذِهِ): هَذِهِ كُتُبٌ. الْجَمْعُ غَيْرُ الْعَاقِلِ لِلْبَعِيدِ (تِلْكَ): تِلْكَ كُتُبٌ.", explanation: "For the near plural non-rational, هَذِهِ (hādihi) is used. For the distant plural non-rational, تِلْكَ (tilka) is used." },
-                    { name: "تركيب جملة الإشارة لجمع غير العاقل (Structure of sentences pointing to non-rational plural)", arabicText: "هَذِهِ الْأَبْوَابُ مَفْتُوحَةٌ (هَذِهِ: مُبْتَدَأٌ، الْأَبْوَابُ: بَدَلٌ، مَفْتُوحَةٌ: خَبَرٌ).", explanation: "Example: هَذِهِ الْأَبْوَابُ مَفْتُوحَةٌ (These doors are open). هَذِهِ is mubtada', الْأَبْوَابُ is badal, مَفْتُوحَةٌ is khabar." }
-                ]
+              name: 'الْعَلَمُ الْمُؤَنَّثُ لَا يُنَوَّنُ (Feminine proper nouns do not take tanween)',
+              arabicText:
+                'الْعَلَمُ الْمُؤَنَّثُ لَا يُنَوَّنُ (نَحْوُ: آمِنَةُ, فَاطِمَةُ, مَرْيَمُ, عَائِشَةُ).',
+              explanation:
+                'Feminine proper nouns do not take tanween (e.g., آمِنَةُ, فَاطِمَةُ, مَرْيَمُ, عَائِشَةُ).',
             },
             {
-                id: "lesson18",
-                title: "الدرس الثامن عشر",
-                englishTitle: "Lesson 18",
-                introduction: {
-                    arabic: "يتناول هذا الدرس المثنى، واسمي الإشارة للمثنى القريب 'هَذَانِ' و 'هَاتَانِ'، واسم الاستفهام 'كَمْ'.",
-                    english: "This lesson covers the dual (الْمُثَنَّى), the demonstrative pronouns for near dual 'هَذَانِ' (m.) and 'هَاتَانِ' (f.), and the interrogative 'كَمْ' (how many/much)."
-                },
-                rules: [
-                    { name: "الْمُثَنَّى (al-muthannā - the dual)", arabicText: "الْمُثَنَّى: مَا دَلَّ عَلَى اثْنَيْنِ، أَوِ اثْنَتَيْنِ لِلْعَاقِلِ، وَغَيْرِ الْعَاقِلِ.", explanation: "Indicates two, masculine or feminine, rational or irrational." },
-                    { name: "هَذَانِ، وَهَاتَانِ (hādhāni - these two (m.), hātāni - these two (f.))", arabicText: "هَذَانِ: اسْمُ إِشَارَةٍ لِلْمُثَنَّى الْقَرِيبِ الْمُذَكَّرِ. هَاتَانِ: اسْمُ إِشَارَةٍ لِلْمُثَنَّى الْقَرِيبِ الْمُؤَنَّثِ.", explanation: "هَذَانِ for near dual masculine. هَاتَانِ for near dual feminine." },
-                    { name: "كَمْ (kam - how many/much?)", arabicText: "كَمْ: اسْمُ اسْتِفْهَامٍ يَدُلُّ عَلَى الْعَدَدِ، وَالاسْمُ الَّذِي بَعْدَهُ مَنْصُوبٌ يُسَمَّى تَمْيِيزًا.", explanation: "Is an interrogative noun indicating number. The noun following it is accusative (manṣūb) and is called tamyīz (specification)." }
-                ]
+              name: 'مِنَ الْبَيْتِ (mina al-bayti - from the house)',
+              arabicText:
+                'مِنَ الْبَيْتِ : أَصْلُهُ : مِنْ الْبَيْتِ - مِنْ + ال -> مِنَ الْ. حُرِّكَتِ النُّونُ بِالْفَتْحَةِ مَنْعاً لالْتِقَاءِ السَّاكِنَيْنِ.',
+              explanation:
+                'Its origin is مِنْ الْبَيْتِ (min al-bayti). The noon (ن) is given a fatḥah to prevent the meeting of two sukoons.',
+            },
+          ],
+        },
+        {
+          id: 'lesson5',
+          title: 'الدرس الخامس',
+          englishTitle: 'Lesson 5',
+          introduction: {
+            arabic:
+              'يستعرض هذا الدرس مفهوم الإضافة (المضاف والمضاف إليه) وكيفية استخدام أداة النداء (يا).',
+            english:
+              'This lesson covers the concept of Iḍāfah (possessive construction) and the use of the vocative particle (Yā).',
+          },
+          rules: [
+            {
+              name: 'الْمُضَافُ، وَالْمُضَافُ إِلَيْهِ (al-muḍāf, wa-al-muḍāf ilayhi - the possessed, and the possessor)',
+              arabicText:
+                "كِتَابٌ + مُحَمَّدٌ -> كِتَابُ مُحَمَّدٍ. (كِتَابُ: مُضَافٌ، مُحَمَّدٍ: مُضَافٌ إِلَيْهِ). نَحْذِفُ التَّنْوِينَ عِنْدَ الإِضَافَةِ. نَحْذِفُ 'ال' عِنْدَ الإِضَافَةِ. الْمُضَافُ إِلَيْهِ مَجْرُورٌ بِالْكَسْرَةِ.",
+              explanation:
+                'The possessive construction. Tanween is removed from the muḍāf. The definite article (ال) is removed from the muḍāf. The muḍāf ilayhi is genitive (majroor), indicated by a kasrah.',
             },
             {
-                id: "lesson19_20",
-                title: "الدرسان التاسع عشر والعشرون",
-                englishTitle: "Lessons 19 & 20",
-                introduction: {
-                    arabic: "يشرح هذان الدرسان قواعد العدد من ٣ إلى ١٠، وكيفية مخالفته للمعدود في التذكير والتأنيث، وكون المعدود جمعاً مجروراً بالإضافة.",
-                    english: "These lessons explain the rules for numbers from 3 to 10, how they oppose the counted noun in gender, and how the counted noun is plural and genitive through iḍāfah."
-                },
-                rules: [
-                    { name: "الْعَدَدُ مِنْ ٣ إِلَى ١٠ (Numbers from 3 to 10)", arabicText: "الْعَدَدُ مِنْ (٣ إلى ١٠) يُخَالِفُ الْمَعْدُودَ فِي التَّذْكِيرِ، وَالتَّأْنِيثِ. وَالْمَعْدُودُ يَكُونُ جَمْعاً مَجْرُوراً بِالإِضَافَةِ (أَيْ يَكُونُ: مُضَافَاً إِلَيْهِ).", explanation: "The number from 3 to 10 opposes the counted noun (ma'dūd) in gender. The ma'dūd is plural and genitive (muḍāf ilayhi)." },
-                    { name: "الحكم في تذكير العدد وتأنيثه (Determining gender of the number)", arabicText: "الْحُكْمُ فِي تَذْكِيرِ الْعَدَدِ، وَتَأْنِيثِهِ عَلَى الْمُفْرَدِ فِي الْمَعْدُودِ، وَلَيْسَ عَلَى الْجَمْعِ.", explanation: "The gender of the number (for 3-10) is determined by the gender of the singular form of the ma'dūd, not its plural form." }
-                ]
+              name: 'الْمُنَادَى (al-munādā - the one called)',
+              arabicText: 'يَا مُحَمَّدُ. (يَا شَيْخُ - نَحْذِفُ التَّنْوِينَ عِنْدَ النِّدَاءِ).',
+              explanation:
+                'The vocative. Tanween is removed from the noun when it is called using يَا (yā - O) (e.g., يَا شَيْخُ - yā shaykhu).',
             },
             {
-                id: "lesson21",
-                title: "الدرس الحادي والعشرون",
-                englishTitle: "Lesson 21",
-                introduction: {
-                    arabic: "هذا الدرس عبارة عن مراجعة شاملة للدروس السابقة، ويجمع العديد من القواعد التي تم تعلمها.",
-                    english: "This lesson is a comprehensive review of previous lessons, consolidating many of the rules learned."
-                },
-                rules: [
-                    { name: "مراجعة أسماء الإشارة للقريب المذكر (Review: Demonstrative Pronouns - Near Masculine)", arabicText: "هَذَا فَصْلُنَا. هَذَا مُدَرِّسُنَا.", explanation: "e.g., This is our classroom. This is our teacher." },
-                    { name: "مراجعة أسماء الإشارة للقريب المؤنث (Review: Demonstrative Pronouns - Near Feminine)", arabicText: "هَذِهِ مَدْرَسَتِي. هَذِهِ مُدَرِّسَتُنَا.", explanation: "e.g., This is my school. This is our (female) teacher." },
-                    { name: "مراجعة أسماء الإشارة للبعيد المذكر (Review: Demonstrative Pronouns - Distant Masculine)", arabicText: "ذَاكَ كُرْسِيُّهُ. ذَاكَ مُحَمَّدٌ.", explanation: "e.g., That is his chair. That is Muhammad." },
-                    { name: "مراجعة أسماء الإشارة للبعيد المؤنث (Review: Demonstrative Pronouns - Distant Feminine)", arabicText: "تِلْكَ مَكَاتِبُ الطُّلَابِ. تِلْكَ فَاطِمَةُ.", explanation: "e.g., Those are the students' desks. That is Fatima." },
-                    { name: "مراجعة ياء المتكلم (Review: First Person Possessive Suffix)", arabicText: "هَذِهِ مَدْرَسَتِي. هَؤُلَاءِ أَصْدِقَائِي.", explanation: "e.g., This is my school. These are my friends." },
-                    { name: "مراجعة ضمير الجمع للمتكلم (Review: First Person Plural Pronoun)", arabicText: "هَذَا فَصْلُنَا. نَحْنُ نُحِبُّهُ.", explanation: "e.g., This is our classroom. We love him/it." },
-                    { name: "مراجعة ضمير الغائب للمفرد المذكر (Review: Third Person Singular Masculine Pronoun)", arabicText: "هُوَ فَصْلٌ وَاسِعٌ. هُوَ مِنَ الْيَابَانِ.", explanation: "e.g., It is a spacious classroom. He is from Japan." },
-                    { name: "مراجعة ضمير الغائب للمفرد المؤنث (Review: Third Person Singular Feminine Pronoun)", arabicText: "هِيَ قَرِيبَةٌ. هِيَ مَدْرَسَةٌ كَبِيرَةٌ.", explanation: "e.g., She is near. It is a big school." },
-                    { name: "مراجعة ضمير الغائب للجمع المذكر (Review: Third Person Plural Masculine Pronoun)", arabicText: "كَرَاسِيُّهُمْ. هُمْ مِنْ بِلَادٍ مُخْتَلِفَةٍ.", explanation: "e.g., Their chairs. They are from different countries." },
-                    { name: "مراجعة منعوت ونعت (Review: Described Noun and Adjective)", arabicText: "مَدْرَسَةٌ كَبِيرَةٌ. فَصْلٌ وَاسِعٌ.", explanation: "e.g., A big school. A spacious classroom." },
-                    { name: "مراجعة مضاف ومضاف إليه (Review: Possessive Construction)", arabicText: "مَكْتَبُ الْمُدَرِّسِ. فَصْلُنَا.", explanation: "e.g., The teacher's desk. Our classroom." },
-                    { name: "مراجعة مبتدأ وخبر (Review: Subject and Predicate)", arabicText: "هَذِهِ مَدْرَسَتِي. أَبْوَابُهَا مَفْتُوحَةٌ.", explanation: "e.g., This is my school. Its doors are open." },
-                    { name: "مراجعة المثنى (Review: Dual)", arabicText: "فِيهِ نَافِذَتَانِ كَبِيرَتَانِ. الطَّالِبَانِ مُجْتَهِدَانِ.", explanation: "e.g., It has two big windows. The two students are hardworking." },
-                    { name: "مراجعة العدد (Review: Number)", arabicText: "ثَلَاثَةُ أَبْوَابٍ. عَشَرَةُ طُلَّابٍ.", explanation: "e.g., Three doors. Ten students." },
-                    { name: "مراجعة حرف الجر (Review: Preposition)", arabicText: "فِي الْمَدْرَسَةِ فُصُولٌ. هُمْ مِنْ بِلَادٍ مُخْتَلِفَةٍ.", explanation: "e.g., In the school are classrooms. They are from different countries." }
-                ]
+              name: 'كِتَابُ مَنْ هَذَا؟ (kitābu man hādhā? - whose book is this?)',
+              arabicText: 'كِتَابُ مَنْ هَذَا؟ سُؤَالٌ عَنِ الْعَاقِلِ.',
+              explanation: 'Is a question about a rational being (possessor).',
+            },
+          ],
+        },
+        {
+          id: 'lesson6',
+          title: 'الدرس السادس',
+          englishTitle: 'Lesson 6',
+          introduction: {
+            arabic:
+              'هذا الدرس يتناول اسم الإشارة للمفرد المؤنث القريب (هَذِهِ) والجملة الاسمية ومكوناتها (المبتدأ والخبر).',
+            english:
+              'This lesson covers the demonstrative pronoun for singular feminine near (هَذِهِ - hādhihi) and the nominal sentence with its components (subject and predicate).',
+          },
+          rules: [
+            {
+              name: 'هَذِهِ (hādihi - this/these)',
+              arabicText:
+                'هَذِهِ : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُؤَنَّثِ الْقَرِيبِ الْعَاقِلِ ، وغَيْرِ الْعَاقِلِ.',
+              explanation:
+                'Is a demonstrative pronoun for a singular, feminine, near, rational or irrational noun. (Also used for non-rational plurals, see Lesson 16 & 17).',
             },
             {
-                id: "lesson22_23",
-                title: "الدرسان الثاني والعشرون والثالث والعشرون",
-                englishTitle: "Lessons 22 & 23",
-                introduction: {
-                    arabic: "هذان الدرسان مخصصان لشرح الممنوع من الصرف، وهو الاسم الذي لا يُنوَّن ويُجر بالفتحة نيابة عن الكسرة، مع ذكر أنواعه المختلفة.",
-                    english: "These two lessons are dedicated to explaining diptotes (الْمَمْنُوعُ مِنَ الصَّرْفِ - al-mamnū' min al-ṣarf), which are nouns that do not take tanween and are made genitive with a fatḥah instead of a kasrah, along with their various types."
-                },
-                rules: [
-                    { name: "الْمَمْنُوعُ مِنَ الصَّرْفِ (al-mamnū' min al-ṣarf - Diptotes)", arabicText: "الْمَمْنُوعُ مِنَ الصَّرْفِ: اِسْمٌ لَا يُنَوَّنُ، وَيُجَرُّ بِالْفَتْحَةِ نِيَابَةً عَنِ الْكَسْرَةِ.", explanation: "Is a noun that does not take tanween and is made genitive (majroor) with a fatḥah instead of a kasrah." },
-                    { name: "أنواع الأسماء الممنوعة من الصرف (Types of Diptotes)", arabicText: "١- الْعَلَمُ الْمُؤَنَّثُ (مَرْيَمُ). ٢- الْعَلَمُ الْمُؤَنَّثُ لَفْظًا (حَمْزَةُ). ٣- الْعَلَمُ الْمَخْتُومُ بِأَلِفٍ وَنُونٍ زَائِدَتَيْنِ (عُثْمَانُ). ٤- الْعَلَمُ الَّذِي عَلَى وَزْنِ الْفِعْلِ (أَحْمَدُ). ٥- الْعَلَمُ الْأَعْجَمِيُّ (إِبْرَاهِيمُ). ٦- الصِّفَةُ الَّتِي عَلَى وَزْنِ أَفْعَلَ (أَبْيَضُ). ٧- الصِّفَةُ الَّتِي عَلَى وَزْنِ فَعْلَانَ (كَسْلَانُ). ٨- الاِسْمُ الْمَخْتُومُ بِأَلِفِ مَمْدُودَةٍ (أَغْنِيَاءُ، فُقَرَاءُ). ٩- الاِسْمُ الَّذِي عَلَى وَزْنِ مَفَاعِلَ (مَسَاجِدُ). ١٠- الاِسْمُ الَّذِي عَلَى وَزْنِ مَفَاعِيلَ (مَنَادِيلُ).", explanation: "Includes: Feminine proper nouns (e.g., Maryam), masculine proper nouns feminine in form (e.g., Hamza), proper nouns ending with extra alif & noon (e.g., Uthman), proper nouns on verb pattern (e.g., Ahmad), foreign proper nouns (e.g., Ibrahim), adjectives on af'alu pattern (e.g., white), adjectives on fa'lānu pattern (e.g., lazy), nouns ending with extended alif (e.g., rich, poor), nouns on mafā'ilu pattern (e.g., mosques), nouns on mafā'īlu pattern (e.g., handkerchiefs)." },
-                    { name: "جر الممنوع من الصرف بالفتحة (Making Diptotes Genitive with Fatḥah)", arabicText: "ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.", explanation: "Diptotes are made genitive with a fatḥah, whether by a preposition (e.g., to Zaynab_a_) or by iḍāfah (e.g., Zaynab_a_'s house)." }
-                ]
-            }
-        ];
+              name: 'الْجُمْلَةُ الاسْمِيَّةُ (al-jumlah al-ismiyyah - the nominal sentence)',
+              arabicText:
+                'الْجُمْلَةُ الاسْمِيَّةُ : تَتَكَوَّنُ مِنْ كَلِمَتَيْنِ تُفِيدَانِ مَعْنَى تَامّاً مُفيداً . ( وَتُسَمَّى جُمْلَةً مُفِيدَةً ).',
+              explanation:
+                'Consists of two words that form a complete, beneficial meaning. It is also called جُمْلَةٌ مُفِيدَةٌ (jumlah mufīdah - a beneficial sentence).',
+            },
+            {
+              name: "مُبْتَدَأٌ وَ خَبَرٌ (mubtada' wa khabar - subject and predicate)",
+              arabicText: 'مُحَمَّدٌ طَالِبٌ ( مُحَمَّدٌ : مُبْتَدَأٌ، طَالِبٌ : خَبَرٌ ).',
+              explanation:
+                "A nominal sentence has a مُبْتَدَأٌ (mubtada' - subject) and a خَبَرٌ (khabar - predicate) (e.g., مُحَمَّدٌ طَالِبٌ - Muḥammadun ṭālibun - Muhammad is a student; مُحَمَّدٌ is mubtada', طَالِبٌ is khabar).",
+            },
+          ],
+        },
+        {
+          id: 'lesson7',
+          title: 'الدرس السابع',
+          englishTitle: 'Lesson 7',
+          introduction: {
+            arabic:
+              'يركز هذا الدرس على اسم الإشارة للمفرد المؤنث البعيد (تِلْكَ) مع أمثلة توضيحية.',
+            english:
+              'This lesson focuses on the demonstrative pronoun for singular feminine distant (تِلْكَ - tilka) with illustrative examples.',
+          },
+          rules: [
+            {
+              name: 'تِلْكَ (tilka - that/those)',
+              arabicText:
+                'تِلْكَ : اِسْمُ إِشَارَةٍ لِلْمُفْرَدِ الْمُؤَنَّثِ الْبَعِيدِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.',
+              explanation:
+                'Is a demonstrative pronoun for a singular, feminine, distant, rational or irrational noun. (Also used for non-rational plurals, see Lesson 16 & 17).',
+            },
+            {
+              name: 'همزة الاستفهام مع أسماء الإشارة (Interrogative Hamzah with Demonstrative Pronouns)',
+              arabicText:
+                'أَسَاعَةُ عَبَّاسٍ هَذِهِ؟ لا. هَذِهِ سَاعَةُ حَامِدٍ، تِلْكَ سَاعَةُ عَبَّاسٍ. (فِي هَذَا الْمِثَالِ : هَمْزَةُ الاسْتِفْهَامِ ( أ ) الْجَوَابُ بِ : نَعَمْ ، أَوْ لا . هَذِهِ : اسْمُ إِشَارَةٍ لِلْمُؤَنَّثِ الْقَرِيبِ غَيْرِ الْعَاقِلِ ( سَاعَة ) . حَامِدٍ : مُضَافٌ إِلَيْهِ . تِلْكَ : اسْمُ إِشَارَةٍ لِلْمُؤَنَّثِ الْبَعِيدِ غَيْرِ الْعَاقِلِ ( سَاعَة ) . عَبَّاسٍ : مُضَافٌ إِلَيْهِ).',
+              explanation:
+                "In the example أَسَاعَةُ عَبَّاسٍ هَذِهِ؟ (a-sā'atu 'Abbāsin hādhihi? - Is this Abbas's watch?), هَمْزَةُ الاسْتِفْهَامِ (أ) (hamzat al-istifhām - the interrogative hamzah) expects an answer of نَعَمْ (yes) or لَا (no). In لَا. هَذِهِ سَاعَةُ حَامِدٍ، تِلْكَ سَاعَةُ عَبَّاسٍ, هَذِهِ is for near feminine non-rational, حَامِدٍ is muḍāf ilayhi, تِلْكَ is for distant feminine non-rational, and عَبَّاسٍ is muḍāf ilayhi.",
+            },
+          ],
+        },
+        {
+          id: 'lesson8',
+          title: 'الدرس الثامن',
+          englishTitle: 'Lesson 8',
+          introduction: {
+            arabic:
+              "يشرح هذا الدرس الإشارة إلى الاسم المعرف بـ 'ال'، واستخدام 'لِمَنْ؟'، وظرفي المكان 'أَمَامَ' و 'خَلْفَ'، ومعاني بعض حروف الجر.",
+            english:
+              "This lesson explains pointing to nouns defined with 'ال', the use of 'لِمَنْ؟' (whose?), the adverbs of place 'أَمَامَ' (in front of) and 'خَلْفَ' (behind), and the meanings of some prepositions.",
+          },
+          rules: [
+            {
+              name: "الإِشَارَةُ إِلَى الْمُعَرَّفِ بِأَلْ (Pointing to the definite noun with 'al')",
+              arabicText:
+                'هَذَا الرَّجُلُ تَاجِرٌ. (هَذَا: مُبْتَدَأٌ، الرَّجُلُ: بَدَلٌ، تَاجِرٌ: خَبَرٌ). ذَلِكَ الرَّجُلُ طَبِيبٌ. (ذَلِكَ: مُبْتَدَأٌ، الرَّجُلُ: بَدَلٌ، طَبِيبٌ: خَبَرٌ).',
+              explanation:
+                "Example: هَذَا الرَّجُلُ تَاجِرٌ (hādhā al-rajulu tājirun - This man is a merchant). Here, هَذَا is mubtada' (subject), الرَّجُلُ is badal (substitute/appositive), and تَاجِرٌ is khabar (predicate).",
+            },
+            {
+              name: 'لِمَنْ؟ (liman? - whose?)',
+              arabicText:
+                'لِمَنْ؟ سُؤَالٌ عَنِ الْعَاقِلِ. لِمَنْ هَذَا الْبَيْتُ؟ هَذَا الْبَيْتُ لِلتَّاجِرِ.',
+              explanation:
+                'Is a question about a rational being. The preposition لِ (li - for/belongs to) is a ḥarf jarr (preposition).',
+            },
+            {
+              name: 'أَمَامَ، خَلْفَ (amāma - in front of, khalfa - behind)',
+              arabicText:
+                'السَّبُورَةُ أَمَامَ الطُّلابِ. (أَمَامَ: ظَرْفُ مَكَانٍ، الطُّلابِ: مُضَافٌ إِلَيْهِ).',
+              explanation:
+                'Are adverbs of place (ظَرْفُ مَكَانٍ - ẓarf makān). The noun following them is muḍāf ilayhi.',
+            },
+            {
+              name: 'معاني حروف الجر (Meanings of prepositions)',
+              arabicText:
+                'مِنْ: تُفِيدُ الْبِدَايَةَ. إِلَى: تُفِيدُ النَّهَايَةَ. فِي: تُفِيدُ الظَّرْفِيَّةَ. عَلَى: تُفِيدُ الاسْتِعْلَاءَ. اللام (لِ): تُفِيدُ الْمِلْكَ.',
+              explanation:
+                'مِنْ (from): Indicates the beginning. إِلَى (to): Indicates the end. فِي (in): Indicates containment. عَلَى (on): Indicates on top of. لِ (for): Indicates possession.',
+            },
+          ],
+        },
+        {
+          id: 'lesson9',
+          title: 'الدرس التاسع',
+          englishTitle: 'Lesson 9',
+          introduction: {
+            arabic: "يتناول هذا الدرس النعت والمنعوت (الصفة والموصوف) والاسم الموصول 'الَّذِي'.",
+            english:
+              "This lesson covers the adjective and the described noun (النَّعْتُ وَالْمَنْعُوتُ) and the relative pronoun 'الَّذِي' (who/which).",
+          },
+          rules: [
+            {
+              name: "النَّعْتُ، وَالْمَنْعُوتُ (al-na't, wa-al-man'ūt - the adjective, and the noun described)",
+              arabicText:
+                'عَبَّاسٌ تَاجِرٌ غَنِيٌّ. (تَاجِرٌ: مَنْعُوتٌ، غَنِيٌّ: نَعْتٌ). النَّعْتُ يَتْبَعُ الْمَنْعُوتَ فِي التَّذْكِيرِ والتَّأْنيث، والتَّعْرِيفِ والتَّنْكِيرِ، والإِعْرَابِ، والإِفْرَادِ.',
+              explanation:
+                "Example: عَبَّاسٌ تَاجِرٌ غَنِيٌّ ('Abbāsun tājirun ghaniyyun - Abbas is a rich merchant). تَاجِرٌ is man'ūt, غَنِيٌّ is na't. The na't follows the man'ūt in gender, definiteness, case (i'rāb), and number.",
+            },
+            {
+              name: 'الَّذِي (alladhī - who/which)',
+              arabicText:
+                'الَّذِي : اسْمٌ مَوْصُولٌ لِلْمُفْرَدِ الْمُذَكَّرِ الْعَاقِلِ ، وَغَيْرِ الْعَاقِلِ.',
+              explanation:
+                'Is a relative pronoun for a singular, masculine, rational or irrational noun.',
+            },
+          ],
+        },
+        {
+          id: 'lesson10',
+          title: 'الدرس العاشر',
+          englishTitle: 'Lesson 10',
+          introduction: {
+            arabic:
+              "يشرح هذا الدرس أنواع الضمائر (المتكلم، المخاطب، الغائب)، واستخدام 'عِنْدِي' و 'لِي'، وظرف المكان 'مَعَ'، وقاعدة الأسماء المذكرة المختومة بتاء التأنيث.",
+            english:
+              "This lesson explains types of pronouns (first, second, third person), the use of 'عِنْدِي' (I have - for things) and 'لِي' (I have - for people), the adverb of place 'مَعَ' (with), and the rule for masculine proper nouns ending with ة.",
+          },
+          rules: [
+            {
+              name: "الضَّمَائِرُ (al-ḍamā'ir - pronouns)",
+              arabicText:
+                'الضَّمَائِرُ ثَلاثَةٌ: ١- الْمُتَكَلِّمُ (أَنَا، بَيْتِي). ٢- الْمُخَاطَبُ (أَنْتَ، بَيْتُكَ). ٣- الْغَائِبُ (هُوَ، بَيْتُهُ).',
+              explanation:
+                'Pronouns are of three types: First person (e.g., أَنَا - I, بَيْتِي - my house), Second person (e.g., أَنْتَ - you (m.sg.), بَيْتُكَ - your (m.sg.) house), Third person (e.g., هُوَ - he/it, بَيْتُهُ - his/its house).',
+            },
+            {
+              name: "عِنْدِي، لِي ('indī - I have [non-rational], lī - I have [rational])",
+              arabicText:
+                'عِنْدِي: لِغَيْرِ الْعَاقِلِ (عِنْدِي كِتَابٌ). لِي: لِلْعَاقِلِ (لِي أُخْتٌ).',
+              explanation:
+                'عِنْدِي is used for non-rational things (e.g., I have a book). لِي is used for rational beings (e.g., I have a sister).',
+            },
+            {
+              name: "مَعَ (ma'a - with)",
+              arabicText:
+                'مَعَ: ظَرْفُ مَكَانٍ، الاِسْمُ الَّذِي بَعْدَهُ مَجْرُورٌ بِالْكَسْرَةِ (مُضَافٌ إِلَيْهِ).',
+              explanation:
+                'Is an adverb of place. The noun following it is genitive (muḍāf ilayhi).',
+            },
+            {
+              name: 'الْعَلَمُ الْمُذَكَّرُ الْمَخْتُومُ بِتَاءِ التَّأْنِيثِ لَا يُنَوَّنُ (Masculine proper nouns ending with ة do not take tanween)',
+              arabicText: 'مُحَمَّدٌ: حَمْزَةُ، خَالِدٌ: طَلْحَةُ.',
+              explanation:
+                "Masculine proper nouns ending with ة (tā' marbūṭah) do not take tanween (e.g., حَمْزَةُ, طَلْحَةُ).",
+            },
+          ],
+        },
+        {
+          id: 'lesson11',
+          title: 'الدرس الحادي عشر',
+          englishTitle: 'Lesson 11',
+          introduction: {
+            arabic: "يتناول هذا الدرس استخدام حرف الجر 'فِي' مع ضمير الغائب، وياء المتكلم.",
+            english:
+              "This lesson covers the use of the preposition 'فِي' (in) with the third-person pronoun, and the first-person possessive suffix 'يَاءُ الْمُتَكَلِّمِ'.",
+          },
+          rules: [
+            {
+              name: 'فِي + ضَمِيرُ الْغَائِبِ (fī + third person pronoun)',
+              arabicText:
+                'ضَمِيرُ الْغَائِبِ الْمُذَكَّرِ: فِيهِ. ضَمِيرُ الْغَائِبِ الْمُؤَنَّثِ: فِيهَا.',
+              explanation:
+                'Masculine: فِيهِ (fīhi - in it/him). Feminine: فِيهَا (fīhā - in it/her).',
+            },
+            {
+              name: "يَاءُ الْمُتَكَلِّمِ (yā' al-mutakallim - the 'ya' of the first person)",
+              arabicText: 'يَاءُ الْمُتَكَلِّمِ: ضَمِيرٌ لِلْمُتَكَلِّمِ (بَيْتِي، غُرْفَتِي).',
+              explanation:
+                'Is a pronoun for the first person, indicating possession (e.g., بَيْتِي - my house).',
+            },
+          ],
+        },
+        {
+          id: 'lesson12',
+          title: 'الدرس الثاني عشر',
+          englishTitle: 'Lesson 12',
+          introduction: {
+            arabic:
+              "يشرح هذا الدرس كاف المخاطب، والضميرين 'أَنَا' و 'أَنْتَ'، وتأنيث الفاعل، والاسمين الموصولين 'الَّذِي' و 'الَّتِي'.",
+            english:
+              "This lesson explains the second-person possessive suffix 'كَافُ الْمُخَاطَبِ', the pronouns 'أَنَا' (I) and 'أَنْتَ' (you), feminization of the doer, and the relative pronouns 'الَّذِي' and 'الَّتِي'.",
+          },
+          rules: [
+            {
+              name: "كَافُ الْمُخَاطَبِ (kāf al-mukhāṭab - the 'kaf' of the second person)",
+              arabicText:
+                'ضَمِيرُ الْمُخَاطَبِ الْمُذَكَّرِ: كَ (مَا اسْمُكَ؟). ضَمِيرُ الْمُخَاطَبِ الْمُؤَنَّثِ: كِ (مَا اسْمُكِ؟).',
+              explanation:
+                'Masculine singular: كَ (ka) (e.g., your (m.sg.) name). Feminine singular: كِ (ki) (e.g., your (f.sg.) name).',
+            },
+            {
+              name: 'أَنَا، وَأَنْتَ (anā - I, anta - you (m.sg.))',
+              arabicText:
+                'أَنَا: ضَمِيرٌ لِلْمُتَكَلِّمِ (أَنَا طَالِبٌ). أَنْتَ: ضَمِيرٌ لِلْمُخَاطَبِ الْمُذَكَّرِ (أَنْتَ مُهَنْدِسٌ). أَنْتِ: ضَمِيرٌ لِلْمُخَاطَبِ الْمُؤَنَّثِ (أَنْتِ طَبِيبَةٌ).',
+              explanation:
+                'أَنَا for first person (m/f). أَنْتَ for second person masculine singular. أَنْتِ for second person feminine singular.',
+            },
+            {
+              name: 'تَأْنِيثُ الْفَاعِلِ (Feminization of the doer)',
+              arabicText:
+                'خَرَجَ مُحَمَّدٌ (فِعْلٌ + فَاعِلٌ). خَرَجَتْ آمِنَةُ (فِعْلٌ + فَاعِلٌ).',
+              explanation:
+                'The verb agrees in gender with the doer. Example: خَرَجَ مُحَمَّدٌ (Muhammad went out). خَرَجَتْ آمِنَةُ (Amina went out).',
+            },
+            {
+              name: 'الَّذِي، الَّتِي (alladhī - who/which (m.), allatī - who/which (f.))',
+              arabicText:
+                'الَّذِي: اسْمٌ مَوْصُولٌ لِلْمُفْرَدِ الْمُذَكَّرِ. الَّتِي: اسْمٌ مَوْصُولٌ لِلْمُفْرَدِ الْمُؤَنَّثِ.',
+              explanation:
+                'الَّذِي is for singular masculine (rational/irrational). الَّتِي is for singular feminine (rational/irrational).',
+            },
+            {
+              name: 'التقاء الساكنين (Meeting of two sukoons)',
+              arabicText:
+                'ذَهَبَتِ الطَّالِبَةُ: أَصْلُهُ: ذَهَبَتْ الطَّالِبَةُ - ذَهَبَتْ + ال -> ذَهَبَتِ الْ.',
+              explanation:
+                'Example: ذَهَبَتِ الطَّالِبَةُ (the female student went). The kasrah on the تْ is to prevent the meeting of two sukoons.',
+            },
+          ],
+        },
+        {
+          id: 'lesson13',
+          title: 'الدرس الثالث عشر',
+          englishTitle: 'Lesson 13',
+          introduction: {
+            arabic:
+              "يتناول هذا الدرس اسم الإشارة للجمع القريب 'هَؤُلَاءِ'، وضمير الجمع الغائب المذكر 'هُمْ'، وإضافة الأسماء إلى الاسم الظاهر والضمير، وواو الجماعة، وضمير الجمع الغائب المؤنث 'هُنَّ'، وتاء التأنيث، ونون النسوة، واسم الإشارة للجمع البعيد 'أُولَئِكَ'.",
+            english:
+              "This lesson covers the demonstrative pronoun for near plural 'هَؤُلَاءِ', third-person plural masculine pronoun 'هُمْ', attaching nouns to apparent nouns and pronouns, the 'wāw' of plural, third-person plural feminine pronoun 'هُنَّ', the 'tā'' of feminization, the 'nūn' of women, and the demonstrative pronoun for distant plural 'أُولَئِكَ'.",
+          },
+          rules: [
+            {
+              name: "هَؤُلَاءِ (hā'ulā'i - these)",
+              arabicText:
+                'هَؤُلَاءِ: اِسْمُ إِشَارَةٍ لِلْجَمْعِ الْقَرِيبِ الْعَاقِلِ الْمُذَكَّرِ، وَالْمُؤَنَّثِ.',
+              explanation:
+                'Is a demonstrative pronoun for a plural, near, rational, masculine or feminine noun.',
+            },
+            {
+              name: 'هُمْ (hum - they (m.pl.))',
+              arabicText: 'هُمْ: ضَمِيرُ جَمْعِ الْغَائِبِ الْمُذَكَّرِ الْعَاقِلِ.',
+              explanation: 'Is a plural third-person masculine rational pronoun.',
+            },
+            {
+              name: 'إِضَافَةُ الْأَسْمَاءِ إِلَى الاسْمِ الظَّاهِرِ، وَالضَّمِيرِ (Attaching nouns to apparent nouns and pronouns)',
+              arabicText: 'الاسْمُ الظَّاهِرُ: أَبْنَاءُ مُحَمَّدٍ. الضَّمِيرُ: أَبْنَاؤُهُ.',
+              explanation:
+                'Nouns can be attached (iḍāfah) to apparent nouns (e.g., sons of Muhammad) or pronouns (e.g., his sons).',
+            },
+            {
+              name: "وَاوُ الْجَمَاعَةِ (wāw al-jamā'ah - the 'waw' of the plural)",
+              arabicText:
+                'وَاوُ الْجَمَاعَةِ: ضَمِيرٌ لِلْمُذَكَّرِ الْعَاقِلِ يَتَّصِلُ بِالْفِعْلِ، وَهُوَ الْفَاعِلُ (ذَهَبُوا).',
+              explanation:
+                'Is a pronoun for masculine rational beings that attaches to the verb and is the doer (e.g., ذَهَبُوا - they (m.) went).',
+            },
+            {
+              name: 'هُنَّ (hunna - they (f.pl.))',
+              arabicText: 'هُنَّ: ضَمِيرُ جَمْعِ الْغَائِبِ الْمُؤَنَّثِ الْعَاقِلِ.',
+              explanation: 'Is a plural third-person feminine rational pronoun.',
+            },
+            {
+              name: "تَاءُ التَّأْنِيثِ (tā' al-ta'nīth - the 'ta' of feminization)",
+              arabicText:
+                'تَاءُ التَّأْنِيثِ: حَرْفٌ سَاكِنٌ يَتَّصِلُ بِالْفِعْلِ، وَيَدُلُّ عَلَى أَنَّ الْفَاعِلَ مُؤَنَّثٌ (خَرَجَتْ فَاطِمَةُ).',
+              explanation:
+                'Is a silent letter that attaches to the verb and indicates that the doer is feminine.',
+            },
+            {
+              name: "نُونُ النِّسْوَةِ (nūn al-niswah - the 'nun' of women)",
+              arabicText:
+                'نُونُ النِّسْوَةِ: ضَمِيرٌ لِلْمُؤَنَّثِ الْعَاقِلِ يَتَّصِلُ بِالْفِعْلِ، وَهُوَ الْفَاعِلُ (الطَّبِيبَاتُ خَرَجْنَ).',
+              explanation:
+                'Is a pronoun for feminine rational beings that attaches to the verb and is the doer.',
+            },
+            {
+              name: "أُولَئِكَ (ulā'ika - those)",
+              arabicText:
+                'أُولَئِكَ: اسْمُ إِشَارَةٍ لِلْجَمْعِ الْبَعِيدِ الْعَاقِلِ الْمُذَكَّرِ، وَالْمُؤَنَّثِ.',
+              explanation:
+                'Is a demonstrative pronoun for a plural, distant, rational, masculine or feminine noun.',
+            },
+          ],
+        },
+        {
+          id: 'lesson14',
+          title: 'الدرس الرابع عشر',
+          englishTitle: 'Lesson 14',
+          introduction: {
+            arabic:
+              "يشرح هذا الدرس إضافة الأسماء إلى ضميري المخاطبين والمتكلمين (الجمع)، والضميرين 'نَحْنُ' و 'أَنْتُمْ'، واسم الاستفهام 'أَيُّ'، وضمير المخاطب المتصل بالفعل.",
+            english:
+              "This lesson explains attaching nouns to second and first person plural pronouns, the pronouns 'نَحْنُ' (we) and 'أَنْتُمْ' (you m.pl.), the interrogative 'أَيُّ' (which), and second person pronouns attached to verbs.",
+          },
+          rules: [
+            {
+              name: 'إِضَافَةُ الْأَسْمَاءِ إِلَى ضَمِيرَي الْمُخَاطَبِينَ وَالْمُتَكَلِّمِينَ (Attaching nouns to 2nd/1st person plural pronouns)',
+              arabicText:
+                'ضَمِيرُ الْمُخَاطَبِينَ (كُمْ): رَبُّكُمْ. ضَمِيرُ الْمُتَكَلِّمِينَ (نَا): رَبُّنَا.',
+              explanation:
+                'Second person plural (كُمْ - kum): e.g., your (pl.m.) Lord. First person plural (نَا - nā): e.g., our Lord.',
+            },
+            {
+              name: 'نَحْنُ، أَنْتُمْ (naḥnu - we, antum - you (m.pl.))',
+              arabicText:
+                'نَحْنُ: ضَمِيرُ الْجَمْعِ لِلْمُتَكَلِّمِ (نَحْنُ مُسْلِمُونَ). أَنْتُمْ: ضَمِيرُ الْجَمْعِ لِلْمُخَاطَبِ (أَنْتُمْ مُسْلِمُونَ).',
+              explanation:
+                'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
+            },
+            {
+              name: 'أَيُّ (ayyu - which/what)',
+              arabicText:
+                'أَيُّ: اسْمُ اسْتِفْهَامٍ لِلْعَاقِلِ وَغَيْرِ الْعَاقِلِ، وَالاسْمُ الَّذِي بَعْدَهُ مُضَافٌ إِلَيْهِ.',
+              explanation:
+                'Is an interrogative noun for rational and non-rational beings. The noun following it is muḍāf ilayhi.',
+            },
+            {
+              name: 'ضَمِيرُ الْمُخَاطَبِ الْمُتَّصِلِ بِالْفِعْلِ (Second person pronoun attached to the verb)',
+              arabicText:
+                'الْمُفْرَدُ الْمُذَكَّرُ: ذَهَبْتَ. الْمُفْرَدُ الْمُؤَنَّثُ: ذَهَبْتِ. الْجَمْعُ الْمُذَكَّرُ: ذَهَبْتُمْ. الْجَمْعُ الْمُؤَنَّثُ: ذَهَبْتُنَّ.',
+              explanation:
+                'Singular masculine: تَ (ta). Singular feminine: تِ (ti). Plural masculine: تُمْ (tum). Plural feminine: تُنَّ (tunna).',
+            },
+            {
+              name: "الْعَلَمُ الْأَعْجَمِيُّ (al-'alam al-a'jamī - the foreign proper noun)",
+              arabicText:
+                'الْعَلَمُ الْأَعْجَمِيُّ: لَا يُنَوَّنُ (مَمْنُوعٌ مِنَ الصَّرْفِ) (إِبْرَاهِيمُ، وَلْيَمُ).',
+              explanation: 'Does not take tanween (diptote) (e.g., إِبْرَاهِيمُ, وَلْيَمُ).',
+            },
+          ],
+        },
+        {
+          id: 'lesson15',
+          title: 'الدرس الخامس عشر',
+          englishTitle: 'Lesson 15',
+          introduction: {
+            arabic:
+              "يتناول هذا الدرس ضمائر المخاطب المنفصلة (أَنْتَ، أَنْتِ، أَنْتُمْ، أَنْتُنَّ) والمتصلة (كَ، كِ، كُمْ، كُنَّ)، وجدول للضمائر المتصلة بالفعل والمنفصلة، وظرفي الزمان 'قَبْلَ' و 'بَعْدَ'.",
+            english:
+              "This lesson covers detached second person pronouns (أَنْتَ, أَنْتِ, أَنْتُمْ, أَنْتُنَّ) and attached ones (كَ, كِ, كُمْ, كُنَّ), tables for pronouns attached to verbs and detached pronouns, and the adverbs of time 'قَبْلَ' (before) and 'بَعْدَ' (after).",
+          },
+          rules: [
+            {
+              name: 'ضَمَائِرُ الْمُخَاطَبِ (Second person pronouns - detached)',
+              arabicText:
+                'أَنْتَ (مفرد مذكر). أَنْتِ (مفرد مؤنث). أَنْتُمْ (جمع مذكر). أَنْتُنَّ (جمع مؤنث).',
+              explanation: 'أَنْتَ (m.sg.), أَنْتِ (f.sg.), أَنْتُمْ (m.pl.), أَنْتُنَّ (f.pl.).',
+            },
+            {
+              name: 'كَافُ الْمُخَاطَبِ (Second person pronouns - attached)',
+              arabicText:
+                'كَ (مفرد مذكر). كِ (مفرد مؤنث). كُمْ (جمع مذكر). كُنَّ (جمع مؤنث). تُسَمَّى ضَمَائِرَ مُتَّصِلَةً.',
+              explanation:
+                'كَ (m.sg.), كِ (f.sg.), كُمْ (m.pl.), كُنَّ (f.pl.). These are attached pronouns.',
+            },
+            {
+              name: 'الضَّمَائِرُ الْمُنْفَصِلَةُ (Detached pronouns)',
+              arabicText:
+                'الضَّمَائِرُ الْمُنْفَصِلَةُ: تُكْتَبُ، وَتُنْطَقُ فِي أَوَّلِ الْكَلَامِ.',
+              explanation: 'Are written and pronounced at the beginning of speech.',
+            },
+            {
+              name: "قَبْلَ، وَبَعْدَ (qabla - before, ba'da - after)",
+              arabicText:
+                'قَبْلَ، وَبَعْدَ: ظَرْفَانِ لِلزَّمَانِ، وَالاسْمُ الَّذِي بَعْدَهُمَا مُضَافٌ إِلَيْهِ.',
+              explanation: 'Are adverbs of time. The noun following them is muḍāf ilayhi.',
+            },
+          ],
+        },
+        {
+          id: 'lesson16_17',
+          title: 'الدرسان السادس عشر والسابع عشر',
+          englishTitle: 'Lessons 16 & 17',
+          introduction: {
+            arabic: 'يركز هذان الدرسان على المبتدأ والخبر، والإشارة إلى جمع غير العاقل.',
+            english:
+              'These lessons focus on the subject (المبتدأ) and predicate (الخبر), and pointing to the plural of non-rational nouns.',
+          },
+          rules: [
+            {
+              name: "الْمُبْتَدَأُ (al-mubtada' - subject)",
+              arabicText: 'الْمُبْتَدَأُ: اسْمٌ يَقَعُ فِي أَوَّلِ الْجُمْلَةِ.',
+              explanation: 'Is a noun that occurs at the beginning of a sentence.',
+            },
+            {
+              name: 'الْخَبَرُ (al-khabar - predicate)',
+              arabicText:
+                'الْخَبَرُ: اسْمٌ يَقَعُ بَعْدَ الْمُبْتَدَأِ، وَتَحْصُلُ بِهِ الْفَائِدَةُ.',
+              explanation:
+                "Is a noun that occurs after the mubtada', and with it, the meaning is completed.",
+            },
+            {
+              name: 'الإِشَارَةُ إِلَى جَمْعِ غَيْرِ الْعَاقِلِ (Pointing to the plural of non-rational nouns)',
+              arabicText:
+                'الْجَمْعُ غَيْرُ الْعَاقِلِ لِلْقَرِيبِ (هَذِهِ): هَذِهِ كُتُبٌ. الْجَمْعُ غَيْرُ الْعَاقِلِ لِلْبَعِيدِ (تِلْكَ): تِلْكَ كُتُبٌ.',
+              explanation:
+                'For the near plural non-rational, هَذِهِ (hādihi) is used. For the distant plural non-rational, تِلْكَ (tilka) is used.',
+            },
+            {
+              name: 'تركيب جملة الإشارة لجمع غير العاقل (Structure of sentences pointing to non-rational plural)',
+              arabicText:
+                'هَذِهِ الْأَبْوَابُ مَفْتُوحَةٌ (هَذِهِ: مُبْتَدَأٌ، الْأَبْوَابُ: بَدَلٌ، مَفْتُوحَةٌ: خَبَرٌ).',
+              explanation:
+                "Example: هَذِهِ الْأَبْوَابُ مَفْتُوحَةٌ (These doors are open). هَذِهِ is mubtada', الْأَبْوَابُ is badal, مَفْتُوحَةٌ is khabar.",
+            },
+          ],
+        },
+        {
+          id: 'lesson18',
+          title: 'الدرس الثامن عشر',
+          englishTitle: 'Lesson 18',
+          introduction: {
+            arabic:
+              "يتناول هذا الدرس المثنى، واسمي الإشارة للمثنى القريب 'هَذَانِ' و 'هَاتَانِ'، واسم الاستفهام 'كَمْ'.",
+            english:
+              "This lesson covers the dual (الْمُثَنَّى), the demonstrative pronouns for near dual 'هَذَانِ' (m.) and 'هَاتَانِ' (f.), and the interrogative 'كَمْ' (how many/much).",
+          },
+          rules: [
+            {
+              name: 'الْمُثَنَّى (al-muthannā - the dual)',
+              arabicText:
+                'الْمُثَنَّى: مَا دَلَّ عَلَى اثْنَيْنِ، أَوِ اثْنَتَيْنِ لِلْعَاقِلِ، وَغَيْرِ الْعَاقِلِ.',
+              explanation: 'Indicates two, masculine or feminine, rational or irrational.',
+            },
+            {
+              name: 'هَذَانِ، وَهَاتَانِ (hādhāni - these two (m.), hātāni - these two (f.))',
+              arabicText:
+                'هَذَانِ: اسْمُ إِشَارَةٍ لِلْمُثَنَّى الْقَرِيبِ الْمُذَكَّرِ. هَاتَانِ: اسْمُ إِشَارَةٍ لِلْمُثَنَّى الْقَرِيبِ الْمُؤَنَّثِ.',
+              explanation: 'هَذَانِ for near dual masculine. هَاتَانِ for near dual feminine.',
+            },
+            {
+              name: 'كَمْ (kam - how many/much?)',
+              arabicText:
+                'كَمْ: اسْمُ اسْتِفْهَامٍ يَدُلُّ عَلَى الْعَدَدِ، وَالاسْمُ الَّذِي بَعْدَهُ مَنْصُوبٌ يُسَمَّى تَمْيِيزًا.',
+              explanation:
+                'Is an interrogative noun indicating number. The noun following it is accusative (manṣūb) and is called tamyīz (specification).',
+            },
+          ],
+        },
+        {
+          id: 'lesson19_20',
+          title: 'الدرسان التاسع عشر والعشرون',
+          englishTitle: 'Lessons 19 & 20',
+          introduction: {
+            arabic:
+              'يشرح هذان الدرسان قواعد العدد من ٣ إلى ١٠، وكيفية مخالفته للمعدود في التذكير والتأنيث، وكون المعدود جمعاً مجروراً بالإضافة.',
+            english:
+              'These lessons explain the rules for numbers from 3 to 10, how they oppose the counted noun in gender, and how the counted noun is plural and genitive through iḍāfah.',
+          },
+          rules: [
+            {
+              name: 'الْعَدَدُ مِنْ ٣ إِلَى ١٠ (Numbers from 3 to 10)',
+              arabicText:
+                'الْعَدَدُ مِنْ (٣ إلى ١٠) يُخَالِفُ الْمَعْدُودَ فِي التَّذْكِيرِ، وَالتَّأْنِيثِ. وَالْمَعْدُودُ يَكُونُ جَمْعاً مَجْرُوراً بِالإِضَافَةِ (أَيْ يَكُونُ: مُضَافَاً إِلَيْهِ).',
+              explanation:
+                "The number from 3 to 10 opposes the counted noun (ma'dūd) in gender. The ma'dūd is plural and genitive (muḍāf ilayhi).",
+            },
+            {
+              name: 'الحكم في تذكير العدد وتأنيثه (Determining gender of the number)',
+              arabicText:
+                'الْحُكْمُ فِي تَذْكِيرِ الْعَدَدِ، وَتَأْنِيثِهِ عَلَى الْمُفْرَدِ فِي الْمَعْدُودِ، وَلَيْسَ عَلَى الْجَمْعِ.',
+              explanation:
+                "The gender of the number (for 3-10) is determined by the gender of the singular form of the ma'dūd, not its plural form.",
+            },
+          ],
+        },
+        {
+          id: 'lesson21',
+          title: 'الدرس الحادي والعشرون',
+          englishTitle: 'Lesson 21',
+          introduction: {
+            arabic:
+              'هذا الدرس عبارة عن مراجعة شاملة للدروس السابقة، ويجمع العديد من القواعد التي تم تعلمها.',
+            english:
+              'This lesson is a comprehensive review of previous lessons, consolidating many of the rules learned.',
+          },
+          rules: [
+            {
+              name: 'مراجعة أسماء الإشارة للقريب المذكر (Review: Demonstrative Pronouns - Near Masculine)',
+              arabicText: 'هَذَا فَصْلُنَا. هَذَا مُدَرِّسُنَا.',
+              explanation: 'e.g., This is our classroom. This is our teacher.',
+            },
+            {
+              name: 'مراجعة أسماء الإشارة للقريب المؤنث (Review: Demonstrative Pronouns - Near Feminine)',
+              arabicText: 'هَذِهِ مَدْرَسَتِي. هَذِهِ مُدَرِّسَتُنَا.',
+              explanation: 'e.g., This is my school. This is our (female) teacher.',
+            },
+            {
+              name: 'مراجعة أسماء الإشارة للبعيد المذكر (Review: Demonstrative Pronouns - Distant Masculine)',
+              arabicText: 'ذَاكَ كُرْسِيُّهُ. ذَاكَ مُحَمَّدٌ.',
+              explanation: 'e.g., That is his chair. That is Muhammad.',
+            },
+            {
+              name: 'مراجعة أسماء الإشارة للبعيد المؤنث (Review: Demonstrative Pronouns - Distant Feminine)',
+              arabicText: 'تِلْكَ مَكَاتِبُ الطُّلَابِ. تِلْكَ فَاطِمَةُ.',
+              explanation: "e.g., Those are the students' desks. That is Fatima.",
+            },
+            {
+              name: 'مراجعة ياء المتكلم (Review: First Person Possessive Suffix)',
+              arabicText: 'هَذِهِ مَدْرَسَتِي. هَؤُلَاءِ أَصْدِقَائِي.',
+              explanation: 'e.g., This is my school. These are my friends.',
+            },
+            {
+              name: 'مراجعة ضمير الجمع للمتكلم (Review: First Person Plural Pronoun)',
+              arabicText: 'هَذَا فَصْلُنَا. نَحْنُ نُحِبُّهُ.',
+              explanation: 'e.g., This is our classroom. We love him/it.',
+            },
+            {
+              name: 'مراجعة ضمير الغائب للمفرد المذكر (Review: Third Person Singular Masculine Pronoun)',
+              arabicText: 'هُوَ فَصْلٌ وَاسِعٌ. هُوَ مِنَ الْيَابَانِ.',
+              explanation: 'e.g., It is a spacious classroom. He is from Japan.',
+            },
+            {
+              name: 'مراجعة ضمير الغائب للمفرد المؤنث (Review: Third Person Singular Feminine Pronoun)',
+              arabicText: 'هِيَ قَرِيبَةٌ. هِيَ مَدْرَسَةٌ كَبِيرَةٌ.',
+              explanation: 'e.g., She is near. It is a big school.',
+            },
+            {
+              name: 'مراجعة ضمير الغائب للجمع المذكر (Review: Third Person Plural Masculine Pronoun)',
+              arabicText: 'كَرَاسِيُّهُمْ. هُمْ مِنْ بِلَادٍ مُخْتَلِفَةٍ.',
+              explanation: 'e.g., Their chairs. They are from different countries.',
+            },
+            {
+              name: 'مراجعة منعوت ونعت (Review: Described Noun and Adjective)',
+              arabicText: 'مَدْرَسَةٌ كَبِيرَةٌ. فَصْلٌ وَاسِعٌ.',
+              explanation: 'e.g., A big school. A spacious classroom.',
+            },
+            {
+              name: 'مراجعة مضاف ومضاف إليه (Review: Possessive Construction)',
+              arabicText: 'مَكْتَبُ الْمُدَرِّسِ. فَصْلُنَا.',
+              explanation: "e.g., The teacher's desk. Our classroom.",
+            },
+            {
+              name: 'مراجعة مبتدأ وخبر (Review: Subject and Predicate)',
+              arabicText: 'هَذِهِ مَدْرَسَتِي. أَبْوَابُهَا مَفْتُوحَةٌ.',
+              explanation: 'e.g., This is my school. Its doors are open.',
+            },
+            {
+              name: 'مراجعة المثنى (Review: Dual)',
+              arabicText: 'فِيهِ نَافِذَتَانِ كَبِيرَتَانِ. الطَّالِبَانِ مُجْتَهِدَانِ.',
+              explanation: 'e.g., It has two big windows. The two students are hardworking.',
+            },
+            {
+              name: 'مراجعة العدد (Review: Number)',
+              arabicText: 'ثَلَاثَةُ أَبْوَابٍ. عَشَرَةُ طُلَّابٍ.',
+              explanation: 'e.g., Three doors. Ten students.',
+            },
+            {
+              name: 'مراجعة حرف الجر (Review: Preposition)',
+              arabicText: 'فِي الْمَدْرَسَةِ فُصُولٌ. هُمْ مِنْ بِلَادٍ مُخْتَلِفَةٍ.',
+              explanation: 'e.g., In the school are classrooms. They are from different countries.',
+            },
+          ],
+        },
+        {
+          id: 'lesson22_23',
+          title: 'الدرسان الثاني والعشرون والثالث والعشرون',
+          englishTitle: 'Lessons 22 & 23',
+          introduction: {
+            arabic:
+              'هذان الدرسان مخصصان لشرح الممنوع من الصرف، وهو الاسم الذي لا يُنوَّن ويُجر بالفتحة نيابة عن الكسرة، مع ذكر أنواعه المختلفة.',
+            english:
+              "These two lessons are dedicated to explaining diptotes (الْمَمْنُوعُ مِنَ الصَّرْفِ - al-mamnū' min al-ṣarf), which are nouns that do not take tanween and are made genitive with a fatḥah instead of a kasrah, along with their various types.",
+          },
+          rules: [
+            {
+              name: "الْمَمْنُوعُ مِنَ الصَّرْفِ (al-mamnū' min al-ṣarf - Diptotes)",
+              arabicText:
+                'الْمَمْنُوعُ مِنَ الصَّرْفِ: اِسْمٌ لَا يُنَوَّنُ، وَيُجَرُّ بِالْفَتْحَةِ نِيَابَةً عَنِ الْكَسْرَةِ.',
+              explanation:
+                'Is a noun that does not take tanween and is made genitive (majroor) with a fatḥah instead of a kasrah.',
+            },
+            {
+              name: 'أنواع الأسماء الممنوعة من الصرف (Types of Diptotes)',
+              arabicText:
+                '١- الْعَلَمُ الْمُؤَنَّثُ (مَرْيَمُ). ٢- الْعَلَمُ الْمُؤَنَّثُ لَفْظًا (حَمْزَةُ). ٣- الْعَلَمُ الْمَخْتُومُ بِأَلِفٍ وَنُونٍ زَائِدَتَيْنِ (عُثْمَانُ). ٤- الْعَلَمُ الَّذِي عَلَى وَزْنِ الْفِعْلِ (أَحْمَدُ). ٥- الْعَلَمُ الْأَعْجَمِيُّ (إِبْرَاهِيمُ). ٦- الصِّفَةُ الَّتِي عَلَى وَزْنِ أَفْعَلَ (أَبْيَضُ). ٧- الصِّفَةُ الَّتِي عَلَى وَزْنِ فَعْلَانَ (كَسْلَانُ). ٨- الاِسْمُ الْمَخْتُومُ بِأَلِفِ مَمْدُودَةٍ (أَغْنِيَاءُ، فُقَرَاءُ). ٩- الاِسْمُ الَّذِي عَلَى وَزْنِ مَفَاعِلَ (مَسَاجِدُ). ١٠- الاِسْمُ الَّذِي عَلَى وَزْنِ مَفَاعِيلَ (مَنَادِيلُ).',
+              explanation:
+                "Includes: Feminine proper nouns (e.g., Maryam), masculine proper nouns feminine in form (e.g., Hamza), proper nouns ending with extra alif & noon (e.g., Uthman), proper nouns on verb pattern (e.g., Ahmad), foreign proper nouns (e.g., Ibrahim), adjectives on af'alu pattern (e.g., white), adjectives on fa'lānu pattern (e.g., lazy), nouns ending with extended alif (e.g., rich, poor), nouns on mafā'ilu pattern (e.g., mosques), nouns on mafā'īlu pattern (e.g., handkerchiefs).",
+            },
+            {
+              name: 'جر الممنوع من الصرف بالفتحة (Making Diptotes Genitive with Fatḥah)',
+              arabicText:
+                'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
+              explanation:
+                "Diptotes are made genitive with a fatḥah, whether by a preposition (e.g., to Zaynab_a_) or by iḍāfah (e.g., Zaynab_a_'s house).",
+            },
+          ],
+        },
+      ];
 
-        const lessonListContainer = document.getElementById('lessonList');
-        const lessonContentContainer = document.getElementById('lessonContent');
-        const sidebarNav = document.getElementById('sidebarNav');
-        const hamburgerButton = document.getElementById('hamburgerButton');
-        const closeSidebarButton = document.getElementById('closeSidebarButton');
-        const geminiModal = document.getElementById('geminiModal');
-        const modalCloseButton = document.getElementById('modalCloseButton');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
-        const aiToggleDesktop = document.getElementById('aiToggleDesktop');
-        const aiToggleMobile = document.getElementById('aiToggleMobile');
-        
-        let aiFeaturesEnabled = false;
+      const lessonListContainer = document.getElementById('lessonList');
+      const lessonContentContainer = document.getElementById('lessonContent');
+      const sidebarNav = document.getElementById('sidebarNav');
+      const hamburgerButton = document.getElementById('hamburgerButton');
+      const closeSidebarButton = document.getElementById('closeSidebarButton');
+      const geminiModal = document.getElementById('geminiModal');
+      const modalCloseButton = document.getElementById('modalCloseButton');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalBody = document.getElementById('modalBody');
+      const aiToggleDesktop = document.getElementById('aiToggleDesktop');
+      const aiToggleMobile = document.getElementById('aiToggleMobile');
 
-        const markdownConverter = new showdown.Converter({
-            simplifiedAutoLink: true,
-            strikethrough: true,
-            tables: true,
-            tasklists: true,
-            openLinksInNewWindow: true,
-            emoji: true,
-            underline: true // Enable underline if showdown supports it or use custom extension
+      let aiFeaturesEnabled = false;
+
+      const markdownConverter = new showdown.Converter({
+        simplifiedAutoLink: true,
+        strikethrough: true,
+        tables: true,
+        tasklists: true,
+        openLinksInNewWindow: true,
+        emoji: true,
+        underline: true, // Enable underline if showdown supports it or use custom extension
+      });
+      // Forcing Showdown to treat underscores within words as literal underscores, not italics/bold
+      showdown.setOption('literalMidWordUnderscores', true);
+
+      function updateAIToggleState(isEnabled) {
+        aiFeaturesEnabled = isEnabled;
+        aiToggleDesktop.checked = isEnabled;
+        aiToggleMobile.checked = isEnabled;
+        try {
+          localStorage.setItem('aiFeaturesEnabled', isEnabled);
+        } catch (e) {
+          console.warn('localStorage access error (setting AI toggle state):', e);
+        }
+        // Re-render current lesson content to show/hide AI buttons
+        const activeLessonLink = document.querySelector('#lessonList .nav-link.active');
+        if (activeLessonLink && activeLessonLink.dataset.lessonId) {
+          displayLessonContent(activeLessonLink.dataset.lessonId, true); // force re-render of buttons
+        } else if (lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
+          // If no lesson is active (e.g. initial load and no default lesson was set)
+          // and lessonContent is still the placeholder, do nothing extra for button visibility.
+          // Buttons will be handled when a lesson is first displayed.
+        }
+      }
+
+      function loadAITogglePreference() {
+        let savedPreference = false;
+        try {
+          savedPreference = localStorage.getItem('aiFeaturesEnabled') === 'true';
+        } catch (e) {
+          console.warn('localStorage access error (getting AI toggle state):', e);
+        }
+        updateAIToggleState(savedPreference);
+      }
+
+      [aiToggleDesktop, aiToggleMobile].forEach((toggle) => {
+        toggle.addEventListener('change', (event) => {
+          updateAIToggleState(event.target.checked);
         });
-        // Forcing Showdown to treat underscores within words as literal underscores, not italics/bold
-        showdown.setOption('literalMidWordUnderscores', true);
+      });
 
+      function openSidebar() {
+        sidebarNav.classList.add('open');
+      }
+      function closeSidebar() {
+        sidebarNav.classList.remove('open');
+      }
 
-        function updateAIToggleState(isEnabled) {
-            aiFeaturesEnabled = isEnabled;
-            aiToggleDesktop.checked = isEnabled;
-            aiToggleMobile.checked = isEnabled;
+      hamburgerButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openSidebar();
+      });
+      closeSidebarButton.addEventListener('click', closeSidebar);
+      document.addEventListener('click', (e) => {
+        if (
+          window.innerWidth < 768 &&
+          sidebarNav.classList.contains('open') &&
+          !sidebarNav.contains(e.target) &&
+          e.target !== hamburgerButton
+        ) {
+          closeSidebar();
+        }
+      });
+
+      function openGeminiModal() {
+        geminiModal.classList.add('open');
+      }
+      function closeGeminiModal() {
+        geminiModal.classList.remove('open');
+      }
+      modalCloseButton.addEventListener('click', closeGeminiModal);
+      geminiModal.addEventListener('click', (e) => {
+        if (e.target === geminiModal) {
+          closeGeminiModal();
+        }
+      });
+
+      function generateCacheKey(ruleName, ruleArabicText, type) {
+        let hash = 0;
+        const str = `${ruleName}_${ruleArabicText}_${type}`;
+        for (let i = 0; i < str.length; i++) {
+          const char = str.charCodeAt(i);
+          hash = (hash << 5) - hash + char;
+          hash |= 0;
+        }
+        return `geminiCache_v2_${hash}`; // Added v2 to potentially invalidate old cache if prompt changes
+      }
+
+      async function callGeminiAPI(prompt, title, cacheKey) {
+        modalTitle.textContent = title;
+        modalBody.innerHTML =
+          '<div class="loading-spinner"></div><p class="text-center arabic-text">جاري التحميل...</p>';
+        openGeminiModal();
+
+        try {
+          const cachedData = localStorage.getItem(cacheKey);
+          if (cachedData) {
+            console.log('Using cached data for:', cacheKey);
+            const htmlContent = markdownConverter.makeHtml(cachedData);
+            modalBody.innerHTML = `<div dir="auto" class="prose prose-sm sm:prose-base max-w-none leading-relaxed">${htmlContent}</div>`;
+            return;
+          }
+        } catch (e) {
+          console.warn('localStorage access error (reading):', e);
+        }
+
+        let chatHistory = [{ role: 'user', parts: [{ text: prompt }] }];
+        const payload = { contents: chatHistory };
+        const apiKey = '';
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Gemini API Error:', errorData);
+            throw new Error(
+              `API request failed with status ${response.status}: ${errorData.error?.message || 'Unknown error'}`
+            );
+          }
+
+          const result = await response.json();
+
+          if (
+            result.candidates &&
+            result.candidates.length > 0 &&
+            result.candidates[0].content &&
+            result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0
+          ) {
+            const rawMarkdownText = result.candidates[0].content.parts[0].text;
+
             try {
-                localStorage.setItem('aiFeaturesEnabled', isEnabled);
+              localStorage.setItem(cacheKey, rawMarkdownText);
             } catch (e) {
-                console.warn("localStorage access error (setting AI toggle state):", e);
+              console.warn('localStorage access error (writing):', e);
             }
-            // Re-render current lesson content to show/hide AI buttons
-            const activeLessonLink = document.querySelector('#lessonList .nav-link.active');
-            if (activeLessonLink && activeLessonLink.dataset.lessonId) {
-                displayLessonContent(activeLessonLink.dataset.lessonId, true); // force re-render of buttons
-            } else if(lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
-                // If no lesson is active (e.g. initial load and no default lesson was set)
-                // and lessonContent is still the placeholder, do nothing extra for button visibility.
-                // Buttons will be handled when a lesson is first displayed.
-            }
+
+            const htmlContent = markdownConverter.makeHtml(rawMarkdownText);
+            // Added Tailwind Typography plugin classes for better Markdown rendering
+            modalBody.innerHTML = `<div dir="auto" class="prose prose-sm sm:prose-base max-w-none leading-relaxed">${htmlContent}</div>`;
+          } else {
+            console.error('Unexpected API response structure:', result);
+            modalBody.innerHTML =
+              '<p dir="rtl" class="text-red-500 arabic-text">عفواً، لم نتمكن من الحصول على رد. يرجى المحاولة مرة أخرى.</p>';
+          }
+        } catch (error) {
+          console.error('Error calling Gemini API:', error);
+          modalBody.innerHTML = `<p dir="rtl" class="text-red-500 arabic-text">حدث خطأ أثناء الاتصال بالخدمة: ${error.message}. يرجى المحاولة مرة أخرى لاحقاً.</p>`;
         }
-        
-        function loadAITogglePreference() {
-            let savedPreference = false;
-            try {
-                savedPreference = localStorage.getItem('aiFeaturesEnabled') === 'true';
-            } catch (e) {
-                console.warn("localStorage access error (getting AI toggle state):", e);
-            }
-            updateAIToggleState(savedPreference);
-        }
+      }
 
-        [aiToggleDesktop, aiToggleMobile].forEach(toggle => {
-            toggle.addEventListener('change', (event) => {
-                updateAIToggleState(event.target.checked);
-            });
-        });
-
-
-        function openSidebar() { sidebarNav.classList.add('open'); }
-        function closeSidebar() { sidebarNav.classList.remove('open'); }
-
-        hamburgerButton.addEventListener('click', (e) => { e.stopPropagation(); openSidebar(); });
-        closeSidebarButton.addEventListener('click', closeSidebar);
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth < 768 && sidebarNav.classList.contains('open') && !sidebarNav.contains(e.target) && e.target !== hamburgerButton) {
-                closeSidebar();
-            }
-        });
-
-        function openGeminiModal() { geminiModal.classList.add('open'); }
-        function closeGeminiModal() { geminiModal.classList.remove('open'); }
-        modalCloseButton.addEventListener('click', closeGeminiModal);
-        geminiModal.addEventListener('click', (e) => {
-            if (e.target === geminiModal) { 
-                closeGeminiModal();
-            }
-        });
-        
-        function generateCacheKey(ruleName, ruleArabicText, type) {
-            let hash = 0;
-            const str = `${ruleName}_${ruleArabicText}_${type}`;
-            for (let i = 0; i < str.length; i++) {
-                const char = str.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash |= 0; 
-            }
-            return `geminiCache_v2_${hash}`; // Added v2 to potentially invalidate old cache if prompt changes
-        }
-
-        async function callGeminiAPI(prompt, title, cacheKey) {
-            modalTitle.textContent = title;
-            modalBody.innerHTML = '<div class="loading-spinner"></div><p class="text-center arabic-text">جاري التحميل...</p>';
-            openGeminiModal();
-
-            try {
-                const cachedData = localStorage.getItem(cacheKey);
-                if (cachedData) {
-                    console.log("Using cached data for:", cacheKey);
-                    const htmlContent = markdownConverter.makeHtml(cachedData);
-                    modalBody.innerHTML = `<div dir="auto" class="prose prose-sm sm:prose-base max-w-none leading-relaxed">${htmlContent}</div>`;
-                    return;
-                }
-            } catch (e) {
-                console.warn("localStorage access error (reading):", e);
-            }
-
-            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
-            const apiKey = ""; 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    console.error('Gemini API Error:', errorData);
-                    throw new Error(`API request failed with status ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
-                }
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const rawMarkdownText = result.candidates[0].content.parts[0].text;
-                    
-                    try {
-                        localStorage.setItem(cacheKey, rawMarkdownText);
-                    } catch (e) {
-                        console.warn("localStorage access error (writing):", e);
-                    }
-
-                    const htmlContent = markdownConverter.makeHtml(rawMarkdownText);
-                     // Added Tailwind Typography plugin classes for better Markdown rendering
-                    modalBody.innerHTML = `<div dir="auto" class="prose prose-sm sm:prose-base max-w-none leading-relaxed">${htmlContent}</div>`;
-                } else {
-                    console.error('Unexpected API response structure:', result);
-                    modalBody.innerHTML = '<p dir="rtl" class="text-red-500 arabic-text">عفواً، لم نتمكن من الحصول على رد. يرجى المحاولة مرة أخرى.</p>';
-                }
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                modalBody.innerHTML = `<p dir="rtl" class="text-red-500 arabic-text">حدث خطأ أثناء الاتصال بالخدمة: ${error.message}. يرجى المحاولة مرة أخرى لاحقاً.</p>`;
-            }
-        }
-
-        function handleExplainFurther(ruleName, ruleArabicText) {
-            const cacheKey = generateCacheKey(ruleName, ruleArabicText, "explain_v2");
-            const prompt = `You are an expert Arabic grammar teacher explaining a concept to a student whose first language is English.
+      function handleExplainFurther(ruleName, ruleArabicText) {
+        const cacheKey = generateCacheKey(ruleName, ruleArabicText, 'explain_v2');
+        const prompt = `You are an expert Arabic grammar teacher explaining a concept to a student whose first language is English.
 Explain the following Arabic grammatical rule in detail: '${ruleName}': '${ruleArabicText}'.
 
 Your explanation should:
@@ -698,12 +1374,12 @@ Your explanation should:
 4. Where helpful, briefly compare the Arabic concept to a similar or contrasting concept in English grammar. This comparison should be in English and clearly marked (e.g., under a heading like "**Comparison with English:**").
 5. Translate key Arabic grammatical terms used in your explanation into English and provide them in parentheses, e.g., المبتدأ (Subject).
 6. Structure the entire response logically for easy comprehension. Use Markdown for bolding terms (e.g., **term**), italics (e.g., *term*), and lists (e.g., 1. Item, * Item) if it enhances clarity. For English paragraphs or significant English text blocks, ensure they are clearly separated. The entire response will be rendered as HTML from Markdown. Ensure correct text direction for Arabic (RTL) and English (LTR) segments.`;
-            callGeminiAPI(prompt, `Explanation for: ${ruleName.split('(')[0].trim()}`, cacheKey);
-        }
+        callGeminiAPI(prompt, `Explanation for: ${ruleName.split('(')[0].trim()}`, cacheKey);
+      }
 
-        function handleGenerateExamples(ruleName, ruleArabicText) {
-            const cacheKey = generateCacheKey(ruleName, ruleArabicText, "examples_v2");
-            const prompt = `You are an expert Arabic grammar teacher creating examples for a student whose first language is English.
+      function handleGenerateExamples(ruleName, ruleArabicText) {
+        const cacheKey = generateCacheKey(ruleName, ruleArabicText, 'examples_v2');
+        const prompt = `You are an expert Arabic grammar teacher creating examples for a student whose first language is English.
 Generate three new and diverse example sentences in Arabic for the following grammatical rule: '${ruleName}': '${ruleArabicText}'.
 
 For each of the three examples, provide the following, ensuring clear separation and formatting using Markdown:
@@ -727,21 +1403,25 @@ For each of the three examples, provide the following, ensuring clear separation
 
 Please ensure the Arabic examples clearly demonstrate the usage of the rule.
 The entire response will be rendered as HTML from Markdown. Ensure correct text direction for Arabic (RTL) and English (LTR) segments.`;
-            callGeminiAPI(prompt, `New Examples for: ${ruleName.split('(')[0].trim()}`, cacheKey);
+        callGeminiAPI(prompt, `New Examples for: ${ruleName.split('(')[0].trim()}`, cacheKey);
+      }
+
+      function displayLessonContent(lessonId, forceButtonUpdate = false) {
+        const lesson = lessonsData.find((l) => l.id === lessonId);
+        if (!lesson) {
+          lessonContentContainer.innerHTML = `<p class="arabic-text text-xl text-red-500 text-center">الدرس غير موجود.</p><p class="english-text text-lg text-red-500 text-center">Lesson not found.</p>`;
+          return;
         }
 
-        function displayLessonContent(lessonId, forceButtonUpdate = false) {
-            const lesson = lessonsData.find(l => l.id === lessonId);
-            if (!lesson) {
-                lessonContentContainer.innerHTML = `<p class="arabic-text text-xl text-red-500 text-center">الدرس غير موجود.</p><p class="english-text text-lg text-red-500 text-center">Lesson not found.</p>`;
-                return;
-            }
+        // Only rebuild HTML if it's a new lesson or if explicitly forced (for AI toggle change)
+        if (
+          !lessonContentContainer.dataset.currentLessonId ||
+          lessonContentContainer.dataset.currentLessonId !== lessonId ||
+          forceButtonUpdate
+        ) {
+          lessonContentContainer.dataset.currentLessonId = lessonId; // Track current lesson
 
-            // Only rebuild HTML if it's a new lesson or if explicitly forced (for AI toggle change)
-            if (!lessonContentContainer.dataset.currentLessonId || lessonContentContainer.dataset.currentLessonId !== lessonId || forceButtonUpdate) {
-                lessonContentContainer.dataset.currentLessonId = lessonId; // Track current lesson
-
-                let contentHtml = `
+          let contentHtml = `
                     <div class="mb-6 pb-3 border-b border-amber-200">
                         <h2 class="text-2xl font-bold text-emerald-600 arabic-text">${lesson.title} <span class="english-text text-xl font-semibold text-emerald-500">(${lesson.englishTitle})</span></h2>
                         <div class="mt-3 p-3 bg-amber-50 rounded-md border-r-2 border-emerald-300">
@@ -752,8 +1432,8 @@ The entire response will be rendered as HTML from Markdown. Ensure correct text 
                     <div class="space-y-5">
                 `;
 
-                lesson.rules.forEach((rule, index) => {
-                    contentHtml += `
+          lesson.rules.forEach((rule, index) => {
+            contentHtml += `
                         <div class="p-4 bg-white rounded-lg shadow-md border border-amber-200 hover:shadow-lg transition-shadow duration-200">
                             <h3 class="text-xl font-semibold text-emerald-700 arabic-text mb-2">${rule.name}</h3>
                             <div class="arabic-text text-lg text-neutral-800 bg-gray-50 p-3 rounded-md mb-2 content-rtl">${rule.arabicText}</div>
@@ -764,75 +1444,76 @@ The entire response will be rendered as HTML from Markdown. Ensure correct text 
                             </div>
                         </div>
                     `;
-                });
+          });
 
-                contentHtml += `</div>`;
-                lessonContentContainer.innerHTML = contentHtml;
+          contentHtml += `</div>`;
+          lessonContentContainer.innerHTML = contentHtml;
 
-                // Add event listeners to new buttons only if AI features are enabled
-                if (aiFeaturesEnabled) {
-                    document.querySelectorAll('.explain-further-btn').forEach(button => {
-                        button.addEventListener('click', () => {
-                            handleExplainFurther(button.dataset.ruleName, button.dataset.ruleText);
-                        });
-                    });
-                    document.querySelectorAll('.generate-examples-btn').forEach(button => {
-                        button.addEventListener('click', () => {
-                            handleGenerateExamples(button.dataset.ruleName, button.dataset.ruleText);
-                        });
-                    });
-                }
-            } else {
-                 // If it's the same lesson and not forced, just update button visibility
-                document.querySelectorAll('.gemini-btn-container').forEach(container => {
-                    if (aiFeaturesEnabled) {
-                        container.classList.remove('hidden');
-                    } else {
-                        container.classList.add('hidden');
-                    }
-                });
-            }
-
-
-            document.querySelectorAll('#lessonList .nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.lessonId === lessonId) {
-                    link.classList.add('active');
-                }
+          // Add event listeners to new buttons only if AI features are enabled
+          if (aiFeaturesEnabled) {
+            document.querySelectorAll('.explain-further-btn').forEach((button) => {
+              button.addEventListener('click', () => {
+                handleExplainFurther(button.dataset.ruleName, button.dataset.ruleText);
+              });
             });
-            
-            if (!forceButtonUpdate) { // Don't scroll if only updating buttons
-                lessonContentContainer.scrollTop = 0;
+            document.querySelectorAll('.generate-examples-btn').forEach((button) => {
+              button.addEventListener('click', () => {
+                handleGenerateExamples(button.dataset.ruleName, button.dataset.ruleText);
+              });
+            });
+          }
+        } else {
+          // If it's the same lesson and not forced, just update button visibility
+          document.querySelectorAll('.gemini-btn-container').forEach((container) => {
+            if (aiFeaturesEnabled) {
+              container.classList.remove('hidden');
+            } else {
+              container.classList.add('hidden');
             }
-            
-            if (window.innerWidth < 768 && !forceButtonUpdate) {
-                closeSidebar();
-                const mainContentTop = lessonContentContainer.getBoundingClientRect().top + window.pageYOffset - 80;
-                window.scrollTo({ top: mainContentTop, behavior: 'smooth' });
-            }
+          });
         }
-        
-        // Initial setup
-        loadAITogglePreference(); 
 
-        lessonsData.forEach(lesson => {
-            const link = document.createElement('a');
-            link.href = '#';
-            link.className = 'block nav-link arabic-text text-lg text-neutral-700 hover:bg-emerald-100 hover:text-emerald-700 p-2.5 rounded-md transition-colors duration-150';
-            link.textContent = `${lesson.title} (${lesson.englishTitle})`;
-            link.dataset.lessonId = lesson.id;
-            link.onclick = (e) => {
-                e.preventDefault();
-                displayLessonContent(lesson.id);
-            };
-            lessonListContainer.appendChild(link);
+        document.querySelectorAll('#lessonList .nav-link').forEach((link) => {
+          link.classList.remove('active');
+          if (link.dataset.lessonId === lessonId) {
+            link.classList.add('active');
+          }
         });
 
-        if (lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
-            // Optionally display the first lesson by default, or a welcome message.
-            // displayLessonContent(lessonsData[0].id); 
+        if (!forceButtonUpdate) {
+          // Don't scroll if only updating buttons
+          lessonContentContainer.scrollTop = 0;
         }
 
+        if (window.innerWidth < 768 && !forceButtonUpdate) {
+          closeSidebar();
+          const mainContentTop =
+            lessonContentContainer.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: mainContentTop, behavior: 'smooth' });
+        }
+      }
+
+      // Initial setup
+      loadAITogglePreference();
+
+      lessonsData.forEach((lesson) => {
+        const link = document.createElement('a');
+        link.href = '#';
+        link.className =
+          'block nav-link arabic-text text-lg text-neutral-700 hover:bg-emerald-100 hover:text-emerald-700 p-2.5 rounded-md transition-colors duration-150';
+        link.textContent = `${lesson.title} (${lesson.englishTitle})`;
+        link.dataset.lessonId = lesson.id;
+        link.onclick = (e) => {
+          e.preventDefault();
+          displayLessonContent(lesson.id);
+        };
+        lessonListContainer.appendChild(link);
+      });
+
+      if (lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
+        // Optionally display the first lesson by default, or a welcome message.
+        // displayLessonContent(lessonsData[0].id);
+      }
     </script>
-</body>
+  </body>
 </html>

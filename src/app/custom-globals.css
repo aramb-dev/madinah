@@ -1,9 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Self-hosted font definitions */
 @font-face {
-  font-family: "Noto Kufi Arabic";
-  src: url("/fonts/noto-arabic.ttf") format("truetype");
+  font-family: 'Noto Kufi Arabic';
+  src: url('/fonts/noto-arabic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* This keeps the font-display strategy as swap */
@@ -21,11 +21,11 @@ body {
 }
 
 .font-arabic {
-  font-family: "Noto Kufi Arabic", sans-serif; /* Use self-hosted font directly */
+  font-family: 'Noto Kufi Arabic', sans-serif; /* Use self-hosted font directly */
 }
 
 .english-text {
-  font-family: theme("fontFamily.sans"); /* Use Tailwind theme for sans font */
+  font-family: theme('fontFamily.sans'); /* Use Tailwind theme for sans font */
   direction: ltr;
 }
 
@@ -93,7 +93,9 @@ body {
   z-index: 50;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .modal-overlay.open {
@@ -148,13 +150,6 @@ body {
   }
 }
 
-.gemini-btn-container.hidden {
-  display: none !important;
-}
-.gemini-btn {
-  direction: ltr;
-}
-
 /* Toggle Switch Styles */
 .toggle-label {
   display: flex;
@@ -199,7 +194,7 @@ body {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 20px; /* Height of the knob */
   width: 20px; /* Width of the knob */
   left: 4px;
@@ -258,16 +253,16 @@ input:checked + .slider:before {
   color: #555;
 }
 
-#modalBody [dir="ltr"] p,
-#modalBody [dir="ltr"] li,
-#modalBody [dir="ltr"] ul,
-#modalBody [dir="ltr"] ol {
+#modalBody [dir='ltr'] p,
+#modalBody [dir='ltr'] li,
+#modalBody [dir='ltr'] ul,
+#modalBody [dir='ltr'] ol {
   text-align: left !important;
   margin-left: 1.5rem;
   margin-right: 0;
 }
 
-#modalBody [dir="ltr"] blockquote {
+#modalBody [dir='ltr'] blockquote {
   border-left: 4px solid #ddd;
   padding-left: 1rem;
   margin-left: 0;
