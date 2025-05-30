@@ -9,22 +9,13 @@ import { usePathname } from 'next/navigation';
 interface CustomLayoutProps {
   children: React.ReactNode;
   onLessonSelect: (lessonId: string) => void;
-  aiFeaturesEnabled: boolean;
-  setAiFeaturesEnabled: (enabled: boolean) => void;
 }
 
 const Layout = ({
   children,
-  onLessonSelect,
-  aiFeaturesEnabled,
-  setAiFeaturesEnabled
+  onLessonSelect
 }: CustomLayoutProps) => {
   const pathname = usePathname();
-
-  // Handle AI toggle change
-  const handleAIToggleChange = () => {
-    setAiFeaturesEnabled(!aiFeaturesEnabled);
-  };
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
@@ -104,18 +95,6 @@ const Layout = ({
               </SheetClose>
             ))}
           </div>
-          <div className="mt-auto pt-4 border-t border-amber-200">
-            <label htmlFor="aiToggleMobile" className="toggle-label text-sm flex items-center justify-between">
-              <span className="toggle-text-arabic font-arabic text-base">ميزات الذكاء الاصطناعي</span>
-              <Toggle
-                id="aiToggleMobile"
-                className="ai-toggle-input"
-                pressed={aiFeaturesEnabled}
-                onPressedChange={handleAIToggleChange}
-              />
-              <span className="toggle-text-english">(AI Features)</span>
-            </label>
-          </div>
         </SheetContent>
       </Sheet>
 
@@ -143,17 +122,6 @@ const Layout = ({
               </button>
             </Link>
           ))}
-        </div>
-        <div className="mt-auto pt-4 border-t border-amber-200">
-          <label className="toggle-label text-sm flex items-center justify-between">
-            <span className="toggle-text-arabic font-arabic text-base">ميزات الذكاء الاصطناعي</span>
-            <Toggle
-              className="ai-toggle-input"
-              pressed={aiFeaturesEnabled}
-              onPressedChange={handleAIToggleChange}
-            />
-            <span className="toggle-text-english">(AI Features)</span>
-          </label>
         </div>
       </nav>
 

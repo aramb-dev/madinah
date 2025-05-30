@@ -2,55 +2,12 @@ import React, { useState } from 'react';
 import { Lesson } from '@/data/lessons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import GeminiModal from './GeminiModal';
-import { callGeminiAPI } from '@/lib/gemini-api';
 
 interface LessonContentProps {
   lesson?: Lesson;
-  aiFeaturesEnabled?: boolean;
 }
 
-const LessonContent = ({ lesson, aiFeaturesEnabled = false }: LessonContentProps) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState('');
-  const [modalContent, setModalContent] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  // Function to handle explaining a rule further
-  const handleExplainFurther = async (ruleName: string, arabicText: string, explanation: string) => {
-    setModalOpen(true);
-    setModalTitle(`شرح إضافي: ${ruleName}`);
-    setLoading(true);
-    setModalContent('');
-
-    try {
-      const content = await callGeminiAPI('explain', ruleName, arabicText, explanation);
-      setModalContent(content);
-    } catch (error) {
-      console.error('Error fetching explanation:', error);
-      setModalContent('<p>An error occurred. Please try again later.</p>');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Function to handle generating examples
-  const handleGenerateExamples = async (ruleName: string, arabicText: string, explanation: string) => {
-    setModalOpen(true);
-    setModalTitle(`أمثلة لـ: ${ruleName}`);
-    setLoading(true);
-    setModalContent('');
-
-    try {
-      const content = await callGeminiAPI('examples', ruleName, arabicText, explanation);
-      setModalContent(content);
-    } catch (error) {
-      console.error('Error generating examples:', error);
-      setModalContent('<p>An error occurred. Please try again later.</p>');
-    } finally {
-      setLoading(false);
-    }
-  };
+const LessonContent = ({ lesson }: LessonContentProps) => {
 
   if (!lesson) {
     return (
@@ -85,42 +42,11 @@ const LessonContent = ({ lesson, aiFeaturesEnabled = false }: LessonContentProps
               <CardContent className="px-4 pb-4 sm:px-6">
                 <p className="arabic-text font-arabic text-neutral-700 mb-2 text-base sm:text-lg leading-relaxed">{rule.arabicText}</p>
                 <p className="english-text text-neutral-600 text-xs sm:text-sm">{rule.explanation}</p>
-
-                {/* AI Feature Buttons - Hidden by default, shown when AI is enabled */}
-                {aiFeaturesEnabled && (
-                  <div className="gemini-btn-container mt-3 flex flex-col sm:flex-row gap-2 sm:justify-end">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="gemini-btn bg-emerald-50 hover:bg-emerald-100 border-emerald-200 text-emerald-700 text-xs sm:text-sm"
-                      onClick={() => handleExplainFurther(rule.name, rule.arabicText, rule.explanation)}
-                    >
-                      ✨ Further Explanation
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="gemini-btn bg-amber-50 hover:bg-amber-100 border-amber-200 text-amber-700 text-xs sm:text-sm"
-                      onClick={() => handleGenerateExamples(rule.name, rule.arabicText, rule.explanation)}
-                    >
-                      ✨ Generate Examples
-                    </Button>
-                  </div>
-                )}
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
-
-      {/* Gemini Modal */}
-      <GeminiModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        title={modalTitle}
-        loading={loading}
-        content={modalContent}
-      />
     </div>
   );
 };

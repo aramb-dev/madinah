@@ -12,29 +12,15 @@ export default function LessonPage() {
   const lessonId = params.lessonId as string;
 
   const [selectedLesson, setSelectedLesson] = useState<Lesson | undefined>(undefined);
-  const [aiFeaturesEnabled, setAiFeaturesEnabled] = useState(false);
 
   // Initialize state from localStorage on component mount
   useEffect(() => {
-    // Load AI toggle preference from localStorage
-    const savedAIPreference = typeof window !== 'undefined' ? localStorage.getItem('aiFeaturesEnabled') : null;
-    if (savedAIPreference === 'true') {
-      setAiFeaturesEnabled(true);
-    }
-
     // Find the lesson based on the URL parameter
     const lesson = lessonsData.find(l => l.id === lessonId);
     if (lesson) {
       setSelectedLesson(lesson);
     }
   }, [lessonId]);
-
-  // Update localStorage when AI features toggle changes
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('aiFeaturesEnabled', aiFeaturesEnabled.toString());
-    }
-  }, [aiFeaturesEnabled]);
 
   // Handle lesson selection
   const handleLessonClick = (lessonId: string) => {
@@ -47,13 +33,10 @@ export default function LessonPage() {
   return (
     <Layout
       onLessonSelect={handleLessonClick}
-      aiFeaturesEnabled={aiFeaturesEnabled}
-      setAiFeaturesEnabled={setAiFeaturesEnabled}
     >
       <Header />
       <LessonContent
         lesson={selectedLesson}
-        aiFeaturesEnabled={aiFeaturesEnabled}
       />
     </Layout>
   );

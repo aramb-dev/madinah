@@ -24,8 +24,6 @@ export default function Home() {
       onLessonSelect={(lessonId: string) => {
         router.push(`/lessons/${lessonId}`);
       }}
-      aiFeaturesEnabled={false}
-      setAiFeaturesEnabled={() => {}}
     >
       <Header />
       <div className="space-y-6">

@@ -148,13 +148,6 @@ body {
   }
 }
 
-.gemini-btn-container.hidden {
-  display: none !important;
-}
-.gemini-btn {
-  direction: ltr;
-}
-
 /* Toggle Switch Styles */
 .toggle-label {
   display: flex;
