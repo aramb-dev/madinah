@@ -9,6 +9,22 @@
   font-display: swap; /* This keeps the font-display strategy as swap */
 }
 
+@font-face {
+  font-family: 'Noto Sans Arabic';
+  src: url('/fonts/noto-sans-arabic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baloo Arabic';
+  src: url('/fonts/baloo-arabic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Custom CSS from original application */
 body {
   /* font-family is handled by layout.tsx via CSS variables and tailwind.config.ts */
@@ -21,7 +37,19 @@ body {
 }
 
 .font-arabic {
-  font-family: 'Noto Naskh Arabic', sans-serif; /* Use self-hosted font directly */
+  font-family: 'Noto Naskh Arabic', sans-serif; /* Default Arabic font */
+}
+
+html.font-noto-naskh-arabic .font-arabic {
+  font-family: 'Noto Naskh Arabic', sans-serif;
+}
+
+html.font-noto-sans-arabic .font-arabic {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+html.font-baloo-arabic .font-arabic {
+  font-family: 'Baloo Arabic', sans-serif;
 }
 
 .english-text {
