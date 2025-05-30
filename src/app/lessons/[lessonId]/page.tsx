@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import Layout from "@/components/layout/Layout";
-import Header from "@/components/layout/Header";
-import LessonContent from "@/components/custom/LessonContent";
-import { lessonsData, Lesson } from "@/data/lessons";
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import Layout from '@/components/layout/Layout';
+import Header from '@/components/layout/Header';
+import LessonContent from '@/components/custom/LessonContent';
+import { lessonsData, Lesson } from '@/data/lessons';
 
 export default function LessonPage() {
   const params = useParams();
@@ -16,7 +16,7 @@ export default function LessonPage() {
   // Initialize state from localStorage on component mount
   useEffect(() => {
     // Find the lesson based on the URL parameter
-    const lesson = lessonsData.find(l => l.id === lessonId);
+    const lesson = lessonsData.find((l) => l.id === lessonId);
     if (lesson) {
       setSelectedLesson(lesson);
     }
@@ -24,20 +24,16 @@ export default function LessonPage() {
 
   // Handle lesson selection
   const handleLessonClick = (lessonId: string) => {
-    const lesson = lessonsData.find(l => l.id === lessonId);
+    const lesson = lessonsData.find((l) => l.id === lessonId);
     if (lesson) {
       setSelectedLesson(lesson);
     }
   };
 
   return (
-    <Layout
-      onLessonSelect={handleLessonClick}
-    >
+    <Layout onLessonSelect={handleLessonClick}>
       <Header />
-      <LessonContent
-        lesson={selectedLesson}
-      />
+      <LessonContent lesson={selectedLesson} />
     </Layout>
   );
 }

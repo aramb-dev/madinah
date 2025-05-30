@@ -44,6 +44,7 @@
 ### Mobile Optimization and Responsive Design:
 
 - [x] Tested on various mobile devices, enhanced mobile sidebar/navigation (improved touch targets, ensured proper closing after lesson selection, tested scrolling), and optimized lesson content display (ensured readable Arabic text, adjusted spacing/padding, tested AI modals). Fixed `SheetContent` accessibility (commit: 82d9b10), resolved RTL layout issues for the close button (commit: 546d376), and implemented font scaling controls (commit: d1aedd9).
+
   - [ ] Test performance on lower-end mobile devices.
 
 - [ ] Address `metadataBase` warning in Next.js configuration.
@@ -63,8 +64,9 @@
 
 - [x] Marked the main Next.js conversion task as complete and added relevant commit/PR references.
 
-
 - [x] Remove AI features from the application.
+
+- [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
 

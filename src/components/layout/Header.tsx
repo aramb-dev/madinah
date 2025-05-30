@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import { XIcon } from 'lucide-react';
 import FontScaler from '@/components/custom/FontScaler'; // Changed to default import

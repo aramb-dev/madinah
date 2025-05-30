@@ -11,10 +11,7 @@ interface CustomLayoutProps {
   onLessonSelect: (lessonId: string) => void;
 }
 
-const Layout = ({
-  children,
-  onLessonSelect
-}: CustomLayoutProps) => {
+const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
   const pathname = usePathname();
 
   // Determine if a lesson is currently active based on the URL
@@ -72,9 +69,14 @@ const Layout = ({
             </svg>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="bg-amber-100 p-4 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]">
+        <SheetContent
+          side="right"
+          className="bg-amber-100 p-4 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
+        >
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">فهرس الدروس</h2>
+            <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
+              فهرس الدروس
+            </h2>
           </div>
           <div id="lessonListMobile" className="space-y-1 flex-grow">
             {lessonsData.map((lesson) => (
@@ -104,7 +106,9 @@ const Layout = ({
         className="hidden md:flex md:flex-col fixed inset-y-0 right-0 md:sticky w-72 bg-amber-100 p-4 space-y-2 shadow-lg overflow-y-auto z-20 md:translate-x-0 md:top-0 md:h-screen"
       >
         <div className="flex justify-between items-center md:block">
-          <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text font-arabic text-center">فهرس الدروس</h2>
+          <h2 className="text-xl font-bold text-emerald-700 mb-0 md:mb-4 arabic-text font-arabic text-center">
+            فهرس الدروس
+          </h2>
         </div>
         <div id="lessonList" className="space-y-2 flex-grow">
           {lessonsData.map((lesson) => (
@@ -126,9 +130,7 @@ const Layout = ({
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 p-4 md:p-8 lg:p-10 overflow-y-auto pt-20 md:pt-10">
-        {children}
-      </main>
+      <main className="flex-1 p-4 md:p-8 lg:p-10 overflow-y-auto pt-20 md:pt-10">{children}</main>
     </div>
   );
 };
