@@ -66,7 +66,7 @@
 
 - [x] Remove AI features from the application. (commit: d94ef83)
 
-- [x] Update primary Arabic font to Noto Naskh Arabic. (commit: [TODO - Add commit hash after commit])
+- [x] Update primary Arabic font to Noto Naskh Arabic. (commit: 8f1406a)
 - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
