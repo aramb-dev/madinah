@@ -64,7 +64,7 @@
 
 - [x] Marked the main Next.js conversion task as complete and added relevant commit/PR references.
 
-- [x] Remove AI features from the application.
+- [x] Remove AI features from the application. (commit: d94ef83)
 
 - [ ] Configure ESLint and Prettier.
 
