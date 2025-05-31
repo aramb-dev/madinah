@@ -114,6 +114,20 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                   </SheetClose>
                 </div>
                 <div id="lessonListMobile" className="space-y-1 flex-grow overflow-y-auto">
+                  {/* Home Link for Mobile Sidebar */}
+                  <SheetClose asChild>
+                    <Link href="/" passHref>
+                      <button
+                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                      >
+                        <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
+                        <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                          Home
+                        </span>
+                      </button>
+                    </Link>
+                  </SheetClose>
                   {lessonsData.map((lesson) => (
                     <SheetClose key={lesson.id} asChild>
                       <Link href={`/lessons/${lesson.id}`} passHref>
@@ -166,6 +180,17 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
           </h2>
         </div>
         <div id="lessonList" className="space-y-2 flex-grow">
+          {/* Home Link for Desktop Sidebar */}
+          <Link href="/" passHref>
+            <button
+              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
+            >
+              <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
+              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                Home
+              </span>
+            </button>
+          </Link>
           {lessonsData.map((lesson) => (
             <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
               <button
