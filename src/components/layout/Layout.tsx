@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { motion, AnimatePresence } from 'framer-motion';
 import { lessonsData } from '@/data/lessons';
 import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
@@ -13,6 +14,24 @@ interface CustomLayoutProps {
 
 const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  const sidebarVariants = {
+    closed: {
+      x: '100%', // Start off-screen to the right
+      opacity: 0,
+    },
+    open: {
+      x: '0%',
+      opacity: 1,
+    },
+  };
+
+  const sidebarTransition = {
+    type: 'spring',
+    stiffness: 300,
+    damping: 30,
+  };
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
@@ -46,7 +65,7 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
       </Link>
 
       {/* Mobile Hamburger Button */}
-      <Sheet>
+      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
         <SheetTrigger asChild>
           <Button
             variant="default"
@@ -69,35 +88,57 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
             </svg>
           </Button>
         </SheetTrigger>
-        <SheetContent
-          side="right"
-          className="bg-amber-100 p-4 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
-        >
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
-              فهرس الدروس
-            </h2>
-          </div>
-          <div id="lessonListMobile" className="space-y-1 flex-grow">
-            {lessonsData.map((lesson) => (
-              <SheetClose key={lesson.id} asChild>
-                <Link href={`/lessons/${lesson.id}`} passHref>
-                  <button
-                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
-                      isLessonActive(lesson.id) ? 'bg-amber-200' : ''
-                    }`}
-                    onClick={() => onLessonSelect(lesson.id)}
-                  >
-                    <span className="arabic-text font-arabic text-base">{lesson.title}</span>
-                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                      {lesson.englishTitle}
-                    </span>
-                  </button>
-                </Link>
-              </SheetClose>
-            ))}
-          </div>
-        </SheetContent>
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <SheetContent
+              side="right"
+              className="bg-amber-100 p-0 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
+              asChild // Important for framer-motion to take over rendering
+            >
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={sidebarVariants}
+                transition={sidebarTransition}
+                className="h-full flex flex-col p-4"
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
+                    فهرس الدروس
+                  </h2>
+                  <SheetClose asChild>
+                    <Button variant="ghost" size="icon" className="text-emerald-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </Button>
+                  </SheetClose>
+                </div>
+                <div id="lessonListMobile" className="space-y-1 flex-grow overflow-y-auto">
+                  {lessonsData.map((lesson) => (
+                    <SheetClose key={lesson.id} asChild>
+                      <Link href={`/lessons/${lesson.id}`} passHref>
+                        <button
+                          className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                            isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                          }`}
+                          onClick={() => {
+                            onLessonSelect(lesson.id);
+                            setIsMobileMenuOpen(false); // Close on select
+                          }}
+                        >
+                          <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                          <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                            {lesson.englishTitle}
+                          </span>
+                        </button>
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </div>
+              </motion.div>
+            </SheetContent>
+          )}
+        </AnimatePresence>
       </Sheet>
 
       {/* Desktop Sidebar */}
