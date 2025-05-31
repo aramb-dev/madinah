@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import { Metadata } from 'next';
+import Layout from '@/components/layout/Layout';
 
 export const metadata: Metadata = {
   title: 'Changelog',
@@ -62,7 +63,8 @@ export default async function ChangelogPage() {
   const commits = await getCommits();
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-amber-50 min-h-screen">
+    <Layout>
+      <div className="container mx-auto px-4 py-8 bg-amber-50 min-h-screen">
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-bold text-amber-700">Application Changelog</h1>
         <p className="text-xl text-amber-600 mt-2">Track the latest updates and improvements.</p>
@@ -92,5 +94,6 @@ export default async function ChangelogPage() {
         </div>
       )}
     </div>
+    </Layout>
   );
 }
