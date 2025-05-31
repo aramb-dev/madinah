@@ -93,7 +93,7 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
             <SheetContent
               side="right"
               className="bg-amber-100 p-0 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
-              asChild // Important for framer-motion to take over rendering
+              // Removed asChild, motion.div is the direct child now
             >
               <motion.div
                 initial="closed"
