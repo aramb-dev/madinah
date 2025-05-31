@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interactive Arabic Grammar Rules - Madinah Book 1
+
+This is a [Next.js](https://nextjs.org/) project designed to provide an interactive way to learn Arabic grammar, based on the content of Madinah Book 1 (دروس اللغة العربية لغير الناطقين بها - الجزء الأول).
+
+## Features
+
+- **Interactive Lessons:** Explore grammar rules from Madinah Book 1 with clear explanations.
+- **Dynamic Navigation:** Easily switch between lessons using the sidebar.
+- **Responsive Design:** Access the application on desktop and mobile devices.
+- **Customizable Fonts:** 
+    - **Font Scaling:** Adjust the Arabic text size for better readability.
+    - **Font Selection:** Choose from multiple Arabic fonts (Noto Naskh Arabic, Noto Sans Arabic, Baloo Arabic) to suit your preference.
+- **Self-Hosted Fonts:** Utilizes locally hosted fonts for consistent rendering and performance.
 
 ## Getting Started
 
-First, run the development server:
+First, ensure you have Node.js and npm (or yarn/pnpm/bun) installed. Then, run the development server:
 
 ```bash
 npm run dev
@@ -16,9 +28,9 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The main application logic can be found in `src/app/page.tsx` and related components within the `src/components/` directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses self-hosted fonts managed via `@font-face` in `src/app/custom-globals.css` and leverages Next.js's App Router.
 
 ## Learn More
 

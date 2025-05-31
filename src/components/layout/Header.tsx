@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { XIcon } from 'lucide-react';
 import FontScaler from '@/components/custom/FontScaler'; // Changed to default import
+import FontSelector from '@/components/custom/FontSelector';
 
 const Header = () => {
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
@@ -32,6 +33,7 @@ const Header = () => {
 
       <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
         <FontScaler /> {/* Added FontScaler component */}
+        <FontSelector />
       </div>
 
       {showWelcomeMessage && (
