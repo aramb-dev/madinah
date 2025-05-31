@@ -74,6 +74,7 @@
  - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
   - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
   - [x] Fix `usePathname` client component error in Layout. (54b0d43)
+  - [ ] Fix misplaced 'use client' directive in Layout.tsx.
  - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
