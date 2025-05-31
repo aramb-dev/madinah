@@ -71,7 +71,7 @@
 - [x] Update README.md to reflect current application state. (commit: 2ef4d9f)
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
 - [x] Implement changelog feature based on commit history. (5adfafb)
- - [ ] Add 'Return to Homepage' link to sidebars.
+ - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
  - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
