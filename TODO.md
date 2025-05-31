@@ -69,7 +69,7 @@
 - [x] Update primary Arabic font to Noto Naskh Arabic. (commit: 8f1406a)
 - [x] Implement font selection UI for Noto Sans Arabic and Baloo Arabic. (commit: e20ff26)
 - [x] Update README.md to reflect current application state. (commit: 2ef4d9f)
-- [ ] Implement page transitions and mobile sidebar animations.
+- [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
 - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
