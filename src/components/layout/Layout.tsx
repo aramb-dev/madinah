@@ -134,6 +134,20 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                       </Link>
                     </SheetClose>
                   ))}
+                  {/* Changelog Link for Mobile Sidebar */}
+                  <SheetClose asChild>
+                    <Link href="/changelog" passHref>
+                      <button
+                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                      >
+                        <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
+                        <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                          Changelog
+                        </span>
+                      </button>
+                    </Link>
+                  </SheetClose>
                 </div>
               </motion.div>
             </SheetContent>
@@ -167,6 +181,17 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
               </button>
             </Link>
           ))}
+          {/* Changelog Link for Desktop Sidebar */}
+          <Link href="/changelog" passHref>
+            <button
+              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
+            >
+              <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
+              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                Changelog
+              </span>
+            </button>
+          </Link>
         </div>
       </nav>
 
