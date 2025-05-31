@@ -72,7 +72,7 @@
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
 - [x] Implement changelog feature based on commit history. (5adfafb)
  - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
-  - [ ] Fix missing layout (sidebar and homepage button) on Changelog page.
+  - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
  - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
