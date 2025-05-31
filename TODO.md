@@ -73,7 +73,7 @@
 - [x] Implement changelog feature based on commit history. (5adfafb)
  - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
   - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
-  - [ ] Fix `usePathname` client component error in Layout.
+  - [x] Fix `usePathname` client component error in Layout. (54b0d43)
  - [ ] Configure ESLint and Prettier.
 
 ## Future Enhancements:
