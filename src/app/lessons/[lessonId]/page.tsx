@@ -26,9 +26,7 @@ export default function LessonPage() {
     }
   }, [lessonId, router]);
 
-  const handleLessonClick = (id: string) => {
-    router.push(`/lessons/${id}`);
-  };
+  
 
   return (
     <Layout
