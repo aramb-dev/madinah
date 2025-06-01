@@ -81,6 +81,19 @@
 - [x] Update changelog with latest changes. (257d2d5)
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
 
+## Multi-Book Support Implementation:
+
+- [ ] Create a landing page for book selection (Madinah Book 1, 2, 3, etc.)
+- [ ] Refactor lessons.ts data structure to support multiple books
+  - [ ] Option 1: Separate files (book1.ts, book2.ts, book3.ts)
+  - [ ] Option 2: Single file with book categorization
+- [ ] Update routing structure to support /books/[bookId]/lessons/[lessonId]
+- [ ] Update Layout component to handle book-specific navigation
+- [ ] Update metadata and titles to reflect selected book
+- [ ] Create book selection UI components
+- [ ] Update existing lesson pages to work with new book structure
+- [ ] Create redirect from old lesson URLs to new book-specific URLs
+
 ## Future Enhancements:
 
 1. Add more lessons and content

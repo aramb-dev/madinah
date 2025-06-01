@@ -5,19 +5,19 @@ import { Button } from '@/components/ui/button';
 
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { motion, AnimatePresence } from 'framer-motion';
-import { lessonsData } from '@/data/lessons';
+import { booksData, getBookById } from '@/data/books';
 import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation'; // Added useRouter
+import { usePathname, useRouter } from 'next/navigation';
 
 interface CustomLayoutProps {
   children: React.ReactNode;
-  // onLessonSelect: (lessonId: string) => void; // Removed onLessonSelect
+  currentBookId?: string;
 }
 
-const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect from props
+const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
-  const router = useRouter(); // Added useRouter instance
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const sidebarVariants = {
@@ -37,9 +37,20 @@ const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect 
     damping: 30,
   };
 
+  // Get the current book data if a book ID is provided
+  const currentBook = currentBookId ? getBookById(currentBookId) : null;
+  
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
+    if (currentBookId) {
+      return pathname === `/books/${currentBookId}/lessons/${lessonId}`;
+    }
     return pathname === `/lessons/${lessonId}`;
+  };
+  
+  // Determine if a book is currently active based on the URL
+  const isBookActive = (bookId: string): boolean => {
+    return pathname.startsWith(`/books/${bookId}`);
   };
 
   return (
@@ -97,7 +108,6 @@ const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect 
             <SheetContent
               side="right"
               className="bg-amber-100 p-0 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
-              // Removed asChild, motion.div is the direct child now
             >
               <motion.div
                 initial="closed"
@@ -132,27 +142,55 @@ const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect 
                       </button>
                     </Link>
                   </SheetClose>
-                  {lessonsData.map((lesson) => (
-                    <SheetClose key={lesson.id} asChild>
-                      <Link href={`/lessons/${lesson.id}`} passHref>
-                        <button
-                          className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
-                            isLessonActive(lesson.id) ? 'bg-amber-200' : ''
-                          }`}
-                          onClick={() => {
-                            // onLessonSelect(lesson.id); // Removed this line
-                            setIsMobileMenuOpen(false); // Close on select
-                            // router.push(`/lessons/${lesson.id}`); // Optional: if Link doesn't suffice for some reason
-                          }}
-                        >
-                          <span className="arabic-text font-arabic text-base">{lesson.title}</span>
-                          <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                            {lesson.englishTitle}
-                          </span>
-                        </button>
-                      </Link>
-                    </SheetClose>
-                  ))}
+                  
+                  {/* Books Navigation */}
+                  <div className="mb-4">
+                    <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الكتب</h3>
+                    {booksData.map((book) => (
+                      <SheetClose key={book.id} asChild>
+                        <Link href={`/books/${book.id}`} passHref>
+                          <button
+                            className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                              isBookActive(book.id) ? 'bg-amber-200' : ''
+                            }`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <span className="arabic-text font-arabic text-base">{book.title}</span>
+                            <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                              {book.englishTitle}
+                            </span>
+                          </button>
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </div>
+                  
+                  {/* Lessons Navigation - Show lessons for current book if selected */}
+                  {currentBook && (
+                    <div className="mb-4">
+                      <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الدروس</h3>
+                      {currentBook.lessons.map((lesson) => (
+                        <SheetClose key={lesson.id} asChild>
+                          <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
+                            <button
+                              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                                isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                              }`}
+                              onClick={() => {
+                                setIsMobileMenuOpen(false); // Close on select
+                              }}
+                            >
+                              <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                                {lesson.englishTitle}
+                              </span>
+                            </button>
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  )}
+                  
                   {/* Changelog Link for Mobile Sidebar */}
                   <SheetClose asChild>
                     <Link href="/changelog" passHref>
@@ -196,21 +234,47 @@ const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect 
               </span>
             </button>
           </Link>
-          {lessonsData.map((lesson) => (
-            <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
-              <button
-                className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
-                  isLessonActive(lesson.id) ? 'bg-amber-200' : ''
-                }`}
-                // onClick={() => onLessonSelect(lesson.id)} // Removed onClick for desktop, Link handles it
-              >
-                <span className="arabic-text font-arabic text-base">{lesson.title}</span>
-                <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                  {lesson.englishTitle}
-                </span>
-              </button>
-            </Link>
-          ))}
+          
+          {/* Books Navigation */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الكتب</h3>
+            {booksData.map((book) => (
+              <Link key={book.id} href={`/books/${book.id}`} passHref>
+                <button
+                  className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                    isBookActive(book.id) ? 'bg-amber-200' : ''
+                  }`}
+                >
+                  <span className="arabic-text font-arabic text-base">{book.title}</span>
+                  <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                    {book.englishTitle}
+                  </span>
+                </button>
+              </Link>
+            ))}
+          </div>
+          
+          {/* Lessons Navigation - Show lessons for current book if selected */}
+          {currentBook && (
+            <div className="mb-4">
+              <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الدروس</h3>
+              {currentBook.lessons.map((lesson) => (
+                <Link key={lesson.id} href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
+                  <button
+                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                      isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                    }`}
+                  >
+                    <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                      {lesson.englishTitle}
+                    </span>
+                  </button>
+                </Link>
+              ))}
+            </div>
+          )}
+          
           {/* Changelog Link for Desktop Sidebar */}
           <Link href="/changelog" passHref>
             <button

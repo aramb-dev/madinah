@@ -1,58 +1,25 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Layout from '@/components/layout/Layout';
-import Header from '@/components/layout/Header';
-import { lessonsData, Lesson } from '@/data/lessons';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function LessonPage() {
+// This page handles redirects from the old URL structure to the new one
+export default function LegacyLessonRedirect() {
   const router = useRouter();
   const params = useParams();
   const lessonId = params.lessonId as string;
 
-  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
-
   useEffect(() => {
-    const lesson = lessonsData.find((l) => l.id === lessonId);
-    if (lesson) {
-      setSelectedLesson(lesson);
-      setCurrentRuleIndex(0); // Reset to first rule when lesson changes
-    } else {
-      // Handle lesson not found, e.g., redirect or show error
-      router.push('/'); // Redirect to home if lesson not found
-    }
+    // Redirect to the new URL structure (assuming all old lessons are from book1)
+    router.replace(`/books/book1/lessons/${lessonId}`);
   }, [lessonId, router]);
 
-  const handleLessonClick = (id: string) => {
-    router.push(`/lessons/${id}`);
-  };
-
   return (
-    <Layout
-      // onLessonSelect={handleLessonClick} // Removed onLessonSelect prop
-    >
-      <Header />
-      {selectedLesson && (
-        <div className="p-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>{selectedLesson.title}</CardTitle>
-              <CardDescription>Lesson {selectedLesson.id}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              {selectedLesson.rules[currentRuleIndex] && (
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Rule {currentRuleIndex + 1}</h3>
-                  <p>{selectedLesson.rules[currentRuleIndex].explanation}</p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
-      )}
-    </Layout>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-4">Redirecting...</h1>
+        <p>Please wait while we redirect you to the new page.</p>
+      </div>
+    </div>
   );
 }
