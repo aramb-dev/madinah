@@ -4,11 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
-import { lessonsData, Lesson, Rule } from '@/data/lessons';
+import { lessonsData, Lesson } from '@/data/lessons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 
 const LessonPage = () => {
   const router = useRouter();
@@ -38,7 +35,24 @@ const LessonPage = () => {
       // onLessonSelect={handleLessonClick} // Removed onLessonSelect prop
     >
       <Header />
-      <LessonContent lesson={selectedLesson} />
+      {selectedLesson && (
+        <div className="p-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>{selectedLesson.title}</CardTitle>
+              <CardDescription>Lesson {selectedLesson.id}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {selectedLesson.rules[currentRuleIndex] && (
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Rule {currentRuleIndex + 1}</h3>
+                  <p>{selectedLesson.rules[currentRuleIndex].explanation}</p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </Layout>
   );
 }
