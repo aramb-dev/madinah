@@ -76,6 +76,8 @@
   - [x] Fix `usePathname` client component error in Layout. (54b0d43)
   - [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
  - [ ] Configure ESLint and Prettier.
+ - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
+ - [ ] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components.
 
 ## Future Enhancements:
 

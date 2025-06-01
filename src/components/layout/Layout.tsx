@@ -8,15 +8,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { lessonsData } from '@/data/lessons';
 import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation'; // Added useRouter
 
 interface CustomLayoutProps {
   children: React.ReactNode;
-  onLessonSelect: (lessonId: string) => void;
+  // onLessonSelect: (lessonId: string) => void; // Removed onLessonSelect
 }
 
-const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
+const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect from props
   const pathname = usePathname();
+  const router = useRouter(); // Added useRouter instance
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const sidebarVariants = {
@@ -139,8 +140,9 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                             isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                           }`}
                           onClick={() => {
-                            onLessonSelect(lesson.id);
+                            // onLessonSelect(lesson.id); // Removed this line
                             setIsMobileMenuOpen(false); // Close on select
+                            // router.push(`/lessons/${lesson.id}`); // Optional: if Link doesn't suffice for some reason
                           }}
                         >
                           <span className="arabic-text font-arabic text-base">{lesson.title}</span>
@@ -200,7 +202,7 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                 className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
                   isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                 }`}
-                onClick={() => onLessonSelect(lesson.id)}
+                // onClick={() => onLessonSelect(lesson.id)} // Removed onClick for desktop, Link handles it
               >
                 <span className="arabic-text font-arabic text-base">{lesson.title}</span>
                 <span className="block text-xs mt-1 text-emerald-600 english-text text-left">

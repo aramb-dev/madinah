@@ -1,37 +1,42 @@
 'use client';
 
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
-import LessonContent from '@/components/custom/LessonContent';
-import { lessonsData, Lesson } from '@/data/lessons';
+import { lessonsData, Lesson, Rule } from '@/data/lessons';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
-export default function LessonPage() {
+const LessonPage = () => {
+  const router = useRouter();
   const params = useParams();
   const lessonId = params.lessonId as string;
 
-  const [selectedLesson, setSelectedLesson] = useState<Lesson | undefined>(undefined);
+  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+  const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
 
-  // Initialize state from localStorage on component mount
   useEffect(() => {
-    // Find the lesson based on the URL parameter
     const lesson = lessonsData.find((l) => l.id === lessonId);
     if (lesson) {
       setSelectedLesson(lesson);
+      setCurrentRuleIndex(0); // Reset to first rule when lesson changes
+    } else {
+      // Handle lesson not found, e.g., redirect or show error
+      router.push('/'); // Redirect to home if lesson not found
     }
-  }, [lessonId]);
+  }, [lessonId, router]);
 
-  // Handle lesson selection
-  const handleLessonClick = (lessonId: string) => {
-    const lesson = lessonsData.find((l) => l.id === lessonId);
-    if (lesson) {
-      setSelectedLesson(lesson);
-    }
+  const handleLessonClick = (id: string) => {
+    router.push(`/lessons/${id}`);
   };
 
   return (
-    <Layout onLessonSelect={handleLessonClick}>
+    <Layout
+      // onLessonSelect={handleLessonClick} // Removed onLessonSelect prop
+    >
       <Header />
       <LessonContent lesson={selectedLesson} />
     </Layout>

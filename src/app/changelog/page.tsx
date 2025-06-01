@@ -1,6 +1,9 @@
 import { execSync } from 'child_process';
 import { Metadata } from 'next';
 import Layout from '@/components/layout/Layout';
+import Header from '@/components/layout/Header';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { changelogData } from '@/data/changelog';
 
 export const metadata: Metadata = {
   title: 'Changelog',
@@ -63,7 +66,10 @@ export default async function ChangelogPage() {
   const commits = await getCommits();
 
   return (
-    <Layout>
+    <Layout
+      // onLessonSelect={() => {}} // Removed onLessonSelect prop
+    >
+      <Header />
       <div className="container mx-auto px-4 py-8 bg-amber-50 min-h-screen">
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-bold text-amber-700">Application Changelog</h1>
