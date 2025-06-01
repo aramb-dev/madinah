@@ -79,6 +79,7 @@
  - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
  - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (30bff0b)
 - [x] Update changelog with latest changes. (257d2d5)
+- [ ] Fix Next.js page export issue in lessons/[lessonId]/page.tsx.
 
 ## Future Enhancements:
 

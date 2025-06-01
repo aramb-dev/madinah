@@ -7,7 +7,7 @@ import Header from '@/components/layout/Header';
 import { lessonsData, Lesson } from '@/data/lessons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-const LessonPage = () => {
+export default function LessonPage() {
   const router = useRouter();
   const params = useParams();
   const lessonId = params.lessonId as string;
