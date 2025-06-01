@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import { booksData, getBookById } from '@/data/books';
 import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
@@ -20,22 +20,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const sidebarVariants = {
-    closed: {
-      x: '100%', // Start off-screen to the right
-      opacity: 0,
-    },
-    open: {
-      x: '0%',
-      opacity: 1,
-    },
-  };
 
-  const sidebarTransition = {
-    type: 'spring',
-    stiffness: 300,
-    damping: 30,
-  };
 
   // Get the current book data if a book ID is provided
   const currentBook = currentBookId ? getBookById(currentBookId) : null;
@@ -103,113 +88,102 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
             </svg>
           </Button>
         </SheetTrigger>
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <SheetContent
-              side="right"
-              className="bg-amber-100 p-0 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
-            >
-              <motion.div
-                initial="closed"
-                animate="open"
-                exit="closed"
-                variants={sidebarVariants}
-                transition={sidebarTransition}
-                className="h-full flex flex-col p-4"
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
-                    فهرس الدروس
-                  </h2>
-                  <SheetClose asChild>
-                    <Button variant="ghost" size="icon" className="text-emerald-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </Button>
-                  </SheetClose>
-                </div>
-                <div id="lessonListMobile" className="space-y-1 flex-grow overflow-y-auto">
-                  {/* Home Link for Mobile Sidebar */}
-                  <SheetClose asChild>
-                    <Link href="/" passHref>
+        <SheetContent
+          side="right"
+          className="bg-amber-100 p-0 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
+        >
+          <div className="h-full flex flex-col p-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
+                فهرس الدروس
+              </h2>
+              <SheetClose asChild>
+                <Button variant="ghost" size="icon" className="text-emerald-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </Button>
+              </SheetClose>
+            </div>
+            <div id="lessonListMobile" className="space-y-1 flex-grow overflow-y-auto">
+              {/* Home Link for Mobile Sidebar */}
+              <SheetClose asChild>
+                <Link href="/" passHref>
+                  <button
+                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
+                    onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                  >
+                    <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
+                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                      Home
+                    </span>
+                  </button>
+                </Link>
+              </SheetClose>
+              
+              {/* Books Navigation */}
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الكتب</h3>
+                {booksData.map((book) => (
+                  <SheetClose key={book.id} asChild>
+                    <Link href={`/books/${book.id}`} passHref>
                       <button
-                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
-                        onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                        className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                          isBookActive(book.id) ? 'bg-amber-200' : ''
+                        }`}
+                        onClick={() => setIsMobileMenuOpen(false)}
                       >
-                        <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
+                        <span className="arabic-text font-arabic text-base">{book.title}</span>
                         <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                          Home
+                          {book.englishTitle}
                         </span>
                       </button>
                     </Link>
                   </SheetClose>
-                  
-                  {/* Books Navigation */}
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الكتب</h3>
-                    {booksData.map((book) => (
-                      <SheetClose key={book.id} asChild>
-                        <Link href={`/books/${book.id}`} passHref>
-                          <button
-                            className={`w-full text-right block px-3 py-2 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
-                              isBookActive(book.id) ? 'bg-amber-200' : ''
-                            }`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            <span className="arabic-text font-arabic text-base">{book.title}</span>
-                            <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                              {book.englishTitle}
-                            </span>
-                          </button>
-                        </Link>
-                      </SheetClose>
-                    ))}
-                  </div>
-                  
-                  {/* Lessons Navigation - Show lessons for current book if selected */}
-                  {currentBook && (
-                    <div className="mb-4">
-                      <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الدروس</h3>
-                      {currentBook.lessons.map((lesson) => (
-                        <SheetClose key={lesson.id} asChild>
-                          <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
-                            <button
-                              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
-                                isLessonActive(lesson.id) ? 'bg-amber-200' : ''
-                              }`}
-                              onClick={() => {
-                                setIsMobileMenuOpen(false); // Close on select
-                              }}
-                            >
-                              <span className="arabic-text font-arabic text-base">{lesson.title}</span>
-                              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                                {lesson.englishTitle}
-                              </span>
-                            </button>
-                          </Link>
-                        </SheetClose>
-                      ))}
-                    </div>
-                  )}
-                  
-                  {/* Changelog Link for Mobile Sidebar */}
-                  <SheetClose asChild>
-                    <Link href="/changelog" passHref>
-                      <button
-                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
-                        onClick={() => setIsMobileMenuOpen(false)} // Close on select
-                      >
-                        <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
-                        <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                          Changelog
-                        </span>
-                      </button>
-                    </Link>
-                  </SheetClose>
+                ))}
+              </div>
+              
+              {/* Lessons Navigation - Show lessons for current book if selected */}
+              {currentBook && (
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الدروس</h3>
+                  {currentBook.lessons.map((lesson) => (
+                    <SheetClose key={lesson.id} asChild>
+                      <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
+                        <button
+                          className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                            isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                          }`}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false); // Close on select
+                          }}
+                        >
+                          <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                          <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                            {lesson.englishTitle}
+                          </span>
+                        </button>
+                      </Link>
+                    </SheetClose>
+                  ))}
                 </div>
-              </motion.div>
-            </SheetContent>
-          )}
-        </AnimatePresence>
+              )}
+              
+              {/* Changelog Link for Mobile Sidebar */}
+              <SheetClose asChild>
+                <Link href="/changelog" passHref>
+                  <button
+                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
+                    onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                  >
+                    <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
+                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                      Changelog
+                    </span>
+                  </button>
+                </Link>
+              </SheetClose>
+            </div>
+          </div>
+        </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
