@@ -1,39 +1,56 @@
 'use client';
 
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
-import LessonContent from '@/components/custom/LessonContent';
 import { lessonsData, Lesson } from '@/data/lessons';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function LessonPage() {
+  const router = useRouter();
   const params = useParams();
   const lessonId = params.lessonId as string;
 
-  const [selectedLesson, setSelectedLesson] = useState<Lesson | undefined>(undefined);
+  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+  const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
 
-  // Initialize state from localStorage on component mount
   useEffect(() => {
-    // Find the lesson based on the URL parameter
     const lesson = lessonsData.find((l) => l.id === lessonId);
     if (lesson) {
       setSelectedLesson(lesson);
+      setCurrentRuleIndex(0); // Reset to first rule when lesson changes
+    } else {
+      // Handle lesson not found, e.g., redirect or show error
+      router.push('/'); // Redirect to home if lesson not found
     }
-  }, [lessonId]);
+  }, [lessonId, router]);
 
-  // Handle lesson selection
-  const handleLessonClick = (lessonId: string) => {
-    const lesson = lessonsData.find((l) => l.id === lessonId);
-    if (lesson) {
-      setSelectedLesson(lesson);
-    }
-  };
+  
 
   return (
-    <Layout onLessonSelect={handleLessonClick}>
+    <Layout
+      // onLessonSelect={handleLessonClick} // Removed onLessonSelect prop
+    >
       <Header />
-      <LessonContent lesson={selectedLesson} />
+      {selectedLesson && (
+        <div className="p-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>{selectedLesson.title}</CardTitle>
+              <CardDescription>Lesson {selectedLesson.id}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {selectedLesson.rules[currentRuleIndex] && (
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Rule {currentRuleIndex + 1}</h3>
+                  <p>{selectedLesson.rules[currentRuleIndex].explanation}</p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </Layout>
   );
 }
