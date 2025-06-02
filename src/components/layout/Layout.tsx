@@ -2,18 +2,23 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { lessonsData } from '@/data/lessons';
+import { lessonsData } from '@/data/lessons'; // Import lessonsData
+import { getBookById } from '@/data/books'; // Import getBookById
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface CustomLayoutProps {
   children: React.ReactNode;
-  onLessonSelect: (lessonId: string) => void;
   currentBookId?: string; // Add currentBookId as an optional prop
 }
 
-const Layout = ({ children, onLessonSelect, currentBookId }: CustomLayoutProps) => {
+const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
+
+  // Filter lessons based on currentBookId
+  const lessonsToDisplay = currentBookId
+    ? getBookById(currentBookId)?.lessons || []
+    : lessonsData; // Fallback to lessonsData if no bookId
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
@@ -80,14 +85,13 @@ const Layout = ({ children, onLessonSelect, currentBookId }: CustomLayoutProps) 
             </h2>
           </div>
           <div id="lessonListMobile" className="space-y-1 flex-grow">
-            {lessonsData.map((lesson) => (
+            {lessonsToDisplay.map((lesson) => (
               <SheetClose key={lesson.id} asChild>
-                <Link href={`/lessons/${lesson.id}`} passHref>
+                <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
                   <button
                     className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
                       isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                     }`}
-                    onClick={() => onLessonSelect(lesson.id)}
                   >
                     <span className="arabic-text font-arabic text-base">{lesson.title}</span>
                     <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
@@ -112,13 +116,12 @@ const Layout = ({ children, onLessonSelect, currentBookId }: CustomLayoutProps) 
           </h2>
         </div>
         <div id="lessonList" className="space-y-2 flex-grow">
-          {lessonsData.map((lesson) => (
-            <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
+          {lessonsToDisplay.map((lesson) => (
+            <Link key={lesson.id} href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
               <button
                 className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
                   isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                 }`}
-                onClick={() => onLessonSelect(lesson.id)}
               >
                 <span className="arabic-text font-arabic text-base">{lesson.title}</span>
                 <span className="block text-xs mt-1 text-emerald-600 english-text text-left">

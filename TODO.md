@@ -83,6 +83,7 @@
 - [x] Commit `README.md` changes. (commit: 2d3a1fbcbd4d4c1d0ef17a3479285e4c938d3978)
 - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
 - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
+- [x] Remove `onLessonSelect` prop from `Layout` component and its usage.
 - [x] Update changelog with latest changes. (257d2d5)
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
 - [x] Fix type error for `currentBookId` prop in Layout component.
