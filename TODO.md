@@ -69,6 +69,7 @@
 - [x] Update primary Arabic font to Noto Naskh Arabic. (commit: 8f1406a)
 - [x] Implement font selection UI for Noto Sans Arabic and Baloo Arabic. (commit: e20ff26)
 - [x] Update README.md to reflect current application state. (commit: 2ef4d9f)
+- [x] Convert `readme` to `README.md` (HTML to Markdown conversion).
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
 - [x] Remove all transitions from the project. (commit: cb687ab)
 - [x] Refactor Book and Lesson type definitions to `src/data/lessons.ts`. (commit: 863c529)
@@ -79,6 +80,7 @@
   - [x] Fix `usePathname` client component error in Layout. (54b0d43)
   - [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
  - [ ] Configure ESLint and Prettier.
+- [x] Commit `README.md` changes. (commit: 2d3a1fbcbd4d4c1d0ef17a3479285e4c938d3978)
  - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
  - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
 - [x] Update changelog with latest changes. (257d2d5)

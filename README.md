@@ -1,48 +1,99 @@
-# Interactive Arabic Grammar Rules - Madinah Book 1
+# MADINAH-BOOK-GRAMMAR-RULES
 
-This is a [Next.js](https://nextjs.org/) project designed to provide an interactive way to learn Arabic grammar, based on the content of Madinah Book 1 (دروس اللغة العربية لغير الناطقين بها - الجزء الأول).
+_Master Arabic Grammar with Engaging Interactive Lessons_
 
-## Features
+![last-commit](https://img.shields.io/github/last-commit/aramb-dev/madinah-book-grammar-rules?style=flat&logo=git&logoColor=white&color=0080ff) ![repo-top-language](https://img.shields.io/github/languages/top/aramb-dev/madinah-book-grammar-rules?style=flat&color=0080ff) ![repo-language-count](https://img.shields.io/github/languages/count/aramb-dev/madinah-book-grammar-rules?style=flat&color=0080ff) 
 
-- **Interactive Lessons:** Explore grammar rules from Madinah Book 1 with clear explanations.
-- **Dynamic Navigation:** Easily switch between lessons using the sidebar.
-- **Responsive Design:** Access the application on desktop and mobile devices.
-- **Customizable Fonts:** 
-    - **Font Scaling:** Adjust the Arabic text size for better readability.
-    - **Font Selection:** Choose from multiple Arabic fonts (Noto Naskh Arabic, Noto Sans Arabic, Baloo Arabic) to suit your preference.
-- **Self-Hosted Fonts:** Utilizes locally hosted fonts for consistent rendering and performance.
+_Built with the tools and technologies:_
+
+![JSON](https://img.shields.io/badge/JSON-000000.svg?style=flat&logo=JSON&logoColor=white) ![Markdown](https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white) ![npm](https://img.shields.io/badge/npm-CB3837.svg?style=flat&logo=npm&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E.svg?style=flat&logo=Prettier&logoColor=black) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black)   
+![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat&logo=React&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat&logo=TypeScript&logoColor=white) ![GitHub%20Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=flat&logo=GitHub-Actions&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&logo=ESLint&logoColor=white) 
+
+  
+---
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Getting Started](#getting-started)  
+   * [Prerequisites](#prerequisites)  
+   * [Installation](#installation)  
+   * [Usage](#usage)  
+   * [Testing](#testing)
+
+---
+
+## Overview
+
+**madinah-book-grammar-rules** is an interactive platform designed to enhance the learning experience of Arabic grammar through engaging lessons and a modern web architecture.
+
+**Why madinah-book-grammar-rules?**
+
+This project aims to provide a comprehensive and user-friendly educational tool for Arabic grammar learners. The core features include:
+
+* 🎨 **Responsive Design:** Adapts seamlessly to various screen sizes, ensuring accessibility on all devices.
+* 📚 **Interactive Content:** Leverages Markdown support for dynamic and engaging lesson presentations.
+* 🌍 **Cultural Relevance:** Features a right-to-left layout and culturally appropriate fonts, enhancing the learning experience.
+* ⚙️ **Customizable User Experience:** Empowers users to adjust font sizes and styles for improved readability.
+* 🚀 **SEO and Performance Optimizations:** Built with Next.js for enhanced performance and discoverability of content.
+* 🛠️ **Robust Architecture:** Utilizes TypeScript and React Server Components for maintainability and scalability.
+
+---
 
 ## Getting Started
 
-First, ensure you have Node.js and npm (or yarn/pnpm/bun) installed. Then, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project requires the following dependencies:
+
+* **Programming Language:** TypeScript
+* **Package Manager:** Npm
+
+### Installation
+
+Build madinah-book-grammar-rules from the source and intsall dependencies:
+
+1. **Clone the repository:**  
+```sh  
+❯ git clone https://github.com/aramb-dev/madinah-book-grammar-rules  
+```
+2. **Navigate to the project directory:**  
+```sh  
+❯ cd madinah-book-grammar-rules  
+```
+3. **Install the dependencies:**
+
+**Using [npm](https://www.npmjs.com/):**
+
+```sh
+❯ npm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Usage
 
-The main application logic can be found in `src/app/page.tsx` and related components within the `src/components/` directory.
+Run the project with:
 
-This project uses self-hosted fonts managed via `@font-face` in `src/app/custom-globals.css` and leverages Next.js's App Router.
+**Using [npm](https://www.npmjs.com/):**
 
-## Learn More
+```sh
+npm start
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Madinah-book-grammar-rules uses the {**test\_framework**} test framework. Run the test suite with:
 
-## Deploy on Vercel
+**Using [npm](https://www.npmjs.com/):**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+npm test
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+
+---
+
+[⬆ Return](#top)
+
+---
