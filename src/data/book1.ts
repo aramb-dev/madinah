@@ -1,4 +1,4 @@
-import { Book, Lesson } from './lessons';
+import { Book } from './lessons';
 
 // book1Data with all lessons included
 export const book1Data: Book = {

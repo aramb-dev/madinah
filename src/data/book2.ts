@@ -1,4 +1,4 @@
-import { Book, Lesson } from './lessons';
+import { Book } from './lessons';
 
 export const book2Data: Book = {
   id: 'book2',

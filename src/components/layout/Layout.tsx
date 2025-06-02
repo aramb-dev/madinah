@@ -2,13 +2,10 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { booksData, getBookById } from '@/data/books';
-import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 interface CustomLayoutProps {
   children: React.ReactNode;
@@ -17,7 +14,6 @@ interface CustomLayoutProps {
 
 const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
-  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
 
@@ -145,7 +141,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
               {currentBook && (
                 <div className="mb-4">
                   <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الدروس</h3>
-                  {currentBook.lessons.map((lesson) => (
+                  {currentBook.lessons.map((lesson: { id: string; title: string; englishTitle: string }) => (
                     <SheetClose key={lesson.id} asChild>
                       <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
                         <button
@@ -232,7 +228,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
           {currentBook && (
             <div className="mb-4">
               <h3 className="text-sm font-semibold text-emerald-700 mb-2 text-right font-arabic">الدروس</h3>
-              {currentBook.lessons.map((lesson) => (
+              {currentBook.lessons.map((lesson: { id: string; title: string; englishTitle: string }) => (
                 <Link key={lesson.id} href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
                   <button
                     className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
