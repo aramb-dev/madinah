@@ -8,7 +8,7 @@ export default function BooksPage() {
       <h1 className="text-3xl font-bold mb-6">Select a Madinah Book</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {booksData.map((book) => (
-          <Link key={book.id} href={`/books/${book.id}/lessons/${book.lessons[0].id}`}>
+          <Link key={book.id} href={`/books/${book.id}`}>
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>{book.title.ar}</CardTitle>
