@@ -4,6 +4,8 @@ import { Book } from './lessons';
 export const book2Data: Book = {
   id: 'book2',
   title: { ar: 'كتاب المدينة الثاني', en: 'Madinah Book 2' },
+  available: false,
+  comingSoon: true,
   description: {
     arabic: 'الكتاب الثاني من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المتوسط',
     english:

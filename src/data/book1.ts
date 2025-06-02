@@ -9,6 +9,7 @@ export const book1Data: Book = {
     ar: 'كتاب المدينة الأول',
     en: 'Madinah Book 1',
   },
+  available: true, // Added available property
   // englishTitle: 'Madinah Book 1', // Removed
   description: {
     arabic: 'الكتاب الأول من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المبتدئ',

@@ -75,7 +75,7 @@ export default function HomePage() {
                   ) : (
                     <Button
                       disabled
-                      className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed"
+                      className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed items-baseline" // Added items-baseline to align text
                     >
                       {book.comingSoon ? (
                         <>
