@@ -1,30 +1,4 @@
-// Define the Lesson interface
-export interface Lesson {
-  id: string;
-  title: string;
-  englishTitle: string;
-  introduction: {
-    arabic: string;
-    english: string;
-  };
-  rules: {
-    name: string;
-    arabicText: string;
-    explanation: string;
-  }[];
-}
-
-// Define the Book interface
-export interface Book {
-  id: string;
-  title: string;
-  englishTitle: string;
-  description: {
-    arabic: string;
-    english: string;
-  };
-  lessons: Lesson[];
-}
+import { Book, Lesson } from './lessons';
 
 // book1Data with all lessons included
 export const book1Data: Book = {

@@ -13,6 +13,33 @@ export interface Lesson {
   }[];
 }
 
+// Define the Book interface
+export interface Book {
+  id: string;
+  title: string;
+  englishTitle: string;
+  description: {
+    arabic: string;
+    english: string;
+  };
+  lessons: Lesson[];
+}
+
+export interface Lesson {
+  id: string;
+  title: string;
+  englishTitle: string;
+  introduction: {
+    arabic: string;
+    english: string;
+  };
+  rules: {
+    name: string;
+    arabicText: string;
+    explanation: string;
+  }[];
+}
+
 export const lessonsData: Lesson[] = [
   {
     id: 'lesson1',
