@@ -102,6 +102,7 @@
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components
 - [ ] Update Home Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/home.png`
+  - [x] Add FontSelector and FontScaler components to the landing page (commit: b65a9ee)
 - [ ] Update Book Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/book.png`
 - [ ] Update existing lesson pages to work with new book structure
 - [ ] Create redirect from old lesson URLs to new book-specific URLs

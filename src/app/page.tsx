@@ -2,7 +2,10 @@
 
 import Link from 'next/link';
 import { booksData } from '@/data/books'; // Import booksData
-import type { Book } from '@/data/lessons'; // Import Book type
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Added imports
+import { Button } from '@/components/ui/button'; // Added import
+import FontSelector from '@/components/custom/FontSelector'; // Import FontSelector
+import FontScaler from '@/components/custom/FontScaler'; // Import FontScaler
 
 export default function HomePage() {
   return (
@@ -24,6 +27,12 @@ export default function HomePage() {
           </p>
         </div>
 
+        {/* Display Options Section */}
+        <div className="mb-8 p-4 bg-white shadow-md rounded-lg flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+          <FontSelector />
+          <FontScaler />
+        </div>
+
         {/* Books Selection */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {booksData.map((book) => (
@@ -37,10 +46,10 @@ export default function HomePage() {
             >
               <CardHeader className="pb-4">
                 <CardTitle className="text-xl font-bold text-emerald-700 font-arabic text-center">
-                  {book.title}
+                  {book.title.ar}
                 </CardTitle>
                 <p className="text-lg font-semibold text-emerald-600 text-center">
-                  {book.englishTitle}
+                  {book.title.en}
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -81,18 +90,26 @@ export default function HomePage() {
                       )}
                     </Button>
                   )}
-                </CardFooter>
-              </Card>
-            );
-          })}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
 
-      <section className="text-center bg-green-50 p-8 rounded-lg">
-        <p className="text-gray-700 text-lg mb-2">هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها</p>
-        <p className="text-gray-600">This application provides an interactive explanation of Arabic grammar rules extracted from the Madinah Arabic learning series for non-native speakers</p>
-      </section>
-
+        {/* Additional Information - Reverted to Card structure for consistency and to fix potential JSX issues */}
+        <div className="mt-12 text-center">
+          <Card className="border-amber-200 bg-amber-50">
+            <CardContent className="pt-6">
+              <p className="text-sm text-amber-800 font-arabic mb-2">
+                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها.
+              </p>
+              <p className="text-sm text-amber-700">
+                This application provides an interactive explanation of Arabic grammar rules extracted from the Madinah Arabic learning series for non-native speakers.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,8 @@
-'use client';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './custom-globals.css';
-import Layout from '@/components/layout/Layout';
-import { usePathname } from 'next/navigation';
-import React from 'react';
+import Layout from '@/components/layout/Layout'; // Changed from AnimatedLayout to Layout
 
 // Load Inter font
 const inter = Inter({
@@ -35,24 +32,15 @@ export const metadata: Metadata = {
   },
 };
 
-const pathname = usePathname();
-const getCurrentBookId = () => {
-  return pathname?.split('/')[2];
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
-  const currentBookId = getCurrentBookId(pathname);
   return (
     <html lang="ar" dir="rtl">
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
-        <Layout currentBookId={getCurrentBookId()}>
-          {children}
-        </Layout>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
