@@ -1,4 +1,4 @@
-import { Book } from './book1';
+import { Book } from './lessons';
 import { book1Data } from './book1';
 import { book2Data } from './book2';
 import { book3Data } from './book3';

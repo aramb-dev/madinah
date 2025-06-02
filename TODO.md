@@ -72,6 +72,7 @@
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
 - [x] Remove all transitions from the project. (commit: cb687ab)
 - [x] Refactor Book and Lesson type definitions to `src/data/lessons.ts`. (commit: 863c529)
+- [x] Fix build error related to Book type import in `src/data/books.ts`. (commit: cf2f4b1)
 - [x] Implement changelog feature based on commit history. (5adfafb)
  - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
   - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
