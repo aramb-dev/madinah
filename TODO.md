@@ -92,6 +92,7 @@
 - [x] Fix mobile home button positioning for RTL layout - changed from left-4 to right-4
 - [x] Fix duplicate Layout components in lesson pages - removed nested Layout wrapper causing duplicate UI elements
 - [x] Adjust hamburger menu z-index to prevent conflicts - reduced from z-30 to z-20
+- [x] Refactor sidebar into separate component - created dedicated Sidebar.tsx component for better modularity and maintainability
 
 ## Multi-Book Support Implementation:
 

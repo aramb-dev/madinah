@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import { getBookById, getLessonById } from '@/data/books';
 import { Book, Lesson } from '@/data/lessons';
@@ -36,7 +35,7 @@ export default function LessonPage() {
   }, [bookId, lessonId, router]);
 
   return (
-    <Layout currentBookId={bookId}>
+    <div>
       <Header book={book || undefined} />
       {selectedLesson && (
         <div className="p-4">
@@ -68,6 +67,6 @@ export default function LessonPage() {
           </Card>
         </div>
       )}
-    </Layout>
+    </div>
   );
 }

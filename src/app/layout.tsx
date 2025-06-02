@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './custom-globals.css';
-import Layout from '@/components/layout/Layout'; // Changed from AnimatedLayout to Layout
 
 // Load Inter font
 const inter = Inter({
@@ -40,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
-        <Layout>{children}</Layout>
+        {children}
       </body>
     </html>
   );

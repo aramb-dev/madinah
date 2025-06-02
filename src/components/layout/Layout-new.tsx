@@ -7,12 +7,12 @@ import Sidebar from './Sidebar';
 
 interface CustomLayoutProps {
   children: React.ReactNode;
-  currentBookId?: string;
+  currentBookId?: string; // Add currentBookId as an optional prop
 }
 
 const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === '/'; // Check if it's the home page
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row relative">
@@ -46,7 +46,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
       {/* Main Content Area - Conditional Margin */}
       <main
         className={`flex-1 transition-all duration-300 ease-in-out ${
-          !isHomePage ? 'md:mr-72' : ''
+          !isHomePage ? 'md:mr-72' : '' // Conditional margin for desktop
         } pt-16 md:pt-8 pb-8 px-4 md:px-8`}
       >
         {children}
