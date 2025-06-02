@@ -24,10 +24,10 @@ const LessonContent = ({ lesson }: LessonContentProps) => {
     <div id="lessonContent" className="space-y-6">
       <div className="bg-amber-50 rounded-lg p-4 sm:p-6 border border-amber-200">
         <h2 className="text-xl sm:text-2xl font-bold text-emerald-700 arabic-text font-arabic mb-2">
-          {lesson.title}
+          {lesson.title.ar}
         </h2>
         <h3 className="text-lg sm:text-xl text-emerald-600 english-text mb-4">
-          {lesson.englishTitle}
+          {lesson.title.en}
         </h3>
 
         <div className="mb-6 bg-white rounded-md p-3 sm:p-4 shadow-sm">

@@ -1,12 +1,10 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { booksData } from '@/data/books'; // Import booksData
 import type { Book } from '@/data/lessons'; // Import Book type
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#FFFAF0] flex flex-col items-center justify-center">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -83,26 +81,18 @@ export default function Home() {
                       )}
                     </Button>
                   )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardFooter>
+              </Card>
+            );
+          })}
         </div>
+      </section>
 
-        {/* Additional Information */}
-        <div className="mt-12 text-center">
-          <Card className="border-amber-200 bg-amber-50">
-            <CardContent className="pt-6">
-              <p className="text-sm text-amber-800 font-arabic mb-2">
-                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها.
-              </p>
-              <p className="text-sm text-amber-700">
-                This application provides an interactive explanation of Arabic grammar rules extracted from the Madinah Arabic learning series for non-native speakers.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      <section className="text-center bg-green-50 p-8 rounded-lg">
+        <p className="text-gray-700 text-lg mb-2">هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها</p>
+        <p className="text-gray-600">This application provides an interactive explanation of Arabic grammar rules extracted from the Madinah Arabic learning series for non-native speakers</p>
+      </section>
+
     </div>
   );
 }

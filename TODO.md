@@ -69,31 +69,40 @@
 - [x] Update primary Arabic font to Noto Naskh Arabic. (commit: 8f1406a)
 - [x] Implement font selection UI for Noto Sans Arabic and Baloo Arabic. (commit: e20ff26)
 - [x] Update README.md to reflect current application state. (commit: 2ef4d9f)
+- [x] Convert `readme` to `README.md` (HTML to Markdown conversion).
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
 - [x] Remove all transitions from the project. (commit: cb687ab)
 - [x] Refactor Book and Lesson type definitions to `src/data/lessons.ts`. (commit: 863c529)
 - [x] Fix build error related to Book type import in `src/data/books.ts`. (commit: 874c1b2)
 - [x] Implement changelog feature based on commit history. (5adfafb)
- - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
-  - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
-  - [x] Fix `usePathname` client component error in Layout. (54b0d43)
-  - [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
- - [ ] Configure ESLint and Prettier.
- - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
- - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
+- [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
+- [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
+- [x] Fix `usePathname` client component error in Layout. (54b0d43)
+- [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
+- [ ] Configure ESLint and Prettier.
+- [x] Commit `README.md` changes. (commit: 2d3a1fbcbd4d4c1d0ef17a3479285e4c938d3978)
+- [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
+- [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
+- [x] Remove `onLessonSelect` prop from `Layout` component and its usage.
 - [x] Update changelog with latest changes. (257d2d5)
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
+- [x] Fix type error for `currentBookId` prop in Layout component.
 
 ## Multi-Book Support Implementation:
 
-- [ ] Create a landing page for book selection (Madinah Book 1, 2, 3, etc.)
+- [ ] Refactor the site for multi-book support and other enhancements.
+
+- [x] Create a landing page for book selection (Madinah Book 1, 2, 3, etc.) (commit: 45b4a55)
 - [ ] Refactor lessons.ts data structure to support multiple books
   - [ ] Option 1: Separate files (book1.ts, book2.ts, book3.ts)
   - [ ] Option 2: Single file with book categorization
 - [ ] Update routing structure to support /books/[bookId]/lessons/[lessonId]
 - [ ] Update Layout component to handle book-specific navigation
+  - [x] Fix active lesson highlighting in sidebar for book-specific lessons (commit: 79687f2)
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components
+- [ ] Update Home Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/home.png`
+- [ ] Update Book Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/book.png`
 - [ ] Update existing lesson pages to work with new book structure
 - [ ] Create redirect from old lesson URLs to new book-specific URLs
 

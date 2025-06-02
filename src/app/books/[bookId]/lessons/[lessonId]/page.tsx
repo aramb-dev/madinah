@@ -15,7 +15,7 @@ export default function LessonPage() {
 
   const [selectedLesson, setSelectedLesson] = useState<{
     id: string;
-    title: string;
+    title: { ar: string; en: string };
     introduction?: {
       arabic: string;
       english: string;
@@ -27,22 +27,21 @@ export default function LessonPage() {
   const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
   const [book, setBook] = useState<{
     id: string;
-    title: string;
-    englishTitle: string;
+    title: { ar: string; en: string };
     lessons: Array<{
       id: string;
-      title: string;
+      title: { ar: string; en: string };
     }>;
   } | null>(null);
 
   useEffect(() => {
     const foundBook = getBookById(bookId);
     const lesson = getLessonById(bookId, lessonId);
-    
+
     if (foundBook) {
       setBook(foundBook);
     }
-    
+
     if (lesson) {
       setSelectedLesson(lesson);
       setCurrentRuleIndex(0); // Reset to first rule when lesson changes
@@ -53,17 +52,15 @@ export default function LessonPage() {
   }, [bookId, lessonId, router]);
 
   return (
-    <Layout
-      currentBookId={bookId}
-    >
+    <Layout currentBookId={bookId}>
       <Header />
       {selectedLesson && (
         <div className="p-4">
           <Card>
             <CardHeader>
-              <CardTitle>{selectedLesson.title}</CardTitle>
+              <CardTitle>{selectedLesson.title.ar} ({selectedLesson.title.en})</CardTitle>
               <CardDescription>
-                {book?.englishTitle} - Lesson {selectedLesson.id}
+                {book?.title.en} - Lesson {selectedLesson.id}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -77,7 +74,9 @@ export default function LessonPage() {
               ) : (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Introduction</h3>
-                  <p className="text-right font-arabic mb-4">{selectedLesson.introduction?.arabic}</p>
+                  <p className="text-right font-arabic mb-4">
+                    {selectedLesson.introduction?.arabic}
+                  </p>
                   <p>{selectedLesson.introduction?.english}</p>
                 </div>
               )}

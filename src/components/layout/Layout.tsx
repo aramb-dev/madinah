@@ -1,24 +1,28 @@
 'use client';
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { lessonsData } from '@/data/lessons';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { getBookById } from '@/data/books'; // Import getBookById
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface CustomLayoutProps {
   children: React.ReactNode;
-  onLessonSelect?: (lessonId: string) => void; // Made optional
-  currentBookId?: string; // Added currentBookId
+  currentBookId?: string; // Add currentBookId as an optional prop
 }
 
-const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
+const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
+  // Filter lessons based on currentBookId
+  const lessonsToDisplay = currentBookId ? getBookById(currentBookId)?.lessons || [] : [];
+
+  // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
-    return pathname === `/lessons/${lessonId}`;
+    if (currentBookId) {
+      return pathname === `/books/${currentBookId}/lessons/${lessonId}`;
+    }
+    return pathname === `/lessons/${lessonId}`; // Fallback for non-book specific lessons if any
   };
 
   return (
@@ -48,7 +52,7 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
       </Link>
 
       {/* Mobile Hamburger Button */}
-      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+      <Sheet>
         <SheetTrigger asChild>
           <Button
             variant="default"
@@ -71,73 +75,34 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
             </svg>
           </Button>
         </SheetTrigger>
-        {isMobileMenuOpen && (
-          <SheetContent
-            side="right"
-            className="bg-amber-100 p-0 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
-          >
-            <div className="h-full flex flex-col p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
-                  فهرس الدروس
-                </h2>
-                <SheetClose asChild>
-                  <Button variant="ghost" size="icon" className="text-emerald-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                  </Button>
-                </SheetClose>
-              </div>
-              <div id="lessonListMobile" className="space-y-1 flex-grow overflow-y-auto">
-                <SheetClose asChild>
-                  <Link href="/" passHref>
-                    <button
-                      className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
-                      <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                        Home
-                      </span>
-                    </button>
-                  </Link>
-                </SheetClose>
-                {lessonsData.map((lesson) => (
-                  <SheetClose key={lesson.id} asChild>
-                    <Link href={`/lessons/${lesson.id}`} passHref>
-                      <button
-                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${isLessonActive(lesson.id) ? 'bg-amber-200' : ''}`}
-                        onClick={() => {
-                          if (onLessonSelect) {
-                            onLessonSelect(lesson.id);
-                          }
-                          setIsMobileMenuOpen(false);
-                        }}
-                      >
-                        <span className="arabic-text font-arabic text-base">{lesson.title}</span>
-                        <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                          {lesson.englishTitle}
-                        </span>
-                      </button>
-                    </Link>
-                  </SheetClose>
-                ))}
-                <SheetClose asChild>
-                  <Link href="/changelog" passHref>
-                    <button
-                      className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
-                      <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                        Changelog
-                      </span>
-                    </button>
-                  </Link>
-                </SheetClose>
-              </div>
-            </div>
-          </SheetContent>
-        )}
+        <SheetContent
+          side="right"
+          className="bg-amber-100 p-4 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
+        >
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
+              فهرس الدروس
+            </h2>
+          </div>
+          <div id="lessonListMobile" className="space-y-1 flex-grow">
+            {lessonsToDisplay.map((lesson) => (
+              <SheetClose key={lesson.id} asChild>
+                <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
+                  <button
+                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                      isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                    }`}
+                  >
+                    <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
+                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                      {lesson.title.en}
+                    </span>
+                  </button>
+                </Link>
+              </SheetClose>
+            ))}
+          </div>
+        </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
@@ -151,43 +116,20 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
           </h2>
         </div>
         <div id="lessonList" className="space-y-2 flex-grow">
-          <Link href="/" passHref>
-            <button
-              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
-            >
-              <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
-              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                Home
-              </span>
-            </button>
-          </Link>
-          {lessonsData.map((lesson) => (
-            <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
+          {lessonsToDisplay.map((lesson) => (
+            <Link key={lesson.id} href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
               <button
-                className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${isLessonActive(lesson.id) ? 'bg-amber-200' : ''}`}
-                onClick={() => {
-                  if (onLessonSelect) {
-                    onLessonSelect(lesson.id);
-                  }
-                }}
+                className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                  isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                }`}
               >
-                <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
                 <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                  {lesson.englishTitle}
+                  {lesson.title.en}
                 </span>
               </button>
             </Link>
           ))}
-          <Link href="/changelog" passHref>
-            <button
-              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
-            >
-              <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
-              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                Changelog
-              </span>
-            </button>
-          </Link>
         </div>
       </nav>
 

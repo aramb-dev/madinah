@@ -1,19 +1,26 @@
+// Define the Lesson interface with the new title structure
+// Import the interfaces from lessons.ts
 import { Book } from './lessons';
 
-// book1Data with all lessons included
+// book1Data with all lessons included and titles updated
 export const book1Data: Book = {
   id: 'book1',
-  title: 'كتاب المدينة الأول',
-  englishTitle: 'Madinah Book 1',
+  title: { // Updated main book title
+    ar: 'كتاب المدينة الأول',
+    en: 'Madinah Book 1',
+  },
+  // englishTitle: 'Madinah Book 1', // Removed
   description: {
     arabic: 'الكتاب الأول من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المبتدئ',
     english: 'The first book in the Arabic language learning series for non-native speakers - Beginner level'
   },
-  lessons: [ // All lessons from lessonsData will be placed here
+  lessons: [
     {
       id: 'lesson1',
-      title: 'الدرس الأول',
-      englishTitle: 'Lesson 1',
+      title: { // Updated lesson title
+        ar: 'الدرس الأول',
+        en: 'Lesson 1',
+      },
       introduction: {
         arabic:
           'هذا القسم يغطي الدرس الأول. ستجد هنا شروحات وأمثلة للمفاهيم النحوية الأساسية المقدمة في هذا الدرس، مع التركيز على أسماء الإشارة والاستفهام الأساسية.',
@@ -48,8 +55,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson2',
-      title: 'الدرس الثاني',
-      englishTitle: 'Lesson 2',
+      title: { // Updated lesson title
+        ar: 'الدرس الثاني',
+        en: 'Lesson 2',
+      },
       introduction: {
         arabic:
           'هذا القسم يغطي الدرس الثاني. ستجد هنا شروحات وأمثلة لأسماء الإشارة للبعيد وأسئلة الاستفهام المتعلقة بها.',
@@ -88,8 +97,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson3',
-      title: 'الدرس الثالث',
-      englishTitle: 'Lesson 3',
+      title: { // Updated lesson title
+        ar: 'الدرس الثالث',
+        en: 'Lesson 3',
+      },
       introduction: {
         arabic:
           'هذا القسم يغطي الدرس الثالث. ستتعلم عن أداة التعريف (ال)، والفرق بين النكرة والمعرفة، والحروف القمرية والشمسية.',
@@ -99,35 +110,35 @@ export const book1Data: Book = {
       rules: [
         {
           name: 'ال (al - the)',
-          arabicText: 'ال : حَرْفُ تَعْرِيفِ.', // Note: Original book1.ts had 'أَدَاةُ التَّعْرِيفِ', lessons.ts had 'حَرْفُ تَعْرِيفِ'. Using lessons.ts version.
+          arabicText: 'ال : حَرْفُ تَعْرِيفِ.',
           explanation: 'Is the definite article.',
         },
-        { // Added from lessons.ts, as book1.ts had slightly different/less rules for lesson 3
+        {
           name: 'إزالة التنوين مع ال (Tanween removal with ال)',
           arabicText: 'يُحْذَفُ التَّنْوِينُ عِنْدَ دُخُولِ (ال).',
           explanation: 'When (ال) enters a noun, the tanween (nunation) is removed.',
         },
         {
-          name: 'النَّكِرَةُ (al-nakirah - indefinite)', // Updated to match lessons.ts
+          name: 'النَّكِرَةُ (al-nakirah - indefinite)',
           arabicText:
             'النَّكِرَةُ : شَيْءٌ غَيْرُ مُعَيَّنٍ ، نَحْوُ : بَيْتٌ ، قَلَمٌ ، رَجُلٌ ، بِنْتٌ.',
           explanation:
             'Refers to an unspecified thing, e.g., بَيْتٌ (baytun - a house), قَلَمٌ (qalamun - a pen), رَجُلٌ (rajulun - a man), بِنْتٌ (bintun - a girl).',
         },
         {
-          name: "الْمَعْرِفَةُ (al-ma'rifah - definite)", // Updated to match lessons.ts
+          name: "الْمَعْرِفَةُ (al-ma'rifah - definite)",
           arabicText:
             'الْمَعْرِفَةُ : شَيْءٌ مُعَيَّنٌ ، نَحْوُ : الْبَيْتُ ، الْقَلَمُ ، الرَّجُلُ ، الْبِنْتُ.',
           explanation:
             'Refers to a specific thing, e.g., الْبَيْتُ (al-baytu - the house), الْقَلَمُ (al-qalamu - the pen), الرَّجُلُ (al-rajulu - the man), الْبِنْتُ (al-bintu - the girl).',
         },
         {
-          name: 'الْحُرُوفُ الْقَمَرِيَّةُ (al-ḥurūf al-qamariyyah - lunar letters)', // Updated to match lessons.ts
+          name: 'الْحُرُوفُ الْقَمَرِيَّةُ (al-ḥurūf al-qamariyyah - lunar letters)',
           arabicText: 'الْحُرُوفُ الْقَمَرِيَّةُ : يُنْطَقُ السُّكُونُ عَلَى اللام ( القمر ).',
           explanation: 'The sukoon on the lām (ل) is pronounced (e.g., الْقَمَرُ - al-qamar).',
         },
         {
-          name: 'الْحُرُوفُ الشَّمْسِيَّةُ (al-ḥurūf al-shamsiyyah - solar letters)', // Updated to match lessons.ts
+          name: 'الْحُرُوفُ الشَّمْسِيَّةُ (al-ḥurūf al-shamsiyyah - solar letters)',
           arabicText:
             'الْحُرُوفُ الشَّمْسِيَّةُ : لا يُنْطَقُ السُّكُونَ عَلَى اللام ، وَتُوضَعُ شَدَّةٌ عَلَى الْحَرْفِ الَّذِي بَعْدَهُ ( الشمس ).',
           explanation:
@@ -137,8 +148,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson4',
-      title: 'الدرس الرابع',
-      englishTitle: 'Lesson 4',
+      title: { ar: 'الدرس الرابع', en: 'Lesson 4' },
       introduction: {
         arabic:
           'هذا القسم يغطي الدرس الرابع. ستتعلم عن حروف الجر، وأسئلة المكان، وقاعدة الأسماء المؤنثة العلم.',
@@ -181,8 +191,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson5',
-      title: 'الدرس الخامس',
-      englishTitle: 'Lesson 5',
+      title: { ar: 'الدرس الخامس', en: 'Lesson 5' },
       introduction: {
         arabic:
           'يستعرض هذا الدرس مفهوم الإضافة (المضاف والمضاف إليه) وكيفية استخدام أداة النداء (يا).',
@@ -212,8 +221,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson6',
-      title: 'الدرس السادس',
-      englishTitle: 'Lesson 6',
+      title: { ar: 'الدرس السادس', en: 'Lesson 6' },
       introduction: {
         arabic:
           'هذا الدرس يتناول اسم الإشارة للمفرد المؤنث القريب (هَذِهِ) والجملة الاسمية ومكوناتها (المبتدأ والخبر).',
@@ -245,8 +253,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson7',
-      title: 'الدرس السابع',
-      englishTitle: 'Lesson 7',
+      title: { ar: 'الدرس السابع', en: 'Lesson 7' },
       introduction: {
         arabic: 'يركز هذا الدرس على اسم الإشارة للمفرد المؤنث البعيد (تِلْكَ) مع أمثلة توضيحية.',
         english:
@@ -271,8 +278,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson8',
-      title: 'الدرس الثامن',
-      englishTitle: 'Lesson 8',
+      title: { ar: 'الدرس الثامن', en: 'Lesson 8' },
       introduction: {
         arabic:
           "يشرح هذا الدرس الإشارة إلى الاسم المعرف بـ 'ال'، واستخدام 'لِمَنْ؟'، وظرفي المكان 'أَمَامَ' و 'خَلْفَ'، ومعاني بعض حروف الجر.",
@@ -312,8 +318,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson9',
-      title: 'الدرس التاسع',
-      englishTitle: 'Lesson 9',
+      title: { ar: 'الدرس التاسع', en: 'Lesson 9' },
       introduction: {
         arabic: "يتناول هذا الدرس النعت والمنعوت (الصفة والموصوف) والاسم الموصول 'الَّذِي'.",
         english:
@@ -338,8 +343,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson10',
-      title: 'الدرس العاشر',
-      englishTitle: 'Lesson 10',
+      title: { ar: 'الدرس العاشر', en: 'Lesson 10' },
       introduction: {
         arabic:
           "يشرح هذا الدرس أنواع الضمائر (المتكلم، المخاطب، الغائب)، واستخدام 'عِنْدِي' و 'لِي'، وظرف المكان 'مَعَ'، وقاعدة الأسماء المذكرة المختومة بتاء التأنيث.",
@@ -377,8 +381,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson11',
-      title: 'الدرس الحادي عشر',
-      englishTitle: 'Lesson 11',
+      title: { ar: 'الدرس الحادي عشر', en: 'Lesson 11' },
       introduction: {
         arabic: "يتناول هذا الدرس استخدام حرف الجر 'فِي' مع ضمير الغائب، وياء المتكلم.",
         english:
@@ -401,8 +404,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson12',
-      title: 'الدرس الثاني عشر',
-      englishTitle: 'Lesson 12',
+      title: { ar: 'الدرس الثاني عشر', en: 'Lesson 12' },
       introduction: {
         arabic:
           "يشرح هذا الدرس كاف المخاطب، والضميرين 'أَنَا' و 'أَنْتَ'، وتأنيث الفاعل، والاسمين الموصولين 'الَّذِي' و 'الَّتِي'.",
@@ -448,8 +450,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson13',
-      title: 'الدرس الثالث عشر',
-      englishTitle: 'Lesson 13',
+      title: { ar: 'الدرس الثالث عشر', en: 'Lesson 13' },
       introduction: {
         arabic:
           "يتناول هذا الدرس اسم الإشارة للجمع القريب 'هَؤُلَاءِ'، وضمير الجمع الغائب المذكر 'هُمْ'، وإضافة الأسماء إلى الاسم الظاهر والضمير، وواو الجماعة، وضمير الجمع الغائب المؤنث 'هُنَّ'، وتاء التأنيث، ونون النسوة، واسم الإشارة للجمع البعيد 'أُولَئِكَ'.",
@@ -512,8 +513,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson14',
-      title: 'الدرس الرابع عشر',
-      englishTitle: 'Lesson 14',
+      title: { ar: 'الدرس الرابع عشر', en: 'Lesson 14' },
       introduction: {
         arabic:
           "يشرح هذا الدرس إضافة الأسماء إلى ضميري المخاطبين والمتكلمين (الجمع)، والضميرين 'نَحْنُ' و 'أَنْتُمْ'، واسم الاستفهام 'أَيُّ'، وضمير المخاطب المتصل بالفعل.",
@@ -558,8 +558,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson15',
-      title: 'الدرس الخامس عشر',
-      englishTitle: 'Lesson 15',
+      title: { ar: 'الدرس الخامس عشر', en: 'Lesson 15' },
       introduction: {
         arabic:
           "يتناول هذا الدرس ضمائر المخاطب المنفصلة (أَنْتَ، أَنْتِ، أَنْتُمْ، أَنْتُنَّ) والمتصلة (كَ، كِ، كُمْ، كُنَّ)، وجدول للضمائر المتصلة بالفعل والمنفصلة، وظرفي الزمان 'قَبْلَ' و 'بَعْدَ'.",
@@ -595,8 +594,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson16_17',
-      title: 'الدرسان السادس عشر والسابع عشر',
-      englishTitle: 'Lessons 16 & 17',
+      title: { ar: 'الدرسان السادس عشر والسابع عشر', en: 'Lessons 16 & 17' },
       introduction: {
         arabic: 'يركز هذان الدرسان على المبتدأ والخبر، والإشارة إلى جمع غير العاقل.',
         english:
@@ -632,8 +630,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson18',
-      title: 'الدرس الثامن عشر',
-      englishTitle: 'Lesson 18',
+      title: { ar: 'الدرس الثامن عشر', en: 'Lesson 18' },
       introduction: {
         arabic:
           "يتناول هذا الدرس المثنى، واسمي الإشارة للمثنى القريب 'هَذَانِ' و 'هَاتَانِ'، واسم الاستفهام 'كَمْ'.",
@@ -664,8 +661,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson19_20',
-      title: 'الدرسان التاسع عشر والعشرون',
-      englishTitle: 'Lessons 19 & 20',
+      title: { ar: 'الدرسان التاسع عشر والعشرون', en: 'Lessons 19 & 20' },
       introduction: {
         arabic:
           'يشرح هذان الدرسان قواعد العدد من ٣ إلى ١٠، وكيفية مخالفته للمعدود في التذكير والتأنيث، وكون المعدود جمعاً مجروراً بالإضافة.',
@@ -691,8 +687,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson21',
-      title: 'الدرس الحادي والعشرون',
-      englishTitle: 'Lesson 21',
+      title: { ar: 'الدرس الحادي والعشرون', en: 'Lesson 21' },
       introduction: {
         arabic:
           'هذا الدرس عبارة عن مراجعة شاملة للدروس السابقة، ويجمع العديد من القواعد التي تم تعلمها.',
@@ -779,8 +774,7 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson22_23',
-      title: 'الدرسان الثاني والعشرون والثالث والعشرون',
-      englishTitle: 'Lessons 22 & 23',
+      title: { ar: 'الدرسان الثاني والعشرون والثالث والعشرون', en: 'Lessons 22 & 23' },
       introduction: {
         arabic:
           'هذان الدرسان مخصصان لشرح الممنوع من الصرف، وهو الاسم الذي لا يُنوَّن ويُجر بالفتحة نيابة عن الكسرة، مع ذكر أنواعه المختلفة.',
