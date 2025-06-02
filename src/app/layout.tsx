@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './custom-globals.css';
-import AnimatedLayout from '@/components/layout/AnimatedLayout';
+import Layout from '@/components/layout/Layout'; // Changed from AnimatedLayout to Layout
 
 // Load Inter font
 const inter = Inter({
@@ -10,9 +10,6 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
 });
-
-// Note: Noto Kufi Arabic is now self-hosted in /public/fonts/
-// and loaded via @font-face in custom-globals.css
 
 const sharedTitle = 'قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١';
 const sharedDescription = 'Interactive Arabic Grammar Rules - Explanation of Madinah Book 1';
@@ -43,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
-        <AnimatedLayout>{children}</AnimatedLayout>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
