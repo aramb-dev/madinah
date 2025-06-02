@@ -88,6 +88,10 @@
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
 - [x] Fix type error for `currentBookId` prop in Layout component.
 - [x] Fix sidebar positioning for Arabic RTL layout - move sidebar to right side. (fixes positioning issue for Arabic applications)
+- [x] Fix desktop spacing issues - resolved sidebar layout and positioning problems
+- [x] Fix mobile home button positioning for RTL layout - changed from left-4 to right-4
+- [x] Fix duplicate Layout components in lesson pages - removed nested Layout wrapper causing duplicate UI elements
+- [x] Adjust hamburger menu z-index to prevent conflicts - reduced from z-30 to z-20
 
 ## Multi-Book Support Implementation:
 
