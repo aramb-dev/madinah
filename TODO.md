@@ -98,6 +98,7 @@
   - [ ] Option 2: Single file with book categorization
 - [ ] Update routing structure to support /books/[bookId]/lessons/[lessonId]
 - [ ] Update Layout component to handle book-specific navigation
+  - [x] Fix active lesson highlighting in sidebar for book-specific lessons (commit: 79687f2)
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components
 - [ ] Update existing lesson pages to work with new book structure

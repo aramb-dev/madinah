@@ -22,7 +22,10 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
-    return pathname === `/lessons/${lessonId}`;
+    if (currentBookId) {
+      return pathname === `/books/${currentBookId}/lessons/${lessonId}`;
+    }
+    return pathname === `/lessons/${lessonId}`; // Fallback for non-book specific lessons if any
   };
 
   return (
