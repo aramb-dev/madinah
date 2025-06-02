@@ -11,7 +11,7 @@ export default function BooksPage() {
           <Link key={book.id} href={`/books/${book.id}/lessons/${book.lessons[0].id}`}>
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <CardTitle>{book.title}</CardTitle>
+                <CardTitle>{book.title.ar}</CardTitle>
                 <CardDescription>
                   <p className="text-right font-arabic">{book.description.arabic}</p>
                   <p className="text-sm text-gray-500">{book.description.english}</p>

@@ -2,8 +2,7 @@ import { Book } from './lessons';
 
 export const book3Data: Book = {
   id: 'book3',
-  title: 'كتاب المدينة الثالث',
-  englishTitle: 'Madinah Book 3',
+  title: { ar: 'كتاب المدينة الثالث', en: 'Madinah Book 3' },
   description: {
     arabic: 'الكتاب الثالث من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المتقدم',
     english:
@@ -13,8 +12,7 @@ export const book3Data: Book = {
     // Placeholder for future lessons
     {
       id: 'coming-soon',
-      title: 'قريباً',
-      englishTitle: 'Coming Soon',
+      title: { ar: 'قريباً', en: 'Coming Soon' },
       introduction: {
         arabic: 'سيتم إضافة دروس الكتاب الثالث قريباً. ترقبوا التحديثات!',
         english: 'Lessons from Book 3 will be added soon. Stay tuned for updates!',

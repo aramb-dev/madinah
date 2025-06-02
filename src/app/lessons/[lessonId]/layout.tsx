@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
   const imageFilename = getLessonImageFilename(lessonId);
   const socialShareImage = `/images/social-share/${imageFilename}`;
 
-  const title = `${lesson.title} - ${lesson.englishTitle} | قواعد اللغة العربية التفاعلية`;
+  const title = `${lesson.title.ar} - ${lesson.title.en} | قواعد اللغة العربية التفاعلية`;
   const description = lesson.introduction.english;
 
   return {

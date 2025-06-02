@@ -16,9 +16,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
 
   // Filter lessons based on currentBookId
-  const lessonsToDisplay = currentBookId
-    ? getBookById(currentBookId)?.lessons || []
-    : lessonsData; // Fallback to lessonsData if no bookId
+  const lessonsToDisplay = currentBookId ? getBookById(currentBookId)?.lessons || [] : lessonsData; // Fallback to lessonsData if no bookId
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
@@ -96,9 +94,9 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
                       isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                     }`}
                   >
-                    <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                    <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
                     <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                      {lesson.englishTitle}
+                      {lesson.title.en}
                     </span>
                   </button>
                 </Link>
@@ -126,9 +124,9 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
                   isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                 }`}
               >
-                <span className="arabic-text font-arabic text-base">{lesson.title}</span>
+                <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
                 <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
-                  {lesson.englishTitle}
+                  {lesson.title.en}
                 </span>
               </button>
             </Link>

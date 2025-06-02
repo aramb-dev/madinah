@@ -15,16 +15,14 @@ export default function BookPage() {
 
   const [book, setBook] = useState<{
     id: string;
-    title: string;
-    englishTitle: string;
+    title: { ar: string; en: string };
     description?: {
       arabic: string;
       english: string;
     };
     lessons: Array<{
       id: string;
-      title: string;
-      englishTitle: string;
+      title: { ar: string; en: string };
       introduction: {
         arabic: string;
         english: string;
@@ -52,8 +50,8 @@ export default function BookPage() {
       {book && (
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold mb-2 font-arabic">{book.title}</h1>
-            <h2 className="text-xl text-gray-600">{book.englishTitle}</h2>
+            <h1 className="text-3xl font-bold mb-2 font-arabic">{book.title.ar}</h1>
+            <h2 className="text-xl text-gray-600">{book.title.en}</h2>
             {book.description && (
               <div className="mt-4 max-w-2xl mx-auto">
                 <p className="text-right font-arabic mb-2">{book.description.arabic}</p>
@@ -66,8 +64,7 @@ export default function BookPage() {
             {book.lessons.map(
               (lesson: {
                 id: string;
-                title: string;
-                englishTitle: string;
+                title: { ar: string; en: string };
                 introduction: {
                   arabic: string;
                   english: string;
@@ -79,8 +76,8 @@ export default function BookPage() {
                   onClick={() => handleLessonClick(lesson.id)}
                 >
                   <CardHeader>
-                    <CardTitle className="font-arabic text-right">{lesson.title}</CardTitle>
-                    <CardDescription>{lesson.englishTitle}</CardDescription>
+                    <CardTitle className="font-arabic text-right">{lesson.title.ar}</CardTitle>
+                    <CardDescription>{lesson.title.en}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-right font-arabic mb-2 line-clamp-2">

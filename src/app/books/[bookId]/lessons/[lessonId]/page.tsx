@@ -15,7 +15,7 @@ export default function LessonPage() {
 
   const [selectedLesson, setSelectedLesson] = useState<{
     id: string;
-    title: string;
+    title: { ar: string; en: string };
     introduction?: {
       arabic: string;
       english: string;
@@ -27,11 +27,10 @@ export default function LessonPage() {
   const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
   const [book, setBook] = useState<{
     id: string;
-    title: string;
-    englishTitle: string;
+    title: { ar: string; en: string };
     lessons: Array<{
       id: string;
-      title: string;
+      title: { ar: string; en: string };
     }>;
   } | null>(null);
 
@@ -59,9 +58,9 @@ export default function LessonPage() {
         <div className="p-4">
           <Card>
             <CardHeader>
-              <CardTitle>{selectedLesson.title}</CardTitle>
+              <CardTitle>{selectedLesson.title.ar} ({selectedLesson.title.en})</CardTitle>
               <CardDescription>
-                {book?.englishTitle} - Lesson {selectedLesson.id}
+                {book?.title.en} - Lesson {selectedLesson.id}
               </CardDescription>
             </CardHeader>
             <CardContent>
