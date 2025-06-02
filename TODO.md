@@ -87,6 +87,7 @@
 - [x] Update changelog with latest changes. (257d2d5)
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
 - [x] Fix type error for `currentBookId` prop in Layout component.
+- [x] Fix sidebar positioning for Arabic RTL layout - move sidebar to right side. (fixes positioning issue for Arabic applications)
 
 ## Multi-Book Support Implementation:
 

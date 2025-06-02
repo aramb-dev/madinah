@@ -29,7 +29,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row relative">
       {/* Home Navigation Button - Always visible */}
-      <Link href="/" className="fixed top-4 right-4 z-30 md:top-4 md:right-80 md:z-10">
+      <Link href="/" className="fixed top-4 left-4 z-30 md:top-4 md:left-4 md:z-10">
         <Button
           variant="outline"
           className="bg-amber-50 hover:bg-amber-100 border-amber-300 text-emerald-700 shadow-md"
@@ -110,7 +110,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
 
       {/* Desktop Sidebar - Conditional Rendering */}
       {!isHomePage && (
-        <aside className="hidden md:block md:w-72 bg-amber-50 border-r border-amber-200 p-4 fixed top-0 left-0 h-full overflow-y-auto z-20 shadow-lg">
+        <aside className="hidden md:block md:w-72 bg-amber-50 border-l border-amber-200 p-4 fixed top-0 right-0 h-full overflow-y-auto z-20 shadow-lg">
           <div className="sticky top-0 bg-amber-50 pt-2 pb-4 z-10">
             <h2 className="text-2xl font-bold text-emerald-700 mb-6 arabic-text font-arabic text-center">
               فهرس الدروس
@@ -138,7 +138,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
       {/* Main Content Area - Conditional Margin */}
       <main
         className={`flex-1 transition-all duration-300 ease-in-out ${
-          !isHomePage ? 'md:ml-72' : '' // Conditional margin for desktop
+          !isHomePage ? 'md:mr-72' : '' // Conditional margin for desktop
         } pt-16 md:pt-8 pb-8 px-4 md:px-8`}
       >
         {children}
