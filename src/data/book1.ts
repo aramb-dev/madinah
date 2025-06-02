@@ -1,36 +1,6 @@
 // Define the Lesson interface with the new title structure
-export interface Lesson {
-  id: string;
-  title: { // Changed from string to object
-    ar: string;
-    en: string;
-  };
-  // englishTitle: string; // Removed
-  introduction: {
-    arabic: string;
-    english: string;
-  };
-  rules: {
-    name: string;
-    arabicText: string;
-    explanation: string;
-  }[];
-}
-
-// Define the Book interface with the new title structure
-export interface Book {
-  id: string;
-  title: { // Changed from string to object
-    ar: string;
-    en: string;
-  };
-  // englishTitle: string; // Removed
-  description: {
-    arabic: string;
-    english: string;
-  };
-  lessons: Lesson[];
-}
+// Import the interfaces from lessons.ts
+import { Book } from './lessons';
 
 // book1Data with all lessons included and titles updated
 export const book1Data: Book = {

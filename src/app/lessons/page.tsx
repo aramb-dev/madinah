@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { lessonsData } from '@/data/lessons';
+import { book1Data } from '@/data/book1';
 import Header from '@/components/layout/Header';
 
 export default function LessonsIndexPage() {
@@ -10,8 +10,8 @@ export default function LessonsIndexPage() {
 
   // Redirect to the first lesson
   useEffect(() => {
-    // Get the first lesson ID
-    const firstLessonId = lessonsData[0]?.id;
+    // Get the first lesson ID from book1
+    const firstLessonId = book1Data.lessons[0]?.id;
 
     if (firstLessonId) {
       router.replace(`/lessons/${firstLessonId}`);

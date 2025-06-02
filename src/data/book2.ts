@@ -1,3 +1,4 @@
+// Book 2 data - placeholder
 import { Book } from './lessons';
 
 export const book2Data: Book = {

@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { lessonsData } from '@/data/lessons'; // Import lessonsData
 import { getBookById } from '@/data/books'; // Import getBookById
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -16,7 +15,7 @@ const Layout = ({ children, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
 
   // Filter lessons based on currentBookId
-  const lessonsToDisplay = currentBookId ? getBookById(currentBookId)?.lessons || [] : lessonsData; // Fallback to lessonsData if no bookId
+  const lessonsToDisplay = currentBookId ? getBookById(currentBookId)?.lessons || [] : [];
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { lessonsData } from '@/data/lessons';
+import { book1Data } from '@/data/book1';
 
 type GenerateMetadataProps = {
   params: Promise<{ lessonId: string }>;
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
   const { lessonId } = await params;
 
   // Find the lesson data
-  const lesson = lessonsData.find((l) => l.id === lessonId);
+  const lesson = book1Data.lessons.find((l) => l.id === lessonId);
 
   if (!lesson) {
     // Fallback metadata if lesson not found
