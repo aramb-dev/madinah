@@ -12,7 +12,10 @@ export default function BooksPage() {
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>{book.title}</CardTitle>
-                <CardDescription>{book.description}</CardDescription>
+                <CardDescription>
+                  <p className="text-right font-arabic">{book.description.arabic}</p>
+                  <p className="text-sm text-gray-500">{book.description.english}</p>
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-500">Lessons: {book.lessons.length}</p>
