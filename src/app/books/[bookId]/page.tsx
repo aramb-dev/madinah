@@ -45,7 +45,7 @@ export default function BookPage() {
   };
 
   return (
-    <Layout currentBookId={bookId}>
+    <>
       <Header />
       {book && (
         <div className="container mx-auto px-4 py-8">
@@ -102,6 +102,6 @@ export default function BookPage() {
           </div>
         </div>
       )}
-    </Layout>
+    </>
   );
 }
