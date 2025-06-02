@@ -101,6 +101,8 @@
   - [x] Fix active lesson highlighting in sidebar for book-specific lessons (commit: 79687f2)
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components
+- [ ] Update Home Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/home.png`
+- [ ] Update Book Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/book.png`
 - [ ] Update existing lesson pages to work with new book structure
 - [ ] Create redirect from old lesson URLs to new book-specific URLs
 
