@@ -3,7 +3,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Header from '@/components/layout/Header';
 
 interface Book {
   id: string;
@@ -54,8 +53,7 @@ const booksData: Book[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FFFAF0]">
-      <Header />
+    <div className="min-h-screen bg-[#FFFAF0] flex flex-col items-center justify-center">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Welcome Section */}
         <div className="text-center mb-12">
@@ -76,11 +74,11 @@ export default function Home() {
         {/* Books Selection */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {booksData.map((book) => (
-            <Card 
-              key={book.id} 
+            <Card
+              key={book.id}
               className={`border-2 transition-all duration-300 hover:shadow-lg ${
-                book.available 
-                  ? 'border-emerald-200 hover:border-emerald-300 bg-white' 
+                book.available
+                  ? 'border-emerald-200 hover:border-emerald-300 bg-white'
                   : 'border-gray-200 bg-gray-50 opacity-75'
               }`}
             >
@@ -101,11 +99,11 @@ export default function Home() {
                     {book.description.english}
                   </p>
                 </div>
-                
+
                 <div className="pt-4">
                   {book.available ? (
                     <Link href={`/books/${book.id}`} className="block">
-                      <Button 
+                      <Button
                         className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
                       >
                         <span className="font-arabic ml-2">ابدأ الدراسة</span>
@@ -113,8 +111,8 @@ export default function Home() {
                       </Button>
                     </Link>
                   ) : (
-                    <Button 
-                      disabled 
+                    <Button
+                      disabled
                       className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed"
                     >
                       {book.comingSoon ? (
