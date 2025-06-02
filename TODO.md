@@ -98,8 +98,9 @@
   - [ ] Option 1: Separate files (book1.ts, book2.ts, book3.ts)
   - [ ] Option 2: Single file with book categorization
 - [ ] Update routing structure to support /books/[bookId]/lessons/[lessonId]
-- [ ] Update Layout component to handle book-specific navigation
+- [x] Update Layout component to handle book-specific navigation
   - [x] Fix active lesson highlighting in sidebar for book-specific lessons (commit: 79687f2)
+  - [x] Fix sidebar not populating on book pages - wrapped book page with Layout component (book page sidebar integration)
 - [x] Make Header component dynamic based on chosen book (commit: df2d78d)
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components

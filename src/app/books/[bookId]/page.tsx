@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import { getBookById } from '@/data/books';
 import { Book } from '@/data/lessons';
@@ -30,7 +31,7 @@ export default function BookPage() {
   };
 
   return (
-    <>
+    <Layout currentBookId={bookId}>
       <Header book={book || undefined} />
       {book && (
         <div className="container mx-auto px-4 py-8">
@@ -87,6 +88,6 @@ export default function BookPage() {
           </div>
         </div>
       )}
-    </>
+    </Layout>
   );
 }
