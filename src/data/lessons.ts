@@ -23,6 +23,8 @@ export interface Book {
     english: string;
   };
   lessons: Lesson[];
+  available: boolean; // Added
+  comingSoon?: boolean; // Added
 }
 
 export interface Lesson {

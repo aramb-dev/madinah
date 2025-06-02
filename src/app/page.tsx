@@ -3,53 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-
-interface Book {
-  id: string;
-  title: string;
-  englishTitle: string;
-  description: {
-    arabic: string;
-    english: string;
-  };
-  available: boolean;
-  comingSoon?: boolean;
-}
-
-const booksData: Book[] = [
-  {
-    id: 'book1',
-    title: 'كتاب المدينة الأول',
-    englishTitle: 'Madinah Book 1',
-    description: {
-      arabic: 'الكتاب الأول من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المبتدئ',
-      english: 'The first book in the Arabic language learning series for non-native speakers - Beginner level'
-    },
-    available: true
-  },
-  {
-    id: 'book2',
-    title: 'كتاب المدينة الثاني',
-    englishTitle: 'Madinah Book 2',
-    description: {
-      arabic: 'الكتاب الثاني من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المتوسط',
-      english: 'The second book in the Arabic language learning series for non-native speakers - Intermediate level'
-    },
-    available: false,
-    comingSoon: true
-  },
-  {
-    id: 'book3',
-    title: 'كتاب المدينة الثالث',
-    englishTitle: 'Madinah Book 3',
-    description: {
-      arabic: 'الكتاب الثالث من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المتقدم',
-      english: 'The third book in the Arabic language learning series for non-native speakers - Advanced level'
-    },
-    available: false,
-    comingSoon: true
-  }
-];
+import { booksData } from '@/data/books'; // Import booksData
+import type { Book } from '@/data/lessons'; // Import Book type
 
 export default function Home() {
   return (
