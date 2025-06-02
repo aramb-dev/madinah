@@ -1,3 +1,4 @@
+'use client';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -34,11 +35,10 @@ export const metadata: Metadata = {
   },
 };
 
-function getCurrentBookId(pathname: string): string | undefined {
-  // Matches /books/book1 or /books/book1/lessons/lesson1
-  const match = pathname.match(/^\/books\/([^\/]+)/);
-  return match ? match[1] : undefined;
-}
+const pathname = usePathname();
+const getCurrentBookId = () => {
+  return pathname?.split('/')[2];
+};
 
 export default function RootLayout({
   children,
@@ -50,7 +50,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
-        <Layout currentBookId={currentBookId}>{children}</Layout>
+        <Layout currentBookId={getCurrentBookId()}>
+          {children}
+        </Layout>
       </body>
     </html>
   );
