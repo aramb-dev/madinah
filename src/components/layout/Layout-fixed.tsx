@@ -1,11 +1,5 @@
 'use client';
-impo      {/* Home Navigation Button - Always visible */}
-      <Link href="/" className="fixed top-4 left-4 z-40">
-        <Button
-          variant="outline"
-          className="bg-amber-50 hover:bg-amber-100 border-amber-300 text-emerald-700 shadow-md"
-          aria-label="Go to home page"
-        >t from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
