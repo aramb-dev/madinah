@@ -21,9 +21,9 @@ export default function Home() {
 
   return (
     <Layout
-      onLessonSelect={(lessonId: string) => {
-        router.push(`/lessons/${lessonId}`);
-      }}
+      // onLessonSelect={(lessonId: string) => { // Removed onLessonSelect prop
+      //   router.push(`/lessons/${lessonId}`);
+      // }}
     >
       <Header />
       <div className="space-y-6">

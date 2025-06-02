@@ -1,19 +1,23 @@
+'use client';
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { lessonsData } from '@/data/lessons';
 import { Toggle } from '@/components/ui/toggle';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation'; // Added useRouter
 
 interface CustomLayoutProps {
   children: React.ReactNode;
-  onLessonSelect: (lessonId: string) => void;
+  // onLessonSelect: (lessonId: string) => void; // Removed onLessonSelect
 }
 
-const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
+const Layout = ({ children }: CustomLayoutProps) => { // Removed onLessonSelect from props
   const pathname = usePathname();
+  const router = useRouter(); // Added useRouter instance
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const sidebarVariants = {
@@ -114,6 +118,20 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                   </SheetClose>
                 </div>
                 <div id="lessonListMobile" className="space-y-1 flex-grow overflow-y-auto">
+                  {/* Home Link for Mobile Sidebar */}
+                  <SheetClose asChild>
+                    <Link href="/" passHref>
+                      <button
+                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                      >
+                        <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
+                        <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                          Home
+                        </span>
+                      </button>
+                    </Link>
+                  </SheetClose>
                   {lessonsData.map((lesson) => (
                     <SheetClose key={lesson.id} asChild>
                       <Link href={`/lessons/${lesson.id}`} passHref>
@@ -122,8 +140,9 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                             isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                           }`}
                           onClick={() => {
-                            onLessonSelect(lesson.id);
+                            // onLessonSelect(lesson.id); // Removed this line
                             setIsMobileMenuOpen(false); // Close on select
+                            // router.push(`/lessons/${lesson.id}`); // Optional: if Link doesn't suffice for some reason
                           }}
                         >
                           <span className="arabic-text font-arabic text-base">{lesson.title}</span>
@@ -134,6 +153,20 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
                       </Link>
                     </SheetClose>
                   ))}
+                  {/* Changelog Link for Mobile Sidebar */}
+                  <SheetClose asChild>
+                    <Link href="/changelog" passHref>
+                      <button
+                        className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)} // Close on select
+                      >
+                        <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
+                        <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                          Changelog
+                        </span>
+                      </button>
+                    </Link>
+                  </SheetClose>
                 </div>
               </motion.div>
             </SheetContent>
@@ -152,13 +185,24 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
           </h2>
         </div>
         <div id="lessonList" className="space-y-2 flex-grow">
+          {/* Home Link for Desktop Sidebar */}
+          <Link href="/" passHref>
+            <button
+              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/' ? 'bg-amber-200' : ''}`}
+            >
+              <span className="arabic-text font-arabic text-base">الصفحة الرئيسية</span>
+              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                Home
+              </span>
+            </button>
+          </Link>
           {lessonsData.map((lesson) => (
             <Link key={lesson.id} href={`/lessons/${lesson.id}`} passHref>
               <button
                 className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
                   isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                 }`}
-                onClick={() => onLessonSelect(lesson.id)}
+                // onClick={() => onLessonSelect(lesson.id)} // Removed onClick for desktop, Link handles it
               >
                 <span className="arabic-text font-arabic text-base">{lesson.title}</span>
                 <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
@@ -167,6 +211,17 @@ const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
               </button>
             </Link>
           ))}
+          {/* Changelog Link for Desktop Sidebar */}
+          <Link href="/changelog" passHref>
+            <button
+              className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${pathname === '/changelog' ? 'bg-amber-200' : ''}`}
+            >
+              <span className="arabic-text font-arabic text-base">سجل التغييرات</span>
+              <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                Changelog
+              </span>
+            </button>
+          </Link>
         </div>
       </nav>
 

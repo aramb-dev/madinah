@@ -70,7 +70,16 @@
 - [x] Implement font selection UI for Noto Sans Arabic and Baloo Arabic. (commit: e20ff26)
 - [x] Update README.md to reflect current application state. (commit: 2ef4d9f)
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
-- [ ] Configure ESLint and Prettier.
+- [x] Implement changelog feature based on commit history. (5adfafb)
+ - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
+  - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
+  - [x] Fix `usePathname` client component error in Layout. (54b0d43)
+  - [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
+ - [ ] Configure ESLint and Prettier.
+ - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
+ - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (30bff0b)
+- [x] Update changelog with latest changes. (257d2d5)
+- [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
 
 ## Future Enhancements:
 
