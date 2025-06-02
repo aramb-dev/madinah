@@ -13,9 +13,27 @@ export default function LessonPage() {
   const bookId = params.bookId as string;
   const lessonId = params.lessonId as string;
 
-  const [selectedLesson, setSelectedLesson] = useState<any | null>(null);
+  const [selectedLesson, setSelectedLesson] = useState<{
+    id: string;
+    title: string;
+    introduction?: {
+      arabic: string;
+      english: string;
+    };
+    rules?: Array<{
+      explanation: string;
+    }>;
+  } | null>(null);
   const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
-  const [book, setBook] = useState<any | null>(null);
+  const [book, setBook] = useState<{
+    id: string;
+    title: string;
+    englishTitle: string;
+    lessons: Array<{
+      id: string;
+      title: string;
+    }>;
+  } | null>(null);
 
   useEffect(() => {
     const foundBook = getBookById(bookId);
@@ -59,8 +77,8 @@ export default function LessonPage() {
               ) : (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Introduction</h3>
-                  <p className="text-right font-arabic mb-4">{selectedLesson.introduction.arabic}</p>
-                  <p>{selectedLesson.introduction.english}</p>
+                  <p className="text-right font-arabic mb-4">{selectedLesson.introduction?.arabic}</p>
+                  <p>{selectedLesson.introduction?.english}</p>
                 </div>
               )}
             </CardContent>

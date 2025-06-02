@@ -2,7 +2,6 @@ import { execSync } from 'child_process';
 import { Metadata } from 'next';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 // Removed unused import since we're using git log directly
 
 export const metadata: Metadata = {

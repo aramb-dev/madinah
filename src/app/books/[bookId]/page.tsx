@@ -13,7 +13,24 @@ export default function BookPage() {
   const router = useRouter();
   const bookId = params.bookId as string;
   
-  const [book, setBook] = useState<any | null>(null);
+  const [book, setBook] = useState<{
+    id: string;
+    title: string;
+    englishTitle: string;
+    description?: {
+      arabic: string;
+      english: string;
+    };
+    lessons: Array<{
+      id: string;
+      title: string;
+      englishTitle: string;
+      introduction: {
+        arabic: string;
+        english: string;
+      };
+    }>;
+  } | null>(null);
 
   useEffect(() => {
     const foundBook = getBookById(bookId);
@@ -48,7 +65,15 @@ export default function BookPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {book.lessons.map((lesson: any) => (
+            {book.lessons.map((lesson: {
+              id: string;
+              title: string;
+              englishTitle: string;
+              introduction: {
+                arabic: string;
+                english: string;
+              };
+            }) => (
               <Card 
                 key={lesson.id} 
                 className="hover:shadow-lg transition-shadow cursor-pointer"
