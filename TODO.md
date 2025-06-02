@@ -92,7 +92,7 @@
 
 - [ ] Refactor the site for multi-book support and other enhancements.
 
-- [ ] Create a landing page for book selection (Madinah Book 1, 2, 3, etc.)
+- [x] Create a landing page for book selection (Madinah Book 1, 2, 3, etc.) (commit: 45b4a55)
 - [ ] Refactor lessons.ts data structure to support multiple books
   - [ ] Option 1: Separate files (book1.ts, book2.ts, book3.ts)
   - [ ] Option 2: Single file with book categorization
