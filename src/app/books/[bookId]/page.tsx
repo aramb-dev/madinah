@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import { getBookById } from '@/data/books';
+import { Book } from '@/data/lessons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -13,22 +13,7 @@ export default function BookPage() {
   const router = useRouter();
   const bookId = params.bookId as string;
 
-  const [book, setBook] = useState<{
-    id: string;
-    title: { ar: string; en: string };
-    description?: {
-      arabic: string;
-      english: string;
-    };
-    lessons: Array<{
-      id: string;
-      title: { ar: string; en: string };
-      introduction: {
-        arabic: string;
-        english: string;
-      };
-    }>;
-  } | null>(null);
+  const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
     const foundBook = getBookById(bookId);
@@ -46,7 +31,7 @@ export default function BookPage() {
 
   return (
     <>
-      <Header />
+      <Header book={book || undefined} />
       {book && (
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8 text-center">

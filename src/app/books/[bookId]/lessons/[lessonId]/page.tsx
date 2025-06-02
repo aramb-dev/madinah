@@ -5,6 +5,7 @@ import { useRouter, useParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import { getBookById, getLessonById } from '@/data/books';
+import { Book, Lesson } from '@/data/lessons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function LessonPage() {
@@ -13,26 +14,9 @@ export default function LessonPage() {
   const bookId = params.bookId as string;
   const lessonId = params.lessonId as string;
 
-  const [selectedLesson, setSelectedLesson] = useState<{
-    id: string;
-    title: { ar: string; en: string };
-    introduction?: {
-      arabic: string;
-      english: string;
-    };
-    rules?: Array<{
-      explanation: string;
-    }>;
-  } | null>(null);
+  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
-  const [book, setBook] = useState<{
-    id: string;
-    title: { ar: string; en: string };
-    lessons: Array<{
-      id: string;
-      title: { ar: string; en: string };
-    }>;
-  } | null>(null);
+  const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
     const foundBook = getBookById(bookId);
@@ -53,7 +37,7 @@ export default function LessonPage() {
 
   return (
     <Layout currentBookId={bookId}>
-      <Header />
+      <Header book={book || undefined} />
       {selectedLesson && (
         <div className="p-4">
           <Card>

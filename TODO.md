@@ -51,10 +51,10 @@
 
 ### Build and Deploy (Later Stage):
 
-- [ ] Create a production build: `npm run build`.
-- [ ] Test the production build locally: `npm run start`.
-- [ ] Plan for deployment (e.g., Vercel, Netlify).
-- [ ] Set up environment variables for production.
+- [x] Create a production build: `npm run build`.
+- [x] Test the production build locally: `npm run start`.
+- [x] Plan for deployment (e.g., Vercel, Netlify).
+- [x] Set up environment variables for production.
 
 ### Cleanup:
 
@@ -99,6 +99,7 @@
 - [ ] Update routing structure to support /books/[bookId]/lessons/[lessonId]
 - [ ] Update Layout component to handle book-specific navigation
   - [x] Fix active lesson highlighting in sidebar for book-specific lessons (commit: 79687f2)
+- [x] Make Header component dynamic based on chosen book (commit: pending)
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components
 - [ ] Update Home Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/home.png`
