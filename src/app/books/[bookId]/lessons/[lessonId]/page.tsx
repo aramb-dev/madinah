@@ -38,11 +38,11 @@ export default function LessonPage() {
   useEffect(() => {
     const foundBook = getBookById(bookId);
     const lesson = getLessonById(bookId, lessonId);
-    
+
     if (foundBook) {
       setBook(foundBook);
     }
-    
+
     if (lesson) {
       setSelectedLesson(lesson);
       setCurrentRuleIndex(0); // Reset to first rule when lesson changes
@@ -53,9 +53,7 @@ export default function LessonPage() {
   }, [bookId, lessonId, router]);
 
   return (
-    <Layout
-      currentBookId={bookId}
-    >
+    <Layout currentBookId={bookId}>
       <Header />
       {selectedLesson && (
         <div className="p-4">
@@ -77,7 +75,9 @@ export default function LessonPage() {
               ) : (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Introduction</h3>
-                  <p className="text-right font-arabic mb-4">{selectedLesson.introduction?.arabic}</p>
+                  <p className="text-right font-arabic mb-4">
+                    {selectedLesson.introduction?.arabic}
+                  </p>
                   <p>{selectedLesson.introduction?.english}</p>
                 </div>
               )}

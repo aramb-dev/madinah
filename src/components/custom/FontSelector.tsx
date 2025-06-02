@@ -27,12 +27,10 @@ const availableFonts: FontOption[] = [
 ];
 
 const FontSelector: React.FC = () => {
-  const [selectedFont, setSelectedFont] = useState<string>(
-    availableFonts[0].className
-  );
+  const [selectedFont, setSelectedFont] = useState<string>(availableFonts[0].className);
 
   const applyFont = useCallback((fontClassName: string) => {
-    document.documentElement.classList.remove(...availableFonts.map(f => f.className));
+    document.documentElement.classList.remove(...availableFonts.map((f) => f.className));
     document.documentElement.classList.add(fontClassName);
     localStorage.setItem('selectedArabicFont', fontClassName);
     setSelectedFont(fontClassName);
@@ -40,7 +38,7 @@ const FontSelector: React.FC = () => {
 
   useEffect(() => {
     const storedFont = localStorage.getItem('selectedArabicFont');
-    if (storedFont && availableFonts.some(f => f.className === storedFont)) {
+    if (storedFont && availableFonts.some((f) => f.className === storedFont)) {
       applyFont(storedFont);
     } else {
       applyFont(availableFonts[0].className); // Apply default if nothing stored or invalid

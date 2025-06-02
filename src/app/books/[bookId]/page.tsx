@@ -12,7 +12,7 @@ export default function BookPage() {
   const params = useParams();
   const router = useRouter();
   const bookId = params.bookId as string;
-  
+
   const [book, setBook] = useState<{
     id: string;
     title: string;
@@ -47,9 +47,7 @@ export default function BookPage() {
   };
 
   return (
-    <Layout
-      currentBookId={bookId}
-    >
+    <Layout currentBookId={bookId}>
       <Header />
       {book && (
         <div className="container mx-auto px-4 py-8">
@@ -63,45 +61,47 @@ export default function BookPage() {
               </div>
             )}
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {book.lessons.map((lesson: {
-              id: string;
-              title: string;
-              englishTitle: string;
-              introduction: {
-                arabic: string;
-                english: string;
-              };
-            }) => (
-              <Card 
-                key={lesson.id} 
-                className="hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => handleLessonClick(lesson.id)}
-              >
-                <CardHeader>
-                  <CardTitle className="font-arabic text-right">{lesson.title}</CardTitle>
-                  <CardDescription>{lesson.englishTitle}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-right font-arabic mb-2 line-clamp-2">
-                    {lesson.introduction.arabic.substring(0, 100)}...
-                  </p>
-                  <p className="line-clamp-2">
-                    {lesson.introduction.english.substring(0, 100)}...
-                  </p>
-                  <Button 
-                    className="mt-4 w-full bg-emerald-600 hover:bg-emerald-700"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleLessonClick(lesson.id);
-                    }}
-                  >
-                    View Lesson
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {book.lessons.map(
+              (lesson: {
+                id: string;
+                title: string;
+                englishTitle: string;
+                introduction: {
+                  arabic: string;
+                  english: string;
+                };
+              }) => (
+                <Card
+                  key={lesson.id}
+                  className="hover:shadow-lg transition-shadow cursor-pointer"
+                  onClick={() => handleLessonClick(lesson.id)}
+                >
+                  <CardHeader>
+                    <CardTitle className="font-arabic text-right">{lesson.title}</CardTitle>
+                    <CardDescription>{lesson.englishTitle}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-right font-arabic mb-2 line-clamp-2">
+                      {lesson.introduction.arabic.substring(0, 100)}...
+                    </p>
+                    <p className="line-clamp-2">
+                      {lesson.introduction.english.substring(0, 100)}...
+                    </p>
+                    <Button
+                      className="mt-4 w-full bg-emerald-600 hover:bg-emerald-700"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleLessonClick(lesson.id);
+                      }}
+                    >
+                      View Lesson
+                    </Button>
+                  </CardContent>
+                </Card>
+              )
+            )}
           </div>
         </div>
       )}

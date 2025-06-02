@@ -75,14 +75,14 @@
 - [x] Refactor Book and Lesson type definitions to `src/data/lessons.ts`. (commit: 863c529)
 - [x] Fix build error related to Book type import in `src/data/books.ts`. (commit: 874c1b2)
 - [x] Implement changelog feature based on commit history. (5adfafb)
- - [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
-  - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
-  - [x] Fix `usePathname` client component error in Layout. (54b0d43)
-  - [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
- - [ ] Configure ESLint and Prettier.
+- [x] Add 'Return to Homepage' link to sidebars. (acc5bd0)
+- [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
+- [x] Fix `usePathname` client component error in Layout. (54b0d43)
+- [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
+- [ ] Configure ESLint and Prettier.
 - [x] Commit `README.md` changes. (commit: 2d3a1fbcbd4d4c1d0ef17a3479285e4c938d3978)
- - [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
- - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
+- [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
+- [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
 - [x] Update changelog with latest changes. (257d2d5)
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
 

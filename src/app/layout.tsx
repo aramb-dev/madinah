@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
-        <Layout>{children}</Layout>
+        <Layout onLessonSelect={() => {}}>{children}</Layout>
       </body>
     </html>
   );

@@ -7,9 +7,11 @@ export const book1Data: Book = {
   englishTitle: 'Madinah Book 1',
   description: {
     arabic: 'الكتاب الأول من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المبتدئ',
-    english: 'The first book in the Arabic language learning series for non-native speakers - Beginner level'
+    english:
+      'The first book in the Arabic language learning series for non-native speakers - Beginner level',
   },
-  lessons: [ // All lessons from lessonsData will be placed here
+  lessons: [
+    // All lessons from lessonsData will be placed here
     {
       id: 'lesson1',
       title: 'الدرس الأول',
@@ -102,7 +104,8 @@ export const book1Data: Book = {
           arabicText: 'ال : حَرْفُ تَعْرِيفِ.', // Note: Original book1.ts had 'أَدَاةُ التَّعْرِيفِ', lessons.ts had 'حَرْفُ تَعْرِيفِ'. Using lessons.ts version.
           explanation: 'Is the definite article.',
         },
-        { // Added from lessons.ts, as book1.ts had slightly different/less rules for lesson 3
+        {
+          // Added from lessons.ts, as book1.ts had slightly different/less rules for lesson 3
           name: 'إزالة التنوين مع ال (Tanween removal with ال)',
           arabicText: 'يُحْذَفُ التَّنْوِينُ عِنْدَ دُخُولِ (ال).',
           explanation: 'When (ال) enters a noun, the tanween (nunation) is removed.',
@@ -532,7 +535,8 @@ export const book1Data: Book = {
           name: 'نَحْنُ، أَنْتُمْ (naḥnu - we, antum - you (m.pl.))',
           arabicText:
             'نَحْنُ: ضَمِيرُ الْجَمْعِ لِلْمُتَكَلِّمِ (نَحْنُ مُسْلِمُونَ). أَنْتُمْ: ضَمِيرُ الْجَمْعِ لِلْمُخَاطَبِ (أَنْتُمْ مُسْلِمُونَ).',
-          explanation: 'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
+          explanation:
+            'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
         },
         {
           name: 'أَيُّ (ayyu - which/what)',
@@ -804,11 +808,12 @@ export const book1Data: Book = {
         },
         {
           name: 'جر الممنوع من الصرف بالفتحة (Making Diptotes Genitive with Fatḥah)',
-          arabicText: 'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
+          arabicText:
+            'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
           explanation:
             "Diptotes are made genitive with a fatḥah, whether by a preposition (e.g., to Zaynab_a_) or by iḍāfah (e.g., Zaynab_a_'s house).",
         },
       ],
     },
-  ]
+  ],
 };

@@ -24,9 +24,10 @@ const booksData: Book[] = [
     englishTitle: 'Madinah Book 1',
     description: {
       arabic: 'الكتاب الأول من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المبتدئ',
-      english: 'The first book in the Arabic language learning series for non-native speakers - Beginner level'
+      english:
+        'The first book in the Arabic language learning series for non-native speakers - Beginner level',
     },
-    available: true
+    available: true,
   },
   {
     id: 'book2',
@@ -34,10 +35,11 @@ const booksData: Book[] = [
     englishTitle: 'Madinah Book 2',
     description: {
       arabic: 'الكتاب الثاني من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المتوسط',
-      english: 'The second book in the Arabic language learning series for non-native speakers - Intermediate level'
+      english:
+        'The second book in the Arabic language learning series for non-native speakers - Intermediate level',
     },
     available: false,
-    comingSoon: true
+    comingSoon: true,
   },
   {
     id: 'book3',
@@ -45,11 +47,12 @@ const booksData: Book[] = [
     englishTitle: 'Madinah Book 3',
     description: {
       arabic: 'الكتاب الثالث من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المتقدم',
-      english: 'The third book in the Arabic language learning series for non-native speakers - Advanced level'
+      english:
+        'The third book in the Arabic language learning series for non-native speakers - Advanced level',
     },
     available: false,
-    comingSoon: true
-  }
+    comingSoon: true,
+  },
 ];
 
 export default function Home() {
@@ -66,21 +69,23 @@ export default function Home() {
             Interactive Arabic Grammar Rules
           </h2>
           <p className="text-lg text-neutral-700 mb-4 font-arabic leading-relaxed">
-            مرحباً بك في تطبيق قواعد اللغة العربية التفاعلية. اختر الكتاب الذي تريد دراسته من سلسلة كتب المدينة لتعليم اللغة العربية.
+            مرحباً بك في تطبيق قواعد اللغة العربية التفاعلية. اختر الكتاب الذي تريد دراسته من سلسلة
+            كتب المدينة لتعليم اللغة العربية.
           </p>
           <p className="text-lg text-neutral-600 leading-relaxed">
-            Welcome to the Interactive Arabic Grammar Rules application. Choose the book you want to study from the Madinah Arabic learning series.
+            Welcome to the Interactive Arabic Grammar Rules application. Choose the book you want to
+            study from the Madinah Arabic learning series.
           </p>
         </div>
 
         {/* Books Selection */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {booksData.map((book) => (
-            <Card 
-              key={book.id} 
+            <Card
+              key={book.id}
               className={`border-2 transition-all duration-300 hover:shadow-lg ${
-                book.available 
-                  ? 'border-emerald-200 hover:border-emerald-300 bg-white' 
+                book.available
+                  ? 'border-emerald-200 hover:border-emerald-300 bg-white'
                   : 'border-gray-200 bg-gray-50 opacity-75'
               }`}
             >
@@ -101,20 +106,18 @@ export default function Home() {
                     {book.description.english}
                   </p>
                 </div>
-                
+
                 <div className="pt-4">
                   {book.available ? (
                     <Link href={`/books/${book.id}`} className="block">
-                      <Button 
-                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-                      >
+                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
                         <span className="font-arabic ml-2">ابدأ الدراسة</span>
                         <span>Start Learning</span>
                       </Button>
                     </Link>
                   ) : (
-                    <Button 
-                      disabled 
+                    <Button
+                      disabled
                       className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed"
                     >
                       {book.comingSoon ? (
@@ -141,10 +144,12 @@ export default function Home() {
           <Card className="border-amber-200 bg-amber-50">
             <CardContent className="pt-6">
               <p className="text-sm text-amber-800 font-arabic mb-2">
-                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها.
+                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة
+                لتعليم اللغة العربية لغير الناطقين بها.
               </p>
               <p className="text-sm text-amber-700">
-                This application provides an interactive explanation of Arabic grammar rules extracted from the Madinah Arabic learning series for non-native speakers.
+                This application provides an interactive explanation of Arabic grammar rules
+                extracted from the Madinah Arabic learning series for non-native speakers.
               </p>
             </CardContent>
           </Card>
