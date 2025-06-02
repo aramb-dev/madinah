@@ -85,6 +85,7 @@
 - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
 - [x] Update changelog with latest changes. (257d2d5)
 - [x] Fix Next.js page export issue in lessons/[lessonId]/page.tsx. (252a4a2)
+- [x] Fix type error for `currentBookId` prop in Layout component.
 
 ## Multi-Book Support Implementation:
 

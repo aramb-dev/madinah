@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -9,9 +9,10 @@ import { usePathname } from 'next/navigation';
 interface CustomLayoutProps {
   children: React.ReactNode;
   onLessonSelect: (lessonId: string) => void;
+  currentBookId?: string; // Add currentBookId as an optional prop
 }
 
-const Layout = ({ children, onLessonSelect }: CustomLayoutProps) => {
+const Layout = ({ children, onLessonSelect, currentBookId }: CustomLayoutProps) => {
   const pathname = usePathname();
 
   // Determine if a lesson is currently active based on the URL
