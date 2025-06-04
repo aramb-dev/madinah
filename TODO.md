@@ -87,9 +87,9 @@
 - [x] Fix missing layout (sidebar and homepage button) on Changelog page. (de1b501)
 - [x] Fix `usePathname` client component error in Layout. (54b0d43)
 - [x] Fix misplaced 'use client' directive in Layout.tsx. (b61d44f)
-- [ ] Configure ESLint and Prettier.
+- [x] Configure ESLint and Prettier.
 - [x] Commit `README.md` changes. (commit: 2d3a1fbcbd4d4c1d0ef17a3479285e4c938d3978)
-- [ ] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components.
+- [x] Convert the `Changelog` page to Next.js, ensuring it uses the shared `Layout` and `Header` components. Added a changelog card to the main landing page with bilingual content (Arabic/English) that links to the changelog page.
 - [x] Fix 'Event handlers cannot be passed to Client Component props' error by removing `onLessonSelect` from `Layout` and relying on `Link` components. (399736d)
 - [x] Remove `onLessonSelect` prop from `Layout` component and its usage.
 - [x] Update changelog with latest changes. (257d2d5)

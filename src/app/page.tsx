@@ -111,6 +111,32 @@ export default function HomePage() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Changelog Section */}
+        <div className="mt-8 text-center">
+          <Card className="border-blue-200 bg-blue-50 hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="pt-6">
+              <h3 className="text-lg font-semibold text-blue-800 mb-3 font-arabic">
+                سجل التغييرات
+              </h3>
+              <h4 className="text-md font-medium text-blue-700 mb-2">
+                Changelog
+              </h4>
+              <p className="text-sm text-blue-700 mb-4 font-arabic">
+                تابع أحدث التحديثات والتحسينات على التطبيق
+              </p>
+              <p className="text-sm text-blue-600 mb-4">
+                Stay updated with the latest changes, bug fixes, and new features
+              </p>
+              <Link href="/changelog">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
+                  <span className="font-arabic ml-2">عرض السجل</span>
+                  <span>View Changelog</span>
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
