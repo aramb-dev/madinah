@@ -70,7 +70,11 @@
 - [x] Implement font selection UI for Noto Sans Arabic and Baloo Arabic. (commit: e20ff26)
 - [x] Update README.md to reflect current application state. (commit: 2ef4d9f)
 - [x] Convert `readme` to `README.md` (HTML to Markdown conversion).
+- [x] Convert `readme` to `README.md` (HTML to Markdown conversion).
 - [x] Implement page transitions and mobile sidebar animations. (5dbd11a)
+- [x] Remove all transitions from the project. (commit: cb687ab)
+- [x] Refactor Book and Lesson type definitions to `src/data/lessons.ts`. (commit: 863c529)
+- [x] Fix build error related to Book type import in `src/data/books.ts`. (commit: 874c1b2)
 - [x] Remove all transitions from the project. (commit: cb687ab)
 - [x] Refactor Book and Lesson type definitions to `src/data/lessons.ts`. (commit: 863c529)
 - [x] Fix build error related to Book type import in `src/data/books.ts`. (commit: 874c1b2)
