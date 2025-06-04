@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Lesson } from '@/data/lessons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 interface LessonContentProps {
   lesson?: Lesson;
@@ -25,11 +24,9 @@ const LessonContent = ({ lesson }: LessonContentProps) => {
     <div id="lessonContent" className="space-y-6">
       <div className="bg-amber-50 rounded-lg p-4 sm:p-6 border border-amber-200">
         <h2 className="text-xl sm:text-2xl font-bold text-emerald-700 arabic-text font-arabic mb-2">
-          {lesson.title}
+          {lesson.title.ar}
         </h2>
-        <h3 className="text-lg sm:text-xl text-emerald-600 english-text mb-4">
-          {lesson.englishTitle}
-        </h3>
+        <h3 className="text-lg sm:text-xl text-emerald-600 english-text mb-4">{lesson.title.en}</h3>
 
         <div className="mb-6 bg-white rounded-md p-3 sm:p-4 shadow-sm">
           <p className="arabic-text font-arabic text-neutral-700 mb-2 text-base sm:text-lg leading-relaxed">
