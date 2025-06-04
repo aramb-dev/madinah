@@ -43,10 +43,14 @@ const Header = ({ book }: HeaderProps) => {
         قواعد اللغة العربية التفاعلية
       </h1>
       <p className="text-lg text-neutral-600 arabic-text font-arabic text-center mt-1">
-        {book ? book.description.arabic : 'شرح كتاب دروس اللغة العربية لغير الناطقين بها - الجزء الأول'}
+        {book
+          ? book.description.arabic
+          : 'شرح كتاب دروس اللغة العربية لغير الناطقين بها - الجزء الأول'}
       </p>
       <p className="text-sm text-neutral-500 english-text text-center mt-2">
-        {book ? book.description.english : 'Interactive Arabic Grammar Rules - Explanation of Madinah Book 1'}
+        {book
+          ? book.description.english
+          : 'Interactive Arabic Grammar Rules - Explanation of Madinah Book 1'}
       </p>
 
       <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">

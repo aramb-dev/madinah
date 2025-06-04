@@ -26,9 +26,7 @@ const LessonContent = ({ lesson }: LessonContentProps) => {
         <h2 className="text-xl sm:text-2xl font-bold text-emerald-700 arabic-text font-arabic mb-2">
           {lesson.title.ar}
         </h2>
-        <h3 className="text-lg sm:text-xl text-emerald-600 english-text mb-4">
-          {lesson.title.en}
-        </h3>
+        <h3 className="text-lg sm:text-xl text-emerald-600 english-text mb-4">{lesson.title.en}</h3>
 
         <div className="mb-6 bg-white rounded-md p-3 sm:p-4 shadow-sm">
           <p className="arabic-text font-arabic text-neutral-700 mb-2 text-base sm:text-lg leading-relaxed">

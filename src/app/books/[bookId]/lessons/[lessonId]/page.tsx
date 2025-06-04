@@ -42,7 +42,9 @@ export default function LessonPage() {
         <div className="p-4">
           <Card>
             <CardHeader>
-              <CardTitle>{selectedLesson.title.ar} ({selectedLesson.title.en})</CardTitle>
+              <CardTitle>
+                {selectedLesson.title.ar} ({selectedLesson.title.en})
+              </CardTitle>
               <CardDescription>
                 {book?.title.en} - Lesson {selectedLesson.id}
               </CardDescription>

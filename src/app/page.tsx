@@ -20,10 +20,12 @@ export default function HomePage() {
             Interactive Arabic Grammar Rules
           </h2>
           <p className="text-lg text-neutral-700 mb-4 font-arabic leading-relaxed">
-            مرحباً بك في تطبيق قواعد اللغة العربية التفاعلية. اختر الكتاب الذي تريد دراسته من سلسلة كتب المدينة لتعليم اللغة العربية.
+            مرحباً بك في تطبيق قواعد اللغة العربية التفاعلية. اختر الكتاب الذي تريد دراسته من سلسلة
+            كتب المدينة لتعليم اللغة العربية.
           </p>
           <p className="text-lg text-neutral-600 leading-relaxed">
-            Welcome to the Interactive Arabic Grammar Rules application. Choose the book you want to study from the Madinah Arabic learning series.
+            Welcome to the Interactive Arabic Grammar Rules application. Choose the book you want to
+            study from the Madinah Arabic learning series.
           </p>
         </div>
 
@@ -65,9 +67,7 @@ export default function HomePage() {
                 <div className="pt-4">
                   {book.available ? (
                     <Link href={`/books/${book.id}`} className="block">
-                      <Button
-                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-                      >
+                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
                         <span className="font-arabic ml-2">ابدأ الدراسة</span>
                         <span>Start Learning</span>
                       </Button>
@@ -101,10 +101,12 @@ export default function HomePage() {
           <Card className="border-amber-200 bg-amber-50">
             <CardContent className="pt-6">
               <p className="text-sm text-amber-800 font-arabic mb-2">
-                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها.
+                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة
+                لتعليم اللغة العربية لغير الناطقين بها.
               </p>
               <p className="text-sm text-amber-700">
-                This application provides an interactive explanation of Arabic grammar rules extracted from the Madinah Arabic learning series for non-native speakers.
+                This application provides an interactive explanation of Arabic grammar rules
+                extracted from the Madinah Arabic learning series for non-native speakers.
               </p>
             </CardContent>
           </Card>

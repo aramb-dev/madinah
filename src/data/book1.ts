@@ -5,7 +5,8 @@ import { Book } from './lessons';
 // book1Data with all lessons included and titles updated
 export const book1Data: Book = {
   id: 'book1',
-  title: { // Updated main book title
+  title: {
+    // Updated main book title
     ar: 'كتاب المدينة الأول',
     en: 'Madinah Book 1',
   },
@@ -13,12 +14,14 @@ export const book1Data: Book = {
   // englishTitle: 'Madinah Book 1', // Removed
   description: {
     arabic: 'الكتاب الأول من سلسلة تعليم اللغة العربية لغير الناطقين بها - المستوى المبتدئ',
-    english: 'The first book in the Arabic language learning series for non-native speakers - Beginner level'
+    english:
+      'The first book in the Arabic language learning series for non-native speakers - Beginner level',
   },
   lessons: [
     {
       id: 'lesson1',
-      title: { // Updated lesson title
+      title: {
+        // Updated lesson title
         ar: 'الدرس الأول',
         en: 'Lesson 1',
       },
@@ -56,7 +59,8 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson2',
-      title: { // Updated lesson title
+      title: {
+        // Updated lesson title
         ar: 'الدرس الثاني',
         en: 'Lesson 2',
       },
@@ -98,7 +102,8 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson3',
-      title: { // Updated lesson title
+      title: {
+        // Updated lesson title
         ar: 'الدرس الثالث',
         en: 'Lesson 3',
       },
@@ -533,7 +538,8 @@ export const book1Data: Book = {
           name: 'نَحْنُ، أَنْتُمْ (naḥnu - we, antum - you (m.pl.))',
           arabicText:
             'نَحْنُ: ضَمِيرُ الْجَمْعِ لِلْمُتَكَلِّمِ (نَحْنُ مُسْلِمُونَ). أَنْتُمْ: ضَمِيرُ الْجَمْعِ لِلْمُخَاطَبِ (أَنْتُمْ مُسْلِمُونَ).',
-          explanation: 'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
+          explanation:
+            'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
         },
         {
           name: 'أَيُّ (ayyu - which/what)',
@@ -799,11 +805,12 @@ export const book1Data: Book = {
         },
         {
           name: 'جر الممنوع من الصرف بالفتحة (Making Diptotes Genitive with Fatḥah)',
-          arabicText: 'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
+          arabicText:
+            'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
           explanation:
             "Diptotes are made genitive with a fatḥah, whether by a preposition (e.g., to Zaynab_a_) or by iḍāfah (e.g., Zaynab_a_'s house).",
         },
       ],
     },
-  ]
+  ],
 };
