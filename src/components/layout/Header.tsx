@@ -11,7 +11,7 @@ interface HeaderProps {
   homeUrl?: string;
 }
 
-const Header = ({ book, homeUrl = "/" }: HeaderProps) => {
+const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
   return (
     <header className="mb-8 pb-4 border-b border-amber-300 relative">
       {/* Home Button - Left side of header */}
