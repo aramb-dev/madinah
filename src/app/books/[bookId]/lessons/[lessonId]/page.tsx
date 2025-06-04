@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
+import LessonContent from '@/components/custom/LessonContent';
 import { getBookById, getLessonById } from '@/data/books';
 import { Book, Lesson } from '@/data/lessons';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function LessonPage() {
   const router = useRouter();
@@ -15,7 +15,6 @@ export default function LessonPage() {
   const lessonId = params.lessonId as string;
 
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
   const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function LessonPage() {
 
     if (lesson) {
       setSelectedLesson(lesson);
-      setCurrentRuleIndex(0); // Reset to first rule when lesson changes
     } else {
       // Handle lesson not found, redirect to book page
       router.push(`/books/${bookId}`);
@@ -38,38 +36,7 @@ export default function LessonPage() {
   return (
     <Layout currentBookId={bookId}>
       <Header book={book || undefined} homeUrl={`/books/${bookId}`} />
-      {selectedLesson && (
-        <div className="p-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                {selectedLesson.title.ar} ({selectedLesson.title.en})
-              </CardTitle>
-              <CardDescription>
-                {book?.title.en} - Lesson {selectedLesson.id}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {selectedLesson.rules && selectedLesson.rules.length > 0 ? (
-                selectedLesson.rules[currentRuleIndex] && (
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Rule {currentRuleIndex + 1}</h3>
-                    <p>{selectedLesson.rules[currentRuleIndex].explanation}</p>
-                  </div>
-                )
-              ) : (
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Introduction</h3>
-                  <p className="text-right font-arabic mb-4">
-                    {selectedLesson.introduction?.arabic}
-                  </p>
-                  <p>{selectedLesson.introduction?.english}</p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
-      )}
+      <LessonContent lesson={selectedLesson || undefined} />
     </Layout>
   );
 }
