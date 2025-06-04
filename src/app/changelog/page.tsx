@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import { Metadata } from 'next';
-import Layout from '@/components/layout/Layout';
-import Header from '@/components/layout/Header';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 // Removed unused import since we're using git log directly
 
 export const metadata: Metadata = {
@@ -65,22 +65,37 @@ export default async function ChangelogPage() {
   const commits = await getCommits();
 
   return (
-    <Layout
-    // onLessonSelect={() => {}} // Removed onLessonSelect prop
-    >
-      <Header />
-      <div className="container mx-auto px-4 py-8 bg-amber-50 min-h-screen">
-        <header className="mb-12 text-center">
-          <h1 className="text-5xl font-bold text-amber-700">Application Changelog</h1>
-          <p className="text-xl text-amber-600 mt-2">Track the latest updates and improvements.</p>
-        </header>
+    <div className="min-h-screen bg-amber-50">
+      {/* Custom Header for Changelog */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-4">
+              <Link href="/">
+                <Button variant="outline" className="flex items-center space-x-2">
+                  <span>←</span>
+                  <span>Back to Home</span>
+                </Button>
+              </Link>
+              <h1 className="text-2xl font-bold text-amber-700">Changelog</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-12 text-center">
+          <h1 className="text-5xl font-bold text-amber-700 mb-4">Application Changelog</h1>
+          <p className="text-xl text-amber-600">Track the latest updates and improvements.</p>
+        </div>
 
         {commits.length === 0 ? (
           <p className="text-center text-gray-600 text-lg">
             No commit history found or unable to load changelog.
           </p>
         ) : (
-          <div className="space-y-10">
+          <div className="space-y-8">
             {commits.map((commit) => (
               <div
                 key={commit.hash}
@@ -114,6 +129,6 @@ export default async function ChangelogPage() {
           </div>
         )}
       </div>
-    </Layout>
+    </div>
   );
 }
