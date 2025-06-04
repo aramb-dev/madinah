@@ -108,6 +108,7 @@
   - [x] Fix active lesson highlighting in sidebar for book-specific lessons (commit: 79687f2)
   - [x] Fix sidebar not populating on book pages - wrapped book page with Layout component (book page sidebar integration)
 - [x] Make Header component dynamic based on chosen book (commit: df2d78d)
+- [x] Fix home button navigation to be context-aware - home button on lesson pages goes to book page, home button on book pages goes to root "/" (feat: implement context-aware home button navigation - Modified Header component to accept homeUrl prop, updated book and lesson pages to pass appropriate home URLs)
 - [ ] Update metadata and titles to reflect selected book
 - [ ] Create book selection UI components
 - [ ] Update Home Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/home.png`

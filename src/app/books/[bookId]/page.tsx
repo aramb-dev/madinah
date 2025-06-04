@@ -32,7 +32,7 @@ export default function BookPage() {
 
   return (
     <Layout currentBookId={bookId}>
-      <Header book={book || undefined} />
+      <Header book={book || undefined} homeUrl="/" />
       {book && (
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8 text-center">

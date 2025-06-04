@@ -8,14 +8,15 @@ import { Book } from '@/data/lessons';
 
 interface HeaderProps {
   book?: Book;
+  homeUrl?: string;
 }
 
-const Header = ({ book }: HeaderProps) => {
+const Header = ({ book, homeUrl = "/" }: HeaderProps) => {
   return (
     <header className="mb-8 pb-4 border-b border-amber-300 relative">
       {/* Home Button - Left side of header */}
       <div className="absolute left-0 top-0">
-        <Link href="/">
+        <Link href={homeUrl}>
           <Button
             variant="outline"
             className="bg-amber-50 hover:bg-amber-100 border-amber-300 text-emerald-700 shadow-md"

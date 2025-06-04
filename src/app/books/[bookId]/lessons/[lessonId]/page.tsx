@@ -37,7 +37,7 @@ export default function LessonPage() {
 
   return (
     <Layout currentBookId={bookId}>
-      <Header book={book || undefined} />
+      <Header book={book || undefined} homeUrl={`/books/${bookId}`} />
       {selectedLesson && (
         <div className="p-4">
           <Card>
