@@ -119,9 +119,7 @@ export default function HomePage() {
               <h3 className="text-lg font-semibold text-blue-800 mb-3 font-arabic">
                 سجل التغييرات
               </h3>
-              <h4 className="text-md font-medium text-blue-700 mb-2">
-                Changelog
-              </h4>
+              <h4 className="text-md font-medium text-blue-700 mb-2">Changelog</h4>
               <p className="text-sm text-blue-700 mb-4 font-arabic">
                 تابع أحدث التحديثات والتحسينات على التطبيق
               </p>

@@ -9,7 +9,8 @@ export const book1Data: Book = {
   },
   available: true, // Kept available property
   description: {
-    arabic: 'الْكِتَابُ الْأَوَّلُ مِنْ سِلْسِلَةِ تَعْلِيمِ اللُّغَةِ الْعَرَبِيَّةِ لِغَيْرِ النَّاطِقِينَ بِهَا - الْمُسْتَوَى الْمُبْتَدِئُ',
+    arabic:
+      'الْكِتَابُ الْأَوَّلُ مِنْ سِلْسِلَةِ تَعْلِيمِ اللُّغَةِ الْعَرَبِيَّةِ لِغَيْرِ النَّاطِقِينَ بِهَا - الْمُسْتَوَى الْمُبْتَدِئُ',
     english:
       'The first book in the Arabic language learning series for non-native speakers - Beginner level',
   },
@@ -320,7 +321,8 @@ export const book1Data: Book = {
       id: 'lesson9',
       title: { ar: 'الدَّرْسُ التَّاسِعُ', en: 'Lesson 9' },
       introduction: {
-        arabic: "يَتَنَاوَلُ هَذَا الدَّرْسُ النَّعْتَ وَالْمَنْعُوتَ (الصِّفَةَ وَالْمَوْصُوفَ) وَالِاسْمَ الْمَوْصُولَ 'الَّذِي'.",
+        arabic:
+          "يَتَنَاوَلُ هَذَا الدَّرْسُ النَّعْتَ وَالْمَنْعُوتَ (الصِّفَةَ وَالْمَوْصُوفَ) وَالِاسْمَ الْمَوْصُولَ 'الَّذِي'.",
         english:
           "This lesson covers the adjective and the described noun (النَّعْتُ وَالْمَنْعُوتُ) and the relative pronoun 'الَّذِي' (who/which).",
       },
@@ -383,7 +385,8 @@ export const book1Data: Book = {
       id: 'lesson11',
       title: { ar: 'الدَّرْسُ الْحَادِيَ عَشَرَ', en: 'Lesson 11' },
       introduction: {
-        arabic: "يَتَنَاوَلُ هَذَا الدَّرْسُ اسْتِخْدَامَ حَرْفِ الْجَرِّ 'فِي' مَعَ ضَمِيرِ الْغَائِبِ، وَيَاءَ الْمُتَكَلِّمِ.",
+        arabic:
+          "يَتَنَاوَلُ هَذَا الدَّرْسُ اسْتِخْدَامَ حَرْفِ الْجَرِّ 'فِي' مَعَ ضَمِيرِ الْغَائِبِ، وَيَاءَ الْمُتَكَلِّمِ.",
         english:
           "This lesson covers the use of the preposition 'فِي' (in) with the third-person pronoun, and the first-person possessive suffix 'يَاءُ الْمُتَكَلِّمِ'.",
       },
@@ -532,7 +535,8 @@ export const book1Data: Book = {
           name: 'نَحْنُ، أَنْتُمْ (naḥnu - we, antum - you (m.pl.))',
           arabicText:
             'نَحْنُ: ضَمِيرُ الْجَمْعِ لِلْمُتَكَلِّمِ (نَحْنُ مُسْلِمُونَ). أَنْتُمْ: ضَمِيرُ الْجَمْعِ لِلْمُخَاطَبِ (أَنْتُمْ مُسْلِمُونَ).',
-          explanation: 'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
+          explanation:
+            'نَحْنُ for first person plural. أَنْتُمْ for second person plural masculine.',
         },
         {
           name: 'أَيُّ (ayyu - which/what)',
@@ -596,7 +600,8 @@ export const book1Data: Book = {
       id: 'lesson16_17',
       title: { ar: 'الدَّرْسَانِ السَّادِسَ عَشَرَ وَالسَّابِعَ عَشَرَ', en: 'Lessons 16 & 17' },
       introduction: {
-        arabic: 'يُرَكِّزُ هَذَانِ الدَّرْسَانِ عَلَى الْمُبْتَدَأِ وَالْخَبَرِ، وَالْإِشَارَةِ إِلَى جَمْعِ غَيْرِ الْعَاقِلِ.',
+        arabic:
+          'يُرَكِّزُ هَذَانِ الدَّرْسَانِ عَلَى الْمُبْتَدَأِ وَالْخَبَرِ، وَالْإِشَارَةِ إِلَى جَمْعِ غَيْرِ الْعَاقِلِ.',
         english:
           'These lessons focus on the subject (المبتدأ) and predicate (الخبر), and pointing to the plural of non-rational nouns.',
       },
@@ -774,7 +779,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson22_23',
-      title: { ar: 'الدَّرْسَانِ الثَّانِي وَالْعِشْرُونَ وَالثَّالِثُ وَالْعِشْرُونَ', en: 'Lessons 22 & 23' },
+      title: {
+        ar: 'الدَّرْسَانِ الثَّانِي وَالْعِشْرُونَ وَالثَّالِثُ وَالْعِشْرُونَ',
+        en: 'Lessons 22 & 23',
+      },
       introduction: {
         arabic:
           'هَذَانِ الدَّرْسَانِ مُخَصَّصَانِ لِشَرْحِ الْمَمْنُوعِ مِنَ الصَّرْفِ، وَهُوَ الِاسْمُ الَّذِي لَا يُنَوَّنُ وَيُجَرُّ بِالْفَتْحَةِ نِيَابَةً عَنِ الْكَسْرَةِ، مَعَ ذِكْرِ أَنْوَاعِهِ الْمُخْتَلِفَةِ.',
@@ -783,7 +791,7 @@ export const book1Data: Book = {
       },
       rules: [
         {
-          name: "تَعْرِيفُ الْمَمْنُوعِ مِنَ الصَّرْفِ (Definition of Diptotes)",
+          name: 'تَعْرِيفُ الْمَمْنُوعِ مِنَ الصَّرْفِ (Definition of Diptotes)',
           arabicText:
             'الْمَمْنُوعُ مِنَ الصَّرْفِ: اِسْمٌ مُعْرَبٌ لَا يَلْحَقُهُ التَّنْوِينُ، وَيُجَرُّ بِالْفَتْحَةِ نِيَابَةً عَنِ الْكَسْرَةِ، إِلَّا إِذَا أُضِيفَ أَوْ عُرِّفَ بِـ(الْ) فَإِنَّهُ يُجَرُّ بِالْكَسْرَةِ.',
           explanation:
@@ -792,60 +800,80 @@ export const book1Data: Book = {
         {
           name: '١- الْعَلَمُ الْمُؤَنَّثُ (Feminine Proper Nouns)',
           arabicText: 'الْعَلَمُ الْمُؤَنَّثُ، مِثْلُ: فَاطِمَةُ، زَيْنَبُ، مَرْيَمُ، عَائِشَةُ.',
-          explanation: 'Feminine proper nouns, e.g., فَاطِمَةُ (Fatimah), زَيْنَبُ (Zaynab), مَرْيَمُ (Maryam), عَائِشَةُ (Aishah).'
+          explanation:
+            'Feminine proper nouns, e.g., فَاطِمَةُ (Fatimah), زَيْنَبُ (Zaynab), مَرْيَمُ (Maryam), عَائِشَةُ (Aishah).',
         },
         {
           name: '٢- الْعَلَمُ الْمُؤَنَّثُ تَأْنِيثًا لَفْظِيًّا (Masculine Proper Nouns Feminine in Form)',
-          arabicText: 'الْعَلَمُ الْمُؤَنَّثُ تَأْنِيثًا لَفْظِيًّا (أَيْ مُذَكَّرٌ فِي الْمَعْنَى وَلَكِنْ يَنْتَهِي بِتَاءِ التَّأْنِيثِ)، مِثْلُ: حَمْزَةُ، طَلْحَةُ، مُعَاوِيَةُ.',
-          explanation: 'Masculine proper nouns that are feminine in form (i.e., masculine in meaning but ending with ة), e.g., حَمْزَةُ (Hamzah), طَلْحَةُ (Talhah), مُعَاوِيَةُ (Muawiyah).'
+          arabicText:
+            'الْعَلَمُ الْمُؤَنَّثُ تَأْنِيثًا لَفْظِيًّا (أَيْ مُذَكَّرٌ فِي الْمَعْنَى وَلَكِنْ يَنْتَهِي بِتَاءِ التَّأْنِيثِ)، مِثْلُ: حَمْزَةُ، طَلْحَةُ، مُعَاوِيَةُ.',
+          explanation:
+            'Masculine proper nouns that are feminine in form (i.e., masculine in meaning but ending with ة), e.g., حَمْزَةُ (Hamzah), طَلْحَةُ (Talhah), مُعَاوِيَةُ (Muawiyah).',
         },
         {
           name: '٣- الْعَلَمُ الْمَخْتُومُ بِأَلِفٍ وَنُونٍ زَائِدَتَيْنِ (Proper Nouns Ending with Extra Alif & Noon)',
-          arabicText: 'الْعَلَمُ الْمَخْتُومُ بِأَلِفٍ وَنُونٍ زَائِدَتَيْنِ، مِثْلُ: عُثْمَانُ، سَلْمَانُ، عِمْرَانُ، رَمَضَانُ.',
-          explanation: 'Proper nouns ending with an additional alif and noon, e.g., عُثْمَانُ (Uthman), سَلْمَانُ (Salman), عِمْرَانُ (Imran), رَمَضَانُ (Ramadan).'
+          arabicText:
+            'الْعَلَمُ الْمَخْتُومُ بِأَلِفٍ وَنُونٍ زَائِدَتَيْنِ، مِثْلُ: عُثْمَانُ، سَلْمَانُ، عِمْرَانُ، رَمَضَانُ.',
+          explanation:
+            'Proper nouns ending with an additional alif and noon, e.g., عُثْمَانُ (Uthman), سَلْمَانُ (Salman), عِمْرَانُ (Imran), رَمَضَانُ (Ramadan).',
         },
         {
           name: '٤- الْعَلَمُ الَّذِي عَلَى وَزْنِ الْفِعْلِ (Proper Nouns on a Verb Pattern)',
-          arabicText: 'الْعَلَمُ الَّذِي يَأْتِي عَلَى وَزْنِ الْفِعْلِ، مِثْلُ: أَحْمَدُ، يَزِيدُ، يَشْكُرُ، أَسْعَدُ.',
-          explanation: 'Proper nouns that follow a verb pattern, e.g., أَحْمَدُ (Ahmad), يَزِيدُ (Yazid), يَشْكُرُ (Yashkur), أَسْعَدُ (As\'ad).'
+          arabicText:
+            'الْعَلَمُ الَّذِي يَأْتِي عَلَى وَزْنِ الْفِعْلِ، مِثْلُ: أَحْمَدُ، يَزِيدُ، يَشْكُرُ، أَسْعَدُ.',
+          explanation:
+            "Proper nouns that follow a verb pattern, e.g., أَحْمَدُ (Ahmad), يَزِيدُ (Yazid), يَشْكُرُ (Yashkur), أَسْعَدُ (As'ad).",
         },
         {
           name: '٥- الْعَلَمُ الْأَعْجَمِيُّ (Foreign Proper Nouns)',
-          arabicText: 'الْعَلَمُ الْأَعْجَمِيُّ (الزَّائِدُ عَلَى ثَلَاثَةِ أَحْرُفٍ)، مِثْلُ: إِبْرَاهِيمُ، إِسْمَاعِيلُ، لُنْدُنُ، بَاكِسْتَانُ.',
-          explanation: 'Foreign proper nouns (more than three letters), e.g., إِبْرَاهِيمُ (Ibrahim), إِسْمَاعِيلُ (Ismail), لُنْدُنُ (London), بَاكِسْتَانُ (Pakistan).'
+          arabicText:
+            'الْعَلَمُ الْأَعْجَمِيُّ (الزَّائِدُ عَلَى ثَلَاثَةِ أَحْرُفٍ)، مِثْلُ: إِبْرَاهِيمُ، إِسْمَاعِيلُ، لُنْدُنُ، بَاكِسْتَانُ.',
+          explanation:
+            'Foreign proper nouns (more than three letters), e.g., إِبْرَاهِيمُ (Ibrahim), إِسْمَاعِيلُ (Ismail), لُنْدُنُ (London), بَاكِسْتَانُ (Pakistan).',
         },
         {
-          name: '٦- الصِّفَةُ الَّتِي عَلَى وَزْنِ أَفْعَلَ (Adjectives on the af\'alu Pattern)',
-          arabicText: 'الصِّفَةُ الَّتِي عَلَى وَزْنِ (أَفْعَلَ) الَّذِي مُؤَنَّثُهُ (فَعْلَاءُ) أَوْ (فُعْلَى)، مِثْلُ: أَحْمَرُ (حَمْرَاءُ)، أَكْبَرُ (كُبْرَى)، أَفْضَلُ (فُضْلَى).',
-          explanation: 'Adjectives on the pattern (أَفْعَلُ) whose feminine form is (فَعْلَاءُ) or (فُعْلَى), e.g., أَحْمَرُ (aḥmar - red, fem. حَمْرَاءُ), أَكْبَرُ (akbar - bigger, fem. كُبْرَى), أَفْضَلُ (afḍal - better, fem. فُضْلَى).'
+          name: "٦- الصِّفَةُ الَّتِي عَلَى وَزْنِ أَفْعَلَ (Adjectives on the af'alu Pattern)",
+          arabicText:
+            'الصِّفَةُ الَّتِي عَلَى وَزْنِ (أَفْعَلَ) الَّذِي مُؤَنَّثُهُ (فَعْلَاءُ) أَوْ (فُعْلَى)، مِثْلُ: أَحْمَرُ (حَمْرَاءُ)، أَكْبَرُ (كُبْرَى)، أَفْضَلُ (فُضْلَى).',
+          explanation:
+            'Adjectives on the pattern (أَفْعَلُ) whose feminine form is (فَعْلَاءُ) or (فُعْلَى), e.g., أَحْمَرُ (aḥmar - red, fem. حَمْرَاءُ), أَكْبَرُ (akbar - bigger, fem. كُبْرَى), أَفْضَلُ (afḍal - better, fem. فُضْلَى).',
         },
         {
           name: '٧- الصِّفَةُ الَّتِي عَلَى وَزْنِ فَعْلَانَ (Adjectives on the faʻlānu Pattern)',
-          arabicText: 'الصِّفَةُ الَّتِي عَلَى وَزْنِ (فَعْلَانَ) الَّذِي مُؤَنَّثُهُ (فَعْلَى)، مِثْلُ: كَسْلَانُ (كَسْلَى)، عَطْشَانُ (عَطْشَى)، جَوْعَانُ (جَوْعَى).',
-          explanation: 'Adjectives on the pattern (فَعْلَانَ) whose feminine form is (فَعْلَى), e.g., كَسْلَانُ (kaslān - lazy, fem. كَسْلَى), عَطْشَانُ (ʿaṭshān - thirsty, fem. عَطْشَى), جَوْعَانُ (jawʿān - hungry, fem. جَوْعَى).'
+          arabicText:
+            'الصِّفَةُ الَّتِي عَلَى وَزْنِ (فَعْلَانَ) الَّذِي مُؤَنَّثُهُ (فَعْلَى)، مِثْلُ: كَسْلَانُ (كَسْلَى)، عَطْشَانُ (عَطْشَى)، جَوْعَانُ (جَوْعَى).',
+          explanation:
+            'Adjectives on the pattern (فَعْلَانَ) whose feminine form is (فَعْلَى), e.g., كَسْلَانُ (kaslān - lazy, fem. كَسْلَى), عَطْشَانُ (ʿaṭshān - thirsty, fem. عَطْشَى), جَوْعَانُ (jawʿān - hungry, fem. جَوْعَى).',
         },
         {
           name: '٨- الِاسْمُ الْمَخْتُومُ بِأَلِفِ التَّأْنِيثِ الْمَمْدُودَةِ (Nouns Ending with Extended Alif of Feminization)',
-          arabicText: 'الِاسْمُ الْمَخْتُومُ بِأَلِفِ التَّأْنِيثِ الْمَمْدُودَةِ، مِثْلُ: أَصْدِقَاءُ، عُلَمَاءُ، فُقَرَاءُ، صَحْرَاءُ.',
-          explanation: 'Nouns ending with the extended alif of feminization (اء), e.g., أَصْدِقَاءُ (aṣdiqāʾ - friends), عُلَمَاءُ (ʿulamāʾ - scholars), فُقَرَاءُ (fuqarāʾ - poor people), صَحْرَاءُ (ṣaḥrāʾ - desert).'
+          arabicText:
+            'الِاسْمُ الْمَخْتُومُ بِأَلِفِ التَّأْنِيثِ الْمَمْدُودَةِ، مِثْلُ: أَصْدِقَاءُ، عُلَمَاءُ، فُقَرَاءُ، صَحْرَاءُ.',
+          explanation:
+            'Nouns ending with the extended alif of feminization (اء), e.g., أَصْدِقَاءُ (aṣdiqāʾ - friends), عُلَمَاءُ (ʿulamāʾ - scholars), فُقَرَاءُ (fuqarāʾ - poor people), صَحْرَاءُ (ṣaḥrāʾ - desert).',
         },
         {
           name: '٩- صِيغَةُ مُنْتَهَى الْجُمُوعِ - مَفَاعِلُ (Plural of Multitude Pattern - mafāʻilu)',
-          arabicText: 'صِيغَةُ مُنْتَهَى الْجُمُوعِ الَّتِي عَلَى وَزْنِ (مَفَاعِلَ)، مِثْلُ: مَسَاجِدُ، مَدَارِسُ، مَعَاهِدُ، فَنَادِقُ.',
-          explanation: 'The "plural of multitude" pattern (صِيغَةُ مُنْتَهَى الْجُمُوعِ) on the pattern of (مَفَاعِلُ), e.g., مَسَاجِدُ (masājid - mosques), مَدَارِسُ (madāris - schools), مَعَاهِدُ (maʿāhid - institutes), فَنَادِقُ (fanādiq - hotels).'
+          arabicText:
+            'صِيغَةُ مُنْتَهَى الْجُمُوعِ الَّتِي عَلَى وَزْنِ (مَفَاعِلَ)، مِثْلُ: مَسَاجِدُ، مَدَارِسُ، مَعَاهِدُ، فَنَادِقُ.',
+          explanation:
+            'The "plural of multitude" pattern (صِيغَةُ مُنْتَهَى الْجُمُوعِ) on the pattern of (مَفَاعِلُ), e.g., مَسَاجِدُ (masājid - mosques), مَدَارِسُ (madāris - schools), مَعَاهِدُ (maʿāhid - institutes), فَنَادِقُ (fanādiq - hotels).',
         },
         {
           name: '١٠- صِيغَةُ مُنْتَهَى الْجُمُوعِ - مَفَاعِيلُ (Plural of Multitude Pattern - mafāʻīlu)',
-          arabicText: 'صِيغَةُ مُنْتَهَى الْجُمُوعِ الَّتِي عَلَى وَزْنِ (مَفَاعِيلَ)، مِثْلُ: مَنَادِيلُ، مَفَاتِيحُ، صَنَادِيقُ، كَرَاسِيُّ.',
-          explanation: 'The "plural of multitude" pattern (صِيغَةُ مُنْتَهَى الْجُمُوعِ) on the pattern of (مَفَاعِيلُ), e.g., مَنَادِيلُ (manādīl - handkerchiefs), مَفَاتِيحُ (mafātīḥ - keys), صَنَادِيقُ (ṣanādīq - boxes), كَرَاسِيُّ (karāsiyy - chairs).'
+          arabicText:
+            'صِيغَةُ مُنْتَهَى الْجُمُوعِ الَّتِي عَلَى وَزْنِ (مَفَاعِيلَ)، مِثْلُ: مَنَادِيلُ، مَفَاتِيحُ، صَنَادِيقُ، كَرَاسِيُّ.',
+          explanation:
+            'The "plural of multitude" pattern (صِيغَةُ مُنْتَهَى الْجُمُوعِ) on the pattern of (مَفَاعِيلُ), e.g., مَنَادِيلُ (manādīl - handkerchiefs), مَفَاتِيحُ (mafātīḥ - keys), صَنَادِيقُ (ṣanādīq - boxes), كَرَاسِيُّ (karāsiyy - chairs).',
         },
         {
           name: 'جَرُّ الْمَمْنُوعِ مِنَ الصَّرْفِ بِالْفَتْحَةِ (Making Diptotes Genitive with Fatḥah)',
-          arabicText: 'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لِأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
+          arabicText:
+            'ذَهَبْتُ إِلَى زَيْنَبَ. هَذَا الْكِتَابُ لِأَحْمَدَ. بَيْتُ زَيْنَبَ جَمِيلٌ.',
           explanation:
             "Diptotes are made genitive with a fatḥah, whether by a preposition (e.g., to Zaynab_a_) or by iḍāfah (e.g., Zaynab_a_'s house).",
         },
       ],
     },
-  ]
+  ],
 };
