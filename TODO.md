@@ -49,6 +49,10 @@
 
 - [ ] Address `metadataBase` warning in Next.js configuration.
 
+## Documentation and Project Maintenance:
+
+- [x] Fix README.md with correct project information, commands, and technology stack - Updated project title, corrected npm commands, added proper technology badges for Next.js and Tailwind CSS, fixed typos, and improved project description and features section
+
 ### Build and Deploy (Later Stage):
 
 - [x] Create a production build: `npm run build`.
