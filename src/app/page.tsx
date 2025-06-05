@@ -20,7 +20,7 @@ export default function HomePage() {
             Madinah Book Resources
           </h2>
           <p className="text-lg text-neutral-700 mb-4 font-arabic leading-relaxed">
-            مرحباً بك في المصادر المعينة على فهم كتب المدينة للقواعد اللغة العربية. اختر الكتاب الذي تريد دراسته من سلسلة
+            مرحباً بك في المصادر المعينة على فهم كتب المدينة. اختر الكتاب الذي تريد دراسته من سلسلة
             كتب المدينة لتعليم اللغة العربية.
           </p>
            <p className="text-lg text-neutral-600 leading-relaxed">
