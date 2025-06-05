@@ -41,17 +41,17 @@ const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
       </div>
 
       <h1 className="text-3xl md:text-4xl font-bold text-emerald-700 arabic-text font-arabic text-center">
-        قواعد اللغة العربية التفاعلية
+        المصادر المعينة على فهم كتب المدينة
       </h1>
       <p className="text-lg text-neutral-600 arabic-text font-arabic text-center mt-1">
         {book
           ? book.description.arabic
-          : 'شرح كتاب دروس اللغة العربية لغير الناطقين بها - الجزء الأول'}
+          : 'شرح كتب دروس اللغة العربية لغير الناطقين بها'}
       </p>
       <p className="text-sm text-neutral-500 english-text text-center mt-2">
         {book
           ? book.description.english
-          : 'Interactive Arabic Grammar Rules - Explanation of Madinah Book 1'}
+          : 'Madinah Book Resources - Explanation of Madinah Book 1'}
       </p>
 
       <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
