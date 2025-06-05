@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 const sharedTitle = 'قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١';
-const sharedDescription = 'Interactive Arabic Grammar Rules - Explanation of Madinah Book 1';
+const sharedDescription = 'Madinah Book Resources - Explanation of Madinah Book 1';
 const sharedImages = ['/images/social-share/home.png'];
 
 export const metadata: Metadata = {

@@ -14,17 +14,17 @@ export default function HomePage() {
         {/* Welcome Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-4 font-arabic">
-            قواعد اللغة العربية التفاعلية
+          معينات كتب المدينة
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-emerald-600 mb-6">
-            Interactive Arabic Grammar Rules
+            Madinah Book Resources
           </h2>
           <p className="text-lg text-neutral-700 mb-4 font-arabic leading-relaxed">
-            مرحباً بك في تطبيق قواعد اللغة العربية التفاعلية. اختر الكتاب الذي تريد دراسته من سلسلة
+            مرحباً بك في معينات كتب المدينة للقواعد اللغة العربية. اختر الكتاب الذي تريد دراسته من سلسلة
             كتب المدينة لتعليم اللغة العربية.
           </p>
-          <p className="text-lg text-neutral-600 leading-relaxed">
-            Welcome to the Interactive Arabic Grammar Rules application. Choose the book you want to
+           <p className="text-lg text-neutral-600 leading-relaxed">
+            Welcome to Madinah Book Resources. Choose the book you want to
             study from the Madinah Arabic learning series.
           </p>
         </div>
