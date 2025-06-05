@@ -43,8 +43,8 @@ export default function RootLayout({
         <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-center">
           <p className="text-sm text-blue-700">
             <span className="font-medium">Still in beta.</span> For feedback, email me at{' '}
-            <a 
-              href="mailto:aramb@aramb.dev" 
+            <a
+              href="mailto:aramb@aramb.dev"
               className="text-blue-600 hover:text-blue-800 underline"
             >
               aramb@aramb.dev

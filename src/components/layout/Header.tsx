@@ -44,14 +44,10 @@ const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
         المصادر المعينة على فهم كتب المدينة
       </h1>
       <p className="text-lg text-neutral-600 arabic-text font-arabic text-center mt-1">
-        {book
-          ? book.description.arabic
-          : 'شرح كتب دروس اللغة العربية لغير الناطقين بها'}
+        {book ? book.description.arabic : 'شرح كتب دروس اللغة العربية لغير الناطقين بها'}
       </p>
       <p className="text-sm text-neutral-500 english-text text-center mt-2">
-        {book
-          ? book.description.english
-          : 'Madinah Book Resources - Explanation of Madinah Book 1'}
+        {book ? book.description.english : 'Madinah Book Resources - Explanation of Madinah Book 1'}
       </p>
 
       <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">

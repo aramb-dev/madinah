@@ -14,7 +14,7 @@ export default function HomePage() {
         {/* Welcome Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-4 font-arabic">
-          المصادر المعينة على فهم كتب المدينة
+            المصادر المعينة على فهم كتب المدينة
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-emerald-600 mb-6">
             Madinah Book Resources
@@ -23,9 +23,9 @@ export default function HomePage() {
             مرحباً بك في المصادر المعينة على فهم كتب المدينة. اختر الكتاب الذي تريد دراسته من سلسلة
             كتب المدينة لتعليم اللغة العربية.
           </p>
-           <p className="text-lg text-neutral-600 leading-relaxed">
-            Welcome to Madinah Book Resources. Choose the book you want to
-            study from the Madinah Arabic learning series.
+          <p className="text-lg text-neutral-600 leading-relaxed">
+            Welcome to Madinah Book Resources. Choose the book you want to study from the Madinah
+            Arabic learning series.
           </p>
         </div>
 
