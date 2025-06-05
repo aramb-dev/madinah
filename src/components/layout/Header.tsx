@@ -14,8 +14,8 @@ interface HeaderProps {
 const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
   return (
     <header className="mb-8 pb-4 border-b border-amber-300 relative">
-      {/* Home Button - Left side of header */}
-      <div className="absolute left-0 top-0">
+      {/* Home Button - Fixed and sticky like sidebar toggle */}
+      <div className="fixed top-4 right-4 z-20 md:absolute md:left-0 md:top-0 md:z-auto">
         <Link href={homeUrl}>
           <Button
             variant="outline"
