@@ -41,7 +41,7 @@ const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
       </div>
 
       <h1 className="text-3xl md:text-4xl font-bold text-emerald-700 arabic-text font-arabic text-center">
-        قواعد اللغة العربية التفاعلية
+        المصادر المعينة على فهم كتب المدينة
       </h1>
       <p className="text-lg text-neutral-600 arabic-text font-arabic text-center mt-1">
         {book

@@ -43,17 +43,17 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
   if (!lesson) {
     // Fallback metadata if lesson not found
     return {
-      title: 'قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١',
+      title: 'المصادر المعينة على فهم كتب المدينة - شرح كتاب المدينة ١',
       description: 'Madinah Book Resources - Explanation of Madinah Book 1',
       openGraph: {
-        title: 'قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١',
+        title: 'المصادر المعينة على فهم كتب المدينة - شرح كتاب المدينة ١',
         description: 'Madinah Book Resources - Explanation of Madinah Book 1',
         images: ['/images/social-share/home.png'],
         type: 'website',
       },
       twitter: {
         card: 'summary_large_image',
-        title: 'قواعد اللغة العربية التفاعلية - شرح كتاب المدينة ١',
+        title: 'المصادر المعينة على فهم كتب المدينة - شرح كتاب المدينة ١',
         description: 'Madinah Book Resources - Explanation of Madinah Book 1',
         images: ['/images/social-share/home.png'],
       },
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
   const imageFilename = getLessonImageFilename(lessonId);
   const socialShareImage = `/images/social-share/${imageFilename}`;
 
-  const title = `${lesson.title.ar} - ${lesson.title.en} | قواعد اللغة العربية التفاعلية`;
+  const title = `${lesson.title.ar} - ${lesson.title.en} | المصادر المعينة على فهم كتب المدينة`;
   const description = lesson.introduction.english;
 
   return {
