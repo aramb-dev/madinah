@@ -87,8 +87,8 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
       </Sheet>
 
       {/* Desktop Sidebar */}
-      <aside className="hidden md:block md:w-72 bg-amber-50 border-l border-amber-200 p-4 fixed top-16 right-0 h-full overflow-y-auto z-20 shadow-lg">
-        <div className="sticky top-0 bg-amber-50 pt-2 pb-4 z-10">
+      <aside className="hidden md:block md:w-72 bg-amber-50 border-l border-amber-200 p-4 fixed top-12 right-0 h-full overflow-y-auto z-20 shadow-lg">
+        <div className="sticky top-0 bg-amber-50 pt-6 pb-4 z-10">
           <h2 className="text-2xl font-bold text-emerald-700 mb-6 arabic-text font-arabic text-center">
             فهرس الدروس
           </h2>
