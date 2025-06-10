@@ -40,17 +40,19 @@ export default function RootLayout({
     <html lang="ar" dir="rtl">
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
         {/* Beta Feedback Banner */}
-        <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-center">
-          <p className="text-sm text-blue-700">
-            <span className="font-medium">Still in beta.</span> For feedback, email me at{' '}
-            <a
-              href="mailto:aramb@aramb.dev"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              aramb@aramb.dev
-            </a>
-          </p>
-        </div>
+        {process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' && (
+          <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-center">
+            <p className="text-sm text-blue-700">
+              <span className="font-medium">Still in beta.</span> For feedback, email me at{' '}
+              <a
+                href="mailto:aramb@aramb.dev"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                aramb@aramb.dev
+              </a>
+            </p>
+          </div>
+        )}
         {children}
       </body>
     </html>
