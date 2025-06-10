@@ -14,8 +14,8 @@ interface HeaderProps {
 const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
   return (
     <header className="mb-8 pb-4 border-b border-amber-300 relative">
-      {/* Home Button - Left side of header */}
-      <div className="absolute left-0 top-0">
+      {/* Home Button - Fixed and sticky like sidebar toggle */}
+      <div className="fixed top-4 right-4 z-20 md:absolute md:left-0 md:top-0 md:z-auto">
         <Link href={homeUrl}>
           <Button
             variant="outline"
@@ -44,14 +44,10 @@ const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
         المصادر المعينة على فهم كتب المدينة
       </h1>
       <p className="text-lg text-neutral-600 arabic-text font-arabic text-center mt-1">
-        {book
-          ? book.description.arabic
-          : 'شرح كتب دروس اللغة العربية لغير الناطقين بها'}
+        {book ? book.description.arabic : 'شرح كتب دروس اللغة العربية لغير الناطقين بها'}
       </p>
       <p className="text-sm text-neutral-500 english-text text-center mt-2">
-        {book
-          ? book.description.english
-          : 'Madinah Book Resources - Explanation of Madinah Book 1'}
+        {book ? book.description.english : 'Madinah Book Resources - Explanation of Madinah Book 1'}
       </p>
 
       <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
