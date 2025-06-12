@@ -15,7 +15,7 @@ const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
   return (
     <header className="mb-8 pb-4 border-b border-amber-300 relative">
       {/* Home Button - Fixed and sticky like sidebar toggle */}
-      <div className="fixed top-4 right-4 z-20 md:absolute md:left-0 md:top-0 md:z-auto">
+      <div className="fixed top-16 right-4 z-40 md:absolute md:left-0 md:top-0 md:z-auto">
         <Link href={homeUrl}>
           <Button
             variant="outline"

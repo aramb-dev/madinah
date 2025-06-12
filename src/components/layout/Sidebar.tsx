@@ -37,7 +37,7 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
         <SheetTrigger asChild>
           <Button
             variant="default"
-            className="md:hidden fixed top-4 left-4 z-20 p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md shadow-lg"
+            className="md:hidden fixed top-16 left-4 z-40 p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md shadow-lg"
             aria-label="Open sidebar"
           >
             <svg
@@ -87,7 +87,7 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
       </Sheet>
 
       {/* Desktop Sidebar */}
-      <aside className="hidden md:block md:w-72 bg-amber-50 border-l border-amber-200 p-4 fixed top-12 right-0 h-full overflow-y-auto z-20 shadow-lg">
+      <aside className="hidden md:block md:w-72 bg-amber-50 border-l border-amber-200 p-4 fixed top-24 right-0 h-full overflow-y-auto z-30 shadow-lg">
         <div className="sticky top-0 bg-amber-50 pt-6 pb-4 z-10">
           <h2 className="text-2xl font-bold text-emerald-700 mb-6 arabic-text font-arabic text-center">
             فهرس الدروس
