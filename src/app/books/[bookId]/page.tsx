@@ -66,11 +66,11 @@ export default function BookPage() {
                     <CardDescription>{lesson.title.en}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-right font-arabic mb-2 line-clamp-2">
-                      {lesson.introduction.arabic.substring(0, 100)}...
+                    <p className="text-right font-arabic mb-2 line-clamp-3 text-lg leading-relaxed">
+                      {lesson.introduction.arabic.length > 180 ? lesson.introduction.arabic.substring(0, 250) + '...' : lesson.introduction.arabic}
                     </p>
-                    <p className="line-clamp-2">
-                      {lesson.introduction.english.substring(0, 100)}...
+                    <p className="line-clamp-3 text-sm text-gray-600">
+                      {lesson.introduction.english.length > 200 ? lesson.introduction.english.substring(0, 400) + '...' : lesson.introduction.english}
                     </p>
                     <Button
                       className="mt-4 w-full bg-emerald-600 hover:bg-emerald-700"
