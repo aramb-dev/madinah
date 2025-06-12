@@ -22,7 +22,6 @@
 - [ ] Separate the rules for badal (الْبَدَلُ - Apposition) with four types: Total (كُلِّ مِنْ كُلِّ), Partial (بَعْضٍ مِنْ كُلِّ), Inclusive (اشْتِمَالٍ), and Error/Forgetfulness (الْمُبَايِنِ)
 - [ ] Fix beta banner z-index issue - banner is stuck behind home and sidebar buttons
 
-
 ## Future Enhancements:
 
 1. Add more lessons and content
@@ -33,6 +32,7 @@
 6. Add animations and transitions for better UX
 
 ## Completed Tasks:
+
 - Successfully initialized a new Next.js application by running `npx create-next-app@latest nextjs-temp-install`, moving its contents to the root directory, and selecting TypeScript, ESLint, Tailwind CSS, `src/` directory, and App Router during setup.
 - Initialized `shadcn/ui` with TypeScript, default style, Slate base color, `src/app/globals.css` for global CSS, CSS variables for colors, `tailwind.config.ts`, `@/components` and `@/lib` import aliases, and React Server Components. Verified `tailwind.config.ts` update and `lib/utils.ts` creation. Created `components/ui`, `components/custom`, and `components/layout` directories, installed button, sheet, card, dialog, and toggle `shadcn/ui` components, and added necessary utility files.
 - Migrated the core HTML structure by creating `components/layout/Layout.tsx`, moving the main layout from `index.html` into it, converting HTML to JSX, and creating `components/layout/Header.tsx` and `components/custom/LessonContent.tsx`, then updating the main page to use these new components.
@@ -46,6 +46,7 @@
 - Tested on various mobile devices, enhanced mobile sidebar/navigation (improved touch targets, ensured proper closing after lesson selection, tested scrolling), and optimized lesson content display (ensured readable Arabic text, adjusted spacing/padding, tested AI modals). Fixed `SheetContent` accessibility (commit: 82d9b10), resolved RTL layout issues for the close button (commit: 546d376), and implemented font scaling controls (commit: d1aedd9).
 - Fix README.md with correct project information, commands, and technology stack - Updated project title, corrected npm commands, added proper technology badges for Next.js and Tailwind CSS, fixed typos, and improved project description and features section
 - Build and Deploy:
+
   - Created production build with `npm run build`
   - Tested locally using `npm run start`
   - Configured deployment settings for Vercel/Netlify
