@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
         {/* Beta Feedback Banner */}
         {process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' && (
-          <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-center fixed top-0 left-0 right-0 z-30">
+          <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-center fixed top-0 left-0 right-0 z-50">
             <p className="text-sm text-blue-700">
               <span className="font-medium">Still in beta.</span> For feedback, email me at{' '}
               <a
@@ -53,7 +53,9 @@ export default function RootLayout({
             </p>
           </div>
         )}
-        {children}
+        <div className={process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' ? 'pt-12' : ''}>
+          {children}
+        </div>
       </body>
     </html>
   );
