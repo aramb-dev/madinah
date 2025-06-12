@@ -19,6 +19,8 @@
 - [x] Update existing lesson pages to work with new book structure
 - [ ] Test performance on lower-end mobile devices.
 - [ ] Address `metadataBase` warning in Next.js configuration.
+- [ ] Separate the rules for badal (الْبَدَلُ - Apposition) with four types: Total (كُلِّ مِنْ كُلِّ), Partial (بَعْضٍ مِنْ كُلِّ), Inclusive (اشْتِمَالٍ), and Error/Forgetfulness (الْمُبَايِنِ)
+- [ ] Fix beta banner z-index issue - banner is stuck behind home and sidebar buttons
 
 
 ## Future Enhancements:
