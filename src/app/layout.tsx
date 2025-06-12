@@ -53,7 +53,7 @@ export default function RootLayout({
             </p>
           </div>
         )}
-        <div className={process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' ? 'pt-12' : ''}>
+        <div className={process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' ? 'pt-20' : ''}>
           {children}
         </div>
       </body>
