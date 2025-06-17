@@ -36,6 +36,7 @@ export async function GET(
       data: ruleStats
     });
   } catch (error) {
+    console.error('Error fetching rule count:', error);
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }

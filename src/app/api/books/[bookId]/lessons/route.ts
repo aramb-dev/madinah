@@ -35,6 +35,7 @@ export async function GET(
       }
     });
   } catch (error) {
+    console.error('Error fetching lessons:', error);
     return NextResponse.json(
       {
         success: false,

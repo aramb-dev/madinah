@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getBookById, getLessonById } from '@/data/books';
 
 type Params = {
@@ -7,7 +7,7 @@ type Params = {
 };
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: Promise<Params> }
 ) {
   try {
@@ -47,6 +47,7 @@ export async function GET(
       }
     });
   } catch (error) {
+    console.error('Error fetching lesson:', error);
     return NextResponse.json(
       {
         success: false,

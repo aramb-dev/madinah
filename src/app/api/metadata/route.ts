@@ -38,6 +38,7 @@ export async function GET() {
       data: metadata
     });
   } catch (error) {
+    console.error('Error fetching metadata:', error);
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }

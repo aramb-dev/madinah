@@ -22,6 +22,7 @@ export async function GET() {
       count: allLessonTitles.length
     });
   } catch (error) {
+    console.error('Error fetching lesson titles:', error);
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }

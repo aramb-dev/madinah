@@ -8,7 +8,7 @@ export interface APIError {
   timestamp: string;
 }
 
-export interface APISuccess<T = any> {
+export interface APISuccess<T = unknown> {
   success: true;
   data: T;
   count?: number;
@@ -29,7 +29,7 @@ export function createErrorResponse(
       code,
       timestamp: new Date().toISOString()
     },
-    { 
+    {
       status,
       headers: {
         'Content-Type': 'application/json'
@@ -59,39 +59,39 @@ export function createSuccessResponse<T>(
 
 // Predefined error responses
 export const APIErrors = {
-  NOT_FOUND: (resource: string = 'Resource') => 
+  NOT_FOUND: (resource: string = 'Resource') =>
     createErrorResponse(
       `${resource} not found`,
       404,
       `The requested ${resource.toLowerCase()} could not be found`,
       'NOT_FOUND'
     ),
-  
-  INVALID_ID: (resource: string = 'Resource') => 
+
+  INVALID_ID: (resource: string = 'Resource') =>
     createErrorResponse(
       `Invalid ${resource.toLowerCase()} ID`,
       400,
       `The provided ${resource.toLowerCase()} ID is not valid`,
       'INVALID_ID'
     ),
-  
-  INTERNAL_ERROR: () => 
+
+  INTERNAL_ERROR: () =>
     createErrorResponse(
       'Internal server error',
       500,
       'An unexpected error occurred while processing your request',
       'INTERNAL_ERROR'
     ),
-  
-  BAD_REQUEST: (message: string = 'Bad request') => 
+
+  BAD_REQUEST: (message: string = 'Bad request') =>
     createErrorResponse(
       'Bad request',
       400,
       message,
       'BAD_REQUEST'
     ),
-  
-  METHOD_NOT_ALLOWED: (allowedMethods: string[] = []) => 
+
+  METHOD_NOT_ALLOWED: (allowedMethods: string[] = []) =>
     createErrorResponse(
       'Method not allowed',
       405,

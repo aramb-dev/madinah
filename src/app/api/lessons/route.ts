@@ -34,6 +34,7 @@ export async function GET() {
       booksCount: availableBooks.length
     });
   } catch (error) {
+    console.error('Error fetching lessons:', error);
     return NextResponse.json(
       {
         success: false,
