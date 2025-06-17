@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 
 export default function APIDocsPage() {
   return (
-    <div className="min-h-screen bg-[#FFFAF0] py-8">
+    <div className="min-h-screen bg-[#FFFAF0] py-8" dir="ltr">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-12">
