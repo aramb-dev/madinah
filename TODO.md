@@ -21,6 +21,7 @@
 - [ ] Address `metadataBase` warning in Next.js configuration.
 - [ ] Separate the rules for badal (الْبَدَلُ - Apposition) with four types: Total (كُلِّ مِنْ كُلِّ), Partial (بَعْضٍ مِنْ كُلِّ), Inclusive (اشْتِمَالٍ), and Error/Forgetfulness (الْمُبَايِنِ)
 - [ ] Fix beta banner z-index issue - banner is stuck behind home and sidebar buttons
+- [ ] **Fix API 404 handling - Create custom not-found.tsx for API routes to return JSON instead of HTML for non-existent endpoints**
 
 ## Future Enhancements:
 
