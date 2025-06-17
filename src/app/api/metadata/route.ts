@@ -16,7 +16,7 @@ export async function GET() {
       availableBooks: availableBooks.length,
       totalLessons,
       totalRules,
-      averageRulesPerLesson: Math.round((totalRules / totalLessons) * 100) / 100,
+      averageRulesPerLesson: totalLessons === 0 ? 0 : Math.round((totalRules / totalLessons) * 100) / 100,
       books: booksData.map(book => ({
         id: book.id,
         title: book.title,
