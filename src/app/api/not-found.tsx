@@ -10,7 +10,8 @@ export default function APINotFound() {
         documentation: '/api',
         books: '/api/books',
         lessons: '/api/lessons',
-        metadata: '/api/metadata'
+        metadata: '/api/metadata',
+        lessonTitles: '/api/lesson-titles'
       },
       timestamp: new Date().toISOString()
     },
