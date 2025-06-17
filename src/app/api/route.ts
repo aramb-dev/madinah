@@ -40,6 +40,37 @@ export async function GET() {
           description: 'Get all lessons from all books',
           response: 'Array of all lessons with book information'
         }
+      },
+      metadata: {
+        'GET /api/metadata': {
+          description: 'Get global metadata about all books and lessons',
+          response: 'Summary statistics and overview data'
+        },
+        'GET /api/books/{bookId}/metadata': {
+          description: 'Get metadata for a specific book',
+          parameters: {
+            bookId: 'string (book1, book2, book3)'
+          },
+          response: 'Book metadata including lesson count and available routes'
+        },
+        'GET /api/books/{bookId}/lesson-titles': {
+          description: 'Get titles of all lessons in a specific book',
+          parameters: {
+            bookId: 'string (book1, book2, book3)'
+          },
+          response: 'Array of lesson titles with IDs and rule counts'
+        },
+        'GET /api/books/{bookId}/rule-count': {
+          description: 'Get rule statistics for a specific book',
+          parameters: {
+            bookId: 'string (book1, book2, book3)'
+          },
+          response: 'Rule count statistics by lesson and total'
+        },
+        'GET /api/lesson-titles': {
+          description: 'Get titles of all lessons across all books',
+          response: 'Array of all lesson titles with book information'
+        }
       }
     },
     responseFormat: {
