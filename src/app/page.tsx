@@ -75,7 +75,7 @@ export default function HomePage() {
                   ) : (
                     <Button
                       disabled
-                      className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed items-baseline" // Added items-baseline to align text
+                      className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed items-baseline"
                     >
                       {book.comingSoon ? (
                         <>
@@ -96,7 +96,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Additional Information - Reverted to Card structure for consistency and to fix potential JSX issues */}
+        {/* Additional Information */}
         <div className="mt-12 text-center">
           <Card className="border-amber-200 bg-amber-50">
             <CardContent className="pt-6">
@@ -112,8 +112,9 @@ export default function HomePage() {
           </Card>
         </div>
 
-        {/* Changelog Section */}
-        <div className="mt-8 text-center">
+        {/* Changelog and API Documentation Section */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Changelog Card */}
           <Card className="border-blue-200 bg-blue-50 hover:shadow-lg transition-shadow duration-300">
             <CardContent className="pt-6">
               <h3 className="text-lg font-semibold text-blue-800 mb-3 font-arabic">
@@ -130,6 +131,28 @@ export default function HomePage() {
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
                   <span className="font-arabic ml-2">عرض السجل</span>
                   <span>View Changelog</span>
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* API Documentation Card */}
+          <Card className="border-purple-200 bg-purple-50 hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="pt-6">
+              <h3 className="text-lg font-semibold text-purple-800 mb-3 font-arabic">
+                وثائق واجهة البرمجة
+              </h3>
+              <h4 className="text-md font-medium text-purple-700 mb-2">API Documentation</h4>
+              <p className="text-sm text-purple-700 mb-4 font-arabic">
+                للمطورين: استكشف واجهة البرمجة الخاصة بنا
+              </p>
+              <p className="text-sm text-purple-600 mb-4">
+                Developer? Check out our comprehensive API documentation and integration guides
+              </p>
+              <Link href="/docs">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
+                  <span className="font-arabic ml-2">عرض الوثائق</span>
+                  <span>View API Docs</span>
                 </Button>
               </Link>
             </CardContent>
