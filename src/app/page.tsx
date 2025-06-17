@@ -149,7 +149,7 @@ export default function HomePage() {
               <p className="text-sm text-purple-600 mb-4">
                 Developer? Check out our comprehensive API documentation and integration guides
               </p>
-              <Link href="/api/docs">
+              <Link href="/docs">
                 <Button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
                   <span className="font-arabic ml-2">عرض الوثائق</span>
                   <span>View API Docs</span>
