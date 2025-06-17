@@ -21,9 +21,11 @@ export async function GET(
       bookTitle: book.title,
       totalRules: book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0),
       lessonCount: book.lessons.length,
-      averageRulesPerLesson: Math.round(
-        (book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0) / book.lessons.length) * 100
-      ) / 100,
+      averageRulesPerLesson: book.lessons.length > 0
+        ? Math.round(
+            (book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0) / book.lessons.length) * 100
+          ) / 100
+        : 0,
       rulesByLesson: book.lessons.map(lesson => ({
         lessonId: lesson.id,
         lessonTitle: lesson.title,
