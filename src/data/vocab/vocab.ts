@@ -1,0 +1,1 @@
+// This will be the init file for vocab schema and data for all of the Madinah books.
