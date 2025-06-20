@@ -262,14 +262,17 @@ export function organizeItemsIntoLists(
   bookTitle: { ar: string; en: string }
 ): VocabularyList[] {
   // Group items by lesson
-  const lessonGroups = items.reduce((groups, item) => {
-    const lessonId = item.lessonId?.toString() || 'unknown';
-    if (!groups[lessonId]) {
-      groups[lessonId] = [];
-    }
-    groups[lessonId].push(item);
-    return groups;
-  }, {} as Record<string, VocabularyItem[]>);
+  const lessonGroups = items.reduce(
+    (groups, item) => {
+      const lessonId = item.lessonId?.toString() || 'unknown';
+      if (!groups[lessonId]) {
+        groups[lessonId] = [];
+      }
+      groups[lessonId].push(item);
+      return groups;
+    },
+    {} as Record<string, VocabularyItem[]>
+  );
 
   // Convert groups to vocabulary lists
   return Object.entries(lessonGroups).map(([lessonId, lessonItems], index) => {
@@ -277,18 +280,18 @@ export function organizeItemsIntoLists(
       id: `list${lessonId.padStart(3, '0')}`,
       title: {
         ar: `مفردات الدرس ${lessonId}`,
-        en: `Lesson ${lessonId} Vocabulary`
+        en: `Lesson ${lessonId} Vocabulary`,
       },
       description: {
         arabic: `الكلمات الجديدة في الدرس ${lessonId}.`,
-        english: `New words in lesson ${lessonId}.`
+        english: `New words in lesson ${lessonId}.`,
       },
       bookId,
       lessonId,
       items: lessonItems,
       level: lessonItems[0]?.difficulty || DifficultyLevel.Beginner,
       tags: [`lesson${lessonId}`],
-      order: parseInt(lessonId) || index + 1
+      order: parseInt(lessonId) || index + 1,
     };
   });
 }
@@ -299,11 +302,11 @@ export function organizeItemsIntoLists(
  * @returns Flat array of vocabulary items
  */
 export function flattenListsToItems(lists: VocabularyList[]): VocabularyItem[] {
-  return lists.flatMap(list =>
-    list.items.map(item => ({
+  return lists.flatMap((list) =>
+    list.items.map((item) => ({
       ...item,
       bookId: item.bookId || list.bookId,
-      lessonId: item.lessonId || list.lessonId
+      lessonId: item.lessonId || list.lessonId,
     }))
   );
 }

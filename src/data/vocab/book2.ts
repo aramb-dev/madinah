@@ -5,13 +5,7 @@
  * @version 1.0.0
  */
 
-import {
-  WordType,
-  DifficultyLevel,
-  Gender,
-  VocabularyItem,
-  BookVocabulary
-} from './vocab';
+import { WordType, DifficultyLevel, Gender, VocabularyItem, BookVocabulary } from './vocab';
 
 /**
  * Complete vocabulary data for Madinah Book 2
@@ -20,11 +14,11 @@ export const madinahBook2: BookVocabulary = {
   bookId: 'book2',
   title: {
     ar: 'دروس اللغة العربية لغير الناطقين بها - الكتاب الثاني',
-    en: 'Lessons in Arabic Language for Non-Native Speakers - Book 2'
+    en: 'Lessons in Arabic Language for Non-Native Speakers - Book 2',
   },
   description: {
     arabic: 'مفردات الكتاب الثاني من سلسلة دروس اللغة العربية، الدروس 1-31',
-    english: 'Vocabulary from Book 2 of the Arabic Language Lessons series, lessons 1-31'
+    english: 'Vocabulary from Book 2 of the Arabic Language Lessons series, lessons 1-31',
   },
   vocabularyItems: [
     // ----------- LESSON 1 -----------
@@ -42,7 +36,7 @@ export const madinahBook2: BookVocabulary = {
       notes: 'Used in construct state.',
       plural: 'ذَوُو',
       bookId: 'book2',
-      lessonId: 1
+      lessonId: 1,
     },
     {
       id: 'b2l1v2',
@@ -58,7 +52,7 @@ export const madinahBook2: BookVocabulary = {
       notes: 'Used in construct state.',
       plural: 'ذَوَاتُ',
       bookId: 'book2',
-      lessonId: 1
+      lessonId: 1,
     },
     {
       id: 'b2l1v3',
@@ -72,7 +66,7 @@ export const madinahBook2: BookVocabulary = {
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson1', 'character'],
       bookId: 'book2',
-      lessonId: 1
+      lessonId: 1,
     },
     {
       id: 'b2l1v4',
@@ -85,7 +79,7 @@ export const madinahBook2: BookVocabulary = {
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson1', 'conjunction'],
       bookId: 'book2',
-      lessonId: 1
+      lessonId: 1,
     },
     {
       id: 'b2l1v5',
@@ -98,7 +92,7 @@ export const madinahBook2: BookVocabulary = {
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson1', 'conjunction'],
       bookId: 'book2',
-      lessonId: 1
+      lessonId: 1,
     },
 
     // ----------- LESSON 2 -----------
@@ -108,13 +102,14 @@ export const madinahBook2: BookVocabulary = {
       transliteration: 'laysa',
       translation: { en: 'Is not' },
       type: WordType.Verb,
-      definition: 'A verb of negation, meaning "is not", "am not", "are not". It is an incomplete verb (فعل ناقص).',
+      definition:
+        'A verb of negation, meaning "is not", "am not", "are not". It is an incomplete verb (فعل ناقص).',
       examples: [],
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson2', 'verb', 'negation'],
       notes: 'Conjugates for person and number, e.g., لَسْتُ (I am not), لَيْسُوا (they are not).',
       bookId: 'book2',
-      lessonId: 2
+      lessonId: 2,
     },
     {
       id: 'b2l2v2',
@@ -127,7 +122,7 @@ export const madinahBook2: BookVocabulary = {
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson2', 'adjective', 'emotion'],
       bookId: 'book2',
-      lessonId: 2
+      lessonId: 2,
     },
 
     // ----------- LESSON 3 -----------
@@ -142,7 +137,7 @@ export const madinahBook2: BookVocabulary = {
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson3', 'adjective', 'comparative'],
       bookId: 'book2',
-      lessonId: 3
+      lessonId: 3,
     },
     {
       id: 'b2l3v2',
@@ -155,7 +150,7 @@ export const madinahBook2: BookVocabulary = {
       difficulty: DifficultyLevel.Intermediate,
       tags: ['lesson3', 'adjective', 'comparative'],
       bookId: 'book2',
-      lessonId: 3
-    }
-  ]
+      lessonId: 3,
+    },
+  ],
 };

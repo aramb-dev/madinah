@@ -10,7 +10,7 @@ import {
   Gender,
   VocabularyItem,
   VocabularyList,
-  BookVocabulary
+  BookVocabulary,
 } from './vocab';
 
 /**
@@ -20,11 +20,11 @@ export const madinahBook3: BookVocabulary = {
   bookId: 'book3',
   title: {
     ar: 'دروس اللغة العربية لغير الناطقين بها - الكتاب الثالث',
-    en: 'Lessons in Arabic Language for Non-Native Speakers - Book 3'
+    en: 'Lessons in Arabic Language for Non-Native Speakers - Book 3',
   },
   description: {
     arabic: 'مفردات الكتاب الثالث من سلسلة دروس اللغة العربية',
-    english: 'Vocabulary from Book 3 of the Arabic Language Lessons series'
+    english: 'Vocabulary from Book 3 of the Arabic Language Lessons series',
   },
   vocabularyLists: [
     // Lesson 1
@@ -64,14 +64,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'تَغَيَّرَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -79,16 +79,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يَتَغَيَّرُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v02',
@@ -110,14 +110,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'ظَهَرَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -125,16 +125,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يَظْهَرُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v03',
@@ -156,14 +156,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'مَيَّزَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -171,16 +171,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يُمَيِّزُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v04',
@@ -202,14 +202,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'بَاشَرَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -217,16 +217,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يُبَاشِرُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v05',
@@ -240,12 +240,12 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'people'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v06',
           word: 'فِئَةٌ',
-          transliteration: 'fi\'atun',
+          transliteration: "fi'atun",
           translation: { en: 'group, class' },
           type: WordType.Noun,
           plural: 'فِئَاتٌ',
@@ -254,7 +254,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v07',
@@ -269,7 +269,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'profession'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v08',
@@ -284,7 +284,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'people'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v09',
@@ -297,12 +297,12 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'adverb'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v10',
           word: 'مَا عَدَا',
-          transliteration: 'maa \'adaa',
+          transliteration: "maa 'adaa",
           translation: { en: 'except' },
           type: WordType.Expression,
           definition: 'A phrase used to indicate an exception.',
@@ -310,7 +310,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'particle'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v11',
@@ -324,12 +324,12 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'people'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v12',
           word: 'أَفْعَى',
-          transliteration: 'af\'aa',
+          transliteration: "af'aa",
           translation: { en: 'viper' },
           type: WordType.Noun,
           plural: 'أَفَاعٍ',
@@ -338,7 +338,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'animal'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v13',
@@ -360,14 +360,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'حَذَفَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -375,16 +375,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يَحْذِفُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v14',
@@ -399,7 +399,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'adjective', 'people'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v15',
@@ -412,7 +412,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'nature'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v16',
@@ -426,7 +426,7 @@ export const madinahBook3: BookVocabulary = {
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun', 'people'],
           bookId: 'book3',
-          lessonId: 'lesson1'
+          lessonId: 'lesson1',
         },
         {
           id: 'b3-l1-v17',
@@ -448,14 +448,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'اتَّصَلَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -463,16 +463,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يَتَّصِلُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v18',
@@ -494,14 +494,14 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'ثَبَتَ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
+                thirdFeminine: '',
+              },
             },
             present: {
               singular: {
@@ -509,16 +509,16 @@ export const madinahBook3: BookVocabulary = {
                 secondMasculine: '',
                 secondFeminine: '',
                 thirdMasculine: 'يَثْبُتُ',
-                thirdFeminine: ''
+                thirdFeminine: '',
               },
               plural: {
                 first: '',
                 second: '',
                 thirdMasculine: '',
-                thirdFeminine: ''
-              }
-            }
-          }
+                thirdFeminine: '',
+              },
+            },
+          },
         },
         {
           id: 'b3-l1-v19',
@@ -526,14 +526,15 @@ export const madinahBook3: BookVocabulary = {
           transliteration: 'sinnun',
           translation: { en: 'tooth, age' },
           type: WordType.Noun,
-          definition: 'A hard, resistant structure in the jaws of most vertebrates; also used to refer to a person\'s age.',
+          definition:
+            "A hard, resistant structure in the jaws of most vertebrates; also used to refer to a person's age.",
           examples: [],
           difficulty: DifficultyLevel.Advanced,
           tags: ['book3', 'lesson1', 'noun'],
           bookId: 'book3',
-          lessonId: 'lesson1'
-        }
-      ]
-    }
-  ]
+          lessonId: 'lesson1',
+        },
+      ],
+    },
+  ],
 };
