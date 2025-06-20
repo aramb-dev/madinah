@@ -27,32 +27,29 @@ export function createErrorResponse(
       error,
       message,
       code,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     },
     {
       status,
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     }
   );
 }
 
-export function createSuccessResponse<T>(
-  data: T,
-  count?: number
-): NextResponse<APISuccess<T>> {
+export function createSuccessResponse<T>(data: T, count?: number): NextResponse<APISuccess<T>> {
   return NextResponse.json(
     {
       success: true,
       data,
       count,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     },
     {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     }
   );
 }
@@ -84,12 +81,7 @@ export const APIErrors = {
     ),
 
   BAD_REQUEST: (message: string = 'Bad request') =>
-    createErrorResponse(
-      'Bad request',
-      400,
-      message,
-      'BAD_REQUEST'
-    ),
+    createErrorResponse('Bad request', 400, message, 'BAD_REQUEST'),
 
   METHOD_NOT_ALLOWED: (allowedMethods: string[] = []) =>
     createErrorResponse(
@@ -97,5 +89,5 @@ export const APIErrors = {
       405,
       `This endpoint only supports: ${allowedMethods.join(', ')}`,
       'METHOD_NOT_ALLOWED'
-    )
+    ),
 };

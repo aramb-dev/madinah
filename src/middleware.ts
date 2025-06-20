@@ -4,22 +4,19 @@ export function middleware(request: NextRequest) {
   // Handle API routes
   if (request.nextUrl.pathname.startsWith('/api/')) {
     const response = NextResponse.next();
-    
+
     // Add CORS headers
     response.headers.set('Access-Control-Allow-Origin', '*');
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    
+
     return response;
   }
-  
+
   return NextResponse.next();
 }
 
 // Add a rewrite for API 404s
 export const config = {
-  matcher: [
-    '/api/:path*',
-    '/((?!_next/static|_next/image|favicon.ico).*)'
-  ]
+  matcher: ['/api/:path*', '/((?!_next/static|_next/image|favicon.ico).*)'],
 };

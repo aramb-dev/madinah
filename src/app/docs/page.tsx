@@ -38,8 +38,8 @@ export default function APIDocsPage() {
           <CardContent>
             <div className="space-y-4">
               <p className="text-neutral-700">
-                The Madinah Books API provides access to Arabic learning content from the Madinah book series.
-                All endpoints return JSON responses and require no authentication.
+                The Madinah Books API provides access to Arabic learning content from the Madinah
+                book series. All endpoints return JSON responses and require no authentication.
               </p>
               <div className="bg-gray-100 p-4 rounded-lg">
                 <p className="font-semibold mb-2">Base URL:</p>
@@ -68,11 +68,13 @@ export default function APIDocsPage() {
                     <Badge className="bg-emerald-600">GET</Badge>
                     <code className="text-lg font-mono">/api/books</code>
                   </div>
-                  <p className="text-neutral-700 mb-3">Get all available books with their lessons</p>
+                  <p className="text-neutral-700 mb-3">
+                    Get all available books with their lessons
+                  </p>
                   <div className="bg-gray-50 p-3 rounded">
                     <p className="font-semibold mb-1">Response Schema:</p>
                     <pre className="text-sm text-gray-700 overflow-x-auto">
-{`{
+                      {`{
   "success": true,
   "data": [
     {
@@ -105,7 +107,9 @@ export default function APIDocsPage() {
                   <div className="bg-gray-50 p-3 rounded mb-3">
                     <p className="font-semibold mb-1">Parameters:</p>
                     <ul className="text-sm text-gray-700">
-                      <li><code>bookId</code> (string): book1, book2, or book3</li>
+                      <li>
+                        <code>bookId</code> (string): book1, book2, or book3
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -123,14 +127,22 @@ export default function APIDocsPage() {
                 <div className="border-l-4 border-emerald-500 pl-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Badge className="bg-emerald-600">GET</Badge>
-                    <code className="text-lg font-mono">/api/books/{'{bookId}'}/lessons/{'{lessonId}'}</code>
+                    <code className="text-lg font-mono">
+                      /api/books/{'{bookId}'}/lessons/{'{lessonId}'}
+                    </code>
                   </div>
-                  <p className="text-neutral-700 mb-3">Get a specific lesson from a specific book</p>
+                  <p className="text-neutral-700 mb-3">
+                    Get a specific lesson from a specific book
+                  </p>
                   <div className="bg-gray-50 p-3 rounded mb-3">
                     <p className="font-semibold mb-1">Parameters:</p>
                     <ul className="text-sm text-gray-700">
-                      <li><code>bookId</code> (string): book1, book2, or book3</li>
-                      <li><code>lessonId</code> (string): lesson1, lesson2, etc.</li>
+                      <li>
+                        <code>bookId</code> (string): book1, book2, or book3
+                      </li>
+                      <li>
+                        <code>lessonId</code> (string): lesson1, lesson2, etc.
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -160,7 +172,9 @@ export default function APIDocsPage() {
                     <Badge className="bg-blue-600">GET</Badge>
                     <code className="text-lg font-mono">/api/lesson-titles</code>
                   </div>
-                  <p className="text-neutral-700 mb-3">Get titles of all lessons across all books</p>
+                  <p className="text-neutral-700 mb-3">
+                    Get titles of all lessons across all books
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -179,7 +193,9 @@ export default function APIDocsPage() {
                     <Badge className="bg-purple-600">GET</Badge>
                     <code className="text-lg font-mono">/api/metadata</code>
                   </div>
-                  <p className="text-neutral-700 mb-3">Get global metadata about all books and lessons</p>
+                  <p className="text-neutral-700 mb-3">
+                    Get global metadata about all books and lessons
+                  </p>
                 </div>
 
                 {/* GET /api/books/{bookId}/metadata */}
@@ -197,7 +213,9 @@ export default function APIDocsPage() {
                     <Badge className="bg-purple-600">GET</Badge>
                     <code className="text-lg font-mono">/api/books/{'{bookId}'}/lesson-titles</code>
                   </div>
-                  <p className="text-neutral-700 mb-3">Get titles of all lessons in a specific book</p>
+                  <p className="text-neutral-700 mb-3">
+                    Get titles of all lessons in a specific book
+                  </p>
                 </div>
 
                 {/* GET /api/books/{bookId}/rule-count */}
@@ -224,7 +242,7 @@ export default function APIDocsPage() {
                   <h4 className="font-semibold text-lg mb-3">Book</h4>
                   <div className="bg-gray-50 p-4 rounded">
                     <pre className="text-sm text-gray-700 overflow-x-auto">
-{`{
+                      {`{
   "id": "string",
   "title": {
     "ar": "string",
@@ -247,7 +265,7 @@ export default function APIDocsPage() {
                   <h4 className="font-semibold text-lg mb-3">Lesson</h4>
                   <div className="bg-gray-50 p-4 rounded">
                     <pre className="text-sm text-gray-700 overflow-x-auto">
-{`{
+                      {`{
   "id": "string",
   "title": {
     "ar": "string",
@@ -268,7 +286,7 @@ export default function APIDocsPage() {
                   <h4 className="font-semibold text-lg mb-3">Rule</h4>
                   <div className="bg-gray-50 p-4 rounded">
                     <pre className="text-sm text-gray-700 overflow-x-auto">
-{`{
+                      {`{
   "name": "string",
   "arabicText": "string",
   "explanation": "string"
@@ -288,7 +306,8 @@ export default function APIDocsPage() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-neutral-700">
-                  This section provides structured information for Large Language Models (LLMs) to understand and integrate with our API.
+                  This section provides structured information for Large Language Models (LLMs) to
+                  understand and integrate with our API.
                 </p>
 
                 <div className="bg-indigo-50 p-4 rounded-lg">
@@ -303,7 +322,9 @@ export default function APIDocsPage() {
                 </div>
 
                 <div className="bg-indigo-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-indigo-800 mb-2">Common Integration Patterns:</h4>
+                  <h4 className="font-semibold text-indigo-800 mb-2">
+                    Common Integration Patterns:
+                  </h4>
                   <ul className="text-sm text-indigo-700 space-y-1">
                     <li>• Use /api/metadata for overview and navigation</li>
                     <li>• Use /api/books for complete book data</li>
