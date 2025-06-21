@@ -1,0 +1,51 @@
+import { WordType, DifficultyLevel, Gender, BookVocabulary } from '../../vocab';
+
+
+export const vocabularyLists = [{
+      id: 'list002',
+      title: { ar: 'مفردات الدرس الثاني', en: 'Lesson 2 Vocabulary' },
+      description: {
+        arabic: 'الكلمات الجديدة في الدرس الثاني.',
+        english: 'New words in the second lesson.',
+      },
+      bookId: 'book1',
+      lessonId: '2',
+      level: DifficultyLevel.Beginner,
+      tags: ['lesson2', 'basics'],
+      order: 2,
+      items: [
+        {
+          id: 'l2-v1',
+          word: 'ذلك',
+          transliteration: '',
+          translation: { en: 'That' },
+          type: WordType.Pronoun,
+          definition: 'That',
+          examples: [],
+          difficulty: DifficultyLevel.Beginner,
+          tags: ['lesson2'],
+        },
+        {
+          id: 'l2-v2',
+          word: 'ما ذلك؟',
+          transliteration: '',
+          translation: { en: 'What is that?' },
+          type: WordType.Expression,
+          definition: 'What is that?',
+          examples: [],
+          difficulty: DifficultyLevel.Beginner,
+          tags: ['lesson2'],
+        },
+        {
+          id: 'l2-v3',
+          word: 'أ ذلك ..؟',
+          transliteration: '',
+          translation: { en: 'Is that..?' },
+          type: WordType.Expression,
+          definition: 'Is that..?',
+          examples: [],
+          difficulty: DifficultyLevel.Beginner,
+          tags: ['lesson2'],
+        },
+      ],
+    }]
