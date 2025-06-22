@@ -1,7 +1,6 @@
-import { WordType, DifficultyLevel, Gender, BookVocabulary } from '../../vocab';
+import { WordType, DifficultyLevel, Gender } from '../../vocab';
 
-
-export const vocabularyLists = [{
+export const lesson10 = {
       id: 'list010',
       title: { ar: 'مفردات الدرس العاشر', en: 'Lesson 10 Vocabulary' },
       description: {
@@ -270,4 +269,4 @@ export const vocabularyLists = [{
           tags: ['lesson10', 'city'],
         },
       ],
-    },]
+}
