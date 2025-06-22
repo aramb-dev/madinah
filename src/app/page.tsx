@@ -94,6 +94,27 @@ export default function HomePage() {
               </CardContent>
             </Card>
           ))}
+          {/* Vocabulary Card */}
+          <Card className="border-teal-200 bg-teal-50 hover:shadow-lg transition-shadow duration-300 md:col-span-1 lg:col-span-3">
+            <CardContent className="pt-6 text-center">
+              <h3 className="text-lg font-semibold text-teal-800 mb-3 font-arabic">
+                مفردات كتب المدينة
+              </h3>
+              <h4 className="text-md font-medium text-teal-700 mb-2">Vocabulary</h4>
+              <p className="text-sm text-teal-700 mb-4 font-arabic">
+                استكشف المفردات من جميع كتب المدينة
+              </p>
+              <p className="text-sm text-teal-600 mb-4">
+                Explore vocabulary from all the Madinah Books
+              </p>
+              <Link href="/vocabulary">
+                <Button className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
+                  <span className="font-arabic ml-2">عرض المفردات</span>
+                  <span>View Vocabulary</span>
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Additional Information */}
