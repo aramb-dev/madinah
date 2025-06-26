@@ -275,7 +275,8 @@ export default function APIDocsPage() {
     "arabic": "string",
     "english": "string"
   },
-  "rules": "Array<Rule>"
+  "rules": "Array<Rule>",
+  "vocabulary": "Array<VocabularyItem> (optional)"
 }`}
                     </pre>
                   </div>
@@ -290,6 +291,131 @@ export default function APIDocsPage() {
   "name": "string",
   "arabicText": "string",
   "explanation": "string"
+}`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* VocabularyItem Schema */}
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">VocabularyItem</h4>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <pre className="text-sm text-gray-700 overflow-x-auto">
+                      {`{
+  "id": "string",
+  "word": "string",
+  "transliteration": "string",
+  "translation": {
+    "en": "string"
+  },
+  "type": "string (WordType enum)",
+  "root": "string (optional)",
+  "plural": "string (optional)",
+  "gender": "string (Gender enum, optional)",
+  "conjugation": "VerbConjugation (optional)",
+  "definition": "string",
+  "examples": "Array<Example>",
+  "notes": "string (optional)",
+  "difficulty": "string (DifficultyLevel enum)",
+  "tags": "Array<string>",
+  "relatedWords": "Array<string> (optional)",
+  "bookId": "string (optional)",
+  "lessonId": "string | number (optional)"
+}`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* WordType Enum */}
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">WordType Enum</h4>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <pre className="text-sm text-gray-700 overflow-x-auto">
+                      {`"noun" | "verb" | "adjective" | "adverb" | "preposition" | "pronoun" | "conjunction" | "particle" | "expression" | "number" | "proper noun"`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* DifficultyLevel Enum */}
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">DifficultyLevel Enum</h4>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <pre className="text-sm text-gray-700 overflow-x-auto">
+                      {`"beginner" | "intermediate" | "advanced"`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* Gender Enum */}
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">Gender Enum</h4>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <pre className="text-sm text-gray-700 overflow-x-auto">
+                      {`"masculine" | "feminine" | "neuter" | "dual"`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* Example Schema */}
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">Example</h4>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <pre className="text-sm text-gray-700 overflow-x-auto">
+                      {`{
+  "arabic": "string",
+  "english": "string",
+  "notes": "string (optional)"
+}`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* VerbConjugation Schema */}
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">VerbConjugation</h4>
+                  <div className="bg-gray-50 p-4 rounded">
+                    <pre className="text-sm text-gray-700 overflow-x-auto">
+                      {`{
+  "past": {
+    "singular": {
+      "first": "string",
+      "secondMasculine": "string",
+      "secondFeminine": "string",
+      "thirdMasculine": "string",
+      "thirdFeminine": "string"
+    },
+    "plural": {
+      "first": "string",
+      "second": "string",
+      "thirdMasculine": "string",
+      "thirdFeminine": "string"
+    }
+  },
+  "present": {
+    "singular": {
+      "first": "string",
+      "secondMasculine": "string",
+      "secondFeminine": "string",
+      "thirdMasculine": "string",
+      "thirdFeminine": "string"
+    },
+    "plural": {
+      "first": "string",
+      "second": "string",
+      "thirdMasculine": "string",
+      "thirdFeminine": "string"
+    }
+  },
+  "imperative": {
+    "singular": {
+      "masculine": "string",
+      "feminine": "string"
+    },
+    "plural": "string"
+  } (optional),
+  "verbalNoun": "string (optional)",
+  "activeParticiple": "string (optional)",
+  "passiveParticiple": "string (optional)"
 }`}
                     </pre>
                   </div>

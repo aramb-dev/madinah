@@ -1,4 +1,18 @@
-import { Book } from './lessons';
+import { Book, Lesson } from './lessons';
+import { book1Lessons } from './vocab/book1/lessons';
+
+// Helper function to merge vocabulary into lessons
+const mergeVocabularyIntoLessons = (lessons: Lesson[]): Lesson[] => {
+  return lessons.map((lesson) => {
+    const vocabList = book1Lessons.find(
+      (vocab) => vocab.lessonId === lesson.id.replace('lesson', '')
+    );
+    return {
+      ...lesson,
+      vocabulary: vocabList ? vocabList.items : [],
+    };
+  });
+};
 
 // book1Data with all lessons included, titles updated, full Tashkeel, and refactored Diptotes lesson
 export const book1Data: Book = {
@@ -14,7 +28,7 @@ export const book1Data: Book = {
     english:
       'The first book in the Arabic language learning series for non-native speakers - Beginner level',
   },
-  lessons: [
+  lessons: mergeVocabularyIntoLessons([
     {
       id: 'lesson1',
       title: {
@@ -210,23 +224,21 @@ export const book1Data: Book = {
           name: 'الْمُنَادَى (al-munādā - the one called)',
           arabicText: 'يَا مُحَمَّدُ. (يَا شَيْخُ - نَحْذِفُ التَّنْوِينَ عِنْدَ النِّدَاءِ).',
           explanation:
-            'The vocative. Tanween is removed from the noun when it is called using يَا (yā - O) (e.g., يَا شَيْخُ - yā shaykhu).',
-        },
-        {
-          name: 'كِتَابُ مَنْ هَذَا؟ (kitābu man hādhā? - whose book is this?)',
-          arabicText: 'كِتَابُ مَنْ هَذَا؟ سُؤَالٌ عَنِ الْعَاقِلِ.',
-          explanation: 'Is a question about a rational being (possessor).',
+            'Is a pronoun for the first person, indicating possession (e.g., بَيْتِي - my house).',
         },
       ],
     },
     {
       id: 'lesson6',
-      title: { ar: 'الدَّرْسُ السَّادِسُ', en: 'Lesson 6' },
+      title: {
+        ar: 'الدَّرْسُ السَّادِسُ',
+        en: 'Lesson 6',
+      },
       introduction: {
         arabic:
-          'هَذَا الدَّرْسُ يَتَنَاوَلُ اسْمَ الْإِشَارَةِ لِلْمُفْرَدِ الْمُؤَنَّثِ الْقَرِيبِ (هَذِهِ) وَالْجُمْلَةَ الِاسْمِيَّةَ وَمُكَوِّنَاتِهَا (الْمُبْتَدَأَ وَالْخَبَرَ).',
+          'هَذَا الْقِسْمُ يُغَطِّي الدَّرْسَ السَّادِسَ. سَتَتَعَلَّمُ عَنْ اسْمِ الْإِشَارَةِ لِلْمُفْرَدِ الْمُؤَنَّثِ الْقَرِيبِ (هَذِهِ) وَالْجُمْلَةَ الِاسْمِيَّةَ وَمُكَوِّنَاتِهَا (الْمُبْتَدَأَ وَالْخَبَرَ).',
         english:
-          'This lesson covers the demonstrative pronoun for singular feminine near (هَذِهِ - hādhihi) and the nominal sentence with its components (subject and predicate).',
+          'This section covers Lesson 6. You will learn about the demonstrative pronoun for singular feminine near (هَذِهِ - hādhihi) and the nominal sentence with its components (subject and predicate).',
       },
       rules: [
         {
@@ -253,7 +265,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson7',
-      title: { ar: 'الدَّرْسُ السَّابِعُ', en: 'Lesson 7' },
+      title: {
+        ar: 'الدَّرْسُ السَّابِعُ',
+        en: 'Lesson 7',
+      },
       introduction: {
         arabic:
           'يُرَكِّزُ هَذَا الدَّرْسُ عَلَى اسْمِ الْإِشَارَةِ لِلْمُفْرَدِ الْمُؤَنَّثِ الْبَعِيدِ (تِلْكَ) مَعَ أَمْثِلَةٍ تَوْضِيحِيَّةٍ.',
@@ -279,7 +294,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson8',
-      title: { ar: 'الدَّرْسُ الثَّامِنُ', en: 'Lesson 8' },
+      title: {
+        ar: 'الدَّرْسُ الثَّامِنَ عَشَرَ',
+        en: 'Lesson 8',
+      },
       introduction: {
         arabic:
           "يَشْرَحُ هَذَا الدَّرْسُ الْإِشَارَةَ إِلَى الِاسْمِ الْمُعَرَّفِ بِـ 'اَلْ'، وَاسْتِخْدَامَ 'لِمَنْ؟'، وَظَرْفَيِ الْمَكَانِ 'أَمَامَ' وَ 'خَلْفَ'، وَمَعَانِيَ بَعْضِ حُرُوفِ الْجَرِّ.",
@@ -292,7 +310,7 @@ export const book1Data: Book = {
           arabicText:
             'هَذَا الرَّجُلُ تَاجِرٌ. (هَذَا: مُبْتَدَأٌ، الرَّجُلُ: بَدَلٌ، تَاجِرٌ: خَبَرٌ). ذَلِكَ الرَّجُلُ طَبِيبٌ. (ذَلِكَ: مُبْتَدَأٌ، الرَّجُلُ: بَدَلٌ، طَبِيبٌ: خَبَرٌ).',
           explanation:
-            "Example: هَذَا الرَّجُلُ تَاجِرٌ (hādhā al-rajulu tājirun - This man is a merchant). Here, هَذَا is mubtada' (subject), الرَّجُلُ is badal (substitute/appositive), and تَاجِرٌ is khabar (predicate).",
+            "Example: هَذَا الرَّجُلُ تَاجِرٌ (hādhā al-rajulu tājirun - This man is a merchant). Here, هَذَا is mubtada', الرَّجُلُ is badal (substitute/appositive), and تَاجِرٌ is khabar (predicate).",
         },
         {
           name: 'لِمَنْ؟ (liman? - whose?)',
@@ -306,7 +324,7 @@ export const book1Data: Book = {
           arabicText:
             'السَّبُّورَةُ أَمَامَ الطُّلَّابِ. (أَمَامَ: ظَرْفُ مَكَانٍ، الطُّلَّابِ: مُضَافٌ إِلَيْهِ).',
           explanation:
-            'Are adverbs of place (ظَرْفُ مَكَانٍ - ẓarf makān). The noun following them is muḍāf ilayhi.',
+            'Are adverbs of place. The noun following them is muḍāf ilayhi.',
         },
         {
           name: 'مَعَانِي حُرُوفِ الْجَرِّ (Meanings of prepositions)',
@@ -319,7 +337,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson9',
-      title: { ar: 'الدَّرْسُ التَّاسِعُ', en: 'Lesson 9' },
+      title: {
+        ar: 'الدَّرْسُ التَّاسِعُ',
+        en: 'Lesson 9',
+      },
       introduction: {
         arabic:
           "يَتَنَاوَلُ هَذَا الدَّرْسُ النَّعْتَ وَالْمَنْعُوتَ (الصِّفَةَ وَالْمَوْصُوفَ) وَالِاسْمَ الْمَوْصُولَ 'الَّذِي'.",
@@ -345,7 +366,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson10',
-      title: { ar: 'الدَّرْسُ الْعَاشِرُ', en: 'Lesson 10' },
+      title: {
+        ar: 'الدَّرْسُ الْعَاشِرُ',
+        en: 'Lesson 10',
+      },
       introduction: {
         arabic:
           "يَشْرَحُ هَذَا الدَّرْسُ أَنْوَاعَ الضَّمَائِرِ (الْمُتَكَلِّمِ، الْمُخَاطَبِ، الْغَائِبِ)، وَاسْتِخْدَامَ 'عِنْدِي' وَ 'لِي'، وَظَرْفَ الْمَكَانِ 'مَعَ'، وَقَاعِدَةَ الْأَسْمَاءِ الْمُذَكَّرَةِ الْمَخْتُومَةِ بِتَاءِ التَّأْنِيثِ.",
@@ -383,7 +407,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson11',
-      title: { ar: 'الدَّرْسُ الْحَادِيَ عَشَرَ', en: 'Lesson 11' },
+      title: {
+        ar: 'الدَّرْسُ الْحَادِيَ عَشَرَ',
+        en: 'Lesson 11',
+      },
       introduction: {
         arabic:
           "يَتَنَاوَلُ هَذَا الدَّرْسُ اسْتِخْدَامَ حَرْفِ الْجَرِّ 'فِي' مَعَ ضَمِيرِ الْغَائِبِ، وَيَاءَ الْمُتَكَلِّمِ.",
@@ -407,7 +434,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson12',
-      title: { ar: 'الدَّرْسُ الثَّانِيَ عَشَرَ', en: 'Lesson 12' },
+      title: {
+        ar: 'الدَّرْسُ الثَّانِيَ عَشَرَ',
+        en: 'Lesson 12',
+      },
       introduction: {
         arabic:
           "يَشْرَحُ هَذَا الدَّرْسُ كَافَ الْمُخَاطَبِ، وَالضَّمِيرَيْنِ 'أَنَا' وَ 'أَنْتَ'، وَتَأْنِيثَ الْفَاعِلِ، وَالِاسْمَيْنِ الْمَوْصُولَيْنِ 'الَّذِي' وَ 'الَّتِي'.",
@@ -453,7 +483,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson13',
-      title: { ar: 'الدَّرْسُ الثَّالِثَ عَشَرَ', en: 'Lesson 13' },
+      title: {
+        ar: 'الدَّرْسُ الثَّالِثَ عَشَرَ',
+        en: 'Lesson 13',
+      },
       introduction: {
         arabic:
           "يَتَنَاوَلُ هَذَا الدَّرْسُ اسْمَ الْإِشَارَةِ لِلْجَمْعِ الْقَرِيبِ 'هَؤُلَاءِ'، وَضَمِيرَ الْجَمْعِ الْغَائِبِ الْمُذَكَّرِ 'هُمْ'، وَإِضَافَةَ الْأَسْمَاءِ إِلَى الِاسْمِ الظَّاهِرِ وَالضَّمِيرِ، وَوَاوَ الْجَمَاعَةِ، وَضَمِيرَ الْجَمْعِ الْغَائِبِ الْمُؤَنَّثِ 'هُنَّ'، وَتَاءَ التَّأْنِيثِ، وَنُونَ النِّسْوَةِ، وَاسْمَ الْإِشَارَةِ لِلْجَمْعِ الْبَعِيدِ 'أُولَئِكَ'.",
@@ -516,7 +549,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson14',
-      title: { ar: 'الدَّرْسُ الرَّابِعَ عَشَرَ', en: 'Lesson 14' },
+      title: {
+        ar: 'الدَّرْسُ الرَّابِعَ عَشَرَ',
+        en: 'Lesson 14',
+      },
       introduction: {
         arabic:
           "يَشْرَحُ هَذَا الدَّرْسُ إِضَافَةَ الْأَسْمَاءِ إِلَى ضَمِيرَيِ الْمُخَاطَبِينَ وَالْمُتَكَلِّمِينَ (الْجَمْعِ)، وَالضَّمِيرَيْنِ 'نَحْنُ' وَ 'أَنْتُمْ'، وَاسْمَ الِاسْتِفْهَامِ 'أَيُّ'، وَضَمِيرَ الْمُخَاطَبِ الْمُتَّصِلَ بِالْفِعْلِ.",
@@ -543,7 +579,7 @@ export const book1Data: Book = {
           arabicText:
             'أَيُّ: اسْمُ اسْتِفْهَامٍ لِلْعَاقِلِ وَغَيْرِ الْعَاقِلِ، وَالِاسْمُ الَّذِي بَعْدَهُ مُضَافٌ إِلَيْهِ.',
           explanation:
-            'Is an interrogative noun for rational and non-rational beings. The noun following it is muḍāf ilayhi.',
+            'Is an interrogative noun indicating number. The noun following it is muḍāf ilayhi.',
         },
         {
           name: 'ضَمِيرُ الْمُخَاطَبِ الْمُتَّصِلُ بِالْفِعْلِ (Second person pronoun attached to the verb)',
@@ -562,7 +598,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson15',
-      title: { ar: 'الدَّرْسُ الْخَامِسَ عَشَرَ', en: 'Lesson 15' },
+      title: {
+        ar: 'الدَّرْسُ الْخَامِسَ عَشَرَ',
+        en: 'Lesson 15',
+      },
       introduction: {
         arabic:
           "يَتَنَاوَلُ هَذَا الدَّرْسُ ضَمَائِرَ الْمُخَاطَبِ الْمُنْفَصِلَةَ (أَنْتَ، أَنْتِ، أَنْتُمْ، أَنْتُنَّ) وَالْمُتَّصِلَةَ (كَ، كِ، كُمْ، كُنَّ)، وَجَدْوَلًا لِلضَّمَائِرِ الْمُتَّصِلَةِ بِالْفِعْلِ وَالْمُنْفَصِلَةِ، وَظَرْفَيِ الزَّمَانِ 'قَبْلَ' وَ 'بَعْدَ'.",
@@ -598,7 +637,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson16_17',
-      title: { ar: 'الدَّرْسَانِ السَّادِسَ عَشَرَ وَالسَّابِعَ عَشَرَ', en: 'Lessons 16 & 17' },
+      title: {
+        ar: 'الدَّرْسَانِ السَّادِسَ عَشَرَ وَالسَّابِعَ عَشَرَ',
+        en: 'Lessons 16 & 17',
+      },
       introduction: {
         arabic:
           'يُرَكِّزُ هَذَانِ الدَّرْسَانِ عَلَى الْمُبْتَدَأِ وَالْخَبَرِ، وَالْإِشَارَةِ إِلَى جَمْعِ غَيْرِ الْعَاقِلِ.',
@@ -635,7 +677,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson18',
-      title: { ar: 'الدَّرْسُ الثَّامِنَ عَشَرَ', en: 'Lesson 18' },
+      title: {
+        ar: 'الدَّرْسُ الثَّامِنَ عَشَرَ',
+        en: 'Lesson 18',
+      },
       introduction: {
         arabic:
           "يَتَنَاوَلُ هَذَا الدَّرْسُ الْمُثَنَّى، وَاسْمَيِ الْإِشَارَةِ لِلْمُثَنَّى الْقَرِيبِ 'هَذَانِ' وَ 'هَاتَانِ'، وَاسْمَ الِاسْتِفْهَامِ 'كَمْ'.",
@@ -666,7 +711,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson19_20',
-      title: { ar: 'الدَّرْسَانِ التَّاسِعَ عَشَرَ وَالْعِشْرُونَ', en: 'Lessons 19 & 20' },
+      title: {
+        ar: 'الدَّرْسَانِ التَّاسِعَ عَشَرَ وَالْعِشْرُونَ',
+        en: 'Lessons 19 & 20',
+      },
       introduction: {
         arabic:
           'يَشْرَحُ هَذَانِ الدَّرْسَانِ قَوَاعِدَ الْعَدَدِ مِنْ ٣ إِلَى ١٠، وَكَيْفِيَّةَ مُخَالَفَتِهِ لِلْمَعْدُودِ فِي التَّذْكِيرِ وَالتَّأْنِيثِ، وَكَوْنَ الْمَعْدُودِ جَمْعًا مَجْرُورًا بِالْإِضَافَةِ.',
@@ -692,7 +740,10 @@ export const book1Data: Book = {
     },
     {
       id: 'lesson21',
-      title: { ar: 'الدَّرْسُ الْحَادِي وَالْعِشْرُونَ', en: 'Lesson 21' },
+      title: {
+        ar: 'الدَّرْسُ الْحَادِي وَالْعِشْرُونَ',
+        en: 'Lesson 21',
+      },
       introduction: {
         arabic:
           'هَذَا الدَّرْسُ عِبَارَةٌ عَنْ مُرَاجَعَةٍ شَامِلَةٍ لِلدُّرُوسِ السَّابِقَةِ، وَيَجْمَعُ الْعَدِيدَ مِنَ الْقَوَاعِدِ الَّتِي تَمَّ تَعَلُّمُهَا.',
@@ -875,5 +926,5 @@ export const book1Data: Book = {
         },
       ],
     },
-  ],
+  ]),
 };
