@@ -1,4 +1,4 @@
-import { WordType, DifficultyLevel, Gender } from '../../vocab';
+import * as vocab from '../../vocab';
 
 export const lesson1 = {
   id: 'list001',
@@ -9,7 +9,7 @@ export const lesson1 = {
   },
   bookId: 'book1',
   lessonId: '1',
-  level: DifficultyLevel.Beginner,
+  level: vocab.DifficultyLevel.Beginner,
   tags: ['lesson1', 'basics', 'objects'],
   order: 1,
   items: [
@@ -18,19 +18,19 @@ export const lesson1 = {
       word: 'هذا',
       transliteration: '',
       translation: { en: 'This is (m)' },
-      type: WordType.Pronoun,
+      type: vocab.WordType.Pronoun,
       definition: 'This is (m)',
       examples: [],
-      difficulty: DifficultyLevel.Beginner,
+      difficulty: vocab.DifficultyLevel.Beginner,
       tags: ['lesson1'],
-      gender: Gender.Masculine,
+      gender: vocab.Gender.Masculine,
     },
     {
       id: 'l1-v2',
       word: 'بيت',
       transliteration: '',
       translation: { en: 'House' },
-      type: WordType.Noun,
+      type: vocab.WordType.Noun,
       plural: 'بيوت',
       definition: 'House',
       examples: [],

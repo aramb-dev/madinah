@@ -1,4 +1,4 @@
-import { WordType, DifficultyLevel, Gender } from '../../vocab';
+import * as vocab from '../../vocab';
 
 export const lesson2 = {
       id: 'list002',
@@ -9,7 +9,7 @@ export const lesson2 = {
       },
       bookId: 'book1',
       lessonId: '2',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson2', 'basics'],
       order: 2,
       items: [
@@ -18,10 +18,10 @@ export const lesson2 = {
           word: 'ذلك',
           transliteration: '',
           translation: { en: 'That' },
-          type: WordType.Pronoun,
+          type: vocab.WordType.Pronoun,
           definition: 'That',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson2'],
         },
         {
@@ -29,7 +29,7 @@ export const lesson2 = {
           word: 'ما ذلك؟',
           transliteration: '',
           translation: { en: 'What is that?' },
-          type: WordType.Expression,
+          type: vocab.WordType.Expression,
           definition: 'What is that?',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

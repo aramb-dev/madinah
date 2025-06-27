@@ -1,4 +1,4 @@
-import { WordType, DifficultyLevel, Gender } from '../../vocab';
+import * as vocab from '../../vocab';
 
 export const lesson10 = {
       id: 'list010',
