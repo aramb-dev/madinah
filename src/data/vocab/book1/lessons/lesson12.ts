@@ -10,7 +10,7 @@ export const lesson12 = {
       },
       bookId: 'book1',
       lessonId: '12',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson12', 'greetings', 'family', 'plurals'],
       order: 12,
       items: [
@@ -22,7 +22,7 @@ export const lesson12 = {
           type: WordType.Expression,
           definition: 'How are you? (sing. m)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson12'],
         },
         {
@@ -97,7 +97,7 @@ export const lesson12 = {
           word: 'عَمَّةٌ',
           transliteration: '',
           translation: { en: 'Paternal aunt' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           plural: 'عَمَّاتُ',
           gender: Gender.Feminine,
           definition: 'Paternal aunt',

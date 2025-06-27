@@ -9,7 +9,7 @@ export const lesson4 = {
       },
       bookId: 'book1',
       lessonId: '4',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson4', 'places', 'people', 'prepositions'],
       order: 4,
       items: [
@@ -21,7 +21,7 @@ export const lesson4 = {
           type: WordType.Preposition,
           definition: 'In',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson4'],
         },
         {
@@ -51,7 +51,7 @@ export const lesson4 = {
           word: 'مُحَمَّدٌ',
           transliteration: '',
           translation: { en: 'Muhammad' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Muhammad',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

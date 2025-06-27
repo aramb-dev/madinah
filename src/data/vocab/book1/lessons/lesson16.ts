@@ -9,7 +9,7 @@ export const lesson16 = {
       },
       bookId: 'book1',
       lessonId: '16',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson16', 'plurals', 'objects'],
       order: 16,
       items: [
@@ -18,10 +18,10 @@ export const lesson16 = {
           word: 'بيوت',
           transliteration: '',
           translation: { en: 'Houses' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Houses',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson16'],
         },
         {

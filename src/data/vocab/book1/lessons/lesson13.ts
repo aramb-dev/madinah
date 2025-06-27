@@ -9,7 +9,7 @@ export const lesson13 = {
       },
       bookId: 'book1',
       lessonId: '13',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson13', 'plurals', 'people', 'adjectives'],
       order: 13,
       items: [
@@ -21,7 +21,7 @@ export const lesson13 = {
           type: WordType.Pronoun,
           definition: 'These (pl. m/f)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson13'],
         },
         {
@@ -40,7 +40,7 @@ export const lesson13 = {
           word: 'طلاب',
           transliteration: '',
           translation: { en: 'Students' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Students',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

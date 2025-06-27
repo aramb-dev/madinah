@@ -9,7 +9,7 @@ export const lesson19 = {
       },
       bookId: 'book1',
       lessonId: '19',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson19', 'numbers', 'money', 'plurals'],
       order: 19,
       items: [
@@ -18,10 +18,10 @@ export const lesson19 = {
           word: 'عشرة',
           transliteration: '',
           translation: { en: 'Ten (f)' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Ten (f)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson19', 'number'],
         },
         {

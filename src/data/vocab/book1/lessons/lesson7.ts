@@ -9,7 +9,7 @@ export const lesson7 = {
       },
       bookId: 'book1',
       lessonId: '7',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson7', 'feminine'],
       order: 7,
       items: [
@@ -22,7 +22,7 @@ export const lesson7 = {
           gender: Gender.Feminine,
           definition: 'That is',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson7'],
         },
         {
@@ -30,7 +30,7 @@ export const lesson7 = {
           word: 'مُمَرِّضَةٌ',
           transliteration: '',
           translation: { en: 'Nurse' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           plural: 'مُمَرِّضَاتٌ',
           gender: Gender.Feminine,
           definition: 'Nurse',

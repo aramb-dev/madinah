@@ -9,7 +9,7 @@ export const lesson15 = {
       },
       bookId: 'book1',
       lessonId: '15',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson15', 'pronouns', 'verbs', 'time'],
       order: 15,
       items: [
@@ -21,7 +21,7 @@ export const lesson15 = {
           type: WordType.Pronoun,
           definition: 'You (pl.f)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson15'],
         },
         {
@@ -117,7 +117,7 @@ export const lesson15 = {
           word: 'أَذَانٌ',
           transliteration: '',
           translation: { en: 'Adhan' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Adhan',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

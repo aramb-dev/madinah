@@ -9,7 +9,7 @@ export const lesson14 = {
       },
       bookId: 'book1',
       lessonId: '14',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson14', 'plurals', 'pronouns', 'people'],
       order: 14,
       items: [
@@ -21,7 +21,7 @@ export const lesson14 = {
           type: WordType.Pronoun,
           definition: 'You (pl.m)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson14'],
         },
         {
@@ -106,7 +106,7 @@ export const lesson14 = {
           word: 'بلد',
           transliteration: '',
           translation: { en: 'Country' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           plural: 'بلاد',
           definition: 'Country',
           examples: [],

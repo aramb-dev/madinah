@@ -9,7 +9,7 @@ export const lesson5 = {
       },
       bookId: 'book1',
       lessonId: '5',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson5', 'possessives', 'family'],
       order: 5,
       items: [
@@ -21,7 +21,7 @@ export const lesson5 = {
           type: WordType.Particle,
           definition: 'Ο..',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],
         },
         {
@@ -51,7 +51,7 @@ export const lesson5 = {
           word: 'حقيبة',
           transliteration: '',
           translation: { en: 'Bag' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Bag',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

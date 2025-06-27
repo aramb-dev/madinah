@@ -9,7 +9,7 @@ export const lesson22 = {
       },
       bookId: 'book1',
       lessonId: '22',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson22', 'numbers', 'time', 'days'],
       order: 22,
       items: [
@@ -18,11 +18,11 @@ export const lesson22 = {
           word: 'ساعة',
           transliteration: '',
           translation: { en: 'Hour/Watch/Clock' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           plural: 'ساعات',
           definition: 'Hour/Watch/Clock',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson22', 'time'],
         },
         {

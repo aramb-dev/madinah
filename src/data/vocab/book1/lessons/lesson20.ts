@@ -9,7 +9,7 @@ export const lesson20 = {
       },
       bookId: 'book1',
       lessonId: '20',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson20', 'numbers', 'feminine', 'plurals'],
       order: 20,
       items: [
@@ -21,7 +21,7 @@ export const lesson20 = {
           type: WordType.Expression,
           definition: 'Three daughters',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson20'],
         },
         {
@@ -84,7 +84,7 @@ export const lesson20 = {
           word: 'إثنتان',
           transliteration: '',
           translation: { en: 'Two (f)' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Two (f)',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

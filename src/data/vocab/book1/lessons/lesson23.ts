@@ -9,7 +9,7 @@ export const lesson23 = {
       },
       bookId: 'book1',
       lessonId: '23',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson23', 'colors', 'adjectives'],
       order: 23,
       items: [
@@ -22,7 +22,7 @@ export const lesson23 = {
           gender: Gender.Masculine,
           definition: 'Red (m)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson23', 'color'],
         },
         {
@@ -174,7 +174,7 @@ export const lesson23 = {
           word: 'لون',
           transliteration: '',
           translation: { en: 'Color' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           plural: 'ألوان',
           definition: 'Color',
           examples: [],

@@ -9,7 +9,7 @@ export const lesson18 = {
       },
       bookId: 'book1',
       lessonId: '18',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson18', 'dual', 'numbers', 'objects'],
       order: 18,
       items: [
@@ -21,7 +21,7 @@ export const lesson18 = {
           type: WordType.Pronoun,
           definition: 'This is (dual, m)',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson18'],
         },
         {
@@ -62,7 +62,7 @@ export const lesson18 = {
           word: 'أَخَوَانٌ',
           transliteration: '',
           translation: { en: '2 brothers' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: '2 brothers',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

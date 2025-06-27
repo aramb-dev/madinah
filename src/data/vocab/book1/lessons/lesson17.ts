@@ -9,7 +9,7 @@ export const lesson17 = {
       },
       bookId: 'book1',
       lessonId: '17',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson17', 'adjectives', 'plurals'],
       order: 17,
       items: [
@@ -22,7 +22,7 @@ export const lesson17 = {
           gender: Gender.Feminine,
           definition: 'Open',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17'],
         },
         {
@@ -30,7 +30,7 @@ export const lesson17 = {
           word: 'لغات',
           transliteration: '',
           translation: { en: 'Languages' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Languages',
           examples: [],
           difficulty: DifficultyLevel.Beginner,

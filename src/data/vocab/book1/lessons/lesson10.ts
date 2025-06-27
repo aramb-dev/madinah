@@ -9,7 +9,7 @@ export const lesson10 = {
       },
       bookId: 'book1',
       lessonId: '10',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson10', 'pronouns', 'family', 'questions'],
       order: 10,
       items: [
@@ -18,10 +18,10 @@ export const lesson10 = {
           word: 'أَسَامَةُ',
           transliteration: '',
           translation: { en: 'Usaamah' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Usaamah',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson10', 'name'],
         },
         {

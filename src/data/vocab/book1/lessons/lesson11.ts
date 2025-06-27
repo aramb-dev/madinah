@@ -9,7 +9,7 @@ export const lesson11 = {
       },
       bookId: 'book1',
       lessonId: '11',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson11', 'verbs', 'pronouns'],
       order: 11,
       items: [
@@ -21,7 +21,7 @@ export const lesson11 = {
           type: WordType.Verb,
           definition: 'I love',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson11'],
         },
         {
@@ -73,7 +73,7 @@ export const lesson11 = {
           word: 'سُعَادُ',
           transliteration: '',
           translation: { en: "Su'aad" },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: "Su'aad",
           examples: [],
           difficulty: DifficultyLevel.Beginner,

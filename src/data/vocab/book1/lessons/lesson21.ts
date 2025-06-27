@@ -9,7 +9,7 @@ export const lesson21 = {
       },
       bookId: 'book1',
       lessonId: '21',
-      level: DifficultyLevel.Beginner,
+      level: vocab.DifficultyLevel.Beginner,
       tags: ['lesson21', 'numbers', 'masculine', 'plurals'],
       order: 21,
       items: [
@@ -21,7 +21,7 @@ export const lesson21 = {
           type: WordType.Expression,
           definition: 'Three boys',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson21'],
         },
         {
@@ -106,7 +106,7 @@ export const lesson21 = {
           word: 'إثنان',
           transliteration: '',
           translation: { en: 'Two (m)' },
-          type: WordType.Noun,
+          type: vocab.WordType.Noun,
           definition: 'Two (m)',
           examples: [],
           difficulty: DifficultyLevel.Beginner,
