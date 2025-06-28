@@ -15,7 +15,7 @@ export const lesson3 = {
       items: [
         {
           id: 'l3-v1',
-          word: 'ال',
+          word: 'الْ',
           transliteration: '',
           translation: { en: 'The' },
           type: vocab.WordType.Particle,
@@ -48,7 +48,7 @@ export const lesson3 = {
         },
         {
           id: 'l3-v4',
-          word: 'جالس',
+          word: 'جَالِسٌ',
           transliteration: '',
           translation: { en: 'Sitting' },
           type: vocab.WordType.Adjective,
@@ -59,7 +59,7 @@ export const lesson3 = {
         },
         {
           id: 'l3-v5',
-          word: 'واقف',
+          word: 'وَاقِفٌ',
           transliteration: '',
           translation: { en: 'Standing' },
           type: vocab.WordType.Adjective,
