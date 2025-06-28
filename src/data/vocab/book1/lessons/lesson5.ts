@@ -15,7 +15,7 @@ export const lesson5 = {
       items: [
         {
           id: 'l5-v1',
-          word: 'يا ..',
+          word: 'يَا ..',
           transliteration: '',
           translation: { en: 'O..' },
           type: vocab.WordType.Particle,
@@ -26,7 +26,7 @@ export const lesson5 = {
         },
         {
           id: 'l5-v2',
-          word: 'هناك',
+          word: 'هُنَاكَ',
           transliteration: '',
           translation: { en: 'There' },
           type: vocab.WordType.Adverb,
@@ -37,7 +37,7 @@ export const lesson5 = {
         },
         {
           id: 'l5-v3',
-          word: 'هنا',
+          word: 'هُنَا',
           transliteration: '',
           translation: { en: 'Here' },
           type: vocab.WordType.Adverb,
@@ -48,10 +48,11 @@ export const lesson5 = {
         },
         {
           id: 'l5-v4',
-          word: 'حقيبة',
+          word: 'حَقِيبَةٌ',
           transliteration: '',
           translation: { en: 'Bag' },
           type: vocab.WordType.Noun,
+          plural: 'حَقَائِبُ',
           definition: 'Bag',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -59,7 +60,7 @@ export const lesson5 = {
         },
         {
           id: 'l5-v5',
-          word: 'تحت',
+          word: 'تَحْتَ',
           transliteration: '',
           translation: { en: 'Under/beneath' },
           type: vocab.WordType.Preposition,
