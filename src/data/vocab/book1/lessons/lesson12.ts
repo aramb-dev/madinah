@@ -27,7 +27,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v2',
-          word: 'أنا بخير',
+          word: 'أَنَا بِخَيْرٍ',
           transliteration: '',
           translation: { en: 'I am fine' },
           type: vocab.WordType.Expression,
@@ -49,7 +49,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v4',
-          word: 'أنت',
+          word: 'أَنْتِ',
           transliteration: '',
           translation: { en: 'You (sing.f)' },
           type: vocab.WordType.Pronoun,
@@ -83,7 +83,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v7',
-          word: 'ذهبت',
+          word: 'ذَهَبْتَ',
           transliteration: '',
           translation: { en: 'You went (sing.m)' },
           type: vocab.WordType.Verb,
@@ -107,7 +107,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v9',
-          word: 'خالة',
+          word: 'خَالَةٌ',
           transliteration: '',
           translation: { en: 'Maternal aunt' },
           type: vocab.WordType.Noun,
@@ -119,7 +119,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v10',
-          word: 'سيد',
+          word: 'سَيِّدٌ',
           transliteration: '',
           translation: { en: 'Sir' },
           type: vocab.WordType.Noun,
@@ -142,7 +142,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v12',
-          word: 'أم',
+          word: 'أُمٌّ',
           transliteration: '',
           translation: { en: 'Mother' },
           type: vocab.WordType.Noun,
@@ -155,7 +155,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v13',
-          word: 'أستاذي',
+          word: 'أُسْتَاذِي',
           transliteration: '',
           translation: { en: 'My teacher' },
           type: vocab.WordType.Noun,
@@ -166,7 +166,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v14',
-          word: 'بعد',
+          word: 'بَعْدَ',
           transliteration: '',
           translation: { en: 'After' },
           type: vocab.WordType.Adverb,
@@ -177,7 +177,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v15',
-          word: 'التي',
+          word: 'الَّتِي',
           transliteration: '',
           translation: { en: 'Who/which (sing.f)' },
           type: vocab.WordType.Pronoun,
@@ -189,7 +189,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v16',
-          word: 'فتاة',
+          word: 'فَتَاةٌ',
           transliteration: '',
           translation: { en: 'Young woman' },
           type: vocab.WordType.Noun,
@@ -202,7 +202,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v17',
-          word: 'شيخ',
+          word: 'شَيْخٌ',
           transliteration: '',
           translation: { en: 'Scholar' },
           type: vocab.WordType.Noun,
@@ -214,7 +214,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v18',
-          word: 'قوي',
+          word: 'قَوِيٌّ',
           transliteration: '',
           translation: { en: 'Strong' },
           type: vocab.WordType.Adjective,
@@ -226,7 +226,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v19',
-          word: 'ضعيف',
+          word: 'ضَعِيفٌ',
           transliteration: '',
           translation: { en: 'Weak' },
           type: vocab.WordType.Adjective,
@@ -238,7 +238,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v20',
-          word: 'وزير',
+          word: 'وَزِيرٌ',
           transliteration: '',
           translation: { en: 'Minister' },
           type: vocab.WordType.Noun,
@@ -261,7 +261,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v22',
-          word: 'مفتش',
+          word: 'مُفَتِّشٌ',
           transliteration: '',
           translation: { en: 'Inspector' },
           type: vocab.WordType.Noun,
@@ -294,7 +294,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v25',
-          word: 'ماليزيا',
+          word: 'مَالِيزِيَا',
           transliteration: '',
           translation: { en: 'Malaysia' },
           type: vocab.WordType.Noun,
@@ -305,7 +305,7 @@ export const lesson12 = {
         },
         {
           id: 'l12-v26',
-          word: 'المملكة العربية السعودية',
+          word: 'الْمَمْلَكَةُ الْعَرَبِيَّةُ السُّعُودِيَّةُ',
           transliteration: '',
           translation: { en: 'Kingdom of Saudi Arabia' },
           type: vocab.WordType.Noun,
