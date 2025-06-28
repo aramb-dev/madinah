@@ -15,7 +15,7 @@ export const lesson6 = {
       items: [
         {
           id: 'l6-v1',
-          word: 'هذه',
+          word: 'هَذِهِ',
           transliteration: '',
           translation: { en: 'This is (f)' },
           type: vocab.WordType.Pronoun,
@@ -27,7 +27,7 @@ export const lesson6 = {
         },
         {
           id: 'l6-v2',
-          word: 'أخت',
+          word: 'أُخْتٌ',
           transliteration: '',
           translation: { en: 'Sister' },
           type: vocab.WordType.Noun,
@@ -40,7 +40,7 @@ export const lesson6 = {
         },
         {
           id: 'l6-v3',
-          word: 'أيضاً',
+          word: 'أَيْضًا',
           transliteration: '',
           translation: { en: 'Also' },
           type: vocab.WordType.Adverb,
@@ -62,10 +62,11 @@ export const lesson6 = {
         },
         {
           id: 'l6-v5',
-          word: 'مكواة',
+          word: 'مِكْوَاةٌ',
           transliteration: '',
           translation: { en: 'Iron' },
           type: vocab.WordType.Noun,
+          plural: 'مَكَاوٍ',
           definition: 'Iron',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
