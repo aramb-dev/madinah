@@ -15,7 +15,7 @@ export const lesson4 = {
       items: [
         {
           id: 'l4-v1',
-          word: 'في',
+          word: 'فِي',
           transliteration: '',
           translation: { en: 'In' },
           type: vocab.WordType.Preposition,
