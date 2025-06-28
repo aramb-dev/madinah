@@ -37,10 +37,11 @@ export const lesson8 = {
     },
     {
       id: 'l8-v3',
-      word: 'سكين',
+      word: 'سِكِّينٌ',
       transliteration: '',
       translation: { en: 'Knife' },
       type: vocab.WordType.Noun,
+      plural: 'سَكَاكِينُ',
       definition: 'Knife',
       examples: [],
       difficulty: vocab.DifficultyLevel.Beginner,
