@@ -1,4 +1,4 @@
-import * as vocab from '../../vocab';
+import * as vocab from '../../vocab';s
 
 export const lesson5 = {
       id: 'list005',
@@ -18,7 +18,7 @@ export const lesson5 = {
           word: 'يا ..',
           transliteration: '',
           translation: { en: 'Ο..' },
-          type: WordType.Particle,
+          type: vocab.WordType.Particle,
           definition: 'Ο..',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -29,10 +29,10 @@ export const lesson5 = {
           word: 'هناك',
           transliteration: '',
           translation: { en: 'There' },
-          type: WordType.Adverb,
+          type: vocab.WordType.Adverb,
           definition: 'There',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],
         },
         {
@@ -40,10 +40,10 @@ export const lesson5 = {
           word: 'هنا',
           transliteration: '',
           translation: { en: 'Here' },
-          type: WordType.Adverb,
+          type: vocab.WordType.Adverb,
           definition: 'Here',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],
         },
         {
@@ -54,7 +54,7 @@ export const lesson5 = {
           type: vocab.WordType.Noun,
           definition: 'Bag',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],
         },
         {
@@ -62,10 +62,10 @@ export const lesson5 = {
           word: 'تحت',
           transliteration: '',
           translation: { en: 'Under/beneath' },
-          type: WordType.Preposition,
+          type: vocab.  WordType.Preposition,
           definition: 'Under/beneath',
           examples: [],
-          difficulty: DifficultyLevel.Beginner,
+          difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],
         },
       ],
