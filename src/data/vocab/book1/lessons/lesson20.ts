@@ -15,7 +15,7 @@ export const lesson20 = {
       items: [
         {
           id: 'l20-v1',
-          word: 'ثلاث بنات',
+          word: 'ثَلَاثُ بَنَاتٍ',
           transliteration: '',
           translation: { en: 'Three daughters' },
           type: vocab.WordType.Expression,
@@ -48,7 +48,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v4',
-          word: 'ست نساء',
+          word: 'سِتُّ نِسَاءٍ',
           transliteration: '',
           translation: { en: 'Six women' },
           type: vocab.WordType.Expression,
@@ -59,7 +59,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v5',
-          word: 'سبع طالبات',
+          word: 'سَبْعُ طَالِبَاتٍ',
           transliteration: '',
           translation: { en: 'Seven students' },
           type: vocab.WordType.Expression,
@@ -70,7 +70,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v6',
-          word: 'ثَمَانِي غُرَف',
+          word: 'ثَمَانِي غُرَفٍ',
           transliteration: '',
           translation: { en: 'Eight rooms' },
           type: vocab.WordType.Expression,
@@ -81,7 +81,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v7',
-          word: 'إثنتان',
+          word: 'اثْنَتَانِ',
           transliteration: '',
           translation: { en: 'Two (f)' },
           type: vocab.WordType.Noun,
@@ -92,7 +92,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v8',
-          word: 'واحدة',
+          word: 'وَاحِدَةٌ',
           transliteration: '',
           translation: { en: 'One (f)' },
           type: vocab.WordType.Noun,
@@ -114,7 +114,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v10',
-          word: 'كليات',
+          word: 'كُلِّيَّاتٌ',
           transliteration: '',
           translation: { en: 'Faculties' },
           type: vocab.WordType.Noun,
@@ -136,7 +136,7 @@ export const lesson20 = {
         },
         {
           id: 'l20-v12',
-          word: 'جامعات',
+          word: 'جَامِعَاتٌ',
           transliteration: '',
           translation: { en: 'Universities' },
           type: vocab.WordType.Noun,
@@ -147,11 +147,11 @@ export const lesson20 = {
         },
         {
           id: 'l20-v13',
-          word: 'كلمة',
+          word: 'كَلِمَةٌ',
           transliteration: '',
           translation: { en: 'Word' },
           type: vocab.WordType.Noun,
-          plural: 'كلمات',
+          plural: 'كَلِمَاتٌ',
           definition: 'Word',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -159,11 +159,11 @@ export const lesson20 = {
         },
         {
           id: 'l20-v14',
-          word: 'مجلة',
+          word: 'مَجَلَّةٌ',
           transliteration: '',
           translation: { en: 'Magazine/Journal' },
           type: vocab.WordType.Noun,
-          plural: 'مجلات',
+          plural: 'مَجَلَّاتٌ',
           definition: 'Magazine/Journal',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -171,11 +171,11 @@ export const lesson20 = {
         },
         {
           id: 'l20-v15',
-          word: 'حرف',
+          word: 'حَرْفٌ',
           transliteration: '',
           translation: { en: 'Letter (of the alphabet)' },
           type: vocab.WordType.Noun,
-          plural: 'حروف',
+          plural: 'حُرُوفٌ',
           definition: 'Letter (of the alphabet)',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
