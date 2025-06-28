@@ -15,7 +15,7 @@ export const lesson23 = {
       items: [
         {
           id: 'l23-v1',
-          word: 'أحمر',
+          word: 'أَحْمَرُ',
           transliteration: '',
           translation: { en: 'Red (m)' },
           type: vocab.WordType.Adjective,
@@ -27,7 +27,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v2',
-          word: 'أزرق',
+          word: 'أَزْرَقُ',
           transliteration: '',
           translation: { en: 'Blue (m)' },
           type: vocab.WordType.Adjective,
@@ -39,7 +39,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v3',
-          word: 'أصفر',
+          word: 'أَصْفَرُ',
           transliteration: '',
           translation: { en: 'Yellow (m)' },
           type: vocab.WordType.Adjective,
@@ -51,7 +51,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v4',
-          word: 'أخضر',
+          word: 'أَخْضَرُ',
           transliteration: '',
           translation: { en: 'Green (m)' },
           type: vocab.WordType.Adjective,
@@ -63,7 +63,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v5',
-          word: 'أسود',
+          word: 'أَسْوَدُ',
           transliteration: '',
           translation: { en: 'Black (m)' },
           type: vocab.WordType.Adjective,
@@ -75,7 +75,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v6',
-          word: 'أبيض',
+          word: 'أَبْيَضُ',
           transliteration: '',
           translation: { en: 'White (m)' },
           type: vocab.WordType.Adjective,
@@ -87,7 +87,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v7',
-          word: 'بني',
+          word: 'بُنِّيٌّ',
           transliteration: '',
           translation: { en: 'Brown (m)' },
           type: vocab.WordType.Adjective,
@@ -99,7 +99,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v8',
-          word: 'رمادي',
+          word: 'رَمَادِيٌّ',
           transliteration: '',
           translation: { en: 'Gray (m)' },
           type: vocab.WordType.Adjective,
@@ -111,7 +111,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v9',
-          word: 'برتقالي',
+          word: 'بُرْتُقَالِيٌّ',
           transliteration: '',
           translation: { en: 'Orange (m)' },
           type: vocab.WordType.Adjective,
@@ -123,7 +123,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v10',
-          word: 'وردي',
+          word: 'وَرْدِيٌّ',
           transliteration: '',
           translation: { en: 'Pink (m)' },
           type: vocab.WordType.Adjective,
@@ -135,7 +135,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v11',
-          word: 'بنفسجي',
+          word: 'بَنَفْسَجِيٌّ',
           transliteration: '',
           translation: { en: 'Purple (m)' },
           type: vocab.WordType.Adjective,
@@ -147,7 +147,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v12',
-          word: 'ذهبي',
+          word: 'ذَهَبِيٌّ',
           transliteration: '',
           translation: { en: 'Golden (m)' },
           type: vocab.WordType.Adjective,
@@ -159,7 +159,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v13',
-          word: 'فضي',
+          word: 'فِضِّيٌّ',
           transliteration: '',
           translation: { en: 'Silver (m)' },
           type: vocab.WordType.Adjective,
@@ -171,11 +171,11 @@ export const lesson23 = {
         },
         {
           id: 'l23-v14',
-          word: 'لون',
+          word: 'لَوْنٌ',
           transliteration: '',
           translation: { en: 'Color' },
           type: vocab.WordType.Noun,
-          plural: 'ألوان',
+          plural: 'أَلْوَانٌ',
           definition: 'Color',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -183,7 +183,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v15',
-          word: 'ما لون...؟',
+          word: 'مَا لَوْنُ...؟',
           transliteration: '',
           translation: { en: 'What color is...?' },
           type: vocab.WordType.Expression,
@@ -194,7 +194,7 @@ export const lesson23 = {
         },
         {
           id: 'l23-v16',
-          word: 'مفضل',
+          word: 'مُفَضَّلٌ',
           transliteration: '',
           translation: { en: 'Favorite (m)' },
           type: vocab.WordType.Adjective,
