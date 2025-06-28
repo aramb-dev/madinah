@@ -15,7 +15,7 @@ export const lesson2 = {
       items: [
         {
           id: 'l2-v1',
-          word: 'ذلك',
+          word: 'ذَلِكَ',
           transliteration: '',
           translation: { en: 'That' },
           type: vocab.WordType.Pronoun,
@@ -26,7 +26,7 @@ export const lesson2 = {
         },
         {
           id: 'l2-v2',
-          word: 'ما ذلك؟',
+          word: 'مَا ذَلِكَ؟',
           transliteration: '',
           translation: { en: 'What is that?' },
           type: vocab.WordType.Expression,
@@ -37,7 +37,7 @@ export const lesson2 = {
         },
         {
           id: 'l2-v3',
-          word: 'أ ذلك ..؟',
+          word: 'أَذَلِكَ..؟',
           transliteration: '',
           translation: { en: 'Is that..?' },
           type: vocab.WordType.Expression,
