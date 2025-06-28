@@ -15,7 +15,7 @@ export const lesson7 = {
       items: [
         {
           id: 'l7-v1',
-          word: 'تلك',
+          word: 'تِلْكَ',
           transliteration: '',
           translation: { en: 'That is' },
           type: vocab.WordType.Pronoun,
@@ -40,7 +40,7 @@ export const lesson7 = {
         },
         {
           id: 'l7-v3',
-          word: 'طويلة',
+          word: 'طَوِيلَةٌ',
           transliteration: '',
           translation: { en: 'Tall' },
           type: vocab.WordType.Adjective,
@@ -52,7 +52,7 @@ export const lesson7 = {
         },
         {
           id: 'l7-v4',
-          word: 'قصيرة',
+          word: 'قَصِيرَةٌ',
           transliteration: '',
           translation: { en: 'Short' },
           type: vocab.WordType.Adjective,
@@ -68,7 +68,7 @@ export const lesson7 = {
           transliteration: '',
           translation: { en: 'Chicken' },
           type: vocab.WordType.Noun,
-          plural: 'دَجَاجَات',
+          plural: 'دَجَاجَاتٌ',
           gender: vocab.Gender.Feminine,
           definition: 'Chicken',
           examples: [],
