@@ -1,4 +1,4 @@
-import * as vocab from '../../vocab';s
+import * as vocab from '../../vocab';
 
 export const lesson5 = {
       id: 'list005',
@@ -17,9 +17,9 @@ export const lesson5 = {
           id: 'l5-v1',
           word: 'يا ..',
           transliteration: '',
-          translation: { en: 'Ο..' },
+          translation: { en: 'O..' },
           type: vocab.WordType.Particle,
-          definition: 'Ο..',
+          definition: 'O..',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],
@@ -62,7 +62,7 @@ export const lesson5 = {
           word: 'تحت',
           transliteration: '',
           translation: { en: 'Under/beneath' },
-          type: vocab.  WordType.Preposition,
+          type: vocab.WordType.Preposition,
           definition: 'Under/beneath',
           examples: [],
           difficulty: vocab.DifficultyLevel.Beginner,
