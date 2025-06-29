@@ -1,4 +1,3 @@
-import { VocabularyItem } from './vocab/vocab';
 
 export interface Lesson {
   id: string;
@@ -15,7 +14,6 @@ export interface Lesson {
     arabicText: string;
     explanation: string;
   }[];
-  vocabulary?: Word[]; // Added optional vocabulary field
 }
 
 // Define the Book interface
