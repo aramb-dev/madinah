@@ -36,7 +36,6 @@ export enum DifficultyLevel {
 export enum Gender {
   Masculine = 'masculine',
   Feminine = 'feminine',
-  Neuter = 'neuter',
   Dual = 'dual',
 }
 
