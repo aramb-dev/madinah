@@ -1,11 +1,11 @@
 import { getVocabByBookId } from '@/data/vocab';
 import { notFound } from 'next/navigation';
 
-export default function LessonVocabularyPage({
-  params,
-}: {
-  params: { bookId: string; lessonId: string };
+export default async function LessonVocabularyPage(props: {
+  params: Promise<{ bookId: string; lessonId: string }>;
 }) {
+  // Await the params promise to get the actual values
+  const params = await props.params;
   const { bookId, lessonId } = params;
   const book = getVocabByBookId(bookId);
 

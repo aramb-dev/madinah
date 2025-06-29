@@ -2,11 +2,11 @@ import { getVocabByBookId } from '@/data/vocab';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
-export default function BookVocabularyPage({
-  params,
-}: {
-  params: { bookId: string };
+export default async function BookVocabularyPage(props: {
+  params: Promise<{ bookId: string }>;
 }) {
+  // Await the params promise to get the actual values
+  const params = await props.params;
   const { bookId } = params;
   const book = getVocabByBookId(bookId);
 
