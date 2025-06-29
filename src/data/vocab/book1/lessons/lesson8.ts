@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson8 = {
   id: 'list008',
-  title: { arabic: 'مفردات الدرس الثامن', english: 'Lesson 8 Vocabulary' },
+  title: { ar: 'مفردات الدرس الثامن', en: 'Lesson 8 Vocabulary' },
   description: {
-    arabic: 'الكلمات الجديدة في الدرس الثامن.',
-    english: 'New words in the eighth lesson.',
+    ar: 'الكلمات الجديدة في الدرس الثامن.',
+    en: 'New words in the eighth lesson.',
   },
   bookId: 'book1',
   lessonId: '8',
@@ -17,7 +17,7 @@ export const lesson8 = {
       id: 'l8-v1',
       word: 'خَلْفَ',
       transliteration: '',
-      translation: { english: 'Behind' },
+      translation: { en: 'Behind' },
       type: vocab.WordType.Adverb,
       definition: 'Behind',
       examples: [
@@ -31,7 +31,7 @@ export const lesson8 = {
       id: 'l8-v2',
       word: 'أَمَامَ',
       transliteration: '',
-      translation: { english: 'In front of' },
+      translation: { en: 'In front of' },
       type: vocab.WordType.Adverb,
       definition: 'In front of',
       examples: [
@@ -45,7 +45,7 @@ export const lesson8 = {
       id: 'l8-v3',
       word: 'سِكِّينٌ',
       transliteration: '',
-      translation: { english: 'Knife' },
+      translation: { en: 'Knife' },
       type: vocab.WordType.Noun,
       plural: 'سَكَاكِينُ',
       definition: 'Knife',
@@ -60,7 +60,7 @@ export const lesson8 = {
       id: 'l8-v4',
       word: 'أَمْرِيكا',
       transliteration: '',
-      translation: { english: 'America' },
+      translation: { en: 'America' },
       type: vocab.WordType.Noun,
       definition: 'America',
       examples: [
@@ -74,7 +74,7 @@ export const lesson8 = {
       id: 'l8-v5',
       word: 'إِنْكَلْتَرًا',
       transliteration: '',
-      translation: { english: 'England' },
+      translation: { en: 'England' },
       type: vocab.WordType.Noun,
       definition: 'England',
       examples: [

@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson10 = {
       id: 'list010',
-      title: { arabic: 'مفردات الدرس العاشر', english: 'Lesson 10 Vocabulary' },
+      title: { ar: 'مفردات الدرس العاشر', en: 'Lesson 10 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس العاشر.',
-        english: 'New words in the tenth lesson.',
+        ar: 'الكلمات الجديدة في الدرس العاشر.',
+        en: 'New words in the tenth lesson.',
       },
       bookId: 'book1',
       lessonId: '10',
@@ -17,7 +17,7 @@ export const lesson10 = {
           id: 'l10-v1',
           word: 'أَسَامَةُ',
           transliteration: '',
-          translation: { english: 'Usaamah' },
+          translation: { en: 'Usaamah' },
           type: vocab.WordType.Noun,
           definition: 'Usaamah',
           examples: [
@@ -31,7 +31,7 @@ export const lesson10 = {
           id: 'l10-v2',
           word: 'حَمْزَةً',
           transliteration: '',
-          translation: { english: 'Hamzah' },
+          translation: { en: 'Hamzah' },
           type: vocab.WordType.Noun,
           definition: 'Hamzah',
           examples: [
@@ -45,7 +45,7 @@ export const lesson10 = {
           id: 'l10-v3',
           word: 'طَلْحَةُ',
           transliteration: '',
-          translation: { english: 'Talha' },
+          translation: { en: 'Talha' },
           type: vocab.WordType.Noun,
           definition: 'Talha',
           examples: [
@@ -59,7 +59,7 @@ export const lesson10 = {
           id: 'l10-v4',
           word: 'مُعَاوِيَةُ',
           transliteration: '',
-          translation: { english: "Mu'aawiyah" },
+          translation: { en: "Mu'aawiyah" },
           type: vocab.WordType.Noun,
           definition: "Mu'aawiyah",
           examples: [
@@ -73,7 +73,7 @@ export const lesson10 = {
           id: 'l10-v5',
           word: 'عكرمة',
           transliteration: '',
-          translation: { english: 'Iqrimah' },
+          translation: { en: 'Iqrimah' },
           type: vocab.WordType.Noun,
           definition: 'Iqrimah',
           examples: [
@@ -87,7 +87,7 @@ export const lesson10 = {
           id: 'l10-v6',
           word: 'زميل',
           transliteration: '',
-          translation: { english: 'Colleague/classmate' },
+          translation: { en: 'Colleague/classmate' },
           type: vocab.WordType.Noun,
           plural: 'زملاء',
           definition: 'Colleague/classmate',
@@ -102,7 +102,7 @@ export const lesson10 = {
           id: 'l10-v7',
           word: 'زَوْج',
           transliteration: '',
-          translation: { english: 'Husband' },
+          translation: { en: 'Husband' },
           type: vocab.WordType.Noun,
           plural: 'أَزْوَاجٌ',
           definition: 'Husband',
@@ -117,7 +117,7 @@ export const lesson10 = {
           id: 'l10-v8',
           word: 'واحد',
           transliteration: '',
-          translation: { english: 'One' },
+          translation: { en: 'One' },
           type: vocab.WordType.Noun,
           definition: 'One',
           examples: [
@@ -131,7 +131,7 @@ export const lesson10 = {
           id: 'l10-v9',
           word: 'طفل',
           transliteration: '',
-          translation: { english: 'Child' },
+          translation: { en: 'Child' },
           type: vocab.WordType.Noun,
           definition: 'Child',
           examples: [
@@ -145,7 +145,7 @@ export const lesson10 = {
           id: 'l10-v10',
           word: 'مع',
           transliteration: '',
-          translation: { english: 'With (without restrictions)' },
+          translation: { en: 'With (without restrictions)' },
           type: vocab.WordType.Preposition,
           definition: 'With (without restrictions)',
           examples: [
@@ -159,7 +159,7 @@ export const lesson10 = {
           id: 'l10-v11',
           word: 'لي',
           transliteration: '',
-          translation: { english: 'I have' },
+          translation: { en: 'I have' },
           type: vocab.WordType.Expression,
           definition: 'I have',
           examples: [
@@ -173,7 +173,7 @@ export const lesson10 = {
           id: 'l10-v12',
           word: 'لها',
           transliteration: '',
-          translation: { english: 'It/She has' },
+          translation: { en: 'It/She has' },
           type: vocab.WordType.Expression,
           definition: 'It/She has',
           examples: [
@@ -187,7 +187,7 @@ export const lesson10 = {
           id: 'l10-v13',
           word: 'مَا لُغَتُكَ؟',
           transliteration: '',
-          translation: { english: 'What is your (sing.m) language?' },
+          translation: { en: 'What is your (sing.m) language?' },
           type: vocab.WordType.Expression,
           definition: 'What is your (sing.m) language?',
           examples: [
@@ -201,7 +201,7 @@ export const lesson10 = {
           id: 'l10-v14',
           word: 'الأَرْدِيَّةُ',
           transliteration: '',
-          translation: { english: 'Urdu' },
+          translation: { en: 'Urdu' },
           type: vocab.WordType.Noun,
           definition: 'Urdu',
           examples: [
@@ -215,7 +215,7 @@ export const lesson10 = {
           id: 'l10-v15',
           word: 'الْيَابَانِيَّةُ',
           transliteration: '',
-          translation: { english: 'Japanese (language)' },
+          translation: { en: 'Japanese (language)' },
           type: vocab.WordType.Noun,
           definition: 'Japanese (language)',
           examples: [
@@ -229,7 +229,7 @@ export const lesson10 = {
           id: 'l10-v16',
           word: 'أَبُوهُ',
           transliteration: '',
-          translation: { english: 'His father' },
+          translation: { en: 'His father' },
           type: vocab.WordType.Expression,
           definition: 'His father',
           examples: [
@@ -243,7 +243,7 @@ export const lesson10 = {
           id: 'l10-v17',
           word: 'الْكُوَيْتُ',
           transliteration: '',
-          translation: { english: 'Kuwait' },
+          translation: { en: 'Kuwait' },
           type: vocab.WordType.Noun,
           definition: 'Kuwait',
           examples: [
@@ -257,7 +257,7 @@ export const lesson10 = {
           id: 'l10-v18',
           word: 'ذهبت',
           transliteration: '',
-          translation: { english: 'I went' },
+          translation: { en: 'I went' },
           type: vocab.WordType.Verb,
           definition: 'I went',
           examples: [
@@ -271,7 +271,7 @@ export const lesson10 = {
           id: 'l10-v19',
           word: 'أعندك ...؟',
           transliteration: '',
-          translation: { english: 'Do you (sing.m) have...?' },
+          translation: { en: 'Do you (sing.m) have...?' },
           type: vocab.WordType.Expression,
           definition: 'Do you (sing.m) have...?',
           examples: [
@@ -285,7 +285,7 @@ export const lesson10 = {
           id: 'l10-v20',
           word: 'لا ما عندي',
           transliteration: '',
-          translation: { english: "No, I don't have" },
+          translation: { en: "No, I don't have" },
           type: vocab.WordType.Expression,
           definition: "No, I don't have",
           examples: [
@@ -299,7 +299,7 @@ export const lesson10 = {
           id: 'l10-v21',
           word: 'مَحْمُودٌ',
           transliteration: '',
-          translation: { english: 'Mahmood' },
+          translation: { en: 'Mahmood' },
           type: vocab.WordType.Noun,
           definition: 'Mahmood',
           examples: [
@@ -313,7 +313,7 @@ export const lesson10 = {
           id: 'l10-v22',
           word: 'الرياض',
           transliteration: '',
-          translation: { english: 'Riyadh' },
+          translation: { en: 'Riyadh' },
           type: vocab.WordType.Noun,
           definition: 'Riyadh',
           examples: [
@@ -327,7 +327,7 @@ export const lesson10 = {
           id: 'l10-v23',
           word: 'الطائف',
           transliteration: '',
-          translation: { english: 'Taif (City)' },
+          translation: { en: 'Taif (City)' },
           type: vocab.WordType.Noun,
           definition: 'Taif (City)',
           examples: [

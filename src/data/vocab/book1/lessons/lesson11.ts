@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson11 = {
       id: 'list011',
-      title: { arabic: 'مفردات الدرس الحادي عشر', english: 'Lesson 11 Vocabulary' },
+      title: { ar: 'مفردات الدرس الحادي عشر', en: 'Lesson 11 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الحادي عشر.',
-        english: 'New words in the eleventh lesson.',
+        ar: 'الكلمات الجديدة في الدرس الحادي عشر.',
+        en: 'New words in the eleventh lesson.',
       },
       bookId: 'book1',
       lessonId: '11',
@@ -17,7 +17,7 @@ export const lesson11 = {
           id: 'l11-v1',
           word: 'أحب',
           transliteration: '',
-          translation: { english: 'I love' },
+          translation: { en: 'I love' },
           type: vocab.WordType.Verb,
           definition: 'I love',
           examples: [
@@ -31,7 +31,7 @@ export const lesson11 = {
           id: 'l11-v2',
           word: 'تحب',
           transliteration: '',
-          translation: { english: 'You love' },
+          translation: { en: 'You love' },
           type: vocab.WordType.Verb,
           definition: 'You love',
           examples: [
@@ -45,7 +45,7 @@ export const lesson11 = {
           id: 'l11-v3',
           word: 'فيه',
           transliteration: '',
-          translation: { english: 'In it (m)' },
+          translation: { en: 'In it (m)' },
           type: vocab.WordType.Expression,
           definition: 'In it (m)',
           examples: [
@@ -59,7 +59,7 @@ export const lesson11 = {
           id: 'l11-v4',
           word: 'فيها',
           transliteration: '',
-          translation: { english: 'In it (f)' },
+          translation: { en: 'In it (f)' },
           type: vocab.WordType.Expression,
           definition: 'In it (f)',
           examples: [
@@ -73,7 +73,7 @@ export const lesson11 = {
           id: 'l11-v5',
           word: 'خَرَجَتْ',
           transliteration: '',
-          translation: { english: 'She left' },
+          translation: { en: 'She left' },
           type: vocab.WordType.Verb,
           definition: 'She left',
           examples: [
@@ -87,7 +87,7 @@ export const lesson11 = {
           id: 'l11-v6',
           word: 'سُعَادُ',
           transliteration: '',
-          translation: { english: "Su'aad" },
+          translation: { en: "Su'aad" },
           type: vocab.WordType.Noun,
           definition: "Su'aad",
           examples: [
@@ -101,7 +101,7 @@ export const lesson11 = {
           id: 'l11-v7',
           word: 'نَبي',
           transliteration: '',
-          translation: { english: 'Prophet' },
+          translation: { en: 'Prophet' },
           type: vocab.WordType.Noun,
           definition: 'Prophet',
           examples: [
@@ -115,7 +115,7 @@ export const lesson11 = {
           id: 'l11-v8',
           word: 'سعد',
           transliteration: '',
-          translation: { english: "Sa'd" },
+          translation: { en: "Sa'd" },
           type: vocab.WordType.Noun,
           definition: "Sa'd",
           examples: [

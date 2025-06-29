@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson13 = {
       id: 'list013',
-      title: { arabic: 'مفردات الدرس الثالث عشر', english: 'Lesson 13 Vocabulary' },
+      title: { ar: 'مفردات الدرس الثالث عشر', en: 'Lesson 13 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الثالث عشر.',
-        english: 'New words in the thirteenth lesson.',
+        ar: 'الكلمات الجديدة في الدرس الثالث عشر.',
+        en: 'New words in the thirteenth lesson.',
       },
       bookId: 'book1',
       lessonId: '13',
@@ -17,7 +17,7 @@ export const lesson13 = {
           id: 'l13-v1',
           word: 'هَؤُلَاءِ',
           transliteration: '',
-          translation: { english: 'These (pl. m/f)' },
+          translation: { en: 'These (pl. m/f)' },
           type: vocab.WordType.Pronoun,
           definition: 'These (pl. m/f)',
           examples: [
@@ -31,7 +31,7 @@ export const lesson13 = {
           id: 'l13-v2',
           word: 'بَعْضُهُمْ',
           transliteration: '',
-          translation: { english: 'Some of them (pl.m)' },
+          translation: { en: 'Some of them (pl.m)' },
           type: vocab.WordType.Expression,
           definition: 'Some of them (pl.m)',
           examples: [
@@ -45,7 +45,7 @@ export const lesson13 = {
           id: 'l13-v3',
           word: 'طُلَّابٌ',
           transliteration: '',
-          translation: { english: 'Students' },
+          translation: { en: 'Students' },
           type: vocab.WordType.Noun,
           definition: 'Students',
           examples: [
@@ -59,7 +59,7 @@ export const lesson13 = {
           id: 'l13-v4',
           word: 'تُجَّارٌ',
           transliteration: '',
-          translation: { english: 'Merchants' },
+          translation: { en: 'Merchants' },
           type: vocab.WordType.Noun,
           definition: 'Merchants',
           examples: [
@@ -73,7 +73,7 @@ export const lesson13 = {
           id: 'l13-v5',
           word: 'حَاجٌّ',
           transliteration: '',
-          translation: { english: 'Pilgrim' },
+          translation: { en: 'Pilgrim' },
           type: vocab.WordType.Noun,
           plural: 'حُجَّاجٌ',
           definition: 'Pilgrim',
@@ -88,7 +88,7 @@ export const lesson13 = {
           id: 'l13-v6',
           word: 'رِجَالٌ',
           transliteration: '',
-          translation: { english: 'Men' },
+          translation: { en: 'Men' },
           type: vocab.WordType.Noun,
           definition: 'Men',
           examples: [
@@ -102,7 +102,7 @@ export const lesson13 = {
           id: 'l13-v7',
           word: 'كِبَارٌ',
           transliteration: '',
-          translation: { english: 'Big (pl.m/f)' },
+          translation: { en: 'Big (pl.m/f)' },
           type: vocab.WordType.Adjective,
           definition: 'Big (pl.m/f)',
           examples: [
@@ -116,7 +116,7 @@ export const lesson13 = {
           id: 'l13-v8',
           word: 'صِغَارٌ',
           transliteration: '',
-          translation: { english: 'Small (pl.m/f)' },
+          translation: { en: 'Small (pl.m/f)' },
           type: vocab.WordType.Adjective,
           definition: 'Small (pl.m/f)',
           examples: [
@@ -130,7 +130,7 @@ export const lesson13 = {
           id: 'l13-v9',
           word: 'قِصَارٌ',
           transliteration: '',
-          translation: { english: 'Short (pl.m/f)' },
+          translation: { en: 'Short (pl.m/f)' },
           type: vocab.WordType.Adjective,
           definition: 'Short (pl.m/f)',
           examples: [
@@ -144,7 +144,7 @@ export const lesson13 = {
           id: 'l13-v10',
           word: 'طِوَالٌ',
           transliteration: '',
-          translation: { english: 'Tall (pl.m/f)' },
+          translation: { en: 'Tall (pl.m/f)' },
           type: vocab.WordType.Adjective,
           definition: 'Tall (pl.m/f)',
           examples: [
@@ -158,7 +158,7 @@ export const lesson13 = {
           id: 'l13-v11',
           word: 'أَوْلَادٌ',
           transliteration: '',
-          translation: { english: 'Boys' },
+          translation: { en: 'Boys' },
           type: vocab.WordType.Noun,
           definition: 'Boys',
           examples: [
@@ -172,7 +172,7 @@ export const lesson13 = {
           id: 'l13-v12',
           word: 'أَبْنَاءٌ',
           transliteration: '',
-          translation: { english: 'Sons' },
+          translation: { en: 'Sons' },
           type: vocab.WordType.Noun,
           definition: 'Sons',
           examples: [
@@ -186,7 +186,7 @@ export const lesson13 = {
           id: 'l13-v13',
           word: 'أَعْمَامٌ',
           transliteration: '',
-          translation: { english: 'Paternal uncles' },
+          translation: { en: 'Paternal uncles' },
           type: vocab.WordType.Noun,
           definition: 'Paternal uncles',
           examples: [
@@ -200,7 +200,7 @@ export const lesson13 = {
           id: 'l13-v14',
           word: 'ضُيُوفٌ',
           transliteration: '',
-          translation: { english: 'Guests' },
+          translation: { en: 'Guests' },
           type: vocab.WordType.Noun,
           definition: 'Guests',
           examples: [
@@ -214,7 +214,7 @@ export const lesson13 = {
           id: 'l13-v15',
           word: 'زُمَلَاءُ',
           transliteration: '',
-          translation: { english: 'Class mates/Colleagues' },
+          translation: { en: 'Class mates/Colleagues' },
           type: vocab.WordType.Noun,
           definition: 'Class mates/Colleagues',
           examples: [
@@ -228,7 +228,7 @@ export const lesson13 = {
           id: 'l13-v16',
           word: 'فُقَرَاءُ',
           transliteration: '',
-          translation: { english: 'Poor' },
+          translation: { en: 'Poor' },
           type: vocab.WordType.Adjective,
           definition: 'Poor',
           examples: [
@@ -242,7 +242,7 @@ export const lesson13 = {
           id: 'l13-v17',
           word: 'أَغْنِيَاءُ',
           transliteration: '',
-          translation: { english: 'Rich' },
+          translation: { en: 'Rich' },
           type: vocab.WordType.Adjective,
           definition: 'Rich',
           examples: [
@@ -256,7 +256,7 @@ export const lesson13 = {
           id: 'l13-v18',
           word: 'أَصْدِقَاءُ',
           transliteration: '',
-          translation: { english: 'Friend' },
+          translation: { en: 'Friend' },
           type: vocab.WordType.Noun,
           definition: 'Friend',
           examples: [
@@ -270,7 +270,7 @@ export const lesson13 = {
           id: 'l13-v19',
           word: 'أَطِبَّاءُ',
           transliteration: '',
-          translation: { english: 'Doctors' },
+          translation: { en: 'Doctors' },
           type: vocab.WordType.Noun,
           definition: 'Doctors',
           examples: [
@@ -284,7 +284,7 @@ export const lesson13 = {
           id: 'l13-v20',
           word: 'فِتْيَةٌ',
           transliteration: '',
-          translation: { english: 'Young men' },
+          translation: { en: 'Young men' },
           type: vocab.WordType.Noun,
           definition: 'Young men',
           examples: [
@@ -298,7 +298,7 @@ export const lesson13 = {
           id: 'l13-v21',
           word: 'إِخْوَةٌ',
           transliteration: '',
-          translation: { english: 'Brothers' },
+          translation: { en: 'Brothers' },
           type: vocab.WordType.Noun,
           definition: 'Brothers',
           examples: [
@@ -312,7 +312,7 @@ export const lesson13 = {
           id: 'l13-v22',
           word: 'جُدُدٌ',
           transliteration: '',
-          translation: { english: 'New (pl.m/f)' },
+          translation: { en: 'New (pl.m/f)' },
           type: vocab.WordType.Adjective,
           definition: 'New (pl.m/f)',
           examples: [
@@ -326,7 +326,7 @@ export const lesson13 = {
           id: 'l13-v23',
           word: 'مُدَرِّسُوْنَ',
           transliteration: '',
-          translation: { english: 'Teachers' },
+          translation: { en: 'Teachers' },
           type: vocab.WordType.Noun,
           definition: 'Teachers',
           examples: [
@@ -340,7 +340,7 @@ export const lesson13 = {
           id: 'l13-v24',
           word: 'مُهَنْدِسُونَ',
           transliteration: '',
-          translation: { english: 'Engineers' },
+          translation: { en: 'Engineers' },
           type: vocab.WordType.Noun,
           definition: 'Engineers',
           examples: [
@@ -354,7 +354,7 @@ export const lesson13 = {
           id: 'l13-v25',
           word: 'فَلاحُوْنَ',
           transliteration: '',
-          translation: { english: 'Farmers' },
+          translation: { en: 'Farmers' },
           type: vocab.WordType.Noun,
           definition: 'Farmers',
           examples: [
@@ -368,7 +368,7 @@ export const lesson13 = {
           id: 'l13-v26',
           word: 'مُجْتَهِدُونَ',
           transliteration: '',
-          translation: { english: 'Hardworking' },
+          translation: { en: 'Hardworking' },
           type: vocab.WordType.Adjective,
           definition: 'Hardworking',
           examples: [
@@ -382,7 +382,7 @@ export const lesson13 = {
           id: 'l13-v27',
           word: 'مُسْلِمُونَ',
           transliteration: '',
-          translation: { english: 'Muslims' },
+          translation: { en: 'Muslims' },
           type: vocab.WordType.Noun,
           definition: 'Muslims',
           examples: [
@@ -396,7 +396,7 @@ export const lesson13 = {
           id: 'l13-v28',
           word: 'مَلْعَبٌ',
           transliteration: '',
-          translation: { english: 'Playground' },
+          translation: { en: 'Playground' },
           type: vocab.WordType.Noun,
           definition: 'Playground',
           examples: [
@@ -410,7 +410,7 @@ export const lesson13 = {
           id: 'l13-v29',
           word: 'الِابْتِدَائِيَّةُ',
           transliteration: '',
-          translation: { english: 'Primary' },
+          translation: { en: 'Primary' },
           type: vocab.WordType.Adjective,
           definition: 'Primary',
           examples: [
@@ -423,7 +423,7 @@ export const lesson13 = {
           id: 'l13-v30',
           word: 'نُجُومٌ',
           transliteration: '',
-          translation: { english: 'Stars' },
+          translation: { en: 'Stars' },
           type: vocab.WordType.Noun,
           definition: 'Stars',
           examples: [
@@ -437,7 +437,7 @@ export const lesson13 = {
           id: 'l13-v31',
           word: 'كُتُبٌ',
           transliteration: '',
-          translation: { english: 'Books' },
+          translation: { en: 'Books' },
           type: vocab.WordType.Noun,
           definition: 'Books',
           examples: [
@@ -451,7 +451,7 @@ export const lesson13 = {
           id: 'l13-v32',
           word: 'جِبَالٌ',
           transliteration: '',
-          translation: { english: 'Mountains' },
+          translation: { en: 'Mountains' },
           type: vocab.WordType.Noun,
           definition: 'Mountains',
           examples: [
@@ -465,7 +465,7 @@ export const lesson13 = {
           id: 'l13-v33',
           word: 'أَقْلَامٌ',
           transliteration: '',
-          translation: { english: 'Pens' },
+          translation: { en: 'Pens' },
           type: vocab.WordType.Noun,
           definition: 'Pens',
           examples: [
@@ -479,7 +479,7 @@ export const lesson13 = {
           id: 'l13-v34',
           word: 'ـهُ',
           transliteration: '',
-          translation: { english: 'His (attached pronoun)' },
+          translation: { en: 'His (attached pronoun)' },
           type: vocab.WordType.Pronoun,
           definition: 'His (attached pronoun)',
           examples: [
@@ -493,7 +493,7 @@ export const lesson13 = {
           id: 'l13-v35',
           word: 'هُمْ',
           transliteration: '',
-          translation: { english: 'They (pl.m)' },
+          translation: { en: 'They (pl.m)' },
           type: vocab.WordType.Pronoun,
           definition: 'They (pl.m)',
           examples: [
@@ -507,7 +507,7 @@ export const lesson13 = {
           id: 'l13-v36',
           word: 'بَعْضٌ',
           transliteration: '',
-          translation: { english: 'Some' },
+          translation: { en: 'Some' },
           type: vocab.WordType.Adverb,
           definition: 'Some',
           examples: [
@@ -521,7 +521,7 @@ export const lesson13 = {
           id: 'l13-v37',
           word: 'قَرْيَةٌ',
           transliteration: '',
-          translation: { english: 'Village' },
+          translation: { en: 'Village' },
           type: vocab.WordType.Noun,
           definition: 'Village',
           examples: [
@@ -535,7 +535,7 @@ export const lesson13 = {
           id: 'l13-v38',
           word: 'أَسْمَاءٌ',
           transliteration: '',
-          translation: { english: 'Names' },
+          translation: { en: 'Names' },
           type: vocab.WordType.Noun,
           definition: 'Names',
           examples: [
@@ -549,7 +549,7 @@ export const lesson13 = {
           id: 'l13-v39',
           word: 'نَاسٌ',
           transliteration: '',
-          translation: { english: 'People' },
+          translation: { en: 'People' },
           type: vocab.WordType.Noun,
           definition: 'People',
           examples: [
@@ -563,7 +563,7 @@ export const lesson13 = {
           id: 'l13-v40',
           word: 'مَطْعَمٌ',
           transliteration: '',
-          translation: { english: 'Restaurant' },
+          translation: { en: 'Restaurant' },
           type: vocab.WordType.Noun,
           definition: 'Restaurant',
           examples: [
@@ -577,7 +577,7 @@ export const lesson13 = {
           id: 'l13-v41',
           word: 'حَقْلٌ',
           transliteration: '',
-          translation: { english: 'Field' },
+          translation: { en: 'Field' },
           type: vocab.WordType.Noun,
           plural: 'حُقُولٌ',
           definition: 'Field',

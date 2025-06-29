@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson6 = {
       id: 'list006',
-      title: { arabic: 'مفردات الدرس السادس', english: 'Lesson 6 Vocabulary' },
+      title: { ar: 'مفردات الدرس السادس', en: 'Lesson 6 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس السادس.',
-        english: 'New words in the sixth lesson.',
+        ar: 'الكلمات الجديدة في الدرس السادس.',
+        en: 'New words in the sixth lesson.',
       },
       bookId: 'book1',
       lessonId: '6',
@@ -17,7 +17,7 @@ export const lesson6 = {
           id: 'l6-v1',
           word: 'هَذِهِ',
           transliteration: '',
-          translation: { english: 'This is (f)' },
+          translation: { en: 'This is (f)' },
           type: vocab.WordType.Pronoun,
           definition: 'This is (f)',
           examples: [
@@ -32,7 +32,7 @@ export const lesson6 = {
           id: 'l6-v2',
           word: 'أُخْتٌ',
           transliteration: '',
-          translation: { english: 'Sister' },
+          translation: { en: 'Sister' },
           type: vocab.WordType.Noun,
           plural: 'أَخَوَاتُ',
           definition: 'Sister',
@@ -48,7 +48,7 @@ export const lesson6 = {
           id: 'l6-v3',
           word: 'أَيْضًا',
           transliteration: '',
-          translation: { english: 'Also' },
+          translation: { en: 'Also' },
           type: vocab.WordType.Adverb,
           definition: 'Also',
           examples: [
@@ -62,7 +62,7 @@ export const lesson6 = {
           id: 'l6-v4',
           word: 'لِمَنْ',
           transliteration: '',
-          translation: { english: 'Whose' },
+          translation: { en: 'Whose' },
           type: vocab.WordType.Pronoun,
           definition: 'Whose',
           examples: [
@@ -76,7 +76,7 @@ export const lesson6 = {
           id: 'l6-v5',
           word: 'مِكْوَاةٌ',
           transliteration: '',
-          translation: { english: 'Iron' },
+          translation: { en: 'Iron' },
           type: vocab.WordType.Noun,
           plural: 'مَكَاوٍ',
           definition: 'Iron',

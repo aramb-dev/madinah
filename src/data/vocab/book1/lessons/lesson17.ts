@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson17 = {
       id: 'list017',
-      title: { arabic: 'مفردات الدرس السابع عشر', english: 'Lesson 17 Vocabulary' },
+      title: { ar: 'مفردات الدرس السابع عشر', en: 'Lesson 17 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس السابع عشر.',
-        english: 'New words in the seventeenth lesson.',
+        ar: 'الكلمات الجديدة في الدرس السابع عشر.',
+        en: 'New words in the seventeenth lesson.',
       },
       bookId: 'book1',
       lessonId: '17',
@@ -22,8 +22,8 @@ export const lesson17 = {
           gender: vocab.Gender.Feminine,
           definition: 'The feminine form of the adjective مَفْتُوحٌ, meaning open or unlocked.',
           examples: [
-            { ar: 'النَّافِذَةُ مَفْتُوحَةٌ.', en: 'The window is open.' },
-            { ar: 'أَبْوَابُ الْمَدْرَسَةِ مَفْتُوحَةٌ الْآنَ.', en: 'The school doors are open now.' },
+            { arabic: 'النَّافِذَةُ مَفْتُوحَةٌ.', english: 'The window is open.' },
+            { arabic: 'أَبْوَابُ الْمَدْرَسَةِ مَفْتُوحَةٌ الْآنَ.', english: 'The school doors are open now.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'adjective', 'feminine'],
@@ -36,8 +36,8 @@ export const lesson17 = {
           type: vocab.WordType.Noun,
           definition: 'The plural of لُغَةٌ, meaning language.',
           examples: [
-            { ar: 'أَتَحَدَّثُ ثَلَاثَ لُغَاتٍ.', en: 'I speak three languages.' },
-            { ar: 'فِي الْعَالَمِ لُغَاتٌ كَثِيرَةٌ.', en: 'There are many languages in the world.' },
+            { arabic: 'أَتَحَدَّثُ ثَلَاثَ لُغَاتٍ.', english: 'I speak three languages.' },
+            { arabic: 'فِي الْعَالَمِ لُغَاتٌ كَثِيرَةٌ.', english: 'There are many languages in the world.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'noun', 'plural'],
@@ -51,8 +51,8 @@ export const lesson17 = {
           gender: vocab.Gender.Feminine,
           definition: 'The feminine form of the adjective كَثِيرٌ, meaning many or numerous.',
           examples: [
-            { ar: 'عِنْدِي كُتُبٌ كَثِيرَةٌ.', en: 'I have many books.' },
-            { ar: 'فِي الْحَدِيقَةِ أَزْهَارٌ كَثِيرَةٌ.', en: 'There are many flowers in the garden.' },
+            { arabic: 'عِنْدِي كُتُبٌ كَثِيرَةٌ.', english: 'I have many books.' },
+            { arabic: 'فِي الْحَدِيقَةِ أَزْهَارٌ كَثِيرَةٌ.', english: 'There are many flowers in the garden.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'adjective', 'feminine'],
@@ -66,8 +66,8 @@ export const lesson17 = {
           gender: vocab.Gender.Feminine,
           definition: 'The feminine form of the adjective مَكْسُورٌ, meaning broken.',
           examples: [
-            { ar: 'هَذِهِ الْكُرْسِيُّ مَكْسُورَةٌ.', en: 'This chair is broken.' },
-            { ar: 'لِمَاذَا النَّوَافِذُ مَكْسُورَةٌ؟', en: 'Why are the windows broken?' },
+            { arabic: 'هَذِهِ الْكُرْسِيُّ مَكْسُورَةٌ.', english: 'This chair is broken.' },
+            { arabic: 'لِمَاذَا النَّوَافِذُ مَكْسُورَةٌ؟', english: 'Why are the windows broken?' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'adjective', 'feminine'],
@@ -81,8 +81,8 @@ export const lesson17 = {
           gender: vocab.Gender.Feminine,
           definition: 'The feminine form of the adjective رَخِيصٌ, meaning cheap or inexpensive.',
           examples: [
-            { ar: 'هَذِهِ السَّاعَةُ رَخِيصَةٌ.', en: 'This watch is cheap.' },
-            { ar: 'الْفَوَاكِهُ فِي هَذَا السُّوقِ رَخِيصَةٌ.', en: 'The fruits in this market are cheap.' },
+            { arabic: 'هَذِهِ السَّاعَةُ رَخِيصَةٌ.', english: 'This watch is cheap.' },
+            { arabic: 'الْفَوَاكِهُ فِي هَذَا السُّوقِ رَخِيصَةٌ.', english: 'The fruits in this market are cheap.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'adjective', 'feminine'],
@@ -96,8 +96,8 @@ export const lesson17 = {
           plural: 'مَنَادِيلُ',
           definition: 'A square of cloth or paper used for wiping one\'s nose, face, or hands.',
           examples: [
-            { ar: 'أَعْطِنِي مِنْدِيلًا مِنْ فَضْلِكَ.', en: 'Give me a handkerchief, please.' },
-            { ar: 'هَذِهِ مَنَادِيلُ وَرَقِيَّةٌ.', en: 'These are paper handkerchiefs.' },
+            { arabic: 'أَعْطِنِي مِنْدِيلًا مِنْ فَضْلِكَ.', english: 'Give me a handkerchief, please.' },
+            { arabic: 'هَذِهِ مَنَادِيلُ وَرَقِيَّةٌ.', english: 'These are paper handkerchiefs.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'noun'],
@@ -111,8 +111,8 @@ export const lesson17 = {
           plural: 'شَرِكَاتٌ',
           definition: 'A commercial business.',
           examples: [
-            { ar: 'يَعْمَلُ أَبِي فِي شَرِكَةِ نِفْطٍ.', en: 'My father works in an oil company.' },
-            { ar: 'هَذِهِ شَرِكَةٌ كَبِيرَةٌ.', en: 'This is a big company.' },
+            { arabic: 'يَعْمَلُ أَبِي فِي شَرِكَةِ نِفْطٍ.', english: 'My father works in an oil company.' },
+            { arabic: 'هَذِهِ شَرِكَةٌ كَبِيرَةٌ.', english: 'This is a big company.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'noun', 'business'],
@@ -126,8 +126,8 @@ export const lesson17 = {
           plural: 'قُمْصَانٌ',
           definition: 'A garment for the upper body, typically with a collar, sleeves, and a front opening.',
           examples: [
-            { ar: 'لَوْنُ قَمِيصِي أَزْرَقُ.', en: 'The color of my shirt is blue.' },
-            { ar: 'عِنْدِي قُمْصَانٌ كَثِيرَةٌ.', en: 'I have many shirts.' },
+            { arabic: 'لَوْنُ قَمِيصِي أَزْرَقُ.', english: 'The color of my shirt is blue.' },
+            { arabic: 'عِنْدِي قُمْصَانٌ كَثِيرَةٌ.', english: 'I have many shirts.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'noun', 'clothing'],
@@ -140,8 +140,8 @@ export const lesson17 = {
           type: vocab.WordType.Expression,
           definition: 'The person who is in charge of a company.',
           examples: [
-            { ar: 'هَذَا هُوَ مُدِيرُ الشَّرِكَةِ الْجَدِيدُ.', en: 'This is the new company director.' },
-            { ar: 'تَحَدَّثْتُ مَعَ مُدِيرِ الشَّرِكَةِ.', en: 'I spoke with the company director.' },
+            { arabic: 'هَذَا هُوَ مُدِيرُ الشَّرِكَةِ الْجَدِيدُ.', english: 'This is the new company director.' },
+            { arabic: 'تَحَدَّثْتُ مَعَ مُدِيرِ الشَّرِكَةِ.', english: 'I spoke with the company director.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson17', 'expression', 'business'],

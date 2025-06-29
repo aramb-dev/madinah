@@ -2,7 +2,7 @@ import * as vocab from '../../vocab';
 
 export const lesson4 = {
       id: 'list004',
-      title: { arabic: 'مفردات الدرس الرابع', english: 'Lesson 4 Vocabulary' },
+      title: { ar: 'مفردات الدرس الرابع', en: 'Lesson 4 Vocabulary' },
       description: {
         arabic: 'الكلمات الجديدة في الدرس الرابع.',
         english: 'New words in the fourth lesson.',
@@ -17,7 +17,7 @@ export const lesson4 = {
           id: 'l4-v1',
           word: 'فِي',
           transliteration: '',
-          translation: { english: 'In' },
+          translation: { en: 'In' },
           type: vocab.WordType.Preposition,
           definition: 'In',
           examples: [
@@ -31,7 +31,7 @@ export const lesson4 = {
           id: 'l4-v2',
           word: 'عَلَى',
           transliteration: '',
-          translation: { english: 'On' },
+          translation: { en: 'On' },
           type: vocab.WordType.Preposition,
           definition: 'On',
           examples: [
@@ -45,7 +45,7 @@ export const lesson4 = {
           id: 'l4-v3',
           word: 'أَيْنَ',
           transliteration: '',
-          translation: { english: 'Where' },
+          translation: { en: 'Where' },
           type: vocab.WordType.Pronoun,
           definition: 'Where',
           examples: [
@@ -59,7 +59,7 @@ export const lesson4 = {
           id: 'l4-v4',
           word: 'مُحَمَّدٌ',
           transliteration: '',
-          translation: { english: 'Muhammad' },
+          translation: { en: 'Muhammad' },
           type: vocab.WordType.Noun,
           definition: 'Muhammad',
           examples: [
@@ -73,7 +73,7 @@ export const lesson4 = {
           id: 'l4-v5',
           word: 'هُوَ',
           transliteration: '',
-          translation: { english: 'He' },
+          translation: { en: 'He' },
           type: vocab.WordType.Pronoun,
           definition: 'He',
           examples: [

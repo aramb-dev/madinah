@@ -2,7 +2,7 @@ import * as vocab from '../../vocab';
 
 export const lesson3 = {
       id: 'list003',
-      title: { arabic: 'مفردات الدرس الثالث', english: 'Lesson 3 Vocabulary' },
+      title: { ar: 'مفردات الدرس الثالث', en: 'Lesson 3 Vocabulary' },
       description: {
         arabic: 'الكلمات الجديدة في الدرس الثالث.',
         english: 'New words in the third lesson.',
@@ -17,7 +17,7 @@ export const lesson3 = {
           id: 'l3-v1',
           word: 'الْ',
           transliteration: '',
-          translation: { english: 'The' },
+          translation: { en: 'The' },
           type: vocab.WordType.Particle,
           definition: 'The',
           examples: [
@@ -31,7 +31,7 @@ export const lesson3 = {
           id: 'l3-v2',
           word: 'مَكْسُورٌ',
           transliteration: '',
-          translation: { english: 'Broken' },
+          translation: { en: 'Broken' },
           type: vocab.WordType.Adjective,
           definition: 'Broken',
           examples: [
@@ -45,7 +45,7 @@ export const lesson3 = {
           id: 'l3-v3',
           word: 'مَفْتُوحٌ',
           transliteration: '',
-          translation: { english: 'Open' },
+          translation: { en: 'Open' },
           type: vocab.WordType.Adjective,
           definition: 'Open',
           examples: [
@@ -59,7 +59,7 @@ export const lesson3 = {
           id: 'l3-v4',
           word: 'جَالِسٌ',
           transliteration: '',
-          translation: { english: 'Sitting' },
+          translation: { en: 'Sitting' },
           type: vocab.WordType.Adjective,
           definition: 'Sitting',
           examples: [
@@ -73,7 +73,7 @@ export const lesson3 = {
           id: 'l3-v5',
           word: 'وَاقِفٌ',
           transliteration: '',
-          translation: { english: 'Standing' },
+          translation: { en: 'Standing' },
           type: vocab.WordType.Adjective,
           definition: 'Standing',
           examples: [

@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson5 = {
       id: 'list005',
-      title: { arabic: 'مفردات الدرس الخامس', english: 'Lesson 5 Vocabulary' },
+      title: { ar: 'مفردات الدرس الخامس', en: 'Lesson 5 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الخامس.',
-        english: 'New words in the fifth lesson.',
+        ar: 'الكلمات الجديدة في الدرس الخامس.',
+        en: 'New words in the fifth lesson.',
       },
       bookId: 'book1',
       lessonId: '5',
@@ -17,7 +17,7 @@ export const lesson5 = {
           id: 'l5-v1',
           word: 'يَا ..',
           transliteration: '',
-          translation: { english: 'O..' },
+          translation: { en: 'O..' },
           type: vocab.WordType.Particle,
           definition: 'O..',
           examples: [
@@ -31,7 +31,7 @@ export const lesson5 = {
           id: 'l5-v2',
           word: 'هُنَاكَ',
           transliteration: '',
-          translation: { english: 'There' },
+          translation: { en: 'There' },
           type: vocab.WordType.Adverb,
           definition: 'There',
           examples: [
@@ -45,7 +45,7 @@ export const lesson5 = {
           id: 'l5-v3',
           word: 'هُنَا',
           transliteration: '',
-          translation: { english: 'Here' },
+          translation: { en: 'Here' },
           type: vocab.WordType.Adverb,
           definition: 'Here',
           examples: [
@@ -59,7 +59,7 @@ export const lesson5 = {
           id: 'l5-v4',
           word: 'حَقِيبَةٌ',
           transliteration: '',
-          translation: { english: 'Bag' },
+          translation: { en: 'Bag' },
           type: vocab.WordType.Noun,
           plural: 'حَقَائِبُ',
           definition: 'Bag',
@@ -74,7 +74,7 @@ export const lesson5 = {
           id: 'l5-v5',
           word: 'تَحْتَ',
           transliteration: '',
-          translation: { english: 'Under/beneath' },
+          translation: { en: 'Under/beneath' },
           type: vocab.WordType.Preposition,
           definition: 'Under/beneath',
           examples: [

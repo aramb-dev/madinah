@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson9 = {
   id: 'list009',
-  title: { arabic: 'مفردات الدرس التاسع', english: 'Lesson 9 Vocabulary' },
+  title: { ar: 'مفردات الدرس التاسع', en: 'Lesson 9 Vocabulary' },
   description: {
-    arabic: 'الكلمات الجديدة في الدرس التاسع.',
-    english: 'New words in the ninth lesson.',
+    ar: 'الكلمات الجديدة في الدرس التاسع.',
+    en: 'New words in the ninth lesson.',
   },
   bookId: 'book1',
   lessonId: '9',
@@ -17,7 +17,7 @@ export const lesson9 = {
       id: 'l9-v1',
       word: 'فَاكِهَةٌ',
       transliteration: '',
-      translation: { english: 'Fruit' },
+      translation: { en: 'Fruit' },
       type: vocab.WordType.Noun,
       definition: 'Fruit',
       examples: [
@@ -31,7 +31,7 @@ export const lesson9 = {
       id: 'l9-v2',
       word: 'عُصْفُورٌ',
       transliteration: '',
-      translation: { english: 'Sparrow' },
+      translation: { en: 'Sparrow' },
       type: vocab.WordType.Noun,
       definition: 'Sparrow',
       examples: [
@@ -45,7 +45,7 @@ export const lesson9 = {
       id: 'l9-v3',
       word: 'طَائِرٌ',
       transliteration: '',
-      translation: { english: 'Bird' },
+      translation: { en: 'Bird' },
       type: vocab.WordType.Noun,
       plural: 'طُيُورٌ',
       definition: 'Bird',
@@ -60,7 +60,7 @@ export const lesson9 = {
       id: 'l9-v4',
       word: 'الْعَرَبِيَّةُ',
       transliteration: '',
-      translation: { english: 'Arabic' },
+      translation: { en: 'Arabic' },
       type: vocab.WordType.Noun,
       definition: 'Arabic',
       examples: [
@@ -74,7 +74,7 @@ export const lesson9 = {
       id: 'l9-v5',
       word: 'لُغَةٌ',
       transliteration: '',
-      translation: { english: 'Language' },
+      translation: { en: 'Language' },
       type: vocab.WordType.Noun,
       plural: 'لُغَاتٌ',
       definition: 'Language',

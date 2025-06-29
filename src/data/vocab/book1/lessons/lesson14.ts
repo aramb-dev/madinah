@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson14 = {
       id: 'list014',
-      title: { arabic: 'مفردات الدرس الرابع عشر', english: 'Lesson 14 Vocabulary' },
+      title: { ar: 'مفردات الدرس الرابع عشر', en: 'Lesson 14 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الرابع عشر.',
-        english: 'New words in the fourteenth lesson.',
+        ar: 'الكلمات الجديدة في الدرس الرابع عشر.',
+        en: 'New words in the fourteenth lesson.',
       },
       bookId: 'book1',
       lessonId: '14',
@@ -17,7 +17,7 @@ export const lesson14 = {
           id: 'l14-v1',
           word: 'أَنْتُمْ',
           transliteration: '',
-          translation: { english: 'You (pl.m)' },
+          translation: { en: 'You (pl.m)' },
           type: vocab.WordType.Pronoun,
           definition: 'You (pl.m)',
           examples: [
@@ -31,7 +31,7 @@ export const lesson14 = {
           id: 'l14-v2',
           word: 'كُمْ',
           transliteration: '',
-          translation: { english: 'Your (pl.m) (attached pronoun)' },
+          translation: { en: 'Your (pl.m) (attached pronoun)' },
           type: vocab.WordType.Pronoun,
           definition: 'Your (pl.m) (attached pronoun)',
           examples: [
@@ -45,7 +45,7 @@ export const lesson14 = {
           id: 'l14-v3',
           word: 'نَحْنُ',
           transliteration: '',
-          translation: { english: 'We' },
+          translation: { en: 'We' },
           type: vocab.WordType.Pronoun,
           definition: 'We',
           examples: [
@@ -59,7 +59,7 @@ export const lesson14 = {
           id: 'l14-v4',
           word: 'بَيْتُنَا',
           transliteration: '',
-          translation: { english: 'Our house' },
+          translation: { en: 'Our house' },
           type: vocab.WordType.Expression,
           definition: 'Our house',
           examples: [
@@ -73,7 +73,7 @@ export const lesson14 = {
           id: 'l14-v5',
           word: 'الله رَبُّنَا',
           transliteration: '',
-          translation: { english: 'Allah is our Lord' },
+          translation: { en: 'Allah is our Lord' },
           type: vocab.WordType.Expression,
           definition: 'Allah is our Lord',
           examples: [
@@ -87,7 +87,7 @@ export const lesson14 = {
           id: 'l14-v6',
           word: 'الْإِسْلَامُ دِينُنَا',
           transliteration: '',
-          translation: { english: 'Islam is our religion' },
+          translation: { en: 'Islam is our religion' },
           type: vocab.WordType.Expression,
           definition: 'Islam is our religion',
           examples: [
@@ -101,7 +101,7 @@ export const lesson14 = {
           id: 'l14-v7',
           word: 'محَمَّدٌ نَبِيُّنَا',
           transliteration: '',
-          translation: { english: 'Muhammad is our prophet' },
+          translation: { en: 'Muhammad is our prophet' },
           type: vocab.WordType.Expression,
           definition: 'Muhammad is our prophet',
           examples: [
@@ -115,7 +115,7 @@ export const lesson14 = {
           id: 'l14-v8',
           word: 'ذَهَبْتُمْ',
           transliteration: '',
-          translation: { english: 'You went (pl.m)' },
+          translation: { en: 'You went (pl.m)' },
           type: vocab.WordType.Verb,
           definition: 'You went (pl.m)',
           examples: [
@@ -129,7 +129,7 @@ export const lesson14 = {
           id: 'l14-v9',
           word: 'بَلَدٌ',
           transliteration: '',
-          translation: { english: 'Country' },
+          translation: { en: 'Country' },
           type: vocab.WordType.Noun,
           plural: 'بلاد',
           definition: 'Country',
@@ -144,7 +144,7 @@ export const lesson14 = {
           id: 'l14-v10',
           word: 'مَطَارٌ',
           transliteration: '',
-          translation: { english: 'Airport' },
+          translation: { en: 'Airport' },
           type: vocab.WordType.Noun,
           definition: 'Airport',
           examples: [
@@ -158,7 +158,7 @@ export const lesson14 = {
           id: 'l14-v11',
           word: 'الزِّيَارَةُ',
           transliteration: '',
-          translation: { english: 'To visit' },
+          translation: { en: 'To visit' },
           type: vocab.WordType.Verb,
           definition: 'To visit',
           examples: [
@@ -172,7 +172,7 @@ export const lesson14 = {
           id: 'l14-v12',
           word: 'أَيُّ',
           transliteration: '',
-          translation: { english: 'Which?' },
+          translation: { en: 'Which?' },
           type: vocab.WordType.Pronoun,
           definition: 'Which?',
           examples: [
@@ -186,7 +186,7 @@ export const lesson14 = {
           id: 'l14-v13',
           word: 'كُلِّيَّةٌ',
           transliteration: '',
-          translation: { english: 'Faculty/college' },
+          translation: { en: 'Faculty/college' },
           type: vocab.WordType.Noun,
           plural: 'كليات',
           definition: 'Faculty/college',
@@ -201,7 +201,7 @@ export const lesson14 = {
           id: 'l14-v14',
           word: 'كُلِّيَّةُ الطِّبِّ',
           transliteration: '',
-          translation: { english: 'The faculty of medicine' },
+          translation: { en: 'The faculty of medicine' },
           type: vocab.WordType.Expression,
           definition: 'The faculty of medicine',
           examples: [
@@ -215,7 +215,7 @@ export const lesson14 = {
           id: 'l14-v15',
           word: 'كُلِيَّةُ الهَنْدَسَة',
           transliteration: '',
-          translation: { english: 'The faculty of engineering' },
+          translation: { en: 'The faculty of engineering' },
           type: vocab.WordType.Expression,
           definition: 'The faculty of engineering',
           examples: [
@@ -229,7 +229,7 @@ export const lesson14 = {
           id: 'l14-v16',
           word: 'كُلِيَّةُ التَّجَارَةِ',
           transliteration: '',
-          translation: { english: 'The faculty of commerce' },
+          translation: { en: 'The faculty of commerce' },
           type: vocab.WordType.Expression,
           definition: 'The faculty of commerce',
           examples: [
@@ -243,7 +243,7 @@ export const lesson14 = {
           id: 'l14-v17',
           word: 'كُلِّيَّةُ الشَّرِيعَةِ',
           transliteration: '',
-          translation: { english: 'The faculty of Islamic law' },
+          translation: { en: 'The faculty of Islamic law' },
           type: vocab.WordType.Expression,
           definition: 'The faculty of Islamic law',
           examples: [
@@ -257,7 +257,7 @@ export const lesson14 = {
           id: 'l14-v18',
           word: 'نَصْرَانِي',
           transliteration: '',
-          translation: { english: 'Christian' },
+          translation: { en: 'Christian' },
           type: vocab.WordType.Noun,
           plural: 'نَصَارَى',
           definition: 'Christian',
@@ -272,7 +272,7 @@ export const lesson14 = {
           id: 'l14-v19',
           word: 'شَفَاهُ الله',
           transliteration: '',
-          translation: { english: 'May Allah cure him' },
+          translation: { en: 'May Allah cure him' },
           type: vocab.WordType.Expression,
           definition: 'May Allah cure him',
           examples: [
@@ -286,7 +286,7 @@ export const lesson14 = {
           id: 'l14-v20',
           word: 'مَحْكَمَةٌ',
           transliteration: '',
-          translation: { english: 'Law court' },
+          translation: { en: 'Law court' },
           type: vocab.WordType.Noun,
           definition: 'Law court',
           examples: [
@@ -300,7 +300,7 @@ export const lesson14 = {
           id: 'l14-v21',
           word: 'حَفِيدٌ',
           transliteration: '',
-          translation: { english: 'Grandson' },
+          translation: { en: 'Grandson' },
           type: vocab.WordType.Noun,
           plural: 'حَفَدَةٌ',
           definition: 'Grandson',
@@ -315,7 +315,7 @@ export const lesson14 = {
           id: 'l14-v22',
           word: 'رَبِّ',
           transliteration: '',
-          translation: { english: 'Lord' },
+          translation: { en: 'Lord' },
           type: vocab.WordType.Noun,
           definition: 'Lord',
           examples: [
@@ -329,7 +329,7 @@ export const lesson14 = {
           id: 'l14-v23',
           word: 'يَوْمُ السَّبْت',
           transliteration: '',
-          translation: { english: 'Saturday' },
+          translation: { en: 'Saturday' },
           type: vocab.WordType.Noun,
           definition: 'Saturday',
           examples: [
@@ -343,7 +343,7 @@ export const lesson14 = {
           id: 'l14-v24',
           word: 'شَهْرٌ',
           transliteration: '',
-          translation: { english: 'Month' },
+          translation: { en: 'Month' },
           type: vocab.WordType.Noun,
           definition: 'Month',
           examples: [
@@ -357,7 +357,7 @@ export const lesson14 = {
           id: 'l14-v25',
           word: 'إِبْرَاهِيمُ',
           transliteration: '',
-          translation: { english: 'Ibraheem' },
+          translation: { en: 'Ibraheem' },
           type: vocab.WordType.Noun,
           definition: 'Ibraheem',
           examples: [

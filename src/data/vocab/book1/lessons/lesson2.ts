@@ -17,7 +17,7 @@ export const lesson2 = {
           id: 'l2-v1',
           word: 'ذَلِكَ',
           transliteration: '',
-          translation: { english: 'That' },
+          translation: { en: 'That' },
           type: vocab.WordType.Pronoun,
           definition: 'That',
           examples: [
@@ -31,7 +31,7 @@ export const lesson2 = {
           id: 'l2-v2',
           word: 'مَا ذَلِكَ؟',
           transliteration: '',
-          translation: { english: 'What is that?' },
+          translation: { en: 'What is that?' },
           type: vocab.WordType.Expression,
           definition: 'What is that?',
           examples: [
@@ -45,7 +45,7 @@ export const lesson2 = {
           id: 'l2-v3',
           word: 'أَذَلِكَ..؟',
           transliteration: '',
-          translation: { english: 'Is that..?' },
+          translation: { en: 'Is that..?' },
           type: vocab.WordType.Expression,
           definition: 'Is that..?',
           examples: [

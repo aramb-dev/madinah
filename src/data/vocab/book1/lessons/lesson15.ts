@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson15 = {
       id: 'list015',
-      title: { arabic: 'مفردات الدرس الخامس عشر', english: 'Lesson 15 Vocabulary' },
+      title: { ar: 'مفردات الدرس الخامس عشر', en: 'Lesson 15 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الخامس عشر.',
-        english: 'New words in the fifteenth lesson.',
+        ar: 'الكلمات الجديدة في الدرس الخامس عشر.',
+        en: 'New words in the fifteenth lesson.',
       },
       bookId: 'book1',
       lessonId: '15',
@@ -17,7 +17,7 @@ export const lesson15 = {
           id: 'l15-v1',
           word: 'أَنْتُنَّ',
           transliteration: 'antunna',
-          translation: { english: 'You (pl.f)' },
+          translation: { en: 'You (pl.f)' },
           type: vocab.WordType.Pronoun,
           definition: 'A detached pronoun for the second person plural feminine.',
           examples: [
@@ -31,7 +31,7 @@ export const lesson15 = {
           id: 'l15-v2',
           word: '-كُنَّ',
           transliteration: '-kunna',
-          translation: { english: 'Your (pl.f)' },
+          translation: { en: 'Your (pl.f)' },
           type: vocab.WordType.Pronoun,
           definition: 'An attached pronoun for the second person plural feminine, indicating possession.',
           examples: [
@@ -45,7 +45,7 @@ export const lesson15 = {
           id: 'l15-v3',
           word: 'ذَهَبَتْ',
           transliteration: 'dhahabat',
-          translation: { english: 'She went' },
+          translation: { en: 'She went' },
           type: vocab.WordType.Verb,
           definition: 'The past tense verb (went) for the third person singular feminine.',
           examples: [
@@ -59,7 +59,7 @@ export const lesson15 = {
           id: 'l15-v4',
           word: 'ذَهَبْنَ',
           transliteration: 'dhahabna',
-          translation: { english: 'They went (f.pl)' },
+          translation: { en: 'They went (f.pl)' },
           type: vocab.WordType.Verb,
           definition: 'The past tense verb (went) for the third person plural feminine.',
           examples: [
@@ -73,7 +73,7 @@ export const lesson15 = {
           id: 'l15-v5',
           word: 'قَبْلَ',
           transliteration: 'qabla',
-          translation: { english: 'Before' },
+          translation: { en: 'Before' },
           type: vocab.WordType.Adverb,
           definition: 'An adverb of time indicating that an action occurred prior to another.',
           examples: [
@@ -87,7 +87,7 @@ export const lesson15 = {
           id: 'l15-v6',
           word: 'بَعْدَ',
           transliteration: 'ba`da',
-          translation: { english: 'After' },
+          translation: { en: 'After' },
           type: vocab.WordType.Adverb,
           definition: 'An adverb of time indicating that an action occurred subsequent to another.',
           examples: [
@@ -101,7 +101,7 @@ export const lesson15 = {
           id: 'l15-v7',
           word: 'كَيْفَ',
           transliteration: 'kayfa',
-          translation: { english: 'How' },
+          translation: { en: 'How' },
           type: vocab.WordType.Noun,
           definition: 'An interrogative particle used to ask about the state or manner of something.',
           examples: [
@@ -115,7 +115,7 @@ export const lesson15 = {
           id: 'l15-v8',
           word: 'مَتَى',
           transliteration: 'matā',
-          translation: { english: 'When' },
+          translation: { en: 'When' },
           type: vocab.WordType.Noun,
           definition: 'An interrogative particle used to ask about time.',
           examples: [
@@ -129,7 +129,7 @@ export const lesson15 = {
           id: 'l15-v9',
           word: 'رَجَعَ',
           transliteration: 'raja`a',
-          translation: { english: 'He returned' },
+          translation: { en: 'He returned' },
           type: vocab.WordType.Verb,
           definition: 'The past tense verb (returned) for the third person singular masculine.',
           examples: [
@@ -143,7 +143,7 @@ export const lesson15 = {
           id: 'l15-v10',
           word: 'أَذَانٌ',
           transliteration: 'adhān',
-          translation: { english: 'Adhan' },
+          translation: { en: 'Adhan' },
           type: vocab.WordType.Noun,
           definition: 'The Islamic call to prayer.',
           examples: [
@@ -157,7 +157,7 @@ export const lesson15 = {
           id: 'l15-v11',
           word: 'اخْتِبَارٌ',
           transliteration: 'ikhtibār',
-          translation: { english: 'Examination' },
+          translation: { en: 'Examination' },
           type: vocab.WordType.Noun,
           plural: 'اخْتِبَارَاتٌ',
           definition: 'A test of knowledge or ability; an examination.',
@@ -172,7 +172,7 @@ export const lesson15 = {
           id: 'l15-v12',
           word: 'أُسْبُوعٌ',
           transliteration: 'usbū`',
-          translation: { english: 'Week' },
+          translation: { en: 'Week' },
           type: vocab.WordType.Noun,
           plural: 'أَسَابِيعُ',
           definition: 'A period of seven days.',
@@ -187,7 +187,7 @@ export const lesson15 = {
           id: 'l15-v13',
           word: 'دَرْسٌ',
           transliteration: 'dars',
-          translation: { english: 'Lesson' },
+          translation: { en: 'Lesson' },
           type: vocab.WordType.Noun,
           plural: 'دُرُوسٌ',
           definition: 'A period of time in which a person is taught about a subject or how to do something.',
