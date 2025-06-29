@@ -1,4 +1,4 @@
-import { getVocabByBookId } from '@/data/vocab/books';
+import { getVocabByBookId } from '@/data/vocab';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 

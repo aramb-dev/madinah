@@ -1,4 +1,4 @@
-import { getVocabByBookId } from '@/data/vocab/books';
+import { getVocabByBookId } from '@/data/vocab';
 import { notFound } from 'next/navigation';
 
 export default function LessonVocabularyPage({
