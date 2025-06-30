@@ -78,7 +78,7 @@ export const lesson4 = {
           definition: 'He',
           examples: [
             { arabic: 'هُوَ مُهَنْدِسٌ.', english: 'He is an engineer.' },
-            { arabic: 'هُوَ فِي الْمَسْجِدِ.', english: 'He is in the mosque.' },
+            { arabic: 'هُوَ فِي الْمَسْجِدِ.', english: 'He is in the masjid.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson4'],

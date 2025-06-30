@@ -63,7 +63,7 @@ export const lesson14 = {
           type: vocab.WordType.Expression,
           definition: 'Our house',
           examples: [
-            { arabic: 'بَيْتُنَا أَمَامَ الْمَسْجِدِ.', english: 'Our house is in front of the mosque.' },
+            { arabic: 'بَيْتُنَا أَمَامَ الْمَسْجِدِ.', english: 'Our house is in front of the masjid.' },
             { arabic: 'هَذَا بَيْتُنَا.', english: 'This is our house.' }
           ],
           difficulty: vocab.DifficultyLevel.Beginner,

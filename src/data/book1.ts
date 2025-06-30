@@ -908,7 +908,7 @@ export const book1Data: Book = {
           arabicText:
             'صِيغَةُ مُنْتَهَى الْجُمُوعِ الَّتِي عَلَى وَزْنِ (مَفَاعِلَ)، مِثْلُ: مَسَاجِدُ، مَدَارِسُ، مَعَاهِدُ، فَنَادِقُ.',
           explanation:
-            'The "plural of multitude" pattern (صِيغَةُ مُنْتَهَى الْجُمُوعِ) on the pattern of (مَفَاعِلُ), e.g., مَسَاجِدُ (masājid - mosques), مَدَارِسُ (madāris - schools), مَعَاهِدُ (maʿāhid - institutes), فَنَادِقُ (fanādiq - hotels).',
+            'The "plural of multitude" pattern (صِيغَةُ مُنْتَهَى الْجُمُوعِ) on the pattern of (مَفَاعِلُ), e.g., مَسَاجِدُ (masājid - masjids), مَدَارِسُ (madāris - schools), مَعَاهِدُ (maʿāhid - institutes), فَنَادِقُ (fanādiq - hotels).',
         },
         {
           name: '١٠- صِيغَةُ مُنْتَهَى الْجُمُوعِ - مَفَاعِيلُ (Plural of Multitude Pattern - mafāʻīlu)',

@@ -36,7 +36,7 @@ export const lesson5 = {
           definition: 'There',
           examples: [
             { arabic: 'الْكِتَابُ هُنَاكَ.', english: 'The book is there.' },
-            { arabic: 'الْمَسْجِدُ هُنَاكَ.', english: 'The mosque is there.' },
+            { arabic: 'الْمَسْجِدُ هُنَاكَ.', english: 'The masjid is there.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson5'],

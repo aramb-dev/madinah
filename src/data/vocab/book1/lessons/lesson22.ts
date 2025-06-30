@@ -196,7 +196,7 @@ export const lesson22 = {
           type: vocab.WordType.Expression,
           definition: 'The sixth day of the week, a holy day for Muslims.',
           examples: [
-            { arabic: 'يَذْهَبُ الْمُسْلِمُونَ إِلَى الْمَسْجِدِ لِصَلَاةِ الْجُمُعَةِ.', english: 'Muslims go to the mosque for Friday prayer.' },
+            { arabic: 'يَذْهَبُ الْمُسْلِمُونَ إِلَى الْمَسْجِدِ لِصَلَاةِ الْجُمُعَةِ.', english: 'Muslims go to the masjid for Friday prayer.' },
             { arabic: 'يَوْمُ الْجُمُعَةِ يَوْمٌ مُبَارَكٌ.', english: 'Friday is a blessed day.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,

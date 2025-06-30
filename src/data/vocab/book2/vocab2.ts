@@ -312,7 +312,7 @@ export const vocabularyItems: VocabularyItem[] = [
     translation: { en: 'Minaret' },
     type: WordType.Noun,
     plural: 'مَنَائِر',
-    definition: 'A tall slender tower, typically part of a mosque, with a balcony from which a muezzin calls Muslims to prayer.',
+    definition: 'A tall slender tower, typically part of a masjid, with a balcony from which a muezzin calls Muslims to prayer.',
     examples: [],
     difficulty: 'intermediate',
     tags: ['lesson1', 'building'],

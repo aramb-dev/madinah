@@ -210,7 +210,7 @@ export const lesson12 = {
           type: vocab.WordType.Adverb,
           definition: 'After',
           examples: [
-            { arabic: 'خَرَجَ الْمُصَلُّونَ مِنَ الْمَسْجِدِ بَعْدَ الصَّلَاةِ.', english: 'The worshipers left the mosque after the prayer.' },
+            { arabic: 'خَرَجَ الْمُصَلُّونَ مِنَ الْمَسْجِدِ بَعْدَ الصَّلَاةِ.', english: 'The worshipers left the masjid after the prayer.' },
             { arabic: 'بَعْدَ الظُّهْرِ ذَهَبْتُ إِلَى الْمَكْتَبَةِ.', english: 'After Dhuhr, I went to the library.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -257,7 +257,7 @@ export const lesson12 = {
           definition: 'Scholar',
           examples: [
             { arabic: 'الْإِمَامُ الْبُخَارِيُّ شَيْخٌ عَظِيمٌ.', english: 'Imam al-Bukhari is a great scholar.' },
-            { arabic: 'الْتَقَيْتُ بِشَيْخٍ جَلِيلٍ فِي الْمَسْجِدِ.', english: 'I met a venerable scholar in the mosque.' }
+            { arabic: 'الْتَقَيْتُ بِشَيْخٍ جَلِيلٍ فِي الْمَسْجِدِ.', english: 'I met a venerable scholar in the masjid.' }
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson12'],

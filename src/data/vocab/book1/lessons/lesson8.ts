@@ -21,7 +21,7 @@ export const lesson8 = {
       type: vocab.WordType.Adverb,
       definition: 'Behind',
       examples: [
-        { arabic: 'الْمَسْجِدُ خَلْفَ الْبَيْتِ.', english: 'The mosque is behind the house.' },
+        { arabic: 'الْمَسْجِدُ خَلْفَ الْبَيْتِ.', english: 'The masjid is behind the house.' },
         { arabic: 'الْوَلَدُ خَلْفَ الشَّجَرَةِ.', english: 'The boy is behind the tree.' },
       ],
       difficulty: vocab.DifficultyLevel.Beginner,

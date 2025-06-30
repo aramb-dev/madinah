@@ -49,7 +49,7 @@ export const lesson16 = {
           type: vocab.WordType.Noun,
           definition: 'The plural of بَابٌ (door).',
           examples: [
-            { arabic: 'أَبْوَابُ الْمَسْجِدِ مَفْتُوحَةٌ.', english: 'The doors of the mosque are open.' },
+            { arabic: 'أَبْوَابُ الْمَسْجِدِ مَفْتُوحَةٌ.', english: 'The doors of the masjid are open.' },
             { arabic: 'أَغْلِقُوا الْأَبْوَابَ مِنْ فَضْلِكُمْ.', english: 'Please close the doors.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,

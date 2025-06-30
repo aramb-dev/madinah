@@ -124,14 +124,14 @@ export const madinahBook2: BookVocabulary = {
           id: 'b2l1v5',
           word: 'مَسْجِدٌ',
           transliteration: 'masjidun',
-          translation: { en: 'Mosque' },
+          translation: { en: 'Masjid' },
           type: WordType.Noun,
           gender: Gender.Masculine,
           definition: 'A Muslim place of worship.',
           examples: [
             {
               arabic: 'الْمَسْجِدُ قَرِيبٌ مِنْ بَيْتِي.',
-              english: 'The mosque is close to my house.',
+              english: 'The masjid is close to my house.',
             },
           ],
           difficulty: DifficultyLevel.Intermediate,
@@ -501,7 +501,7 @@ export const madinahBook2: BookVocabulary = {
           type: WordType.Noun,
           plural: 'مَنَائِر',
           definition:
-            'A tall slender tower, typically part of a mosque, with a balcony from which a muezzin calls Muslims to prayer.',
+            'A tall slender tower, typically part of a masjid, with a balcony from which a muezzin calls Muslims to prayer.',
           examples: [],
           difficulty: DifficultyLevel.Intermediate,
           tags: ['lesson1', 'building'],

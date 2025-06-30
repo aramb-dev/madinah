@@ -79,7 +79,7 @@ export const lesson13 = {
           definition: 'Pilgrim',
           examples: [
             { arabic: 'الْحَاجُّ قَادِمٌ مِنْ مَكَّةَ.', english: 'The pilgrim is coming from Makkah.' },
-            { arabic: 'الْحُجَّاجُ فِي الْمَسْجِدِ الْحَرَامِ.', english: 'The pilgrims are in the Sacred Mosque.' },
+            { arabic: 'الْحُجَّاجُ فِي الْمَسْجِدِ الْحَرَامِ.', english: 'The pilgrims are in the Sacred Masjid.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson13'],
@@ -92,7 +92,7 @@ export const lesson13 = {
           type: vocab.WordType.Noun,
           definition: 'Men',
           examples: [
-            { arabic: 'الرِّجَالُ فِي الْمَسْجِدِ.', english: 'The men are in the mosque.' },
+            { arabic: 'الرِّجَالُ فِي الْمَسْجِدِ.', english: 'The men are in the masjid.' },
             { arabic: 'هَؤُلَاءِ رِجَالٌ أَقْوِيَاءُ.', english: 'These are strong men.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -149,7 +149,7 @@ export const lesson13 = {
           definition: 'Tall (pl.m/f)',
           examples: [
             { arabic: 'هَذَا رَجُلٌ طَوِيلٌ.', english: 'This is a tall man.' },
-            { arabic: 'الرِّجَالُ الطِّوَالُ يَعْمَلُونَ فِي الْمَسْجِدِ.', english: 'The tall men work in the mosque.' },
+            { arabic: 'الرِّجَالُ الطِّوَالُ يَعْمَلُونَ فِي الْمَسْجِدِ.', english: 'The tall men work in the masjid.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
           tags: ['lesson13'],
@@ -386,7 +386,7 @@ export const lesson13 = {
           type: vocab.WordType.Noun,
           definition: 'Muslims',
           examples: [
-            { arabic: 'الْمُسْلِمُونَ يُصَلُّونَ فِي الْمَسْجِدِ.', english: 'Muslims pray in the mosque.' },
+            { arabic: 'الْمُسْلِمُونَ يُصَلُّونَ فِي الْمَسْجِدِ.', english: 'Muslims pray in the masjid.' },
             { arabic: 'نَحْنُ مُسْلِمُونَ.', english: 'We are Muslims.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,
@@ -553,7 +553,7 @@ export const lesson13 = {
           type: vocab.WordType.Noun,
           definition: 'People',
           examples: [
-            { arabic: 'النَّاسُ يَخْرُجُونَ مِنَ الْمَسْجِدِ.', english: 'The people are coming out of the mosque.' },
+            { arabic: 'النَّاسُ يَخْرُجُونَ مِنَ الْمَسْجِدِ.', english: 'The people are coming out of the masjid.' },
             { arabic: 'كَثِيرٌ مِنَ النَّاسِ يُحِبُّونَ الْقَهْوَةَ.', english: 'Many people like coffee.' },
           ],
           difficulty: vocab.DifficultyLevel.Beginner,

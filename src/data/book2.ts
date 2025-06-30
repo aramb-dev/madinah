@@ -853,7 +853,7 @@ export const book2Data: Book = {
           arabicText:
             'حَرْفُ جَرٍّ يُفِيدُ التَّشْبِيهَ. هَذِهِ الْمَدْرَسَةُ كَالْمَسْجِدِ. أَنْتَ كَالْأَسَدِ.',
           explanation:
-            'The particle "كَـ" (ka-) is a preposition meaning "like" or "as", used for making comparisons. Examples: "This school is like the mosque." "You are like a lion."',
+            'The particle "كَـ" (ka-) is a preposition meaning "like" or "as", used for making comparisons. Examples: "This school is like the masjid." "You are like a lion."',
         },
         {
           name: 'The Five Verbs (الْأَفْعَالُ الْخَمْسَةُ - Definition Review)',
