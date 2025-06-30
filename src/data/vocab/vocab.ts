@@ -189,10 +189,10 @@ export interface VocabularyList {
   /** Description of the vocabulary list */
   description: {
     /** Arabic description */
-    arabic: string;
+    ar: string;
 
     /** English description */
-    english: string;
+    en: string;
   };
 
   /** Optional book identifier */
@@ -233,10 +233,10 @@ export interface BookVocabulary {
   /** Book description */
   description?: {
     /** Arabic description */
-    arabic?: string;
+    ar?: string;
 
     /** English description */
-    english?: string;
+    en?: string;
   };
 
   /**
@@ -257,9 +257,7 @@ export interface BookVocabulary {
  */
 export function organizeItemsIntoLists(
   items: VocabularyItem[],
-  bookId: string,
-  bookTitle: { ar: string; en: string }
-): VocabularyList[] {
+  bookId: string): VocabularyList[] {
   // Group items by lesson
   const lessonGroups = items.reduce(
     (groups, item) => {
@@ -282,8 +280,8 @@ export function organizeItemsIntoLists(
         en: `Lesson ${lessonId} Vocabulary`,
       },
       description: {
-        arabic: `الكلمات الجديدة في الدرس ${lessonId}.`,
-        english: `New words in lesson ${lessonId}.`,
+        ar: `الكلمات الجديدة في الدرس ${lessonId}.`,
+        en: `New words in lesson ${lessonId}.`,
       },
       bookId,
       lessonId,

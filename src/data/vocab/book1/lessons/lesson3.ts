@@ -4,8 +4,8 @@ export const lesson3 = {
       id: 'list003',
       title: { ar: 'مفردات الدرس الثالث', en: 'Lesson 3 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الثالث.',
-        english: 'New words in the third lesson.',
+        ar: 'الكلمات الجديدة في الدرس الثالث.',
+        en: 'New words in the third lesson.',
       },
       bookId: 'book1',
       lessonId: '3',

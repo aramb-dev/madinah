@@ -2,10 +2,10 @@ import * as vocab from '../../vocab';
 
 export const lesson2 = {
       id: 'list002',
-      title: { arabic: 'مفردات الدرس الثاني', english: 'Lesson 2 Vocabulary' },
+      title: { ar: 'مفردات الدرس الثاني', en: 'Lesson 2 Vocabulary' },
       description: {
-        arabic: 'الكلمات الجديدة في الدرس الثاني.',
-        english: 'New words in the second lesson.',
+        ar: 'الكلمات الجديدة في الدرس الثاني.',
+        en: 'New words in the second lesson.',
       },
       bookId: 'book1',
       lessonId: '2',
