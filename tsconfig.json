@@ -36,6 +36,8 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/data/vocab/book2",
+    "src/data/vocab/book3"
   ]
 }
