@@ -1,0 +1,87 @@
+import * as vocab from '../../vocab';
+
+export const lesson3 = {
+      id: 'list003',
+      title: { ar: 'مفردات الدرس الثالث', en: 'Lesson 3 Vocabulary' },
+      description: {
+        ar: 'الكلمات الجديدة في الدرس الثالث.',
+        en: 'New words in the third lesson.',
+      },
+      bookId: 'book1',
+      lessonId: '3',
+      level: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson3', 'adjectives', 'objects'],
+      order: 3,
+      items: [
+        {
+          id: 'l3-v1',
+          word: 'الْ',
+          transliteration: '',
+          translation: { en: 'The' },
+          type: vocab.WordType.Particle,
+          definition: 'The',
+          examples: [
+            { arabic: 'الْبَيْتُ جَدِيدٌ.', english: 'The house is new.' },
+            { arabic: 'الْقَلَمُ مَكْسُورٌ.', english: 'The pen is broken.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson3'],
+        },
+        {
+          id: 'l3-v2',
+          word: 'مَكْسُورٌ',
+          transliteration: '',
+          translation: { en: 'Broken' },
+          type: vocab.WordType.Adjective,
+          definition: 'Broken',
+          examples: [
+            { arabic: 'الْكُرْسِيُّ مَكْسُورٌ.', english: 'The chair is broken.' },
+            { arabic: 'الْقَلَمُ مَكْسُورٌ.', english: 'The pen is broken.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson3'],
+        },
+        {
+          id: 'l3-v3',
+          word: 'مَفْتُوحٌ',
+          transliteration: '',
+          translation: { en: 'Open' },
+          type: vocab.WordType.Adjective,
+          definition: 'Open',
+          examples: [
+            { arabic: 'الْبَابُ مَفْتُوحٌ.', english: 'The door is open.' },
+            { arabic: 'الدُّكَانُ مَفْتُوحٌ.', english: 'The shop is open.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson3'],
+        },
+        {
+          id: 'l3-v4',
+          word: 'جَالِسٌ',
+          transliteration: '',
+          translation: { en: 'Sitting' },
+          type: vocab.WordType.Adjective,
+          definition: 'Sitting',
+          examples: [
+            { arabic: 'الْوَلَدُ جَالِسٌ.', english: 'The boy is sitting.' },
+            { arabic: 'الْمُدَرِّسُ جَالِسٌ.', english: 'The teacher is sitting.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson3'],
+        },
+        {
+          id: 'l3-v5',
+          word: 'وَاقِفٌ',
+          transliteration: '',
+          translation: { en: 'Standing' },
+          type: vocab.WordType.Adjective,
+          definition: 'Standing',
+          examples: [
+            { arabic: 'الرَّجُلُ وَاقِفٌ.', english: 'The man is standing.' },
+            { arabic: 'الطَّبِيبُ وَاقِفٌ.', english: 'The doctor is standing.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson3'],
+        },
+      ],
+    }

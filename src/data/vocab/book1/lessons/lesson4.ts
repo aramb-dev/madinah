@@ -1,0 +1,87 @@
+import * as vocab from '../../vocab';
+
+export const lesson4 = {
+      id: 'list004',
+      title: { ar: 'مفردات الدرس الرابع', en: 'Lesson 4 Vocabulary' },
+      description: {
+        ar: 'الكلمات الجديدة في الدرس الرابع.',
+        en: 'New words in the fourth lesson.',
+      },
+      bookId: 'book1',
+      lessonId: '4',
+      level: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson4', 'places', 'people', 'prepositions'],
+      order: 4,
+      items: [
+        {
+          id: 'l4-v1',
+          word: 'فِي',
+          transliteration: '',
+          translation: { en: 'In' },
+          type: vocab.WordType.Preposition,
+          definition: 'In',
+          examples: [
+            { arabic: 'الْكِتَابُ فِي الْحَقِيبَةِ.', english: 'The book is in the bag.' },
+            { arabic: 'الطَّالِبُ فِي الْفَصْلِ.', english: 'The student is in the classroom.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson4'],
+        },
+        {
+          id: 'l4-v2',
+          word: 'عَلَى',
+          transliteration: '',
+          translation: { en: 'On' },
+          type: vocab.WordType.Preposition,
+          definition: 'On',
+          examples: [
+            { arabic: 'الْقَلَمُ عَلَى الْمَكْتَبِ.', english: 'The pen is on the desk.' },
+            { arabic: 'الْكِتَابُ عَلَى السَّرِيرِ.', english: 'The book is on the bed.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson4'],
+        },
+        {
+          id: 'l4-v3',
+          word: 'أَيْنَ',
+          transliteration: '',
+          translation: { en: 'Where' },
+          type: vocab.WordType.Pronoun,
+          definition: 'Where',
+          examples: [
+            { arabic: 'أَيْنَ الْكِتَابُ؟', english: 'Where is the book?' },
+            { arabic: 'أَيْنَ مُحَمَّدٌ؟', english: 'Where is Muhammad?' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson4'],
+        },
+        {
+          id: 'l4-v4',
+          word: 'مُحَمَّدٌ',
+          transliteration: '',
+          translation: { en: 'Muhammad' },
+          type: vocab.WordType.Noun,
+          definition: 'Muhammad',
+          examples: [
+            { arabic: 'هَذَا مُحَمَّدٌ.', english: 'This is Muhammad.' },
+            { arabic: 'مُحَمَّدٌ طَبِيبٌ.', english: 'Muhammad is a doctor.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson4', 'name'],
+        },
+        {
+          id: 'l4-v5',
+          word: 'هُوَ',
+          transliteration: '',
+          translation: { en: 'He' },
+          type: vocab.WordType.Pronoun,
+          definition: 'He',
+          examples: [
+            { arabic: 'هُوَ مُهَنْدِسٌ.', english: 'He is an engineer.' },
+            { arabic: 'هُوَ فِي الْمَسْجِدِ.', english: 'He is in the masjid.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson4'],
+        },
+      ],
+    }

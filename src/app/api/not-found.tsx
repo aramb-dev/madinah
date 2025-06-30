@@ -11,15 +11,15 @@ export default function APINotFound() {
         books: '/api/books',
         lessons: '/api/lessons',
         metadata: '/api/metadata',
-        lessonTitles: '/api/lesson-titles'
+        lessonTitles: '/api/lesson-titles',
       },
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     },
-    { 
+    {
       status: 404,
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     }
   );
 }

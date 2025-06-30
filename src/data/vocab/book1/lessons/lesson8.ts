@@ -1,0 +1,88 @@
+import * as vocab from '../../vocab';
+
+export const lesson8 = {
+  id: 'list008',
+  title: { ar: 'مفردات الدرس الثامن', en: 'Lesson 8 Vocabulary' },
+  description: {
+    ar: 'الكلمات الجديدة في الدرس الثامن.',
+    en: 'New words in the eighth lesson.',
+  },
+  bookId: 'book1',
+  lessonId: '8',
+  level: vocab.DifficultyLevel.Beginner,
+  tags: ['lesson8', 'places', 'countries'],
+  order: 8,
+  items: [
+    {
+      id: 'l8-v1',
+      word: 'خَلْفَ',
+      transliteration: '',
+      translation: { en: 'Behind' },
+      type: vocab.WordType.Adverb,
+      definition: 'Behind',
+      examples: [
+        { arabic: 'الْمَسْجِدُ خَلْفَ الْبَيْتِ.', english: 'The masjid is behind the house.' },
+        { arabic: 'الْوَلَدُ خَلْفَ الشَّجَرَةِ.', english: 'The boy is behind the tree.' },
+      ],
+      difficulty: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson8'],
+    },
+    {
+      id: 'l8-v2',
+      word: 'أَمَامَ',
+      transliteration: '',
+      translation: { en: 'In front of' },
+      type: vocab.WordType.Adverb,
+      definition: 'In front of',
+      examples: [
+        { arabic: 'السَّيَّارَةُ أَمَامَ الْبَيْتِ.', english: 'The car is in front of the house.' },
+        { arabic: 'الْمُدَرِّسُ أَمَامَ السَّبُّورَةِ.', english: 'The teacher is in front of the board.' },
+      ],
+      difficulty: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson8'],
+    },
+    {
+      id: 'l8-v3',
+      word: 'سِكِّينٌ',
+      transliteration: '',
+      translation: { en: 'Knife' },
+      type: vocab.WordType.Noun,
+      plural: 'سَكَاكِينُ',
+      definition: 'Knife',
+      examples: [
+        { arabic: 'هَذِهِ سِكِّينٌ حَادَّةٌ.', english: 'This is a sharp knife.' },
+        { arabic: 'السِّكِّينُ عَلَى الطَّاوِلَةِ.', english: 'The knife is on the table.' },
+      ],
+      difficulty: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson8'],
+    },
+    {
+      id: 'l8-v4',
+      word: 'أَمْرِيكا',
+      transliteration: '',
+      translation: { en: 'America' },
+      type: vocab.WordType.Noun,
+      definition: 'America',
+      examples: [
+        { arabic: 'هُوَ مِنْ أَمْرِيكا.', english: 'He is from America.' },
+        { arabic: 'أَمْرِيكا بَلَدٌ كَبِيرٌ.', english: 'America is a big country.' },
+      ],
+      difficulty: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson8', 'country'],
+    },
+    {
+      id: 'l8-v5',
+      word: 'إِنْكَلْتَرًا',
+      transliteration: '',
+      translation: { en: 'England' },
+      type: vocab.WordType.Noun,
+      definition: 'England',
+      examples: [
+        { arabic: 'هِيَ مِنْ إِنْكَلْتَرَا.', english: 'She is from England.' },
+        { arabic: 'إِنْكَلْتَرَا فِي أُورُوبَّا.', english: 'England is in Europe.' },
+      ],
+      difficulty: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson8', 'country'],
+    },
+  ],
+};

@@ -1,0 +1,180 @@
+# https://madinah.arabic.aramb.dev/docs llms-full.txt
+
+## Madinah Books API
+Still in beta. For feedback, email me at [aramb@aramb.dev](mailto:aramb@aramb.dev)
+
+# API Documentation
+
+Comprehensive documentation for the Madinah Books API
+
+REST APIJSON ResponsesNo Authentication Required
+
+[← Back to Home](https://madinah.arabic.aramb.dev/)
+
+Quick Start
+
+The Madinah Books API provides access to Arabic learning content from the Madinah book series. All endpoints return JSON responses and require no authentication.
+
+Base URL:
+
+`https://madinah.arabic.aramb.dev/api`
+
+Example Request:
+
+`GET /api/books`
+
+Books Endpoints
+
+GET `/api/books`
+
+Get all available books with their lessons
+
+Response Schema:
+
+```
+{
+  "success": true,
+  "data": [\
+    {\
+      "id": "book1",\
+      "title": {\
+        "ar": "الكتاب الأساسي",\
+        "en": "Book 1"\
+      },\
+      "description": {\
+        "arabic": "...",\
+        "english": "..."\
+      },\
+      "lessons": [...],\
+      "available": true\
+    }\
+  ],
+  "count": 3
+}
+```
+
+GET `/api/books/{bookId}`
+
+Get a specific book by ID
+
+Parameters:
+
+- `bookId` (string): book1, book2, or book3
+
+GET `/api/books/{bookId}/lessons`
+
+Get all lessons for a specific book
+
+GET `/api/books/{bookId}/lessons/{lessonId}`
+
+Get a specific lesson from a specific book
+
+Parameters:
+
+- `bookId` (string): book1, book2, or book3
+- `lessonId` (string): lesson1, lesson2, etc.
+
+Lessons Endpoints
+
+GET `/api/lessons`
+
+Get all lessons from all books
+
+GET `/api/lesson-titles`
+
+Get titles of all lessons across all books
+
+Metadata Endpoints
+
+GET `/api/metadata`
+
+Get global metadata about all books and lessons
+
+GET `/api/books/{bookId}/metadata`
+
+Get metadata for a specific book
+
+GET `/api/books/{bookId}/lesson-titles`
+
+Get titles of all lessons in a specific book
+
+GET `/api/books/{bookId}/rule-count`
+
+Get rule statistics for a specific book
+
+Data Structures
+
+#### Book
+
+```
+{
+  "id": "string",
+  "title": {
+    "ar": "string",
+    "en": "string"
+  },
+  "description": {
+    "arabic": "string",
+    "english": "string"
+  },
+  "lessons": "Array<Lesson>",
+  "available": "boolean",
+  "comingSoon": "boolean (optional)"
+}
+```
+
+#### Lesson
+
+```
+{
+  "id": "string",
+  "title": {
+    "ar": "string",
+    "en": "string"
+  },
+  "introduction": {
+    "arabic": "string",
+    "english": "string"
+  },
+  "rules": "Array<Rule>"
+}
+```
+
+#### Rule
+
+```
+{
+  "name": "string",
+  "arabicText": "string",
+  "explanation": "string"
+}
+```
+
+LLM Training Information
+
+This section provides structured information for Large Language Models (LLMs) to understand and integrate with our API.
+
+#### API Summary for LLMs:
+
+- • Base URL: /api
+- • Authentication: None required
+- • Response Format: JSON
+- • Available Resources: Books, Lessons, Metadata
+- • Primary Use Case: Arabic language learning content access
+
+#### Common Integration Patterns:
+
+- • Use /api/metadata for overview and navigation
+- • Use /api/books for complete book data
+- • Use /api/lesson-titles for quick content discovery
+- • Use /api/books/{bookId}/metadata for book-specific information
+
+#### Error Handling:
+
+- • 404: Resource not found
+- • 500: Internal server error
+- • All errors return JSON with success: false
+
+Need help or have questions about the API? Contact us for support.
+
+[Back to Home](https://madinah.arabic.aramb.dev/) [API Index](https://madinah.arabic.aramb.dev/api)

@@ -5,10 +5,7 @@ type Params = {
   bookId: string;
 };
 
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<Params> }
-) {
+export async function GET(request: Request, { params }: { params: Promise<Params> }) {
   try {
     const { bookId } = await params;
 

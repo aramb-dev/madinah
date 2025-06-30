@@ -10,16 +10,13 @@ export async function GET(
     const book = getBookById(bookId);
 
     if (!book) {
-      return NextResponse.json(
-        { success: false, error: 'Book not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Book not found' }, { status: 404 });
     }
 
-    const lessonTitles = book.lessons.map(lesson => ({
+    const lessonTitles = book.lessons.map((lesson) => ({
       id: lesson.id,
       title: lesson.title,
-      ruleCount: lesson.rules.length
+      ruleCount: lesson.rules.length,
     }));
 
     return NextResponse.json({
@@ -28,14 +25,11 @@ export async function GET(
         bookId: book.id,
         bookTitle: book.title,
         lessonCount: book.lessons.length,
-        lessons: lessonTitles
-      }
+        lessons: lessonTitles,
+      },
     });
   } catch (error) {
     console.error('Error fetching lesson titles:', error);
-    return NextResponse.json(
-      { success: false, error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
   }
 }

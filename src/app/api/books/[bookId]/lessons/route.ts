@@ -5,25 +5,22 @@ type Params = {
   bookId: string;
 };
 
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<Params> }
-) {
+export async function GET(request: Request, { params }: { params: Promise<Params> }) {
   try {
     const { bookId } = await params;
-    
+
     const book = getBookById(bookId);
-    
+
     if (!book) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Book not found'
+          error: 'Book not found',
         },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
       success: true,
       data: book.lessons,
@@ -31,15 +28,15 @@ export async function GET(
       bookInfo: {
         id: book.id,
         title: book.title,
-        description: book.description
-      }
+        description: book.description,
+      },
     });
   } catch (error) {
     console.error('Error fetching lessons:', error);
     return NextResponse.json(
       {
         success: false,
-        error: 'Failed to fetch lessons'
+        error: 'Failed to fetch lessons',
       },
       { status: 500 }
     );

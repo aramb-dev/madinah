@@ -10,10 +10,7 @@ export async function GET(
     const book = getBookById(bookId);
 
     if (!book) {
-      return NextResponse.json(
-        { success: false, error: 'Book not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Book not found' }, { status: 404 });
     }
 
     const metadata = {
@@ -27,19 +24,16 @@ export async function GET(
         lessons: `/api/books/${bookId}/lessons`,
         metadata: `/api/books/${bookId}/metadata`,
         lessonTitles: `/api/books/${bookId}/lesson-titles`,
-        ruleCount: `/api/books/${bookId}/rule-count`
-      }
+        ruleCount: `/api/books/${bookId}/rule-count`,
+      },
     };
 
     return NextResponse.json({
       success: true,
-      data: metadata
+      data: metadata,
     });
   } catch (error) {
     console.error('Error fetching book metadata:', error);
-    return NextResponse.json(
-      { success: false, error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
   }
 }

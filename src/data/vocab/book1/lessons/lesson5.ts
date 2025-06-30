@@ -1,0 +1,88 @@
+import * as vocab from '../../vocab';
+
+export const lesson5 = {
+      id: 'list005',
+      title: { ar: 'مفردات الدرس الخامس', en: 'Lesson 5 Vocabulary' },
+      description: {
+        ar: 'الكلمات الجديدة في الدرس الخامس.',
+        en: 'New words in the fifth lesson.',
+      },
+      bookId: 'book1',
+      lessonId: '5',
+      level: vocab.DifficultyLevel.Beginner,
+      tags: ['lesson5', 'possessives', 'family'],
+      order: 5,
+      items: [
+        {
+          id: 'l5-v1',
+          word: 'يَا ..',
+          transliteration: '',
+          translation: { en: 'O..' },
+          type: vocab.WordType.Particle,
+          definition: 'O..',
+          examples: [
+            { arabic: 'يَا مُحَمَّدُ.', english: 'O Muhammad.' },
+            { arabic: 'يَا وَلَدُ.', english: 'O boy.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson5'],
+        },
+        {
+          id: 'l5-v2',
+          word: 'هُنَاكَ',
+          transliteration: '',
+          translation: { en: 'There' },
+          type: vocab.WordType.Adverb,
+          definition: 'There',
+          examples: [
+            { arabic: 'الْكِتَابُ هُنَاكَ.', english: 'The book is there.' },
+            { arabic: 'الْمَسْجِدُ هُنَاكَ.', english: 'The masjid is there.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson5'],
+        },
+        {
+          id: 'l5-v3',
+          word: 'هُنَا',
+          transliteration: '',
+          translation: { en: 'Here' },
+          type: vocab.WordType.Adverb,
+          definition: 'Here',
+          examples: [
+            { arabic: 'الْقَلَمُ هُنَا.', english: 'The pen is here.' },
+            { arabic: 'أَنَا هُنَا.', english: 'I am here.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson5'],
+        },
+        {
+          id: 'l5-v4',
+          word: 'حَقِيبَةٌ',
+          transliteration: '',
+          translation: { en: 'Bag' },
+          type: vocab.WordType.Noun,
+          plural: 'حَقَائِبُ',
+          definition: 'Bag',
+          examples: [
+            { arabic: 'هَذِهِ حَقِيبَةٌ.', english: 'This is a bag.' },
+            { arabic: 'الْحَقِيبَةُ ثَقِيلَةٌ.', english: 'The bag is heavy.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson5'],
+        },
+        {
+          id: 'l5-v5',
+          word: 'تَحْتَ',
+          transliteration: '',
+          translation: { en: 'Under/beneath' },
+          type: vocab.WordType.Preposition,
+          definition: 'Under/beneath',
+          examples: [
+            { arabic: 'الْقِطُّ تَحْتَ السَّيَّارَةِ.', english: 'The cat is under the car.' },
+            { arabic: 'الْكِتَابُ تَحْتَ الْمَكْتَبِ.', english: 'The book is under the desk.' },
+          ],
+          difficulty: vocab.DifficultyLevel.Beginner,
+          tags: ['lesson5'],
+        },
+      ],
+}
