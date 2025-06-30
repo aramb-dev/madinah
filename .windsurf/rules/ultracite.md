@@ -1,7 +1,7 @@
 ---
+trigger: always_on
 description: Ultracite Rules
 globs: "**/*.{ts,tsx,js,jsx}"
-alwaysApply: true
 ---
 
 - Don't use `accessKey` attribute on any HTML element.
