@@ -16,4 +16,7 @@ export default defineConfig([
   {
     extends: compat.extends('next/core-web-vitals', 'next/typescript'),
   },
+  {
+    ignores: ['src/data/vocab/book2', 'src/data/vocab/book3'],
+  },
 ]);
