@@ -1,11 +1,27 @@
-import { getVocabByBookId } from '@/data/vocab';
+import { getVocabByBookId, getAllBookIds } from '@/data/vocab';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
 import Header from '@/components/layout/Header';
 import { getBookById } from '@/data/books';
-import { PageProps } from '@/types/page';
 
-type BookVocabularyPageProps = PageProps<{ bookId: string }>;
+export async function generateStaticParams() {
+  const bookIds = getAllBookIds();
+  return bookIds.map((bookId) => ({
+    bookId,
+  }));
+}
+
+interface BookVocabularyPageProps {
+  params: {
+    bookId: string;
+  };
+}
 
 export default async function BookVocabularyPage({
   params,

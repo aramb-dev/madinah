@@ -1,15 +1,37 @@
-"use client";
-
-import { getVocabByBookId } from '@/data/vocab';
+import { getVocabByBookId, getAllBookIds } from '@/data/vocab';
 import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import { getBookById } from '@/data/books';
 import VocabularyList from '@/components/custom/VocabularyList';
-import { PageProps } from '@/types/page';
 
-export default function LessonVocabularyPage({
+interface LessonVocabularyPageProps {
+  params: {
+    bookId: string;
+    lessonId: string;
+  };
+}
+
+export async function generateStaticParams() {
+  const bookIds = getAllBookIds();
+  const params = bookIds.flatMap((bookId) => {
+    const book = getVocabByBookId(bookId);
+    if (!book?.vocabularyLists) {
+      return [];
+    }
+    return book.vocabularyLists
+      .filter((lesson) => lesson.lessonId)
+      .map((lesson) => ({
+        bookId,
+        lessonId: lesson.lessonId!.toString(),
+      }));
+  });
+
+  return params;
+}
+
+export default async function LessonVocabularyPage({
   params,
-}: PageProps<{ bookId: string; lessonId: string }>) {
+}: LessonVocabularyPageProps) {
   const { bookId, lessonId } = params;
   const book = getVocabByBookId(bookId);
   const bookDetails = getBookById(bookId);
