@@ -246,6 +246,7 @@ export interface BookVocabulary {
    */
   vocabularyLists?: VocabularyList[];
   vocabularyItems?: VocabularyItem[];
+  isPublished?: boolean;
 }
 
 /**
