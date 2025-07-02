@@ -17,16 +17,12 @@ export async function generateStaticParams() {
   }));
 }
 
-interface BookVocabularyPageProps {
-  params: {
-    bookId: string;
-  };
-}
-
 export default async function BookVocabularyPage({
   params,
-}: BookVocabularyPageProps) {
-  const { bookId } = params;
+}: {
+  params: Promise<{ bookId: string }>;
+}) {
+  const { bookId } = await params;
   const vocabData = getVocabByBookId(bookId);
   const bookDetails = getBookById(bookId);
 

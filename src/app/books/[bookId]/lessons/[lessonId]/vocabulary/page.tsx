@@ -4,13 +4,6 @@ import Header from '@/components/layout/Header';
 import { getBookById } from '@/data/books';
 import VocabularyList from '@/components/custom/VocabularyList';
 
-interface LessonVocabularyPageProps {
-  params: {
-    bookId: string;
-    lessonId: string;
-  };
-}
-
 export async function generateStaticParams() {
   const bookIds = getAllBookIds();
   const params = bookIds.flatMap((bookId) => {
@@ -31,8 +24,10 @@ export async function generateStaticParams() {
 
 export default async function LessonVocabularyPage({
   params,
-}: LessonVocabularyPageProps) {
-  const { bookId, lessonId } = params;
+}: {
+  params: Promise<{ bookId: string; lessonId: string }>;
+}) {
+  const { bookId, lessonId } = await params;
   const book = getVocabByBookId(bookId);
   const bookDetails = getBookById(bookId);
 
