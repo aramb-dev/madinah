@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button'; // Assuming you have a Button component
+import { safeLocalStorage } from '@/lib/storage';
 
 const FontScaler = () => {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const savedScale = localStorage.getItem('font-scale');
+    const savedScale = safeLocalStorage.getItem('font-scale');
     if (savedScale) {
       setScale(parseFloat(savedScale));
     }
@@ -15,7 +16,7 @@ const FontScaler = () => {
 
   useEffect(() => {
     document.documentElement.style.setProperty('--font-scale-factor', scale.toString());
-    localStorage.setItem('font-scale', scale.toString());
+    safeLocalStorage.setItem('font-scale', scale.toString());
   }, [scale]);
 
   const increaseScale = () => {
