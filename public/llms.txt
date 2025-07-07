@@ -102,7 +102,48 @@ GET `/api/books/{bookId}/rule-count`
 
 Get rule statistics for a specific book
 
+Vocabulary Endpoints
+
+GET `/api/vocabulary`
+
+Get all vocabulary from all books.
+- `book` (string): book1, book2, or book3
+- `lesson` (string): lesson1, lesson2, etc.
+
+GET `/api/books/{bookId}/vocabulary`
+
+Get all vocabulary for a specific book.
+
+GET `/api/books/{bookId}/lessons/{lessonId}/vocabulary`
+
+Get all vocabulary for a specific lesson.
+
 Data Structures
+
+#### VocabularyItem
+
+```
+{
+  "id": "string",
+  "word": "string",
+  "transliteration": "string",
+  "translation": {
+    "en": "string"
+  },
+  "type": "string",
+  "root": "string (optional)",
+  "plural": "string (optional)",
+  "gender": "string (optional)",
+  "definition": "string",
+  "examples": "Array<Example>",
+  "notes": "string (optional)",
+  "difficulty": "string",
+  "tags": "Array<string>",
+  "relatedWords": "Array<string> (optional)",
+  "bookId": "string (optional)",
+  "lessonId": "string | number (optional)"
+}
+```
 
 #### Book
 
@@ -159,7 +200,7 @@ This section provides structured information for Large Language Models (LLMs) to
 - • Base URL: /api
 - • Authentication: None required
 - • Response Format: JSON
-- • Available Resources: Books, Lessons, Metadata
+- • Available Resources: Books, Lessons, Metadata, Vocabulary
 - • Primary Use Case: Arabic language learning content access
 
 #### Common Integration Patterns:
@@ -168,6 +209,8 @@ This section provides structured information for Large Language Models (LLMs) to
 - • Use /api/books for complete book data
 - • Use /api/lesson-titles for quick content discovery
 - • Use /api/books/{bookId}/metadata for book-specific information
+- • Use /api/vocabulary for global vocabulary access
+- • Use /api/books/{bookId}/vocabulary for book-specific vocabulary
 
 #### Error Handling:
 
