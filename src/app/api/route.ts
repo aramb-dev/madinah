@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export function GET() {
   const apiDocumentation = {
     name: 'Madinah Books API',
     version: '1.0.0',
@@ -72,6 +72,31 @@ export async function GET() {
           response: 'Array of all lesson titles with book information',
         },
       },
+     vocabulary: {
+       'GET /api/vocabulary': {
+         description: 'Get all vocabulary from all books, with optional filters.',
+         parameters: {
+           book: 'string (book1, book2, book3)',
+           lesson: 'string (lesson1, lesson2, etc.)',
+         },
+         response: 'Array of vocabulary items',
+       },
+       'GET /api/books/{bookId}/vocabulary': {
+         description: 'Get all vocabulary for a specific book',
+         parameters: {
+           bookId: 'string (book1, book2, book3)',
+         },
+         response: 'Array of vocabulary items for the specified book',
+       },
+       'GET /api/books/{bookId}/lessons/{lessonId}/vocabulary': {
+         description: 'Get all vocabulary for a specific lesson in a specific book',
+         parameters: {
+           bookId: 'string (book1, book2, book3)',
+           lessonId: 'string (lesson1, lesson2, etc.)',
+         },
+         response: 'Array of vocabulary items for the specified lesson',
+       },
+     },
     },
     responseFormat: {
       success: {
@@ -104,6 +129,24 @@ export async function GET() {
         arabicText: 'string',
         explanation: 'string',
       },
+      VocabularyItem: {
+       id: 'string',
+       word: 'string',
+       transliteration: 'string',
+       translation: { en: 'string' },
+       type: 'string',
+       root: 'string (optional)',
+       plural: 'string (optional)',
+       gender: 'string (optional)',
+       definition: 'string',
+       examples: 'Array<Example>',
+       notes: 'string (optional)',
+       difficulty: 'string',
+       tags: 'Array<string>',
+       relatedWords: 'Array<string> (optional)',
+       bookId: 'string (optional)',
+       lessonId: 'string | number (optional)',
+      }
     },
   };
 
