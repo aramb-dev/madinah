@@ -1,39 +1,58 @@
-import { getVocabByBookId } from '@/data/vocab';
+import { getVocabByBookId, getAllBookIds } from '@/data/vocab';
 import { notFound } from 'next/navigation';
+import Header from '@/components/layout/Header';
+import { getBookById } from '@/data/books';
+import VocabularyList from '@/components/custom/VocabularyList';
 
-export default async function LessonVocabularyPage(props: {
+export async function generateStaticParams() {
+  const bookIds = getAllBookIds();
+  const params = bookIds.flatMap((bookId) => {
+    const book = getVocabByBookId(bookId);
+    if (!book?.vocabularyLists) {
+      return [];
+    }
+    return book.vocabularyLists
+      .filter((lesson) => lesson.lessonId)
+      .map((lesson) => ({
+        bookId,
+        lessonId: lesson.lessonId!.toString(),
+      }));
+  });
+
+  return params;
+}
+
+export default async function LessonVocabularyPage({
+  params,
+}: {
   params: Promise<{ bookId: string; lessonId: string }>;
 }) {
-  // Await the params promise to get the actual values
-  const params = await props.params;
-  const { bookId, lessonId } = params;
+  const { bookId, lessonId } = await params;
   const book = getVocabByBookId(bookId);
+  const bookDetails = getBookById(bookId);
 
   const lesson = book?.vocabularyLists?.find(
-    (l) => l.lessonId?.toString() === lessonId
+    (l) => l.lessonId?.toString() === lessonId,
   );
 
-  if (!lesson) {
+  if (!lesson || !bookDetails) {
     notFound();
   }
 
+  if (!book) {
+    return null;
+  }
+
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">
-        {lesson.title.en}
-      </h1>
-      <div id="vocab" className="space-y-4">
-        {lesson.items.map((item) => (
-          <div key={item.id} className="p-4 border rounded-lg">
-            <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold">{item.word}</h2>
-              <span className="text-sm text-gray-500">{item.transliteration}</span>
-            </div>
-            <p className="mt-2">{item.translation.en}</p>
-            <p className="mt-2 text-sm text-gray-600">{item.definition}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      <Header book={bookDetails} />
+      <main className="container mx-auto p-4">
+        <h1 className="text-3xl font-bold text-center mb-4">
+          {book.title.en} - Lesson {lesson.lessonId} Vocabulary
+        </h1>
+        <p className="text-center text-gray-600 mb-6">{lesson.title.en}</p>
+        <VocabularyList items={lesson.items} />
+      </main>
+    </>
   );
 }

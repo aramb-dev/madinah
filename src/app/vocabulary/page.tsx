@@ -1,24 +1,62 @@
-import { getAvailableBooks } from '@/data/books';
+import { allBooksVocab } from '@/data/vocab';
 import Link from 'next/link';
+import Layout from '@/components/layout/Layout';
+import Header from '@/components/layout/Header';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export default function VocabularyPage() {
-  const books = getAvailableBooks();
+  const books = Object.values(allBooksVocab);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Vocabulary by Book</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {books.map((book) => (
-          <Link
-            key={book.id}
-            href={`/books/${book.id}/vocabulary`}
-            className="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-          >
-            <h2 className="text-xl font-semibold">{book.title.en}</h2>
-            <p>{book.description.english}</p>
-          </Link>
-        ))}
+    <Layout>
+      <Header homeUrl="/" />
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {books.map((book) => {
+            const isPublished = book.isPublished ?? true;
+            const card = (
+              <Card
+                className={`h-full ${
+                  isPublished
+                    ? 'hover:shadow-lg transition-shadow cursor-pointer'
+                    : 'opacity-50 cursor-not-allowed'
+                }`}
+              >
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle className="font-arabic text-right">{book.title.ar}</CardTitle>
+                      <CardDescription>{book.title.en}</CardDescription>
+                    </div>
+                    {!isPublished && <Badge variant="secondary">Coming Soon</Badge>}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-right font-arabic mb-2 line-clamp-3 text-lg leading-relaxed">
+                    {book.description?.ar}
+                  </p>
+                  <p className="line-clamp-3 text-sm text-gray-600">{book.description?.en}</p>
+                </CardContent>
+              </Card>
+            );
+
+            if (!isPublished) {
+              return (
+                <div key={book.bookId} aria-disabled="true">
+                  {card}
+                </div>
+              );
+            }
+
+            return (
+              <Link key={book.bookId} href={`/books/${book.bookId}/vocabulary`} passHref>
+                {card}
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }

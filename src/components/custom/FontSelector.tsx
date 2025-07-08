@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { safeLocalStorage } from '@/lib/storage';
 
 interface FontOption {
   name: string;
@@ -32,12 +33,12 @@ const FontSelector: React.FC = () => {
   const applyFont = useCallback((fontClassName: string) => {
     document.documentElement.classList.remove(...availableFonts.map((f) => f.className));
     document.documentElement.classList.add(fontClassName);
-    localStorage.setItem('selectedArabicFont', fontClassName);
+    safeLocalStorage.setItem('selectedArabicFont', fontClassName);
     setSelectedFont(fontClassName);
   }, []);
 
   useEffect(() => {
-    const storedFont = localStorage.getItem('selectedArabicFont');
+    const storedFont = safeLocalStorage.getItem('selectedArabicFont');
     if (storedFont && availableFonts.some((f) => f.className === storedFont)) {
       applyFont(storedFont);
     } else {

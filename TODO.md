@@ -11,17 +11,22 @@
   - [x] Fix sidebar not populating on book pages - wrapped book page with Layout component (book page sidebar integration)
 - [x] Make Header component dynamic based on chosen book (commit: df2d78d)
 - [x] Fix home button navigation to be context-aware - home button on lesson pages goes to book page, home button on book pages goes to root "/" (feat: implement context-aware home button navigation - Modified Header component to accept homeUrl prop, updated book and lesson pages to pass appropriate home URLs)
-- [ ] Update metadata and titles to reflect selected book
-- [ ] Create book selection UI components
+- [x] Update metadata and titles to reflect selected book
+- [x] Create book selection UI components
 - [x] Update Home Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/home.png`
   - [x] Add FontSelector and FontScaler components to the landing page (commit: b65a9ee)
 - [x] Update Book Page UI to match design provided in `/Users/aramb/Documents/GitHub/madinah-book-grammar-rules/tmp/book.png`
 - [x] Update existing lesson pages to work with new book structure
 - [ ] Test performance on lower-end mobile devices.
-- [ ] Address `metadataBase` warning in Next.js configuration.
+- [x] Address `metadataBase` warning in Next.js configuration.
+- [x] Fix API route type error - Fixed Next.js 15 params Promise handling in vocabulary routes:
+  - `src/app/api/books/[bookId]/lessons/[lessonId]/vocabulary/route.ts`
+  - `src/app/api/books/[bookId]/vocabulary/route.ts`
 - [ ] Separate the rules for badal (الْبَدَلُ - Apposition) with four types: Total (كُلِّ مِنْ كُلِّ), Partial (بَعْضٍ مِنْ كُلِّ), Inclusive (اشْتِمَالٍ), and Error/Forgetfulness (الْمُبَايِنِ)
 - [ ] Fix beta banner z-index issue - banner is stuck behind home and sidebar buttons
 - [ ] **Fix API 404 handling - Create custom not-found.tsx for API routes to return JSON instead of HTML for non-existent endpoints**
+- [ ] [nitpick] Fix vocabulary page layout - Wrap `/books/[bookId]/vocabulary/page.tsx` in Layout component for consistent sidebar and margins. Requires modifying sidebar behavior so lesson links point to vocabulary pages instead of lesson content when on vocabulary routes.
+- [ ] [nitpick] Fix vocabulary page card links - In `/app/vocabulary/page.tsx` lines 53-54, wrapping Card directly in Link with passHref may not make the card clickable. Consider adding an `<a>` tag or using Link as a child function so that the entire card is actionable.
 
 ## Future Enhancements:
 
