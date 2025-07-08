@@ -25,6 +25,8 @@
 - [ ] Separate the rules for badal (الْبَدَلُ - Apposition) with four types: Total (كُلِّ مِنْ كُلِّ), Partial (بَعْضٍ مِنْ كُلِّ), Inclusive (اشْتِمَالٍ), and Error/Forgetfulness (الْمُبَايِنِ)
 - [ ] Fix beta banner z-index issue - banner is stuck behind home and sidebar buttons
 - [ ] **Fix API 404 handling - Create custom not-found.tsx for API routes to return JSON instead of HTML for non-existent endpoints**
+- [ ] [nitpick] Fix vocabulary page layout - Wrap `/books/[bookId]/vocabulary/page.tsx` in Layout component for consistent sidebar and margins. Requires modifying sidebar behavior so lesson links point to vocabulary pages instead of lesson content when on vocabulary routes.
+- [ ] [nitpick] Fix vocabulary page card links - In `/app/vocabulary/page.tsx` lines 53-54, wrapping Card directly in Link with passHref may not make the card clickable. Consider adding an `<a>` tag or using Link as a child function so that the entire card is actionable.
 
 ## Future Enhancements:
 
