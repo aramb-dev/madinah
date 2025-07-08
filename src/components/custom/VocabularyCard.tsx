@@ -38,7 +38,6 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ item }) => {
     type,
     tags,
     image_url,
-    pronunciation_audio_url,
     definition_arabic,
   } = item;
 

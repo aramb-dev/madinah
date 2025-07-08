@@ -2,11 +2,15 @@ import { NextResponse } from 'next/server';
 import { getVocabByBookId } from '@/data/vocab';
 import { flattenListsToItems } from '@/data/vocab/vocab';
 
-export function GET(
+type Params = {
+  bookId: string;
+};
+
+export async function GET(
   _request: Request,
-  { params }: { params: { bookId: string } }
+  { params }: { params: Promise<Params> }
 ) {
-  const { bookId } = params;
+  const { bookId } = await params;
   const bookVocab = getVocabByBookId(bookId);
 
   if (!bookVocab) {
