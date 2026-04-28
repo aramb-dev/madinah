@@ -1,12 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getBookById, getLessonById } from '@/data/books';
 
-type Params = {
+interface Params {
   bookId: string;
   lessonId: string;
-};
+}
 
-export async function GET(request: NextRequest, { params }: { params: Promise<Params> }) {
+export async function GET(_request: NextRequest, { params }: { params: Promise<Params> }) {
   try {
     const { bookId, lessonId } = await params;
 

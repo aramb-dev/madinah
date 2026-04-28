@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import VocabularyCard from '@/components/custom/VocabularyCard';
-import { VocabularyItem } from '@/types/vocabulary';
+import type { VocabularyItem } from '@/types/vocabulary';
 
 interface VocabularyListProps {
   items: VocabularyItem[];
@@ -23,12 +23,12 @@ export default function VocabularyList({ items }: VocabularyListProps) {
         <input
           type="text"
           placeholder="Search vocabulary..."
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full rounded-md border border-gray-300 p-2"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filteredVocabulary.map((item) => (
           <VocabularyCard key={item.id} item={item} />
         ))}

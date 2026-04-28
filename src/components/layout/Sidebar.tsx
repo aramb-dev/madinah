@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { getBookById } from '@/data/books';
@@ -37,7 +36,7 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
         <SheetTrigger asChild>
           <Button
             variant="default"
-            className="md:hidden fixed top-16 left-4 z-40 p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md shadow-lg"
+            className="fixed top-16 left-4 z-40 rounded-md bg-emerald-600 p-2 text-white shadow-lg hover:bg-emerald-700 md:hidden"
             aria-label="Open sidebar"
           >
             <svg
@@ -46,7 +45,8 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6"
+              className="h-6 w-6"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -58,24 +58,25 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="bg-amber-100 p-4 space-y-2 overflow-y-auto max-w-[85vw] sm:max-w-[350px]"
+          className="max-w-[85vw] space-y-2 overflow-y-auto bg-amber-100 p-4 sm:max-w-[350px]"
         >
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-emerald-700 arabic-text font-arabic text-center">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="arabic-text text-center font-arabic font-bold text-emerald-700 text-xl">
               فهرس الدروس
             </h2>
           </div>
-          <div id="lessonListMobile" className="space-y-1 flex-grow">
+          <div id="lessonListMobile" className="flex-grow space-y-1">
             {lessonsToDisplay.map((lesson) => (
               <SheetClose key={lesson.id} asChild>
                 <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
                   <button
-                    className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                    type="button"
+                    className={`nav-link block w-full rounded-md px-3 py-3 text-right font-medium text-emerald-800 text-sm hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                       isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                     }`}
                   >
                     <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
-                    <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                    <span className="english-text mt-1 block text-left text-emerald-600 text-xs">
                       {lesson.title.en}
                     </span>
                   </button>
@@ -87,22 +88,23 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
       </Sheet>
 
       {/* Desktop Sidebar */}
-      <aside className="hidden md:block md:w-72 bg-amber-50 border-l border-amber-200 p-4 fixed top-24 right-0 h-full overflow-y-auto z-30 shadow-lg">
-        <div className="sticky top-0 bg-amber-50 pt-6 pb-4 z-10">
-          <h2 className="text-2xl font-bold text-emerald-700 mb-6 arabic-text font-arabic text-center">
+      <aside className="fixed top-24 right-0 z-30 hidden h-full overflow-y-auto border-amber-200 border-l bg-amber-50 p-4 shadow-lg md:block md:w-72">
+        <div className="sticky top-0 z-10 bg-amber-50 pt-6 pb-4">
+          <h2 className="arabic-text mb-6 text-center font-arabic font-bold text-2xl text-emerald-700">
             فهرس الدروس
           </h2>
         </div>
-        <nav id="lessonListDesktop" className="space-y-1 flex-grow pb-16">
+        <nav id="lessonListDesktop" className="flex-grow space-y-1 pb-16">
           {lessonsToDisplay.map((lesson) => (
             <Link key={lesson.id} href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
               <button
-                className={`w-full text-right block px-3 py-3 rounded-md text-sm font-medium text-emerald-800 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 nav-link ${
+                type="button"
+                className={`nav-link block w-full rounded-md px-3 py-3 text-right font-medium text-emerald-800 text-sm hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                   isLessonActive(lesson.id) ? 'bg-amber-200' : ''
                 }`}
               >
                 <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
-                <span className="block text-xs mt-1 text-emerald-600 english-text text-left">
+                <span className="english-text mt-1 block text-left text-emerald-600 text-xs">
                   {lesson.title.en}
                 </span>
               </button>

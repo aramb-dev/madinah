@@ -24,7 +24,7 @@ export async function GET() {
         lessonCount: book.lessons.length,
         ruleCount: book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0),
         available: book.available,
-        comingSoon: book.comingSoon || false,
+        comingSoon: book.comingSoon,
       })),
       apiRoutes: {
         allBooks: '/api/books',

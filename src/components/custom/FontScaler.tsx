@@ -10,7 +10,7 @@ const FontScaler = () => {
   useEffect(() => {
     const savedScale = safeLocalStorage.getItem('font-scale');
     if (savedScale) {
-      setScale(parseFloat(savedScale));
+      setScale(Number.parseFloat(savedScale));
     }
   }, []);
 
@@ -28,7 +28,7 @@ const FontScaler = () => {
   };
 
   return (
-    <div className="flex items-center space-x-2 p-2 border rounded-md bg-background">
+    <div className="flex items-center space-x-2 rounded-md border bg-background p-2">
       <Button onClick={decreaseScale} variant="outline" size="icon" aria-label="Decrease font size">
         -
       </Button>

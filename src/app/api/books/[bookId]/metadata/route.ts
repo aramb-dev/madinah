@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getBookById } from '@/data/books';
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ bookId: string }> }
 ) {
   try {
@@ -18,7 +18,7 @@ export async function GET(
       title: book.title,
       lessonCount: book.lessons.length,
       available: book.available,
-      comingSoon: book.comingSoon || false,
+      comingSoon: book.comingSoon,
       apiRoutes: {
         book: `/api/books/${bookId}`,
         lessons: `/api/books/${bookId}/lessons`,

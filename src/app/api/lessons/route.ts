@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAvailableBooks } from '@/data/books';
-import { Lesson } from '@/data/lessons';
+import type { Lesson } from '@/data/lessons';
 
 interface LessonWithBookInfo extends Lesson {
   bookId: string;
@@ -17,15 +17,15 @@ export async function GET() {
     // Flatten all lessons from all books and include book information
     const allLessons: LessonWithBookInfo[] = [];
 
-    availableBooks.forEach((book) => {
-      book.lessons.forEach((lesson) => {
+    for (const book of availableBooks) {
+      for (const lesson of book.lessons) {
         allLessons.push({
           ...lesson,
           bookId: book.id,
           bookTitle: book.title,
         });
-      });
-    });
+      }
+    }
 
     return NextResponse.json({
       success: true,

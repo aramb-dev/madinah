@@ -11,10 +11,6 @@ export const allBooksVocab: Record<string, BookVocabulary> = {
 
 export type BookId = keyof typeof allBooksVocab;
 
-export const getVocabByBookId = (bookId: string): BookVocabulary | undefined => {
-  return allBooksVocab[bookId as BookId];
-};
+export const getVocabByBookId = (bookId: string): BookVocabulary | undefined => allBooksVocab[bookId as BookId];
 
-export const getAllBookIds = (): string[] => {
-  return Object.keys(allBooksVocab);
-};
+export const getAllBookIds = (): string[] => Object.keys(allBooksVocab);

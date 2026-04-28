@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import type React from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { safeLocalStorage } from '@/lib/storage';
 
 interface FontOption {
@@ -52,14 +53,14 @@ const FontSelector: React.FC = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <label htmlFor="font-select" className="text-sm text-neutral-700 whitespace-nowrap">
+      <label htmlFor="font-select" className="whitespace-nowrap text-neutral-700 text-sm">
         اختر الخط:
       </label>
       <select
         id="font-select"
         value={selectedFont}
         onChange={handleFontChange}
-        className="block w-full px-3 py-2 text-sm bg-white border border-neutral-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
+        className="block w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm"
       >
         {availableFonts.map((font) => (
           <option key={font.className} value={font.className}>

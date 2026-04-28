@@ -8,18 +8,18 @@ export default function NotFound() {
     <Layout showSidebar={false}>
       <Header homeUrl="/" />
       <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-5xl font-bold text-emerald-700 mb-4 font-arabic">
+        <h1 className="mb-4 font-arabic font-bold text-5xl text-emerald-700">
           404 - الصفحة غير موجودة
         </h1>
-        <h2 className="text-3xl font-semibold text-emerald-600 mb-6">
+        <h2 className="mb-6 font-semibold text-3xl text-emerald-600">
           Page Not Found
         </h2>
-        <p className="text-lg text-neutral-700 mb-8 max-w-md mx-auto">
+        <p className="mx-auto mb-8 max-w-md text-lg text-neutral-700">
           The page you are looking for does not seem to exist. You can return to the homepage to start over.
         </p>
         <Link href="/">
-          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200">
-            <span className="font-arabic ml-2">العودة إلى الرئيسية</span>
+          <Button className="rounded-lg bg-emerald-600 px-8 py-3 font-medium text-white transition-colors duration-200 hover:bg-emerald-700">
+            <span className="ml-2 font-arabic">العودة إلى الرئيسية</span>
             <span>Return to Homepage</span>
           </Button>
         </Link>

@@ -1,4 +1,4 @@
-import { Book } from './lessons';
+import type { Book } from './lessons';
 
 // book1Data with all lessons included, titles updated, full Tashkeel, and refactored Diptotes lesson
 export const book1Data: Book = {

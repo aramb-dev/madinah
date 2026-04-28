@@ -38,22 +38,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={`${inter.variable} antialiased bg-[#FFFAF0]`}>
+      <body className={`${inter.variable} bg-[#FFFAF0] antialiased`}>
         {/* Beta Feedback Banner */}
         {process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' && (
-          <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-center fixed top-0 left-0 right-0 z-50">
-            <p className="text-sm text-blue-700">
+          <div className="fixed top-0 right-0 left-0 z-50 border-blue-200 border-b bg-blue-50 px-4 py-2 text-center">
+            <p className="text-blue-700 text-sm">
               <span className="font-medium">Still in beta.</span> For feedback, email me at{' '}
               <a
                 href="mailto:aramb@aramb.dev"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-blue-600 underline hover:text-blue-800"
               >
                 aramb@aramb.dev
               </a>
             </p>
           </div>
         )}
-        <div className={process.env.NEXT_PUBLIC_SHOW_BETA_BANNER !== 'false' ? 'pt-20' : ''}>
+        <div className={process.env.NEXT_PUBLIC_SHOW_BETA_BANNER === 'false' ? '' : 'pt-20'}>
           {children}
         </div>
       </body>

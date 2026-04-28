@@ -273,8 +273,7 @@ export function organizeItemsIntoLists(
   );
 
   // Convert groups to vocabulary lists
-  return Object.entries(lessonGroups).map(([lessonId, lessonItems], index) => {
-    return {
+  return Object.entries(lessonGroups).map(([lessonId, lessonItems], index) => ({
       id: `list${lessonId.padStart(3, '0')}`,
       title: {
         ar: `مفردات الدرس ${lessonId}`,
@@ -289,9 +288,8 @@ export function organizeItemsIntoLists(
       items: lessonItems,
       level: lessonItems[0]?.difficulty || DifficultyLevel.Beginner,
       tags: [`lesson${lessonId}`],
-      order: parseInt(lessonId) || index + 1,
-    };
-  });
+      order: Number.parseInt(lessonId, 10) || index + 1,
+    }));
 }
 
 /**

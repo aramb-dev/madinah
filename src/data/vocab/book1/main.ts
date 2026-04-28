@@ -1,4 +1,4 @@
-import { BookVocabulary } from '../vocab';
+import type { BookVocabulary } from '../vocab';
 import { book1Lessons } from './lessons';
 
 export const madinahBook1: BookVocabulary = {

@@ -2,10 +2,10 @@ import { NextResponse } from 'next/server';
 import { getVocabByBookId } from '@/data/vocab';
 import { flattenListsToItems } from '@/data/vocab/vocab';
 
-type Params = {
+interface Params {
   bookId: string;
   lessonId: string;
-};
+}
 
 export async function GET(
   _request: Request,

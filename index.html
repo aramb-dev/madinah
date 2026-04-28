@@ -371,7 +371,7 @@
       </div>
     </div>
 
-    <script>
+    <script>"use strict";
       const lessonsData = [
         // ... (All lesson data remains here as previously defined) ...
         {
@@ -1221,7 +1221,7 @@
         }
         // Re-render current lesson content to show/hide AI buttons
         const activeLessonLink = document.querySelector('#lessonList .nav-link.active');
-        if (activeLessonLink && activeLessonLink.dataset.lessonId) {
+        if (activeLessonLink?.dataset.lessonId) {
           displayLessonContent(activeLessonLink.dataset.lessonId, true); // force re-render of buttons
         } else if (lessonsData.length > 0 && !document.querySelector('#lessonContent .space-y-5')) {
           // If no lesson is active (e.g. initial load and no default lesson was set)
@@ -1311,7 +1311,7 @@
           console.warn('localStorage access error (reading):', e);
         }
 
-        let chatHistory = [{ role: 'user', parts: [{ text: prompt }] }];
+        const chatHistory = [{ role: 'user', parts: [{ text: prompt }] }];
         const payload = { contents: chatHistory };
         const apiKey = '';
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -1336,8 +1336,7 @@
           if (
             result.candidates &&
             result.candidates.length > 0 &&
-            result.candidates[0].content &&
-            result.candidates[0].content.parts &&
+            result.candidates[0].content?.parts &&
             result.candidates[0].content.parts.length > 0
           ) {
             const rawMarkdownText = result.candidates[0].content.parts[0].text;
@@ -1432,7 +1431,7 @@ The entire response will be rendered as HTML from Markdown. Ensure correct text 
                     <div class="space-y-5">
                 `;
 
-          lesson.rules.forEach((rule, index) => {
+          lesson.rules.forEach((rule, _index) => {
             contentHtml += `
                         <div class="p-4 bg-white rounded-lg shadow-md border border-amber-200 hover:shadow-lg transition-shadow duration-200">
                             <h3 class="text-xl font-semibold text-emerald-700 arabic-text mb-2">${rule.name}</h3>
@@ -1446,7 +1445,7 @@ The entire response will be rendered as HTML from Markdown. Ensure correct text 
                     `;
           });
 
-          contentHtml += `</div>`;
+          contentHtml += "</div>";
           lessonContentContainer.innerHTML = contentHtml;
 
           // Add event listeners to new buttons only if AI features are enabled

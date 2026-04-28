@@ -1,11 +1,11 @@
 import { getBookById } from '@/data/books';
 import { createSuccessResponse, APIErrors } from '@/lib/api-errors';
 
-type Params = {
+interface Params {
   bookId: string;
-};
+}
 
-export async function GET(request: Request, { params }: { params: Promise<Params> }) {
+export async function GET(_request: Request, { params }: { params: Promise<Params> }) {
   try {
     const { bookId } = await params;
 

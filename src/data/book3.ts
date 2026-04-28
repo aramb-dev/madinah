@@ -1,5 +1,5 @@
 // Book 3 data - filled in based on the provided grammatical rules
-import { Book } from './lessons';
+import type { Book } from './lessons';
 
 export const book3Data: Book = {
   id: 'book3',

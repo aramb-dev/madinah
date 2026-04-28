@@ -1,5 +1,5 @@
 import type { VocabularyItem } from '@/types/vocabulary';
-import React from 'react';
+import type React from 'react';
 import Image from 'next/image';
 import {
   Card,
@@ -60,7 +60,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ item }) => {
       <CardHeader>
         <div className="flex flex-col items-start gap-1">
           <CardTitle
-            className="w-full text-start text-3xl font-bold font-arabic"
+            className="w-full text-start font-arabic font-bold text-3xl"
             dir="rtl"
           >
             {term_arabic}
@@ -76,7 +76,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ item }) => {
 
         {definition_english && (
           <div>
-            <h3 className="text-sm font-semibold uppercase text-muted-foreground">
+            <h3 className="font-semibold text-muted-foreground text-sm uppercase">
               Definition
             </h3>
             <p className="text-start text-base">{definition_english}</p>
@@ -85,10 +85,10 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ item }) => {
 
         {definition_arabic && (
           <div>
-            <h3 className="text-sm font-semibold uppercase text-muted-foreground">
+            <h3 className="font-semibold text-muted-foreground text-sm uppercase">
               Definition (Arabic)
             </h3>
-            <p className="text-start text-base font-arabic" dir="rtl">
+            <p className="text-start font-arabic text-base" dir="rtl">
               {definition_arabic}
             </p>
           </div>
@@ -96,10 +96,10 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ item }) => {
 
         {plural && (
           <div>
-            <h3 className="text-sm font-semibold uppercase text-muted-foreground">
+            <h3 className="font-semibold text-muted-foreground text-sm uppercase">
               Plural
             </h3>
-            <p className="text-start text-base font-arabic" dir="rtl">
+            <p className="text-start font-arabic text-base" dir="rtl">
               {plural}
             </p>
           </div>
@@ -107,13 +107,13 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ item }) => {
 
         {examples && examples.length > 0 && (
           <div>
-            <h3 className="mb-2 text-sm font-semibold uppercase text-muted-foreground">
+            <h3 className="mb-2 font-semibold text-muted-foreground text-sm uppercase">
               Examples
             </h3>
             <div className="space-y-3">
-              {examples.map((example, index) => (
+              {examples.map((example) => (
                 <ExampleSentence
-                  key={index}
+                  key={example.arabic}
                   sentence_arabic={example.arabic}
                   sentence_english={example.english}
                 />

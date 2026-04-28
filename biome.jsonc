@@ -1,6 +1,54 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
   "extends": [
-    "ultracite"
+    "./node_modules/ultracite/config/biome/core/biome.jsonc",
+    "./node_modules/ultracite/config/biome/next/biome.jsonc"
+  ],
+  "files": {
+    "includes": [
+      "!!src/data/vocab/book2",
+      "!!src/data/vocab/book3",
+      "!!index.html"
+    ]
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noEnum": "off",
+        "useFilenamingConvention": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/route.ts", "**/route.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "useAwait": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/components/ui/**"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noNamespaceImport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/data/**"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noNamespaceImport": "off"
+          }
+        }
+      }
+    }
   ]
 }

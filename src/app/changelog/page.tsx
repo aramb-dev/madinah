@@ -1,5 +1,5 @@
-import { execSync } from 'child_process';
-import { Metadata } from 'next';
+import { execSync } from 'node:child_process';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 // Removed unused import since we're using git log directly
@@ -37,7 +37,7 @@ async function getCommits(): Promise<Commit[]> {
     return commitsRaw.map((commitStr) => {
       const lines = commitStr.trim().split('\n');
       const [hash, authorName, authorEmail, timestampStr, subject, ...bodyLines] = lines;
-      const timestamp = parseInt(timestampStr, 10);
+      const timestamp = Number.parseInt(timestampStr, 10);
       const date = new Date(timestamp * 1000).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -67,9 +67,9 @@ export default async function ChangelogPage() {
   return (
     <div className="min-h-screen bg-amber-50">
       {/* Custom Header for Changelog */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+      <header className="border-b bg-white shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-4">
             <div className="flex items-center space-x-4">
               <Link href="/">
                 <Button variant="outline" className="flex items-center space-x-2">
@@ -77,17 +77,17 @@ export default async function ChangelogPage() {
                   <span>Back to Home</span>
                 </Button>
               </Link>
-              <h1 className="text-2xl font-bold text-amber-700">Changelog</h1>
+              <h1 className="font-bold text-2xl text-amber-700">Changelog</h1>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <h1 className="text-5xl font-bold text-amber-700 mb-4">Application Changelog</h1>
-          <p className="text-xl text-amber-600">Track the latest updates and improvements.</p>
+          <h1 className="mb-4 font-bold text-5xl text-amber-700">Application Changelog</h1>
+          <p className="text-amber-600 text-xl">Track the latest updates and improvements.</p>
         </div>
 
         {commits.length === 0 ? (
@@ -99,27 +99,27 @@ export default async function ChangelogPage() {
             {commits.map((commit) => (
               <div
                 key={commit.hash}
-                className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                className="rounded-xl bg-white p-6 shadow-lg transition-shadow duration-300 ease-in-out hover:shadow-xl"
               >
                 <div className="mb-3">
-                  <h2 className="text-2xl font-semibold text-amber-800 break-words">
+                  <h2 className="break-words font-semibold text-2xl text-amber-800">
                     {commit.subject}
                   </h2>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="mt-1 text-gray-500 text-sm">
                     Committed on{' '}
                     <time dateTime={new Date(commit.timestamp * 1000).toISOString()}>
                       {commit.date}
                     </time>{' '}
                     by {commit.authorName}
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">
-                    Commit: {commit.hash.substring(0, 7)}
+                  <p className="mt-1 text-gray-400 text-xs">
+                    Commit: {commit.hash.slice(0, 7)}
                   </p>
                 </div>
                 {commit.body && (
-                  <div className="prose prose-sm max-w-none text-gray-700 mt-4 pt-3 border-t border-gray-200">
-                    <h3 className="text-md font-semibold text-gray-600 mb-1">Details:</h3>
-                    <pre className="whitespace-pre-wrap bg-gray-50 p-3 rounded-md text-sm font-mono">
+                  <div className="prose prose-sm mt-4 max-w-none border-gray-200 border-t pt-3 text-gray-700">
+                    <h3 className="mb-1 font-semibold text-gray-600 text-md">Details:</h3>
+                    <pre className="whitespace-pre-wrap rounded-md bg-gray-50 p-3 font-mono text-sm">
                       {commit.body}
                     </pre>
                   </div>

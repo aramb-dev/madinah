@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import LessonContent from '@/components/custom/LessonContent';
 import { getBookById, getLessonById } from '@/data/books';
-import { Book, Lesson } from '@/data/lessons';
+import type { Book, Lesson } from '@/data/lessons';
 
 export default function LessonPage() {
   const router = useRouter();

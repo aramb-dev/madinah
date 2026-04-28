@@ -15,7 +15,7 @@ export async function generateStaticParams() {
       .filter((lesson) => lesson.lessonId)
       .map((lesson) => ({
         bookId,
-        lessonId: lesson.lessonId!.toString(),
+        lessonId: lesson.lessonId?.toString(),
       }));
   });
 
@@ -35,7 +35,7 @@ export default async function LessonVocabularyPage({
     (l) => l.lessonId?.toString() === lessonId,
   );
 
-  if (!lesson || !bookDetails) {
+  if (!(lesson && bookDetails)) {
     notFound();
   }
 
@@ -47,10 +47,10 @@ export default async function LessonVocabularyPage({
     <>
       <Header book={bookDetails} />
       <main className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold text-center mb-4">
+        <h1 className="mb-4 text-center font-bold text-3xl">
           {book.title.en} - Lesson {lesson.lessonId} Vocabulary
         </h1>
-        <p className="text-center text-gray-600 mb-6">{lesson.title.en}</p>
+        <p className="mb-6 text-center text-gray-600">{lesson.title.en}</p>
         <VocabularyList items={lesson.items} />
       </main>
     </>

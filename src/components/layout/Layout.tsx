@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import type React from 'react';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
 
@@ -19,7 +19,7 @@ const Layout = ({
   const sidebarVisible = !isHomePage && showSidebar;
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row relative">
+    <div className="relative flex min-h-screen flex-col md:flex-row">
       {/* Sidebar Component */}
       <Sidebar currentBookId={currentBookId} isVisible={sidebarVisible} />
 
@@ -27,7 +27,7 @@ const Layout = ({
       <main
         className={`flex-1 transition-all duration-300 ease-in-out ${
           sidebarVisible ? 'md:mr-72' : ''
-        } pt-4 md:pt-8 pb-8 px-4 md:px-8`}
+        } px-4 pt-4 pb-8 md:px-8 md:pt-8`}
       >
         {children}
       </main>

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { book1Data } from '@/data/book1';
 
-type GenerateMetadataProps = {
+interface GenerateMetadataProps {
   params: Promise<{ lessonId: string }>;
-};
+}
 
 // Function to map lesson IDs to image filenames
 function getLessonImageFilename(lessonId: string): string {

@@ -22,7 +22,7 @@ export default function LessonsIndexPage() {
     <div className="p-4">
       <Header />
       <div className="mt-8 text-center">
-        <p className="arabic-text font-arabic text-xl text-emerald-700 mb-4">جاري التحميل...</p>
+        <p className="arabic-text mb-4 font-arabic text-emerald-700 text-xl">جاري التحميل...</p>
         <p className="english-text text-lg text-neutral-600">Loading the first lesson...</p>
       </div>
     </div>

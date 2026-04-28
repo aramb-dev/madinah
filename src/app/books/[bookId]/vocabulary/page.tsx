@@ -26,7 +26,7 @@ export default async function BookVocabularyPage({
   const vocabData = getVocabByBookId(bookId);
   const bookDetails = getBookById(bookId);
 
-  if (!vocabData || !bookDetails) {
+  if (!(vocabData && bookDetails)) {
     return <div className="container mx-auto p-4 text-center text-red-500">Book not found</div>;
   }
 
@@ -34,24 +34,24 @@ export default async function BookVocabularyPage({
     <>
       <Header book={bookDetails} />
       <main className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold text-center mb-2">{vocabData.title.en} Vocabulary</h1>
-        <p className="text-center text-gray-600 mb-6">
+        <h1 className="mb-2 text-center font-bold text-3xl">{vocabData.title.en} Vocabulary</h1>
+        <p className="mb-6 text-center text-gray-600">
           Explore vocabulary lists for each lesson in {vocabData.title.en}.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {vocabData.vocabularyLists?.map((lesson) => (
             <Link
               key={lesson.lessonId}
               href={`/books/${bookId}/lessons/${lesson.lessonId}/vocabulary`}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+              <Card className="h-full transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-xl font-semibold">Lesson {lesson.lessonId}</CardTitle>
+                  <CardTitle className="font-semibold text-xl">Lesson {lesson.lessonId}</CardTitle>
                   <CardDescription>{lesson.title.en}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">Click to view vocabulary for this lesson.</p>
+                  <p className="text-gray-600 text-sm">Click to view vocabulary for this lesson.</p>
                 </CardContent>
               </Card>
             </Link>

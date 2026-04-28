@@ -17,7 +17,7 @@ export interface APISuccess<T = unknown> {
 
 export function createErrorResponse(
   error: string,
-  status: number = 500,
+  status = 500,
   message?: string,
   code?: string
 ): NextResponse<APIError> {
@@ -56,7 +56,7 @@ export function createSuccessResponse<T>(data: T, count?: number): NextResponse<
 
 // Predefined error responses
 export const APIErrors = {
-  NOT_FOUND: (resource: string = 'Resource') =>
+  NOT_FOUND: (resource = 'Resource') =>
     createErrorResponse(
       `${resource} not found`,
       404,
@@ -64,7 +64,7 @@ export const APIErrors = {
       'NOT_FOUND'
     ),
 
-  INVALID_ID: (resource: string = 'Resource') =>
+  INVALID_ID: (resource = 'Resource') =>
     createErrorResponse(
       `Invalid ${resource.toLowerCase()} ID`,
       400,
@@ -80,7 +80,7 @@ export const APIErrors = {
       'INTERNAL_ERROR'
     ),
 
-  BAD_REQUEST: (message: string = 'Bad request') =>
+  BAD_REQUEST: (message = 'Bad request') =>
     createErrorResponse('Bad request', 400, message, 'BAD_REQUEST'),
 
   METHOD_NOT_ALLOWED: (allowedMethods: string[] = []) =>

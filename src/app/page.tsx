@@ -9,17 +9,17 @@ import FontScaler from '@/components/custom/FontScaler'; // Import FontScaler
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FFFAF0] flex flex-col items-center justify-center">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#FFFAF0]">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Welcome Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-4 font-arabic">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-arabic font-bold text-4xl text-emerald-700 md:text-5xl">
             المصادر المعينة على فهم كتب المدينة
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-emerald-600 mb-6">
+          <h2 className="mb-6 font-semibold text-2xl text-emerald-600 md:text-3xl">
             Madinah Book Resources
           </h2>
-          <p className="text-lg text-neutral-700 mb-4 font-arabic leading-relaxed">
+          <p className="mb-4 font-arabic text-lg text-neutral-700 leading-relaxed">
             مرحباً بك في المصادر المعينة على فهم كتب المدينة. اختر الكتاب الذي تريد دراسته من سلسلة
             كتب المدينة لتعليم اللغة العربية.
           </p>
@@ -30,36 +30,36 @@ export default function HomePage() {
         </div>
 
         {/* Display Options Section */}
-        <div className="mb-8 p-4 bg-white shadow-md rounded-lg flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+        <div className="mb-8 flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-4 shadow-md sm:flex-row sm:gap-6">
           <FontSelector />
           <FontScaler />
         </div>
 
         {/* Books Selection */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {booksData.map((book) => (
             <Card
               key={book.id}
               className={`border-2 transition-all duration-300 hover:shadow-lg ${
                 book.available
-                  ? 'border-emerald-200 hover:border-emerald-300 bg-white'
+                  ? 'border-emerald-200 bg-white hover:border-emerald-300'
                   : 'border-gray-200 bg-gray-50 opacity-75'
               }`}
             >
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-bold text-emerald-700 font-arabic text-center">
+                <CardTitle className="text-center font-arabic font-bold text-emerald-700 text-xl">
                   {book.title.ar}
                 </CardTitle>
-                <p className="text-lg font-semibold text-emerald-600 text-center">
+                <p className="text-center font-semibold text-emerald-600 text-lg">
                   {book.title.en}
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-3">
-                  <p className="text-sm text-neutral-700 font-arabic leading-relaxed">
+                  <p className="font-arabic text-neutral-700 text-sm leading-relaxed">
                     {book.description.arabic}
                   </p>
-                  <p className="text-sm text-neutral-600 leading-relaxed">
+                  <p className="text-neutral-600 text-sm leading-relaxed">
                     {book.description.english}
                   </p>
                 </div>
@@ -67,24 +67,24 @@ export default function HomePage() {
                 <div className="pt-4">
                   {book.available ? (
                     <Link href={`/books/${book.id}`} className="block">
-                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
-                        <span className="font-arabic ml-2">ابدأ الدراسة</span>
+                      <Button className="w-full rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-emerald-700">
+                        <span className="ml-2 font-arabic">ابدأ الدراسة</span>
                         <span>Start Learning</span>
                       </Button>
                     </Link>
                   ) : (
                     <Button
                       disabled
-                      className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded-lg cursor-not-allowed items-baseline"
+                      className="w-full cursor-not-allowed items-baseline rounded-lg bg-gray-300 px-4 py-2 font-medium text-gray-500"
                     >
                       {book.comingSoon ? (
                         <>
-                          <span className="font-arabic ml-2">قريباً</span>
+                          <span className="ml-2 font-arabic">قريباً</span>
                           <span>Coming Soon</span>
                         </>
                       ) : (
                         <>
-                          <span className="font-arabic ml-2">غير متاح</span>
+                          <span className="ml-2 font-arabic">غير متاح</span>
                           <span>Not Available</span>
                         </>
                       )}
@@ -95,21 +95,21 @@ export default function HomePage() {
             </Card>
           ))}
           {/* Vocabulary Card */}
-          <Card className="border-teal-200 bg-teal-50 hover:shadow-lg transition-shadow duration-300 md:col-span-1 lg:col-span-3">
+          <Card className="border-teal-200 bg-teal-50 transition-shadow duration-300 hover:shadow-lg md:col-span-1 lg:col-span-3">
             <CardContent className="pt-6 text-center">
-              <h3 className="text-lg font-semibold text-teal-800 mb-3 font-arabic">
+              <h3 className="mb-3 font-arabic font-semibold text-lg text-teal-800">
                 مفردات كتب المدينة
               </h3>
-              <h4 className="text-md font-medium text-teal-700 mb-2">Vocabulary</h4>
-              <p className="text-sm text-teal-700 mb-4 font-arabic">
+              <h4 className="mb-2 font-medium text-md text-teal-700">Vocabulary</h4>
+              <p className="mb-4 font-arabic text-sm text-teal-700">
                 استكشف المفردات من جميع كتب المدينة
               </p>
-              <p className="text-sm text-teal-600 mb-4">
+              <p className="mb-4 text-sm text-teal-600">
                 Explore vocabulary from all the Madinah Books
               </p>
               <Link href="/vocabulary">
-                <Button className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
-                  <span className="font-arabic ml-2">عرض المفردات</span>
+                <Button className="rounded-lg bg-teal-600 px-6 py-2 font-medium text-white transition-colors duration-200 hover:bg-teal-700">
+                  <span className="ml-2 font-arabic">عرض المفردات</span>
                   <span>View Vocabulary</span>
                 </Button>
               </Link>
@@ -121,11 +121,11 @@ export default function HomePage() {
         <div className="mt-12 text-center">
           <Card className="border-amber-200 bg-amber-50">
             <CardContent className="pt-6">
-              <p className="text-sm text-amber-800 font-arabic mb-2">
+              <p className="mb-2 font-arabic text-amber-800 text-sm">
                 هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة
                 لتعليم اللغة العربية لغير الناطقين بها.
               </p>
-              <p className="text-sm text-amber-700">
+              <p className="text-amber-700 text-sm">
                 This application provides an interactive explanation of Arabic grammar rules
                 extracted from the Madinah Arabic learning series for non-native speakers.
               </p>
@@ -134,23 +134,23 @@ export default function HomePage() {
         </div>
 
         {/* Changelog and API Documentation Section */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Changelog Card */}
-          <Card className="border-blue-200 bg-blue-50 hover:shadow-lg transition-shadow duration-300">
+          <Card className="border-blue-200 bg-blue-50 transition-shadow duration-300 hover:shadow-lg">
             <CardContent className="pt-6">
-              <h3 className="text-lg font-semibold text-blue-800 mb-3 font-arabic">
+              <h3 className="mb-3 font-arabic font-semibold text-blue-800 text-lg">
                 سجل التغييرات
               </h3>
-              <h4 className="text-md font-medium text-blue-700 mb-2">Changelog</h4>
-              <p className="text-sm text-blue-700 mb-4 font-arabic">
+              <h4 className="mb-2 font-medium text-blue-700 text-md">Changelog</h4>
+              <p className="mb-4 font-arabic text-blue-700 text-sm">
                 تابع أحدث التحديثات والتحسينات على التطبيق
               </p>
-              <p className="text-sm text-blue-600 mb-4">
+              <p className="mb-4 text-blue-600 text-sm">
                 Stay updated with the latest changes, bug fixes, and new features
               </p>
               <Link href="/changelog">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
-                  <span className="font-arabic ml-2">عرض السجل</span>
+                <Button className="rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
+                  <span className="ml-2 font-arabic">عرض السجل</span>
                   <span>View Changelog</span>
                 </Button>
               </Link>
@@ -158,21 +158,21 @@ export default function HomePage() {
           </Card>
 
           {/* API Documentation Card */}
-          <Card className="border-purple-200 bg-purple-50 hover:shadow-lg transition-shadow duration-300">
+          <Card className="border-purple-200 bg-purple-50 transition-shadow duration-300 hover:shadow-lg">
             <CardContent className="pt-6">
-              <h3 className="text-lg font-semibold text-purple-800 mb-3 font-arabic">
+              <h3 className="mb-3 font-arabic font-semibold text-lg text-purple-800">
                 وثائق واجهة البرمجة
               </h3>
-              <h4 className="text-md font-medium text-purple-700 mb-2">API Documentation</h4>
-              <p className="text-sm text-purple-700 mb-4 font-arabic">
+              <h4 className="mb-2 font-medium text-md text-purple-700">API Documentation</h4>
+              <p className="mb-4 font-arabic text-purple-700 text-sm">
                 للمطورين: استكشف واجهة البرمجة الخاصة بنا
               </p>
-              <p className="text-sm text-purple-600 mb-4">
+              <p className="mb-4 text-purple-600 text-sm">
                 Developer? Check out our comprehensive API documentation and integration guides
               </p>
               <Link href="/docs">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
-                  <span className="font-arabic ml-2">عرض الوثائق</span>
+                <Button className="rounded-lg bg-purple-600 px-6 py-2 font-medium text-white transition-colors duration-200 hover:bg-purple-700">
+                  <span className="ml-2 font-arabic">عرض الوثائق</span>
                   <span>View API Docs</span>
                 </Button>
               </Link>
