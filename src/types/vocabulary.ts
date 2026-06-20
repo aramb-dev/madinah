@@ -7,35 +7,35 @@
  * Enum for the different types of words (parts of speech)
  */
 export enum WordType {
-  Noun = 'noun',
-  Verb = 'verb',
-  Adjective = 'adjective',
-  Adverb = 'adverb',
-  Preposition = 'preposition',
-  Pronoun = 'pronoun',
-  Conjunction = 'conjunction',
-  Particle = 'particle',
-  Expression = 'expression',
-  Number = 'number',
-  ProperNoun = 'proper noun',
+  Noun = "noun",
+  Verb = "verb",
+  Adjective = "adjective",
+  Adverb = "adverb",
+  Preposition = "preposition",
+  Pronoun = "pronoun",
+  Conjunction = "conjunction",
+  Particle = "particle",
+  Expression = "expression",
+  Number = "number",
+  ProperNoun = "proper noun",
 }
 
 /**
  * Enum for difficulty levels
  */
 export enum DifficultyLevel {
-  Beginner = 'beginner',
-  Intermediate = 'intermediate',
-  Advanced = 'advanced',
+  Beginner = "beginner",
+  Intermediate = "intermediate",
+  Advanced = "advanced",
 }
 
 /**
  * Enum for gender types
  */
 export enum Gender {
-  Masculine = 'masculine',
-  Feminine = 'feminine',
-  Dual = 'dual',
+  Masculine = "masculine",
+  Feminine = "feminine",
+  Dual = "dual",
 }
 
 /**

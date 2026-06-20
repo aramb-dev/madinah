@@ -1,9 +1,15 @@
-import { allBooksVocab } from '@/data/vocab';
-import Link from 'next/link';
-import Layout from '@/components/layout/Layout';
-import Header from '@/components/layout/Header';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { allBooksVocab } from "@/data/vocab";
+import Link from "next/link";
+import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function VocabularyPage() {
   const books = Object.values(allBooksVocab);
@@ -19,24 +25,30 @@ export default function VocabularyPage() {
               <Card
                 className={`h-full ${
                   isPublished
-                    ? 'cursor-pointer transition-shadow hover:shadow-lg'
-                    : 'cursor-not-allowed opacity-50'
+                    ? "cursor-pointer transition-shadow hover:shadow-lg"
+                    : "cursor-not-allowed opacity-50"
                 }`}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div>
-                      <CardTitle className="text-right font-arabic">{book.title.ar}</CardTitle>
+                      <CardTitle className="text-right font-arabic">
+                        {book.title.ar}
+                      </CardTitle>
                       <CardDescription>{book.title.en}</CardDescription>
                     </div>
-                    {!isPublished && <Badge variant="secondary">Coming Soon</Badge>}
+                    {!isPublished && (
+                      <Badge variant="secondary">Coming Soon</Badge>
+                    )}
                   </div>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-2 line-clamp-3 text-right font-arabic text-lg leading-relaxed">
                     {book.description?.ar}
                   </p>
-                  <p className="line-clamp-3 text-gray-600 text-sm">{book.description?.en}</p>
+                  <p className="line-clamp-3 text-gray-600 text-sm">
+                    {book.description?.en}
+                  </p>
                 </CardContent>
               </Card>
             );
@@ -50,7 +62,11 @@ export default function VocabularyPage() {
             }
 
             return (
-              <Link key={book.bookId} href={`/books/${book.bookId}/vocabulary`} passHref>
+              <Link
+                key={book.bookId}
+                href={`/books/${book.bookId}/vocabulary`}
+                passHref
+              >
                 {card}
               </Link>
             );

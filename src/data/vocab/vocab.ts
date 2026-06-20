@@ -8,35 +8,35 @@
  * Enum for the different types of words (parts of speech)
  */
 export enum WordType {
-  Noun = 'noun',
-  Verb = 'verb',
-  Adjective = 'adjective',
-  Adverb = 'adverb',
-  Preposition = 'preposition',
-  Pronoun = 'pronoun',
-  Conjunction = 'conjunction',
-  Particle = 'particle',
-  Expression = 'expression',
-  Number = 'number',
-  ProperNoun = 'proper noun',
+  Noun = "noun",
+  Verb = "verb",
+  Adjective = "adjective",
+  Adverb = "adverb",
+  Preposition = "preposition",
+  Pronoun = "pronoun",
+  Conjunction = "conjunction",
+  Particle = "particle",
+  Expression = "expression",
+  Number = "number",
+  ProperNoun = "proper noun",
 }
 
 /**
  * Enum for difficulty levels
  */
 export enum DifficultyLevel {
-  Beginner = 'beginner',
-  Intermediate = 'intermediate',
-  Advanced = 'advanced',
+  Beginner = "beginner",
+  Intermediate = "intermediate",
+  Advanced = "advanced",
 }
 
 /**
  * Enum for gender types
  */
 export enum Gender {
-  Masculine = 'masculine',
-  Feminine = 'feminine',
-  Dual = 'dual',
+  Masculine = "masculine",
+  Feminine = "feminine",
+  Dual = "dual",
 }
 
 /**
@@ -258,11 +258,12 @@ export interface BookVocabulary {
  */
 export function organizeItemsIntoLists(
   items: VocabularyItem[],
-  bookId: string): VocabularyList[] {
+  bookId: string
+): VocabularyList[] {
   // Group items by lesson
   const lessonGroups = items.reduce(
     (groups, item) => {
-      const lessonId = item.lessonId?.toString() || 'unknown';
+      const lessonId = item.lessonId?.toString() || "unknown";
       if (!groups[lessonId]) {
         groups[lessonId] = [];
       }
@@ -274,22 +275,22 @@ export function organizeItemsIntoLists(
 
   // Convert groups to vocabulary lists
   return Object.entries(lessonGroups).map(([lessonId, lessonItems], index) => ({
-      id: `list${lessonId.padStart(3, '0')}`,
-      title: {
-        ar: `مفردات الدرس ${lessonId}`,
-        en: `Lesson ${lessonId} Vocabulary`,
-      },
-      description: {
-        ar: `الكلمات الجديدة في الدرس ${lessonId}.`,
-        en: `New words in lesson ${lessonId}.`,
-      },
-      bookId,
-      lessonId,
-      items: lessonItems,
-      level: lessonItems[0]?.difficulty || DifficultyLevel.Beginner,
-      tags: [`lesson${lessonId}`],
-      order: Number.parseInt(lessonId, 10) || index + 1,
-    }));
+    id: `list${lessonId.padStart(3, "0")}`,
+    title: {
+      ar: `مفردات الدرس ${lessonId}`,
+      en: `Lesson ${lessonId} Vocabulary`,
+    },
+    description: {
+      ar: `الكلمات الجديدة في الدرس ${lessonId}.`,
+      en: `New words in lesson ${lessonId}.`,
+    },
+    bookId,
+    lessonId,
+    items: lessonItems,
+    level: lessonItems[0]?.difficulty || DifficultyLevel.Beginner,
+    tags: [`lesson${lessonId}`],
+    order: Number.parseInt(lessonId, 10) || index + 1,
+  }));
 }
 
 /**

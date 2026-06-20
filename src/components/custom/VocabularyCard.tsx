@@ -1,6 +1,6 @@
-import type { VocabularyItem } from '@/types/vocabulary';
-import type React from 'react';
-import Image from 'next/image';
+import type { VocabularyItem } from "@/types/vocabulary";
+import type React from "react";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -8,9 +8,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import ExampleSentence from '@/components/custom/ExampleSentence';
-import { Badge } from '@/components/ui/badge';
+} from "@/components/ui/card";
+import ExampleSentence from "@/components/custom/ExampleSentence";
+import { Badge } from "@/components/ui/badge";
 // Note: The AudioPlayer component is not implemented as it does not exist in the codebase.
 
 interface VocabularyCardProps {

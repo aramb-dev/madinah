@@ -1,8 +1,8 @@
-import { getVocabByBookId, getAllBookIds } from '@/data/vocab';
-import { notFound } from 'next/navigation';
-import Header from '@/components/layout/Header';
-import { getBookById } from '@/data/books';
-import VocabularyList from '@/components/custom/VocabularyList';
+import { getVocabByBookId, getAllBookIds } from "@/data/vocab";
+import { notFound } from "next/navigation";
+import Header from "@/components/layout/Header";
+import { getBookById } from "@/data/books";
+import VocabularyList from "@/components/custom/VocabularyList";
 
 export async function generateStaticParams() {
   const bookIds = getAllBookIds();
@@ -32,7 +32,7 @@ export default async function LessonVocabularyPage({
   const bookDetails = getBookById(bookId);
 
   const lesson = book?.vocabularyLists?.find(
-    (l) => l.lessonId?.toString() === lessonId,
+    (l) => l.lessonId?.toString() === lessonId
   );
 
   if (!(lesson && bookDetails)) {

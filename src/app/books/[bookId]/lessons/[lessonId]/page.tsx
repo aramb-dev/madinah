@@ -1,42 +1,106 @@
-'use client';
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
+import LessonContent from "@/components/custom/LessonContent";
+import { getBookById, getLessonById } from "@/data/books";
+import { booksData } from "@/data/books";
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import Layout from '@/components/layout/Layout';
-import Header from '@/components/layout/Header';
-import LessonContent from '@/components/custom/LessonContent';
-import { getBookById, getLessonById } from '@/data/books';
-import type { Book, Lesson } from '@/data/lessons';
+interface PageProps {
+  params: Promise<{ bookId: string; lessonId: string }>;
+}
 
-export default function LessonPage() {
-  const router = useRouter();
-  const params = useParams();
-  const bookId = params.bookId as string;
-  const lessonId = params.lessonId as string;
+// Map lesson IDs to their corresponding image filenames (legacy book1 share images)
+function getLessonImageFilename(lessonId: string): string {
+  const imageMap: Record<string, string> = {
+    lesson1: "L1.png",
+    lesson2: "L2.png",
+    lesson3: "L3.png",
+    lesson4: "L4.png",
+    lesson5: "L5.png",
+    lesson6: "L6.png",
+    lesson7: "L7.png",
+    lesson8: "L8.png",
+    lesson9: "L9.png",
+    lesson10: "L10.png",
+    lesson11: "L11.png",
+    lesson12: "L12.png",
+    lesson13: "L13.png",
+    lesson14: "L14.png",
+    lesson15: "L15.png",
+    lesson16_17: "L16-17.png",
+    lesson18: "L18.png",
+    lesson19_20: "L19-20.png",
+    lesson21: "L21.png",
+    lesson22_23: "L22-23.png",
+  };
 
-  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const [book, setBook] = useState<Book | null>(null);
+  return imageMap[lessonId] || "home.png";
+}
 
-  useEffect(() => {
-    const foundBook = getBookById(bookId);
-    const lesson = getLessonById(bookId, lessonId);
+export async function generateStaticParams() {
+  return booksData.flatMap((book) =>
+    book.lessons.map((lesson) => ({
+      bookId: book.id,
+      lessonId: lesson.id,
+    }))
+  );
+}
 
-    if (foundBook) {
-      setBook(foundBook);
-    }
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { bookId, lessonId } = await params;
+  const book = getBookById(bookId);
+  const lesson = getLessonById(bookId, lessonId);
 
-    if (lesson) {
-      setSelectedLesson(lesson);
-    } else {
-      // Handle lesson not found, redirect to book page
-      router.push(`/books/${bookId}`);
-    }
-  }, [bookId, lessonId, router]);
+  if (!(book && lesson)) {
+    return {
+      title: "المصادر المعينة على فهم كتب المدينة",
+      description: "Madinah Book Resources - Explanation of Madinah Books",
+    };
+  }
+
+  const imageFilename = getLessonImageFilename(lessonId);
+  const socialShareImage = `/images/social-share/${imageFilename}`;
+  const title = `${lesson.title.ar} - ${lesson.title.en} | ${book.title.ar}`;
+  const description = lesson.introduction.english;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/books/${bookId}/lessons/${lessonId}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/books/${bookId}/lessons/${lessonId}`,
+      type: "article",
+      images: [socialShareImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [socialShareImage],
+    },
+  };
+}
+
+export default async function LessonPage({ params }: PageProps) {
+  const { bookId, lessonId } = await params;
+  const book = getBookById(bookId);
+  const lesson = getLessonById(bookId, lessonId);
+
+  if (!(book && lesson)) {
+    notFound();
+  }
 
   return (
     <Layout currentBookId={bookId}>
-      <Header book={book || undefined} homeUrl={`/books/${bookId}`} />
-      <LessonContent lesson={selectedLesson || undefined} />
+      <Header book={book} homeUrl={`/books/${bookId}`} />
+      <LessonContent lesson={lesson} />
     </Layout>
   );
 }

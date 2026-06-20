@@ -1,16 +1,16 @@
-'use client';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import FontScaler from '@/components/custom/FontScaler'; // Changed to default import
-import FontSelector from '@/components/custom/FontSelector';
-import type { Book } from '@/data/lessons';
+"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import FontScaler from "@/components/custom/FontScaler"; // Changed to default import
+import FontSelector from "@/components/custom/FontSelector";
+import type { Book } from "@/data/lessons";
 
 interface HeaderProps {
   book?: Book;
   homeUrl?: string;
 }
 
-const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
+const Header = ({ book, homeUrl = "/" }: HeaderProps) => {
   return (
     <header className="relative mb-8 border-amber-300 border-b pb-4">
       {/* Home Button - Fixed and sticky like sidebar toggle */}
@@ -44,10 +44,14 @@ const Header = ({ book, homeUrl = '/' }: HeaderProps) => {
         المصادر المعينة على فهم كتب المدينة
       </h1>
       <p className="arabic-text mt-1 text-center font-arabic text-lg text-neutral-600">
-        {book ? book.description.arabic : 'شرح كتب دروس اللغة العربية لغير الناطقين بها'}
+        {book
+          ? book.description.arabic
+          : "شرح كتب دروس اللغة العربية لغير الناطقين بها"}
       </p>
       <p className="english-text mt-2 text-center text-neutral-500 text-sm">
-        {book ? book.description.english : 'Madinah Book Resources - Explanation of Madinah Book 1'}
+        {book
+          ? book.description.english
+          : "Madinah Book Resources - Explanation of Madinah Book 1"}
       </p>
 
       <div className="mt-6 flex flex-col items-center justify-center gap-4 md:flex-row">

@@ -1,14 +1,14 @@
-import { getVocabByBookId, getAllBookIds } from '@/data/vocab';
-import Link from 'next/link';
+import { getVocabByBookId, getAllBookIds } from "@/data/vocab";
+import Link from "next/link";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
-} from '@/components/ui/card';
-import Header from '@/components/layout/Header';
-import { getBookById } from '@/data/books';
+} from "@/components/ui/card";
+import Header from "@/components/layout/Header";
+import { getBookById } from "@/data/books";
 
 export async function generateStaticParams() {
   const bookIds = getAllBookIds();
@@ -27,14 +27,20 @@ export default async function BookVocabularyPage({
   const bookDetails = getBookById(bookId);
 
   if (!(vocabData && bookDetails)) {
-    return <div className="container mx-auto p-4 text-center text-red-500">Book not found</div>;
+    return (
+      <div className="container mx-auto p-4 text-center text-red-500">
+        Book not found
+      </div>
+    );
   }
 
   return (
     <>
       <Header book={bookDetails} />
       <main className="container mx-auto p-4">
-        <h1 className="mb-2 text-center font-bold text-3xl">{vocabData.title.en} Vocabulary</h1>
+        <h1 className="mb-2 text-center font-bold text-3xl">
+          {vocabData.title.en} Vocabulary
+        </h1>
         <p className="mb-6 text-center text-gray-600">
           Explore vocabulary lists for each lesson in {vocabData.title.en}.
         </p>
@@ -47,11 +53,15 @@ export default async function BookVocabularyPage({
             >
               <Card className="h-full transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader>
-                  <CardTitle className="font-semibold text-xl">Lesson {lesson.lessonId}</CardTitle>
+                  <CardTitle className="font-semibold text-xl">
+                    Lesson {lesson.lessonId}
+                  </CardTitle>
                   <CardDescription>{lesson.title.en}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm">Click to view vocabulary for this lesson.</p>
+                  <p className="text-gray-600 text-sm">
+                    Click to view vocabulary for this lesson.
+                  </p>
                 </CardContent>
               </Card>
             </Link>

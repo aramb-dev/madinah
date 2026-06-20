@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export interface APIError {
   success: false;
@@ -32,13 +32,16 @@ export function createErrorResponse(
     {
       status,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     }
   );
 }
 
-export function createSuccessResponse<T>(data: T, count?: number): NextResponse<APISuccess<T>> {
+export function createSuccessResponse<T>(
+  data: T,
+  count?: number
+): NextResponse<APISuccess<T>> {
   return NextResponse.json(
     {
       success: true,
@@ -48,7 +51,7 @@ export function createSuccessResponse<T>(data: T, count?: number): NextResponse<
     },
     {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     }
   );
@@ -56,38 +59,38 @@ export function createSuccessResponse<T>(data: T, count?: number): NextResponse<
 
 // Predefined error responses
 export const APIErrors = {
-  NOT_FOUND: (resource = 'Resource') =>
+  NOT_FOUND: (resource = "Resource") =>
     createErrorResponse(
       `${resource} not found`,
       404,
       `The requested ${resource.toLowerCase()} could not be found`,
-      'NOT_FOUND'
+      "NOT_FOUND"
     ),
 
-  INVALID_ID: (resource = 'Resource') =>
+  INVALID_ID: (resource = "Resource") =>
     createErrorResponse(
       `Invalid ${resource.toLowerCase()} ID`,
       400,
       `The provided ${resource.toLowerCase()} ID is not valid`,
-      'INVALID_ID'
+      "INVALID_ID"
     ),
 
   INTERNAL_ERROR: () =>
     createErrorResponse(
-      'Internal server error',
+      "Internal server error",
       500,
-      'An unexpected error occurred while processing your request',
-      'INTERNAL_ERROR'
+      "An unexpected error occurred while processing your request",
+      "INTERNAL_ERROR"
     ),
 
-  BAD_REQUEST: (message = 'Bad request') =>
-    createErrorResponse('Bad request', 400, message, 'BAD_REQUEST'),
+  BAD_REQUEST: (message = "Bad request") =>
+    createErrorResponse("Bad request", 400, message, "BAD_REQUEST"),
 
   METHOD_NOT_ALLOWED: (allowedMethods: string[] = []) =>
     createErrorResponse(
-      'Method not allowed',
+      "Method not allowed",
       405,
-      `This endpoint only supports: ${allowedMethods.join(', ')}`,
-      'METHOD_NOT_ALLOWED'
+      `This endpoint only supports: ${allowedMethods.join(", ")}`,
+      "METHOD_NOT_ALLOWED"
     ),
 };

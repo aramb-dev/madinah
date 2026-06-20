@@ -1,12 +1,19 @@
-import { NextResponse } from 'next/server';
-import { booksData } from '@/data/books';
+import { NextResponse } from "next/server";
+import { booksData } from "@/data/books";
 
 export async function GET() {
   try {
-    const totalLessons = booksData.reduce((total, book) => total + book.lessons.length, 0);
+    const totalLessons = booksData.reduce(
+      (total, book) => total + book.lessons.length,
+      0
+    );
     const totalRules = booksData.reduce(
       (total, book) =>
-        total + book.lessons.reduce((lessonTotal, lesson) => lessonTotal + lesson.rules.length, 0),
+        total +
+        book.lessons.reduce(
+          (lessonTotal, lesson) => lessonTotal + lesson.rules.length,
+          0
+        ),
       0
     );
     const availableBooks = booksData.filter((book) => book.available);
@@ -17,20 +24,25 @@ export async function GET() {
       totalLessons,
       totalRules,
       averageRulesPerLesson:
-        totalLessons === 0 ? 0 : Math.round((totalRules / totalLessons) * 100) / 100,
+        totalLessons === 0
+          ? 0
+          : Math.round((totalRules / totalLessons) * 100) / 100,
       books: booksData.map((book) => ({
         id: book.id,
         title: book.title,
         lessonCount: book.lessons.length,
-        ruleCount: book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0),
+        ruleCount: book.lessons.reduce(
+          (total, lesson) => total + lesson.rules.length,
+          0
+        ),
         available: book.available,
         comingSoon: book.comingSoon,
       })),
       apiRoutes: {
-        allBooks: '/api/books',
-        allLessons: '/api/lessons',
-        metadata: '/api/metadata',
-        allLessonTitles: '/api/lesson-titles',
+        allBooks: "/api/books",
+        allLessons: "/api/lessons",
+        metadata: "/api/metadata",
+        allLessonTitles: "/api/lesson-titles",
       },
     };
 
@@ -39,7 +51,10 @@ export async function GET() {
       data: metadata,
     });
   } catch (error) {
-    console.error('Error fetching metadata:', error);
-    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
+    console.error("Error fetching metadata:", error);
+    return NextResponse.json(
+      { success: false, error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

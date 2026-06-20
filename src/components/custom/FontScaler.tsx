@@ -1,22 +1,25 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button'; // Assuming you have a Button component
-import { safeLocalStorage } from '@/lib/storage';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button"; // Assuming you have a Button component
+import { safeLocalStorage } from "@/lib/storage";
 
 const FontScaler = () => {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const savedScale = safeLocalStorage.getItem('font-scale');
+    const savedScale = safeLocalStorage.getItem("font-scale");
     if (savedScale) {
       setScale(Number.parseFloat(savedScale));
     }
   }, []);
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--font-scale-factor', scale.toString());
-    safeLocalStorage.setItem('font-scale', scale.toString());
+    document.documentElement.style.setProperty(
+      "--font-scale-factor",
+      scale.toString()
+    );
+    safeLocalStorage.setItem("font-scale", scale.toString());
   }, [scale]);
 
   const increaseScale = () => {
@@ -29,11 +32,23 @@ const FontScaler = () => {
 
   return (
     <div className="flex items-center space-x-2 rounded-md border bg-background p-2">
-      <Button onClick={decreaseScale} variant="outline" size="icon" aria-label="Decrease font size">
+      <Button
+        onClick={decreaseScale}
+        variant="outline"
+        size="icon"
+        aria-label="Decrease font size"
+      >
         -
       </Button>
-      <span className="min-w-[40px] text-center">{Math.round(scale * 100)}%</span>
-      <Button onClick={increaseScale} variant="outline" size="icon" aria-label="Increase font size">
+      <span className="min-w-[40px] text-center">
+        {Math.round(scale * 100)}%
+      </span>
+      <Button
+        onClick={increaseScale}
+        variant="outline"
+        size="icon"
+        aria-label="Increase font size"
+      >
         +
       </Button>
     </div>

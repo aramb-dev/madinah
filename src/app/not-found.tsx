@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import Layout from '@/components/layout/Layout';
-import Header from '@/components/layout/Header';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
@@ -15,7 +15,8 @@ export default function NotFound() {
           Page Not Found
         </h2>
         <p className="mx-auto mb-8 max-w-md text-lg text-neutral-700">
-          The page you are looking for does not seem to exist. You can return to the homepage to start over.
+          The page you are looking for does not seem to exist. You can return to
+          the homepage to start over.
         </p>
         <Link href="/">
           <Button className="rounded-lg bg-emerald-600 px-8 py-3 font-medium text-white transition-colors duration-200 hover:bg-emerald-700">

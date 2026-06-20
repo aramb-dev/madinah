@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import type React from 'react';
-import { useState, useEffect, useCallback } from 'react';
-import { safeLocalStorage } from '@/lib/storage';
+import type React from "react";
+import { useState, useEffect, useCallback } from "react";
+import { safeLocalStorage } from "@/lib/storage";
 
 interface FontOption {
   name: string;
@@ -12,34 +12,38 @@ interface FontOption {
 
 const availableFonts: FontOption[] = [
   {
-    name: 'Noto Naskh Arabic (Default)',
+    name: "Noto Naskh Arabic (Default)",
     value: "'Noto Naskh Arabic', sans-serif",
-    className: 'font-noto-naskh-arabic',
+    className: "font-noto-naskh-arabic",
   },
   {
-    name: 'Noto Sans Arabic',
+    name: "Noto Sans Arabic",
     value: "'Noto Sans Arabic', sans-serif",
-    className: 'font-noto-sans-arabic',
+    className: "font-noto-sans-arabic",
   },
   {
-    name: 'Baloo Arabic',
+    name: "Baloo Arabic",
     value: "'Baloo Arabic', sans-serif",
-    className: 'font-baloo-arabic',
+    className: "font-baloo-arabic",
   },
 ];
 
 const FontSelector: React.FC = () => {
-  const [selectedFont, setSelectedFont] = useState<string>(availableFonts[0].className);
+  const [selectedFont, setSelectedFont] = useState<string>(
+    availableFonts[0].className
+  );
 
   const applyFont = useCallback((fontClassName: string) => {
-    document.documentElement.classList.remove(...availableFonts.map((f) => f.className));
+    document.documentElement.classList.remove(
+      ...availableFonts.map((f) => f.className)
+    );
     document.documentElement.classList.add(fontClassName);
-    safeLocalStorage.setItem('selectedArabicFont', fontClassName);
+    safeLocalStorage.setItem("selectedArabicFont", fontClassName);
     setSelectedFont(fontClassName);
   }, []);
 
   useEffect(() => {
-    const storedFont = safeLocalStorage.getItem('selectedArabicFont');
+    const storedFont = safeLocalStorage.getItem("selectedArabicFont");
     if (storedFont && availableFonts.some((f) => f.className === storedFont)) {
       applyFont(storedFont);
     } else {
@@ -53,7 +57,10 @@ const FontSelector: React.FC = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <label htmlFor="font-select" className="whitespace-nowrap text-neutral-700 text-sm">
+      <label
+        htmlFor="font-select"
+        className="whitespace-nowrap text-neutral-700 text-sm"
+      >
         اختر الخط:
       </label>
       <select

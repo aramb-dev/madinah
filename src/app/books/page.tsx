@@ -1,6 +1,12 @@
-import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { booksData } from '@/data/books';
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { booksData } from "@/data/books";
 
 export default function BooksPage() {
   return (
@@ -13,12 +19,18 @@ export default function BooksPage() {
               <CardHeader>
                 <CardTitle>{book.title.ar}</CardTitle>
                 <CardDescription>
-                  <p className="text-right font-arabic">{book.description.arabic}</p>
-                  <p className="text-gray-500 text-sm">{book.description.english}</p>
+                  <p className="text-right font-arabic">
+                    {book.description.arabic}
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    {book.description.english}
+                  </p>
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-500 text-sm">Lessons: {book.lessons.length}</p>
+                <p className="text-gray-500 text-sm">
+                  Lessons: {book.lessons.length}
+                </p>
               </CardContent>
             </Card>
           </Link>

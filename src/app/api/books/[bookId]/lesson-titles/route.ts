@@ -1,5 +1,5 @@
-import { type NextRequest, NextResponse } from 'next/server';
-import { getBookById } from '@/data/books';
+import { type NextRequest, NextResponse } from "next/server";
+import { getBookById } from "@/data/books";
 
 export async function GET(
   _request: NextRequest,
@@ -10,7 +10,10 @@ export async function GET(
     const book = getBookById(bookId);
 
     if (!book) {
-      return NextResponse.json({ success: false, error: 'Book not found' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: "Book not found" },
+        { status: 404 }
+      );
     }
 
     const lessonTitles = book.lessons.map((lesson) => ({
@@ -29,7 +32,10 @@ export async function GET(
       },
     });
   } catch (error) {
-    console.error('Error fetching lesson titles:', error);
-    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
+    console.error("Error fetching lesson titles:", error);
+    return NextResponse.json(
+      { success: false, error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

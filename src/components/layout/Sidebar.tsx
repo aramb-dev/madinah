@@ -1,9 +1,14 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { getBookById } from '@/data/books';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+"use client";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { getBookById } from "@/data/books";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface SidebarProps {
   currentBookId?: string;
@@ -14,7 +19,9 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
   const pathname = usePathname();
 
   // Filter lessons based on currentBookId
-  const lessonsToDisplay = currentBookId ? getBookById(currentBookId)?.lessons || [] : [];
+  const lessonsToDisplay = currentBookId
+    ? getBookById(currentBookId)?.lessons || []
+    : [];
 
   // Determine if a lesson is currently active based on the URL
   const isLessonActive = (lessonId: string): boolean => {
@@ -68,14 +75,19 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
           <div id="lessonListMobile" className="flex-grow space-y-1">
             {lessonsToDisplay.map((lesson) => (
               <SheetClose key={lesson.id} asChild>
-                <Link href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
+                <Link
+                  href={`/books/${currentBookId}/lessons/${lesson.id}`}
+                  passHref
+                >
                   <button
                     type="button"
                     className={`nav-link block w-full rounded-md px-3 py-3 text-right font-medium text-emerald-800 text-sm hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
-                      isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                      isLessonActive(lesson.id) ? "bg-amber-200" : ""
                     }`}
                   >
-                    <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
+                    <span className="arabic-text font-arabic text-base">
+                      {lesson.title.ar}
+                    </span>
                     <span className="english-text mt-1 block text-left text-emerald-600 text-xs">
                       {lesson.title.en}
                     </span>
@@ -96,14 +108,20 @@ const Sidebar = ({ currentBookId, isVisible = true }: SidebarProps) => {
         </div>
         <nav id="lessonListDesktop" className="flex-grow space-y-1 pb-16">
           {lessonsToDisplay.map((lesson) => (
-            <Link key={lesson.id} href={`/books/${currentBookId}/lessons/${lesson.id}`} passHref>
+            <Link
+              key={lesson.id}
+              href={`/books/${currentBookId}/lessons/${lesson.id}`}
+              passHref
+            >
               <button
                 type="button"
                 className={`nav-link block w-full rounded-md px-3 py-3 text-right font-medium text-emerald-800 text-sm hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
-                  isLessonActive(lesson.id) ? 'bg-amber-200' : ''
+                  isLessonActive(lesson.id) ? "bg-amber-200" : ""
                 }`}
               >
-                <span className="arabic-text font-arabic text-base">{lesson.title.ar}</span>
+                <span className="arabic-text font-arabic text-base">
+                  {lesson.title.ar}
+                </span>
                 <span className="english-text mt-1 block text-left text-emerald-600 text-xs">
                   {lesson.title.en}
                 </span>

@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import { getVocabByBookId } from '@/data/vocab';
-import { flattenListsToItems } from '@/data/vocab/vocab';
+import { NextResponse } from "next/server";
+import { getVocabByBookId } from "@/data/vocab";
+import { flattenListsToItems } from "@/data/vocab/vocab";
 
 interface Params {
   bookId: string;
@@ -15,7 +15,7 @@ export async function GET(
 
   if (!bookVocab) {
     return NextResponse.json(
-      { success: false, message: 'Book not found' },
+      { success: false, message: "Book not found" },
       { status: 404 }
     );
   }
@@ -24,5 +24,9 @@ export async function GET(
     ? flattenListsToItems(bookVocab.vocabularyLists)
     : bookVocab.vocabularyItems || [];
 
-  return NextResponse.json({ success: true, data: allVocab, count: allVocab.length });
+  return NextResponse.json({
+    success: true,
+    data: allVocab,
+    count: allVocab.length,
+  });
 }

@@ -1,23 +1,23 @@
 /* Self-hosted font definitions */
 @font-face {
-  font-family: 'Noto Naskh Arabic';
-  src: url('/fonts/noto-naskh-arabic.ttf') format('truetype');
+  font-family: "Noto Naskh Arabic";
+  src: url("/fonts/noto-naskh-arabic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* This keeps the font-display strategy as swap */
 }
 
 @font-face {
-  font-family: 'Noto Sans Arabic';
-  src: url('/fonts/noto-sans-arabic.ttf') format('truetype');
+  font-family: "Noto Sans Arabic";
+  src: url("/fonts/noto-sans-arabic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Baloo Arabic';
-  src: url('/fonts/baloo-arabic.ttf') format('truetype');
+  font-family: "Baloo Arabic";
+  src: url("/fonts/baloo-arabic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -35,19 +35,19 @@ body {
 }
 
 .font-arabic {
-  font-family: 'Noto Naskh Arabic', sans-serif; /* Default Arabic font */
+  font-family: "Noto Naskh Arabic", sans-serif; /* Default Arabic font */
 }
 
 html.font-noto-naskh-arabic .font-arabic {
-  font-family: 'Noto Naskh Arabic', sans-serif;
+  font-family: "Noto Naskh Arabic", sans-serif;
 }
 
 html.font-noto-sans-arabic .font-arabic {
-  font-family: 'Noto Sans Arabic', sans-serif;
+  font-family: "Noto Sans Arabic", sans-serif;
 }
 
 html.font-baloo-arabic .font-arabic {
-  font-family: 'Baloo Arabic', sans-serif;
+  font-family: "Baloo Arabic", sans-serif;
 }
 
 .english-text {
@@ -220,7 +220,7 @@ html.font-baloo-arabic .font-arabic {
 
 .slider:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 20px; /* Height of the knob */
   width: 20px; /* Width of the knob */
   left: 4px;
@@ -279,16 +279,16 @@ input:checked + .slider:before {
   color: #555;
 }
 
-#modalBody [dir='ltr'] p,
-#modalBody [dir='ltr'] li,
-#modalBody [dir='ltr'] ul,
-#modalBody [dir='ltr'] ol {
+#modalBody [dir="ltr"] p,
+#modalBody [dir="ltr"] li,
+#modalBody [dir="ltr"] ul,
+#modalBody [dir="ltr"] ol {
   text-align: left !important;
   margin-left: 1.5rem;
   margin-right: 0;
 }
 
-#modalBody [dir='ltr'] blockquote {
+#modalBody [dir="ltr"] blockquote {
   border-left: 4px solid #ddd;
   padding-left: 1rem;
   margin-left: 0;

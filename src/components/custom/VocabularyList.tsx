@@ -1,20 +1,20 @@
 "use client";
 
-import { useState } from 'react';
-import VocabularyCard from '@/components/custom/VocabularyCard';
-import type { VocabularyItem } from '@/types/vocabulary';
+import { useState } from "react";
+import VocabularyCard from "@/components/custom/VocabularyCard";
+import type { VocabularyItem } from "@/types/vocabulary";
 
 interface VocabularyListProps {
   items: VocabularyItem[];
 }
 
 export default function VocabularyList({ items }: VocabularyListProps) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredVocabulary = items.filter(
     (item) =>
       item.translation.en.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.word.toLowerCase().includes(searchTerm.toLowerCase()),
+      item.word.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (

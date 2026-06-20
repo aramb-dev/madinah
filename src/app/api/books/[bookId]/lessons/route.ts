@@ -1,11 +1,14 @@
-import { NextResponse } from 'next/server';
-import { getBookById } from '@/data/books';
+import { NextResponse } from "next/server";
+import { getBookById } from "@/data/books";
 
 interface Params {
   bookId: string;
 }
 
-export async function GET(_request: Request, { params }: { params: Promise<Params> }) {
+export async function GET(
+  _request: Request,
+  { params }: { params: Promise<Params> }
+) {
   try {
     const { bookId } = await params;
 
@@ -15,7 +18,7 @@ export async function GET(_request: Request, { params }: { params: Promise<Param
       return NextResponse.json(
         {
           success: false,
-          error: 'Book not found',
+          error: "Book not found",
         },
         { status: 404 }
       );
@@ -32,11 +35,11 @@ export async function GET(_request: Request, { params }: { params: Promise<Param
       },
     });
   } catch (error) {
-    console.error('Error fetching lessons:', error);
+    console.error("Error fetching lessons:", error);
     return NextResponse.json(
       {
         success: false,
-        error: 'Failed to fetch lessons',
+        error: "Failed to fetch lessons",
       },
       { status: 500 }
     );

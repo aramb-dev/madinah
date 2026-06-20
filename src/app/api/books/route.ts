@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { getAvailableBooks } from '@/data/books';
+import { NextResponse } from "next/server";
+import { getAvailableBooks } from "@/data/books";
 
 export async function GET() {
   try {
@@ -12,11 +12,11 @@ export async function GET() {
       count: availableBooks.length,
     });
   } catch (error) {
-    console.error('Error fetching books:', error);
+    console.error("Error fetching books:", error);
     return NextResponse.json(
       {
         success: false,
-        error: 'Failed to fetch books',
+        error: "Failed to fetch books",
       },
       { status: 500 }
     );

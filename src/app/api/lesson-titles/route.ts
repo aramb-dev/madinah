@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { booksData } from '@/data/books';
+import { NextResponse } from "next/server";
+import { booksData } from "@/data/books";
 
 export async function GET() {
   try {
@@ -22,7 +22,10 @@ export async function GET() {
       count: allLessonTitles.length,
     });
   } catch (error) {
-    console.error('Error fetching lesson titles:', error);
-    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
+    console.error("Error fetching lesson titles:", error);
+    return NextResponse.json(
+      { success: false, error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

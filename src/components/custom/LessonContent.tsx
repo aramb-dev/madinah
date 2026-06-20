@@ -1,6 +1,5 @@
-
-import type { Lesson } from '@/data/lessons';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Lesson } from "@/data/lessons";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface LessonContentProps {
   lesson?: Lesson;
@@ -26,7 +25,9 @@ const LessonContent = ({ lesson }: LessonContentProps) => {
         <h2 className="arabic-text mb-2 font-arabic font-bold text-emerald-700 text-xl sm:text-2xl">
           {lesson.title.ar}
         </h2>
-        <h3 className="english-text mb-4 text-emerald-600 text-lg sm:text-xl">{lesson.title.en}</h3>
+        <h3 className="english-text mb-4 text-emerald-600 text-lg sm:text-xl">
+          {lesson.title.en}
+        </h3>
 
         <div className="mb-6 rounded-md bg-white p-3 shadow-sm sm:p-4">
           <p className="arabic-text mb-2 font-arabic text-base text-neutral-700 leading-relaxed sm:text-lg">

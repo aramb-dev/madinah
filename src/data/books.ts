@@ -1,7 +1,7 @@
-import type { Book } from './lessons';
-import { book1Data } from './book1';
-import { book2Data } from './book2';
-import { book3Data } from './book3';
+import type { Book } from "./lessons";
+import { book1Data } from "./book1";
+import { book2Data } from "./book2";
+import { book3Data } from "./book3";
 
 // Export all books in an array for easy access
 export const booksData: Book[] = [book1Data, book2Data, book3Data];
@@ -14,7 +14,9 @@ export function getBookById(bookId: string): Book | undefined {
 // Helper function to get a lesson by ID within a specific book
 export function getLessonById(bookId: string, lessonId: string) {
   const book = getBookById(bookId);
-  if (!book) { return ; }
+  if (!book) {
+    return;
+  }
 
   return book.lessons.find((lesson) => lesson.id === lessonId);
 }

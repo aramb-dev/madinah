@@ -15,7 +15,7 @@ _Built with the tools and technologies:_
 
 ## Table of Contents
 
-- [Madinah Book Grammar Rules](#madinah-book-grammar-rules)
+- [Madinah Book Resources](#madinah-book-resources)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -28,7 +28,7 @@ _Built with the tools and technologies:_
 
 ## Overview
 
-**Madinah Book Grammar Rules** is an interactive web application built with Next.js that provides a comprehensive platform for learning Arabic grammar. The application features dynamic lessons, responsive design, and an intuitive user interface designed specifically for Arabic language learners.
+**Madinah Book Resources** is an interactive web application built with Next.js that provides a comprehensive platform for learning Arabic grammar. The application features dynamic lessons, responsive design, and an intuitive user interface designed specifically for Arabic language learners.
 
 **Why Madinah Book Grammar Rules?**
 

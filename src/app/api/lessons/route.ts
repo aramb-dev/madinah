@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import { getAvailableBooks } from '@/data/books';
-import type { Lesson } from '@/data/lessons';
+import { NextResponse } from "next/server";
+import { getAvailableBooks } from "@/data/books";
+import type { Lesson } from "@/data/lessons";
 
 interface LessonWithBookInfo extends Lesson {
   bookId: string;
@@ -34,11 +34,11 @@ export async function GET() {
       booksCount: availableBooks.length,
     });
   } catch (error) {
-    console.error('Error fetching lessons:', error);
+    console.error("Error fetching lessons:", error);
     return NextResponse.json(
       {
         success: false,
-        error: 'Failed to fetch lessons',
+        error: "Failed to fetch lessons",
       },
       { status: 500 }
     );

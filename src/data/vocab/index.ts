@@ -1,7 +1,7 @@
-import { madinahBook1 } from './book1/main';
-import { madinahBook2 } from './book2/main';
-import { madinahBook3 } from './book3/main';
-import type { BookVocabulary } from './vocab';
+import { madinahBook1 } from "./book1/main";
+import { madinahBook2 } from "./book2/main";
+import { madinahBook3 } from "./book3/main";
+import type { BookVocabulary } from "./vocab";
 
 export const allBooksVocab: Record<string, BookVocabulary> = {
   book1: madinahBook1,
@@ -11,6 +11,7 @@ export const allBooksVocab: Record<string, BookVocabulary> = {
 
 export type BookId = keyof typeof allBooksVocab;
 
-export const getVocabByBookId = (bookId: string): BookVocabulary | undefined => allBooksVocab[bookId as BookId];
+export const getVocabByBookId = (bookId: string): BookVocabulary | undefined =>
+  allBooksVocab[bookId as BookId];
 
 export const getAllBookIds = (): string[] => Object.keys(allBooksVocab);

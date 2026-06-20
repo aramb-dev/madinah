@@ -1,4 +1,4 @@
-const isServer = typeof window === 'undefined';
+const isServer = typeof window === "undefined";
 
 export const safeLocalStorage = {
   getItem: (key: string): string | null => {

@@ -1,5 +1,5 @@
-import { type NextRequest, NextResponse } from 'next/server';
-import { getBookById } from '@/data/books';
+import { type NextRequest, NextResponse } from "next/server";
+import { getBookById } from "@/data/books";
 
 export async function GET(
   _request: NextRequest,
@@ -10,18 +10,27 @@ export async function GET(
     const book = getBookById(bookId);
 
     if (!book) {
-      return NextResponse.json({ success: false, error: 'Book not found' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: "Book not found" },
+        { status: 404 }
+      );
     }
 
     const ruleStats = {
       bookId: book.id,
       bookTitle: book.title,
-      totalRules: book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0),
+      totalRules: book.lessons.reduce(
+        (total, lesson) => total + lesson.rules.length,
+        0
+      ),
       lessonCount: book.lessons.length,
       averageRulesPerLesson:
         book.lessons.length > 0
           ? Math.round(
-              (book.lessons.reduce((total, lesson) => total + lesson.rules.length, 0) /
+              (book.lessons.reduce(
+                (total, lesson) => total + lesson.rules.length,
+                0
+              ) /
                 book.lessons.length) *
                 100
             ) / 100
@@ -38,7 +47,10 @@ export async function GET(
       data: ruleStats,
     });
   } catch (error) {
-    console.error('Error fetching rule count:', error);
-    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
+    console.error("Error fetching rule count:", error);
+    return NextResponse.json(
+      { success: false, error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

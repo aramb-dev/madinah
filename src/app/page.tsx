@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { booksData } from '@/data/books'; // Import booksData
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Added imports
-import { Button } from '@/components/ui/button'; // Added import
-import FontSelector from '@/components/custom/FontSelector'; // Import FontSelector
-import FontScaler from '@/components/custom/FontScaler'; // Import FontScaler
+import Link from "next/link";
+import { booksData } from "@/data/books"; // Import booksData
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; // Added imports
+import { Button } from "@/components/ui/button"; // Added import
+import FontSelector from "@/components/custom/FontSelector"; // Import FontSelector
+import FontScaler from "@/components/custom/FontScaler"; // Import FontScaler
 
 export default function HomePage() {
   return (
@@ -20,12 +20,12 @@ export default function HomePage() {
             Madinah Book Resources
           </h2>
           <p className="mb-4 font-arabic text-lg text-neutral-700 leading-relaxed">
-            مرحباً بك في المصادر المعينة على فهم كتب المدينة. اختر الكتاب الذي تريد دراسته من سلسلة
-            كتب المدينة لتعليم اللغة العربية.
+            مرحباً بك في المصادر المعينة على فهم كتب المدينة. اختر الكتاب الذي
+            تريد دراسته من سلسلة كتب المدينة لتعليم اللغة العربية.
           </p>
           <p className="text-lg text-neutral-600 leading-relaxed">
-            Welcome to Madinah Book Resources. Choose the book you want to study from the Madinah
-            Arabic learning series.
+            Welcome to Madinah Book Resources. Choose the book you want to study
+            from the Madinah Arabic learning series.
           </p>
         </div>
 
@@ -42,8 +42,8 @@ export default function HomePage() {
               key={book.id}
               className={`border-2 transition-all duration-300 hover:shadow-lg ${
                 book.available
-                  ? 'border-emerald-200 bg-white hover:border-emerald-300'
-                  : 'border-gray-200 bg-gray-50 opacity-75'
+                  ? "border-emerald-200 bg-white hover:border-emerald-300"
+                  : "border-gray-200 bg-gray-50 opacity-75"
               }`}
             >
               <CardHeader className="pb-4">
@@ -100,7 +100,9 @@ export default function HomePage() {
               <h3 className="mb-3 font-arabic font-semibold text-lg text-teal-800">
                 مفردات كتب المدينة
               </h3>
-              <h4 className="mb-2 font-medium text-md text-teal-700">Vocabulary</h4>
+              <h4 className="mb-2 font-medium text-md text-teal-700">
+                Vocabulary
+              </h4>
               <p className="mb-4 font-arabic text-sm text-teal-700">
                 استكشف المفردات من جميع كتب المدينة
               </p>
@@ -122,12 +124,13 @@ export default function HomePage() {
           <Card className="border-amber-200 bg-amber-50">
             <CardContent className="pt-6">
               <p className="mb-2 font-arabic text-amber-800 text-sm">
-                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من سلسلة كتب المدينة
-                لتعليم اللغة العربية لغير الناطقين بها.
+                هذا التطبيق يقدم شرحاً تفاعلياً لقواعد اللغة العربية المستخرجة من
+                سلسلة كتب المدينة لتعليم اللغة العربية لغير الناطقين بها.
               </p>
               <p className="text-amber-700 text-sm">
-                This application provides an interactive explanation of Arabic grammar rules
-                extracted from the Madinah Arabic learning series for non-native speakers.
+                This application provides an interactive explanation of Arabic
+                grammar rules extracted from the Madinah Arabic learning series
+                for non-native speakers.
               </p>
             </CardContent>
           </Card>
@@ -141,12 +144,15 @@ export default function HomePage() {
               <h3 className="mb-3 font-arabic font-semibold text-blue-800 text-lg">
                 سجل التغييرات
               </h3>
-              <h4 className="mb-2 font-medium text-blue-700 text-md">Changelog</h4>
+              <h4 className="mb-2 font-medium text-blue-700 text-md">
+                Changelog
+              </h4>
               <p className="mb-4 font-arabic text-blue-700 text-sm">
                 تابع أحدث التحديثات والتحسينات على التطبيق
               </p>
               <p className="mb-4 text-blue-600 text-sm">
-                Stay updated with the latest changes, bug fixes, and new features
+                Stay updated with the latest changes, bug fixes, and new
+                features
               </p>
               <Link href="/changelog">
                 <Button className="rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700">
@@ -163,12 +169,15 @@ export default function HomePage() {
               <h3 className="mb-3 font-arabic font-semibold text-lg text-purple-800">
                 وثائق واجهة البرمجة
               </h3>
-              <h4 className="mb-2 font-medium text-md text-purple-700">API Documentation</h4>
+              <h4 className="mb-2 font-medium text-md text-purple-700">
+                API Documentation
+              </h4>
               <p className="mb-4 font-arabic text-purple-700 text-sm">
                 للمطورين: استكشف واجهة البرمجة الخاصة بنا
               </p>
               <p className="mb-4 text-purple-600 text-sm">
-                Developer? Check out our comprehensive API documentation and integration guides
+                Developer? Check out our comprehensive API documentation and
+                integration guides
               </p>
               <Link href="/docs">
                 <Button className="rounded-lg bg-purple-600 px-6 py-2 font-medium text-white transition-colors duration-200 hover:bg-purple-700">

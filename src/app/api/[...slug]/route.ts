@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 /**
  * Handles requests to non-existent API endpoints by returning a standardized
@@ -9,21 +9,21 @@ function notFoundResponse() {
   return NextResponse.json(
     {
       success: false,
-      error: 'API endpoint not found',
-      message: 'The requested API endpoint does not exist',
+      error: "API endpoint not found",
+      message: "The requested API endpoint does not exist",
       availableEndpoints: {
-        documentation: '/api',
-        books: '/api/books',
-        lessons: '/api/lessons',
-        metadata: '/api/metadata',
-        lessonTitles: '/api/lesson-titles',
+        documentation: "/api",
+        books: "/api/books",
+        lessons: "/api/lessons",
+        metadata: "/api/metadata",
+        lessonTitles: "/api/lesson-titles",
       },
       timestamp: new Date().toISOString(),
     },
     {
       status: 404,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     }
   );
